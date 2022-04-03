@@ -1,5 +1,5 @@
 import sys
-import app
+import bc125py.app
 
 if __name__ == "__main__":
-	sys.exit(app.main())
+	sys.exit(bc125py.app.main())
