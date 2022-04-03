@@ -1,5 +1,8 @@
 #!/bin/bash
-rm dist/*
+rm -rd dist/
+rm -rd build/
+rm -rd bc125py.egg-info
+
 python3 setup.py sdist bdist_wheel
 echo "BUILD DONE! Run with argument 'upload' to upload to pypi"
 
