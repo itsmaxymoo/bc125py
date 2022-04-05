@@ -1,5 +1,5 @@
-from bc125py.scanner.scanner_object import _ScannerObject
+from bc125py.scanner.scanner_data import _ScannerData
 
 
-class Channel(_ScannerObject):
+class Channel(_ScannerData):
 	pass
