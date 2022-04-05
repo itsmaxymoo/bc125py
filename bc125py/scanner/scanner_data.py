@@ -1,7 +1,7 @@
-class _ScannerData:
+class _ScannerDataObject:
 
 	def __init__(self) -> None:
-		if type(self) == _ScannerData:
+		if type(self) == _ScannerDataObject:
 			raise NotImplementedError(type(self).__name__ + " cannot be instantiated directly (abstract)")
 
 
