@@ -25,10 +25,6 @@ class DeviceModel(_ScannerDataObject):
 		return self.__model
 
 
-	def __str__(self):
-		return self.get_model()
-
-
 class FirmwareVersion(_ScannerDataObject):
 
 	__ver: str
@@ -51,7 +47,3 @@ class FirmwareVersion(_ScannerDataObject):
 
 	def get_version(self):
 		return self.__ver
-
-
-	def __str__(self):
-		return self.get_version()
