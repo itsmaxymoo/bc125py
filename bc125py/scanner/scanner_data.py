@@ -5,8 +5,16 @@ class _ScannerDataObject:
 			raise NotImplementedError(type(self).__name__ + " cannot be instantiated directly (abstract)")
 
 
-	def get_command_name(self) -> str:
-		raise NotImplementedError(type(self).__name__ + " must implement get_command_name()")
+	def set(self, *args, **kwargs) -> None:
+		raise NotImplementedError(type(self).__name__ + " must implement set()")
+
+
+	def get(self):
+		raise NotImplementedError(type(self).__name__ + " must implement get()")
+
+
+	def to_get_command(self, *args, **kwargs) -> str:
+		raise NotImplementedError(type(self).__name__ + " must implement to_get_command()")
 
 
 	def to_write_command(self) -> str:

@@ -13,22 +13,25 @@ class Backlight(_ScannerDataObject):
 		Squelch = "SQ"
 
 
-	__backlight: Mode
+	__backlight: Mode = Mode.AlwaysOff
 
-
-	def set_backlight(self, bl: Union[Mode, str]) -> None:
+	def set(self, bl: Union[Mode, str]) -> None:
 		if type(bl) is str:
 			bl = self.Mode(bl)
 		
 		self.__backlight = bl
+	
+
+	def get(self) -> str:
+		return self.__backlight.name
 
 
-	def get_command_name(self) -> str:
+	def to_get_command(self) -> str:
 		return "BLT"
 
 
 	def to_write_command(self) -> str:
-		return ",".join(self.get_command_name(), self.__backlight.value)
+		return ",".join(self.to_get_command(), self.__backlight.value)
 
 
 	def import_from_command_response(self, command_response: tuple) -> None:
@@ -41,3 +44,41 @@ class Backlight(_ScannerDataObject):
 
 	def import_from_save_file_format(self, in_text: str) -> None:
 		self.set_backlight(in_text)
+
+
+class BatteryChargeTime(_ScannerDataObject):
+
+	MAX_CHARGE_TIME: int = 16
+	__battery_charge_time: int = 14
+
+	def set(self, bct: Union[int, str]) -> None:
+		if type(bct) is str:
+			bct = int(bct)
+
+		if type(bct) is not int:
+			raise TypeError()
+		
+		if bct not in range(1, self.MAX_CHARGE_TIME + 1):
+			raise ValueError("Charge time must be within range [1-16]")
+		
+		self.__battery_charge_time = bct
+
+
+	def get(self) -> str:
+		return "BSV"
+
+
+	def to_write_command(self) -> str:
+		return ",".join(self.to_get_command(), str(self.__battery_charge_time))
+
+
+	def import_from_command_response(self, command_response: tuple) -> None:
+		self.set_battery_charge_time(command_response[0])
+
+
+	def to_save_file_format(self) -> str:
+		return str(self.__battery_charge_time)
+
+
+	def import_from_save_file_format(self, in_text: str) -> None:
+		self.set_battery_charge_time(in_text)

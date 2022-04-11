@@ -5,7 +5,11 @@ class DeviceModel(_ScannerDataObject):
 
 	__model: str
 
-	def get_command_name(self) -> str:
+	def get(self):
+		return self.__model
+
+
+	def to_get_command(self) -> str:
 		return "MDL"
 
 
@@ -21,15 +25,15 @@ class DeviceModel(_ScannerDataObject):
 		self.__model = in_text
 
 
-	def get_model(self):
-		return self.__model
-
-
 class FirmwareVersion(_ScannerDataObject):
 
 	__ver: str
 
-	def get_command_name(self) -> str:
+	def get(self):
+		return self.__ver
+
+
+	def to_get_command(self) -> str:
 		return "VER"
 
 
@@ -43,7 +47,3 @@ class FirmwareVersion(_ScannerDataObject):
 
 	def import_from_save_file_format(self, in_text: str) -> None:
 		self.__ver = in_text
-
-
-	def get_version(self):
-		return self.__ver
