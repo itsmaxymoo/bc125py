@@ -61,12 +61,12 @@ class BatteryChargeTime(_ScannerDataObject):
 
 		if type(bct) is not int:
 			raise TypeError()
-		
+
 		if bct not in range(1, self.MAX_CHARGE_TIME + 1):
 			raise ValueError("Charge time must be within range [1-16]")
-		
+
 		self.__battery_charge_time = bct
-	
+
 
 	def get(self) -> int:
 		return self.__battery_charge_time
