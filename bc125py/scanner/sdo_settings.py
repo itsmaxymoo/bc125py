@@ -1,5 +1,6 @@
 from ctypes import Union
 from enum import Enum
+from multiprocessing.sharedctypes import Value
 from bc125py.scanner.scanner_data import _ScannerDataObject
 
 
@@ -17,10 +18,13 @@ class Backlight(_ScannerDataObject):
 
 	def set(self, bl: Union[Mode, str]) -> None:
 		if type(bl) is str:
-			bl = self.Mode(bl)
-		
+			try:
+				bl = self.Mode(bl)
+			except ValueError:
+				bl = self.Mode[bl]
+
 		self.__backlight = bl
-	
+
 
 	def get(self) -> str:
 		return self.__backlight.name
@@ -35,15 +39,15 @@ class Backlight(_ScannerDataObject):
 
 
 	def import_from_command_response(self, command_response: tuple) -> None:
-		self.set_backlight(command_response[0])
+		self.set(command_response[0])
 
 
 	def to_save_file_format(self) -> str:
-		return self.__backlight.value
+		return self.__backlight.name
 
 
 	def import_from_save_file_format(self, in_text: str) -> None:
-		self.set_backlight(in_text)
+		self.set(in_text)
 
 
 class BatteryChargeTime(_ScannerDataObject):
@@ -62,9 +66,13 @@ class BatteryChargeTime(_ScannerDataObject):
 			raise ValueError("Charge time must be within range [1-16]")
 		
 		self.__battery_charge_time = bct
+	
+
+	def get(self) -> int:
+		return self.__battery_charge_time
 
 
-	def get(self) -> str:
+	def to_get_command(self) -> str:
 		return "BSV"
 
 
