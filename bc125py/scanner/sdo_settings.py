@@ -1,6 +1,5 @@
 from ctypes import Union
 from enum import Enum
-from multiprocessing.sharedctypes import Value
 from bc125py.scanner.scanner_data import _ScannerDataObject
 
 
