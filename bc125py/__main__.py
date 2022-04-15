@@ -1,5 +1,5 @@
 if __name__ == "__main__":
-	import bc125py.app
+	import bc125py.app.cli as program
 	import sys
 	
-	sys.exit(bc125py.app.main())
+	sys.exit(program.main())
