@@ -5,7 +5,8 @@ import bc125py.app.strings as strings
 _VERBOSE = False
 
 
-def main():
+# Program entrypoint
+def main() -> int:
 
 	# --- Command Line Arguments ---
 	# Create main cli parser
@@ -19,7 +20,7 @@ def main():
 	sub_parsers = main_parser.add_subparsers(dest="command", required=True, help=strings.CLI_COMMAND_SUBCOMMAND_HELP)
 
 	# Subcommand test
-	read_parser = sub_parsers.add_parser("test", help=strings.CLI_COMMAND_SUBCOMMAND_TEST_HELP)
+	test_parser = sub_parsers.add_parser("test", help=strings.CLI_COMMAND_SUBCOMMAND_TEST_HELP)
 
 	# Subcommand read
 	read_parser = sub_parsers.add_parser("read", help=strings.CLI_COMMAND_SUBCOMMAND_READ_HELP)
@@ -40,4 +41,42 @@ def main():
 	# Set verbosity level
 	_VERBOSE = cli_args.verbose
 
+	# Dispatch subcommand
+	cmd = cli_args.command
+	if cmd == "test":
+		return test()
+	elif cmd == "read":
+		return read(cli_args.file)
+	elif cmd == "write":
+		return write(cli_args.file)
+	elif cmd == "shell":
+		return shell()
+	
+	# If this part of the code was reached, something went wrong with argparse
+	print("Invalid subcommand")
+
+	return 1
+
+
+# Test command
+def test() -> int:
+	print("t")
+	return 0
+
+
+# Read command
+def read(out_file: str) -> int:
+	print("r",out_file)
+	return 0
+
+
+# Write command
+def write(in_file: str) -> int:
+	print("w",in_file)
+	return 0
+
+
+# Shell command
+def shell() -> int:
+	print("s")
 	return 0
