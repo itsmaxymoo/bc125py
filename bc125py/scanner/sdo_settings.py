@@ -1,6 +1,12 @@
 from ctypes import Union
 from enum import Enum
+import json
 from bc125py.scanner.scanner_data import _ScannerDataObject
+
+
+class ClearAllMemory(_ScannerDataObject):
+	def to_get_command(self) -> str:
+		return "CLR"
 
 
 class Backlight(_ScannerDataObject):
@@ -89,3 +95,55 @@ class BatteryChargeTime(_ScannerDataObject):
 
 	def import_from_save_file_format(self, in_text: str) -> None:
 		self.set_battery_charge_time(in_text)
+
+
+class KeyBeepLock(_ScannerDataObject):
+
+	class Level(Enum):
+		Auto = 0
+		Off = 99
+	
+
+	class Lock(Enum):
+		Unlocked = 0
+		Locked = 1
+
+
+	__level: Level = Level.Auto
+	__lock: Lock = Lock.Unlocked
+
+	def set(self, level: Union[Level, int] = __level, lock: Union[Lock, int] = __lock) -> None:
+		if type(level) == int:
+			level = self.Level(level)
+		if type(lock) == int:
+			lock = self.Lock(lock)
+
+		self.__level = level
+		self.__lock = lock
+
+		pass
+
+
+	def get(self) -> dict:
+		return {"level": self.__level.value, "lock": self.__lock.value}
+
+
+	def to_get_command(self) -> str:
+		return "KBP"
+
+
+	def to_write_command(self) -> str:
+		return ",".join(self.to_get_command(), str(self.__level.value), str(self.__lock.value))
+
+
+	def import_from_command_response(self, command_response: tuple) -> None:
+		self.set(level=int(command_response[0]), lock=int(command_response[1]))
+
+
+	def to_save_file_format(self) -> str:
+		return self.get()
+
+
+	def import_from_save_file_format(self, in_text: str) -> None:
+		data = json.loads(in_text)
+		self.set(level=data.level, lock=data.lock)
