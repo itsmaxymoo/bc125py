@@ -1,8 +1,8 @@
 import argparse
+import datetime
+import platform
 import bc125py.app.strings as strings
-
-
-_VERBOSE = False
+import bc125py.app.log as log
 
 
 # Program entrypoint
@@ -14,6 +14,7 @@ def main() -> int:
 
 	# Add universal cli arguments
 	main_parser.add_argument("-v", "--verbose", action="store_true", help=strings.CLI_COMMAND_VERBOSE_HELP)
+	main_parser.add_argument("-l", "--log", help=strings.CLI_COMMAND_LOGFILE_HELP)
 	main_parser.add_argument("--version", action="version", version=strings.VERSION)
 
 	# Add subcommands
@@ -39,7 +40,13 @@ def main() -> int:
 	# --- END Command Line Arguments ---
 	
 	# Set verbosity level
-	_VERBOSE = cli_args.verbose
+	log._DEBUG = cli_args.verbose
+
+	# Set up logging
+	if cli_args.log:
+		log._FILE = open(cli_args.log, "w")
+	log.debug(strings.DEBUG_STARTED_ON, datetime.datetime.now())
+	log.debug(strings.DEBUG_STARTED_SYS, platform.uname())
 
 	# Dispatch subcommand
 	cmd = cli_args.command
@@ -51,8 +58,9 @@ def main() -> int:
 		return write(cli_args.file)
 	elif cmd == "shell":
 		return shell()
-	
+
 	# If this part of the code was reached, something went wrong with argparse
+	log.debug(strings.DEBUG_CLI_SUBCOMMAND_ERR, cli_args.command)
 	print("Invalid subcommand")
 
 	return 1
@@ -60,23 +68,23 @@ def main() -> int:
 
 # Test command
 def test() -> int:
-	print("t")
+	log.debug(strings.DEBUG_CLI_TEST)
 	return 0
 
 
 # Read command
 def read(out_file: str) -> int:
-	print("r",out_file)
+	log.debug(strings.DEBUG_CLI_READ, out_file)
 	return 0
 
 
 # Write command
 def write(in_file: str) -> int:
-	print("w",in_file)
+	log.debug(strings.DEBUG_CLI_WRITE, in_file)
 	return 0
 
 
 # Shell command
 def shell() -> int:
-	print("s")
+	log.debug(strings.DEBUG_CLI_SHELL)
 	return 0
