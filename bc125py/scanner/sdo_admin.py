@@ -11,3 +11,8 @@ class ExitProgramMode(_ScannerDataObject):
 
 	def to_get_command(self) -> str:
 		return "EPG"
+
+
+class ClearAllMemory(_ScannerDataObject):
+	def to_get_command(self) -> str:
+		return "CLR"

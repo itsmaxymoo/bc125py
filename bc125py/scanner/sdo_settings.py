@@ -4,11 +4,6 @@ import json
 from bc125py.scanner.scanner_data import _ScannerDataObject
 
 
-class ClearAllMemory(_ScannerDataObject):
-	def to_get_command(self) -> str:
-		return "CLR"
-
-
 class Backlight(_ScannerDataObject):
 
 	class Mode(Enum):
