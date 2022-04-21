@@ -1,3 +1,8 @@
+# bc125py-driver output
+driver/bc125py-driver
+
+# ---
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

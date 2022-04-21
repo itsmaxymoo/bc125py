@@ -1,6 +1,5 @@
 import argparse
 import datetime
-import platform
 import bc125py.app.strings as strings
 import bc125py.app.log as log
 import bc125py.app.core as core
