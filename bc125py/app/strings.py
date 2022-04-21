@@ -24,3 +24,5 @@ DEBUG_CLI_TEST = "subc: test"
 DEBUG_CLI_READ = "subc: read - file:"
 DEBUG_CLI_WRITE = "subc: write - file:"
 DEBUG_CLI_SHELL = "subc: shell"
+
+WARN_UNSUPPORTED_PLATFORM = "Your system is not supported!"

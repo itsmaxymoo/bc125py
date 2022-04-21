@@ -1,4 +1,6 @@
 import platform
+import sys
+
 
 def get_system_str() -> str:
 
@@ -21,3 +23,7 @@ def get_system_str() -> str:
 		cpu_info += "no_arch"
 
 	return os_info + " -- " + cpu_info
+
+
+def is_linux() -> bool:
+	return sys.platform.startswith("linux")

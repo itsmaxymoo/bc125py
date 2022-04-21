@@ -10,3 +10,9 @@ def debug(*args) -> None:
 		print("[DEBUG]", *args)
 		if _FILE != sys.stdout:
 			print("[DEBUG]", *args, file=_FILE)
+
+
+def warn(*args) -> None:
+	print("[WARN]", *args)
+	if _FILE != sys.stdout:
+		print("[WARN]", *args, file=_FILE)

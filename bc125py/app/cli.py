@@ -47,6 +47,8 @@ def main() -> int:
 		log._FILE = open(cli_args.log, "w")
 	log.debug(strings.DEBUG_STARTED_ON, datetime.datetime.now())
 	log.debug(strings.DEBUG_STARTED_SYS, core.get_system_str())
+	if not core.is_linux():
+		log.warn(strings.WARN_UNSUPPORTED_PLATFORM)
 
 	# Dispatch subcommand
 	cmd = cli_args.command
