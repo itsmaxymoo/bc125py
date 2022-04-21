@@ -3,6 +3,7 @@ import datetime
 import platform
 import bc125py.app.strings as strings
 import bc125py.app.log as log
+import bc125py.app.core as core
 
 
 # Program entrypoint
@@ -46,7 +47,7 @@ def main() -> int:
 	if cli_args.log:
 		log._FILE = open(cli_args.log, "w")
 	log.debug(strings.DEBUG_STARTED_ON, datetime.datetime.now())
-	log.debug(strings.DEBUG_STARTED_SYS, platform.uname())
+	log.debug(strings.DEBUG_STARTED_SYS, core.get_system_str())
 
 	# Dispatch subcommand
 	cmd = cli_args.command
