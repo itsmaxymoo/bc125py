@@ -45,10 +45,11 @@ int main (int argc, char *argv[]){
     vendor[0]    = 0;
     product[0]   = 0;
     found_device = 0;
-    
-    if( ! (usbdev = fopen("/proc/bus/usb/devices", "r")) ){
-        return 1;
-    }
+
+    if( (usbdev = fopen("/proc/bus/usb/devices", "r")) ){}
+    else if ( (usbdev = fopen("/sys/kernel/debug/usb/devices", "r")) ) {}
+    else { return 1; }
+
 
     while( fgets(linebuf, LINEBUF_MAX, usbdev) ){
         if(strstr(linebuf, "BC125AT")){
