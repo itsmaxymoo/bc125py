@@ -24,7 +24,7 @@
 * OTHER DEALINGS IN THE SOFTWARE.
 */
 
-/* Lines 51-54 Copywright (c) 2022 Max Loiacono, MIT License */
+/* Lines 51-54 Copyright (c) 2022 Max Loiacono, MIT License */
 
 #include <stdio.h>
 #include <string.h>
