@@ -1,5 +1,6 @@
 import platform
 import sys
+import os
 
 
 def get_system_str() -> str:
@@ -27,3 +28,7 @@ def get_system_str() -> str:
 
 def is_linux() -> bool:
 	return sys.platform.startswith("linux")
+
+
+def is_root() -> bool:
+	return os.getuid() == 0
