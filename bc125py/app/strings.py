@@ -1,4 +1,9 @@
+"""Strings file. For use in the CLI and GUI
+"""
+
+
 import bc125py
+
 
 VERSION = bc125py.MODULE_VERSION
 
