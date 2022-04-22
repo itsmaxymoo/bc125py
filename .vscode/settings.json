@@ -9,5 +9,6 @@
 	],
 	"cSpell.flagWords": [
 		"copywright"
-	]
+	],
+	"autoDocstring.docstringFormat": "google"
 }
