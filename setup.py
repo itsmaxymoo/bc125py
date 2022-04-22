@@ -20,8 +20,6 @@ setup(
 		"License :: OSI Approved :: MIT License",
 		"Operating System :: POSIX :: Linux",
 	],
-	install_requires = [
-		"pyserial>=3,<4"
-	],
+	install_requires = [],
 	python_requires = ">=3.7"
 )
