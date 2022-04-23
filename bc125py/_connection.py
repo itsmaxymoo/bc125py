@@ -187,7 +187,7 @@ class ScannerConnection:
 
 		# Convert tuple command to command string
 		if type(command) is tuple:
-			command = ",".join(command)
+			command = ",".join(map(str, command))
 		elif type(command) is not str:
 			raise TypeError("exec() command must be str or tuple")
 
