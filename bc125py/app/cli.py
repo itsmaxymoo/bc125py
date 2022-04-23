@@ -1,7 +1,7 @@
 import sys
 import argparse
 import datetime
-import bc125py.app.strings as strings
+import bc125py
 import bc125py.app.log as log
 import bc125py.app.core as core
 from bc125py.connection import ScannerConnection, CommandError
@@ -12,29 +12,29 @@ def main() -> int:
 
 	# --- Command Line Arguments ---
 	# Create main cli parser
-	main_parser = argparse.ArgumentParser(prog=strings.CLI_PROGRAM_NAME, description=strings.CLI_PROGRAM_DESCRIPTION)
+	main_parser = argparse.ArgumentParser(prog=bc125py.MODULE_NAME, description=bc125py.MODULE_DESCRIPTION)
 
 	# Add universal cli arguments
-	main_parser.add_argument("-v", "--verbose", action="store_true", help=strings.CLI_COMMAND_VERBOSE_HELP)
-	main_parser.add_argument("-l", "--log", help=strings.CLI_COMMAND_LOGFILE_HELP)
-	main_parser.add_argument("--version", action="version", version=strings.VERSION)
+	main_parser.add_argument("-v", "--verbose", action="store_true", help="verbose mode")
+	main_parser.add_argument("-l", "--log", help="additionally log debug statements to the specified file. use in conjunction with verbose mode")
+	main_parser.add_argument("--version", action="version", version=bc125py.MODULE_VERSION)
 
 	# Add subcommands
-	sub_parsers = main_parser.add_subparsers(dest="command", required=True, help=strings.CLI_COMMAND_SUBCOMMAND_HELP)
+	sub_parsers = main_parser.add_subparsers(dest="command", required=True, help="command")
 
 	# Subcommand test
-	test_parser = sub_parsers.add_parser("test", help=strings.CLI_COMMAND_SUBCOMMAND_TEST_HELP)
+	test_parser = sub_parsers.add_parser("test", help="test scanner connection")
 
 	# Subcommand read
-	read_parser = sub_parsers.add_parser("read", help=strings.CLI_COMMAND_SUBCOMMAND_READ_HELP)
-	read_parser.add_argument("file", help=strings.CLI_COMMAND_SUBCOMMAND_READ_FILE_HELP)
+	read_parser = sub_parsers.add_parser("read", help="read data from scanner, output to file")
+	read_parser.add_argument("file", help="output file")
 
 	# Subcommand write
-	write_parser = sub_parsers.add_parser("write", help=strings.CLI_COMMAND_SUBCOMMAND_WRITE_HELP)
-	write_parser.add_argument("file", help=strings.CLI_COMMAND_SUBCOMMAND_WRITE_FILE_HELP)
+	write_parser = sub_parsers.add_parser("write", help="write data from file to scanner")
+	write_parser.add_argument("file", help="input file")
 
 	# Subcommand shell
-	shell_parser = sub_parsers.add_parser("shell", help=strings.CLI_COMMAND_SUBCOMMAND_SHELL_HELP)
+	shell_parser = sub_parsers.add_parser("shell", help="launch interactive scanner shell")
 
 	# Parse arguments
 	cli_args = main_parser.parse_args()
@@ -47,10 +47,10 @@ def main() -> int:
 	# Set up logging
 	if cli_args.log:
 		log._FILE = open(cli_args.log, "w")
-	log.debug(strings.DEBUG_STARTED_ON, datetime.datetime.now())
-	log.debug(strings.DEBUG_STARTED_SYS, core.get_system_str())
+	log.debug(bc125py.MODULE_NAME, "version", bc125py.MODULE_VERSION + ", started on", datetime.datetime.now())
+	log.debug("sysinfo:", core.get_system_str())
 	if not core.is_linux():
-		log.warn(strings.WARN_UNSUPPORTED_PLATFORM)
+		log.warn("Your system is unsupported!")
 
 	# Dispatch subcommand
 	cmd = cli_args.command
@@ -64,7 +64,7 @@ def main() -> int:
 		return shell()
 
 	# If this part of the code was reached, something went wrong with argparse
-	log.debug(strings.DEBUG_CLI_SUBCOMMAND_ERR, cli_args.command)
+	log.debug("ERRoneous subc:", cli_args.command)
 	print("Invalid subcommand")
 
 	return 1
@@ -73,15 +73,15 @@ def main() -> int:
 # Make sure we are root function
 def enforce_root() -> None:
 	if not core.is_root():
-		print(strings.CLI_ENFORCE_ROOT)
+		print(bc125py.MODULE_NAME, "must be ran as superuser (root) to perform this function.")
 		sys.exit(126)
 	
-	log.debug(strings.DEBUG_CLI_CHECK_ROOT)
+	log.debug("root permissions found")
 
 
 # Test command
 def test() -> int:
-	log.debug(strings.DEBUG_CLI_TEST)
+	log.debug("subc: test")
 
 	enforce_root()
 
@@ -101,17 +101,17 @@ def test() -> int:
 
 # Read command
 def read(out_file: str) -> int:
-	log.debug(strings.DEBUG_CLI_READ, out_file)
+	log.debug("subc: read", out_file)
 	return 0
 
 
 # Write command
 def write(in_file: str) -> int:
-	log.debug(strings.DEBUG_CLI_WRITE, in_file)
+	log.debug("subc: write", in_file)
 	return 0
 
 
 # Shell command
 def shell() -> int:
-	log.debug(strings.DEBUG_CLI_SHELL)
+	log.debug("subc: shell")
 	return 0
