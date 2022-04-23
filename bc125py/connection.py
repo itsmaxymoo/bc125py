@@ -1,7 +1,17 @@
-from ctypes import Union
 import os
 import glob
 import time
+
+
+class CommandError(RuntimeError):
+	"""Error resulting from an invalid scanner command
+
+	Args:
+		RuntimeError (str): Error message
+	"""
+
+	def __init__(self, message: str = "A command error has occurred"):
+		super().__init__(message)
 
 
 class ScannerConnection:
@@ -46,6 +56,7 @@ class ScannerConnection:
 		"""internal use. inject driver string into kernel
 
 		Raises:
+			ConnectionError: if no scanner detected
 			ConnectionError: if error writing to new_id file
 		"""
 
@@ -57,13 +68,17 @@ class ScannerConnection:
 			# They likely do not exist
 			os.makedirs(os.path.dirname(driver_path), exist_ok=True)
 
+		except IOError as e:
+			raise ConnectionError("No scanner found")
+		
+		try:
 			# Open new_id file, write driver string
 			driver_file = open(driver_path, "w")
 			print("1965 0017 2 076d 0006", file=driver_file) # Thanks to Rikus Goodell's bc125at-perl
 			driver_file.close()
 
 		except IOError as e:
-			raise ConnectionError("Error setting up driver: " + e.strerror)
+			raise ConnectionError("Error setting up driver: " + str(e))
 
 
 	def __find_device(self) -> str:
@@ -149,17 +164,19 @@ class ScannerConnection:
 			raise ConnectionError("Could not communicate (read) with scanner")
 
 
-	def exec(self, command, echo: bool = False, returnTuple: bool = True):
+	def exec(self, command, echo: bool = False, return_tuple: bool = True, allow_error = False):
 		"""Execute a command on the scanner. Get response.
 
 		Args:
 			command (tuple, str): The command to execute, in string or tuple form
 			echo (bool, optional): Should the response include the command name? Defaults to False.
 			returnTuple (bool, optional): Should the response be in tuple form? Defaults to True.
+			returnTuple (bool, optional): Should we allow an invalid command? Defaults to False.
 
 		Raises:
 			ConnectionError: if a connection was never established
 			ConnectionError: if there is an error communicating with the scanner
+			CommandError: if the command produces an error
 
 		Returns:
 			tuple, str: The command response in tuple or string form
@@ -177,12 +194,17 @@ class ScannerConnection:
 		# Execute command, store result
 		resp = self._exec(command)
 
+		# Make sure command executed properly
+		if not allow_error:
+			if resp.endswith( (",ERR", ",NG") ):
+				raise CommandError("Error in command: " + command)
+
 		# If echo is off (default), remove the command name from the response
 		if not echo:
 			resp = resp[4:]
 
 		# If we want the result as a tuple (default), create tuple
-		if returnTuple:
+		if return_tuple:
 			resp = tuple(resp.split(","))
 
 

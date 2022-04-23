@@ -4,7 +4,7 @@ import datetime
 import bc125py.app.strings as strings
 import bc125py.app.log as log
 import bc125py.app.core as core
-from bc125py.connection import ScannerConnection
+from bc125py.connection import ScannerConnection, CommandError
 
 
 # Program entrypoint
@@ -74,13 +74,14 @@ def main() -> int:
 def enforce_root() -> None:
 	if not core.is_root():
 		print(strings.CLI_ENFORCE_ROOT)
-		sys.exit()
+		sys.exit(126)
+	
+	log.debug(strings.DEBUG_CLI_CHECK_ROOT)
 
 
 # Test command
 def test() -> int:
 	log.debug(strings.DEBUG_CLI_TEST)
-	log.debug(strings.DEBUG_CLI_CHECK_ROOT)
 
 	enforce_root()
 
@@ -89,12 +90,12 @@ def test() -> int:
 	try:
 		# Connect, try to get device model
 		con.connect()
-		print("Scanner model:", con.exec("MDL", returnTuple=False), "(success)")
+		print("Scanner model:", con.exec("MDL", return_tuple=False), "(success)")
 
 		return 0
 
-	except ConnectionError as e:
-		log.error(e.strerror)
+	except (ConnectionError, CommandError) as e:
+		log.error(str(e))
 		return 1
 
 

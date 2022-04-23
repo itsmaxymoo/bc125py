@@ -31,6 +31,6 @@ DEBUG_CLI_TEST = "subc: test"
 DEBUG_CLI_READ = "subc: read - file:"
 DEBUG_CLI_WRITE = "subc: write - file:"
 DEBUG_CLI_SHELL = "subc: shell"
-DEBUG_CLI_CHECK_ROOT = "checking for root permissions..."
+DEBUG_CLI_CHECK_ROOT = "root permissions found"
 
 WARN_UNSUPPORTED_PLATFORM = "Your system is not supported!"
