@@ -21,6 +21,8 @@ CLI_COMMAND_SUBCOMMAND_WRITE_HELP = "write data from file to scanner"
 CLI_COMMAND_SUBCOMMAND_WRITE_FILE_HELP = "input file"
 CLI_COMMAND_SUBCOMMAND_SHELL_HELP = "launch interactive scanner shell"
 
+CLI_ENFORCE_ROOT = CLI_PROGRAM_NAME + " must be ran as superuser (root) to perform this function."
+
 DEBUG_STARTED_ON = CLI_PROGRAM_NAME + " version " + VERSION + ", started on"
 DEBUG_STARTED_SYS = "sysinfo:"
 
@@ -29,5 +31,6 @@ DEBUG_CLI_TEST = "subc: test"
 DEBUG_CLI_READ = "subc: read - file:"
 DEBUG_CLI_WRITE = "subc: write - file:"
 DEBUG_CLI_SHELL = "subc: shell"
+DEBUG_CLI_CHECK_ROOT = "checking for root permissions..."
 
 WARN_UNSUPPORTED_PLATFORM = "Your system is not supported!"

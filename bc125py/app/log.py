@@ -27,3 +27,10 @@ def warn(*args) -> None:
 	"""
 
 	__split_print("[WARN]", *args)
+
+
+def error(*args) -> None:
+	"""Log error
+	"""
+
+	__split_print("[ERROR]", *args)

@@ -1,8 +1,10 @@
+import sys
 import argparse
 import datetime
 import bc125py.app.strings as strings
 import bc125py.app.log as log
 import bc125py.app.core as core
+from bc125py.connection import ScannerConnection
 
 
 # Program entrypoint
@@ -68,10 +70,32 @@ def main() -> int:
 	return 1
 
 
+# Make sure we are root function
+def enforce_root() -> None:
+	if not core.is_root():
+		print(strings.CLI_ENFORCE_ROOT)
+		sys.exit()
+
+
 # Test command
 def test() -> int:
 	log.debug(strings.DEBUG_CLI_TEST)
-	return 0
+	log.debug(strings.DEBUG_CLI_CHECK_ROOT)
+
+	enforce_root()
+
+	# Create connection
+	con = ScannerConnection()
+	try:
+		# Connect, try to get device model
+		con.connect()
+		print("Scanner model:", con.exec("MDL", returnTuple=False), "(success)")
+
+		return 0
+
+	except ConnectionError as e:
+		log.error(e.strerror)
+		return 1
 
 
 # Read command
