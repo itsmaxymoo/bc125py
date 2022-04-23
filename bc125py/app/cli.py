@@ -2,9 +2,7 @@ import sys
 import argparse
 import datetime
 import bc125py
-import bc125py.app.log as log
-import bc125py.app.core as core
-from bc125py.connection import ScannerConnection, CommandError
+from bc125py.app import core, log
 
 
 # Program entrypoint
@@ -85,16 +83,15 @@ def test() -> int:
 
 	enforce_root()
 
-	# Create connection
-	con = ScannerConnection()
 	try:
 		# Connect, try to get device model
-		con.connect()
+		con = core.get_scanner_connection()
 		print("Scanner model:", con.exec("MDL", return_tuple=False), "(success)")
+		con.close()
 
 		return 0
 
-	except (ConnectionError, CommandError) as e:
+	except (ConnectionError, bc125py.CommandError) as e:
 		log.error(str(e))
 		return 1
 

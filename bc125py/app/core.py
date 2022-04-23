@@ -1,6 +1,7 @@
 import platform
 import sys
 import os
+import bc125py
 
 
 def get_system_str() -> str:
@@ -50,3 +51,18 @@ def is_root() -> bool:
 	"""
 
 	return os.getuid() == 0
+
+
+def get_scanner_connection() -> bc125py.ScannerConnection:
+	"""Find and connect to the scanner
+
+	Raises:
+		ConnectionError: if connecting to the scanner failed
+
+	Returns:
+		bc125py.ScannerConnection: The active connection
+	"""
+
+	con = bc125py.ScannerConnection()
+	con.connect()
+	return con

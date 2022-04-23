@@ -176,7 +176,7 @@ class ScannerConnection:
 		Raises:
 			ConnectionError: if a connection was never established
 			ConnectionError: if there is an error communicating with the scanner
-			CommandError: if the command produces an error
+			bc125py.CommandError: if the command produces an error
 
 		Returns:
 			tuple, str: The command response in tuple or string form
@@ -211,7 +211,7 @@ class ScannerConnection:
 		return resp
 
 
-	def disconnect(self) -> None:
+	def close(self) -> None:
 		"""Disconnect scanner. Safely closes connection.
 
 		Raises:
@@ -226,4 +226,4 @@ class ScannerConnection:
 
 	def __del__(self):
 		if self.__connected:
-			self.disconnect()
+			self.close()

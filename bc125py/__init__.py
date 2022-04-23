@@ -1,3 +1,7 @@
+from bc125py._connection import ScannerConnection, CommandError
+from bc125py._scanner import Scanner
+
+
 MODULE_NAME = "bc125py"
 MODULE_NAME_FULL = "BC125Py"
 MODULE_VERSION = "0.0.0"
