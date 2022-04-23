@@ -145,11 +145,11 @@ class ScannerConnection:
 			raise ConnectionError("Could not communicate (read) with scanner")
 
 
-	def exec(self, command: Union[tuple, str], echo: bool = False, returnTuple: bool = True) -> Union[tuple, str]:
+	def exec(self, command, echo: bool = False, returnTuple: bool = True):
 		"""Execute a command on the scanner. Get response.
 
 		Args:
-			command (Union[tuple, str]): The command to execute, in string or tuple form
+			command (tuple, str): The command to execute, in string or tuple form
 			echo (bool, optional): Should the response include the command name? Defaults to False.
 			returnTuple (bool, optional): Should the response be in tuple form? Defaults to True.
 
@@ -158,7 +158,7 @@ class ScannerConnection:
 			ConnectionError: if there is an error communicating with the scanner
 
 		Returns:
-			Union[tuple, str]: The command response in tuple or string form
+			tuple, str: The command response in tuple or string form
 		"""
 
 		if not self.__connected:
@@ -167,6 +167,8 @@ class ScannerConnection:
 		# Convert tuple command to command string
 		if type(command) is tuple:
 			command = ",".join(command)
+		elif type(command) is not str:
+			raise TypeError("exec() command must be str or tuple")
 
 		# Execute command, store result
 		resp = self._exec(command)
