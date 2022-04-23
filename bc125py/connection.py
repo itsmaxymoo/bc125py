@@ -1,6 +1,7 @@
 from ctypes import Union
 import os
 import glob
+import time
 
 
 class ScannerConnection:
@@ -28,6 +29,9 @@ class ScannerConnection:
 
 		# First, set up device driver. It doesn't matter if we do this multiple times
 		self.__setup_driver()
+
+		# Pause to give the OS time to generate the device file
+		time.sleep(0.1)
 
 		# Second, determine device path
 		device_path = device_path if device_path else self.__find_device()
