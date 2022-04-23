@@ -111,4 +111,35 @@ def write(in_file: str) -> int:
 # Shell command
 def shell() -> int:
 	log.debug("subc: shell")
-	return 0
+
+	enforce_root()
+
+	try:
+		# Connect
+		con = core.get_scanner_connection()
+
+		# Print header
+		print(bc125py.MODULE_NAME, "scanner shell")
+		print("use command \"exit\" to exit\n")
+
+		# Input loop
+		in_line: str = ""
+		while in_line != "exit":
+			# Get user input
+			in_line = input("> ").lstrip().rstrip()
+
+			# Skip blank lines
+			if in_line in ("", "exit"):
+				continue
+			
+			# Execute command, print result
+			print(con.exec(in_line, echo=True, return_tuple=False, allow_error=True))
+		
+		# Close scanner connection
+		con.close()
+
+		return 0
+
+	except (ConnectionError, bc125py.CommandError) as e:
+		log.error(str(e))
+		return 1

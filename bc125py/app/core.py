@@ -2,6 +2,7 @@ import platform
 import sys
 import os
 import bc125py
+from bc125py.app import log
 
 
 def get_system_str() -> str:
@@ -62,6 +63,8 @@ def get_scanner_connection() -> bc125py.ScannerConnection:
 	Returns:
 		bc125py.ScannerConnection: The active connection
 	"""
+
+	log.debug("core: attempting to find scanner & connect")
 
 	con = bc125py.ScannerConnection()
 	con.connect()
