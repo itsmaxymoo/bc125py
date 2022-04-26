@@ -116,7 +116,6 @@ class ScannerConnection:
 		# Now, try to open the device file
 		try:
 			self.__device = open(device_path, "rb+", buffering=0)
-			# TODO: Consider adding connection test
 		except IOError:
 			raise ConnectionError("Could not open device file (rb+): " + device_path)
 
@@ -140,28 +139,28 @@ class ScannerConnection:
 			# Don't forget to append a \r. It's the 125AT's line ending
 			# Except for writing, in which case the char to end a command is \n
 			self.__device.write(bytes(command + "\r", "ascii"))
-		except IOError:
-			raise ConnectionError("Could not communicate (write) with scanner")
+		except IOError as e:
+			raise ConnectionError("Could not communicate (write) with scanner: " + str(e))
 		
 		# Create response string
 		resp: str
 
 		# Now we will try to read the device's response
 		try:
-			# Create byte array to store scanner response
+			# Create byte string to store scanner response
 			bs = b""
 
 			# Loop through file read, stop at \n
 			by = self.__device.read(1)
-			while by != b"\n":
+			while by not in (b"\r", b"\n"):
 				bs += by
 				by = self.__device.read(1)
 
 			# Return result
 			return bs.decode("ascii")
 
-		except IOError:
-			raise ConnectionError("Could not communicate (read) with scanner")
+		except IOError as e:
+			raise ConnectionError("Could not communicate (read) with scanner: " + str(e))
 
 
 	def exec(self, command, echo: bool = False, return_tuple: bool = True, allow_error = False):
