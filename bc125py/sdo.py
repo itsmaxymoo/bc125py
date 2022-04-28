@@ -114,7 +114,7 @@ class EnterProgramMode(_ScannerDataObject):
 		pass
 
 
-	def get_fetch_command(self, *args, **kwargs) -> str:
+	def get_fetch_command(self) -> str:
 		return "PRG"
 
 
@@ -133,5 +133,5 @@ class ExitProgramMode(_ScannerDataObject):
 		pass
 
 
-	def get_fetch_command(self, *args, **kwargs) -> str:
+	def get_fetch_command(self) -> str:
 		return "EPG"
