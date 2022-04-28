@@ -97,3 +97,41 @@ class _E(_ScannerDataObject):
 
 	def to_dict(self) -> str:
 		return {"attrib": self.attrib}
+
+
+# PRG Program Mode
+class EnterProgramMode(_ScannerDataObject):
+	"""Enter program mode (command only)
+
+	Attributes:
+		None
+	
+	Notes:
+		No attributes. Command only. Use get_fetch_command()
+	"""
+
+	def __init__(self, data: dict = {}) -> None:
+		pass
+
+
+	def get_fetch_command(self, *args, **kwargs) -> str:
+		return "PRG"
+
+
+# EPG Exit Program Mode
+class ExitProgramMode(_ScannerDataObject):
+	"""Exit program mode (command only)
+
+	Attributes:
+		None
+	
+	Notes:
+		No attributes. Command only. Use get_fetch_command()
+	"""
+
+	def __init__(self, data: dict = {}) -> None:
+		pass
+
+
+	def get_fetch_command(self, *args, **kwargs) -> str:
+		return "EPG"
