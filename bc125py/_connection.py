@@ -44,7 +44,7 @@ class ScannerConnection:
 		time.sleep(0.1)
 
 		# Second, determine device path
-		device_path = device_path if device_path else self.__find_device()
+		device_path = device_path if device_path else self.__find_devices()[0]
 
 		# Third, establish a device connection.
 		self.__connect_device(device_path)
@@ -81,14 +81,14 @@ class ScannerConnection:
 			raise ConnectionError("Error setting up driver: " + str(e))
 
 
-	def __find_device(self) -> str:
+	def __find_devices(self) -> list:
 		"""internal use. Find likely scanner device file
 
 		Raises:
 			ConnectionError: if could not find candidate
 
 		Returns:
-			str: path to file found
+			list: list of potential device files
 		"""
 
 		# The code to find possible scanner device files is extensible, but we will only use the first match for now
@@ -100,7 +100,7 @@ class ScannerConnection:
 		if len(found_files) < 1:
 			raise ConnectionError("Could not find scanner")
 
-		return found_files[0]
+		return found_files
 
 
 	def __connect_device(self, device_path: str):
