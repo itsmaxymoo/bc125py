@@ -140,6 +140,6 @@ def shell() -> int:
 
 		return 0
 
-	except (ConnectionError, bc125py.CommandError) as e:
+	except Exception as e:
 		log.error(str(e))
 		return 1
