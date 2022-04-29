@@ -1,6 +1,8 @@
 import platform
 import sys
 import os
+import shutil
+import subprocess
 import bc125py
 from bc125py.app import log
 
@@ -65,6 +67,18 @@ def get_scanner_connection() -> bc125py.ScannerConnection:
 	"""
 
 	log.debug("core: attempting to find scanner & connect")
+
+	# Check to see if TLP (power management tool) is enabled
+	# TLP can interfere with the BC125AT connection
+	if tlp_bin := shutil.which("tlp-stat"):
+		log.debug("core: detected TLP")
+
+		try:
+			# See if TLP is actually enabled, warn if true
+			if "TLP_ENABLE=\"1\"" in subprocess.check_output([tlp_bin, "-c"], stderr=subprocess.DEVNULL).decode():
+				log.warn("TLP is enabled. This may block scanner connection")
+		except Exception:
+			log.debug("core: could not determine if TLP is active")
 
 	con = bc125py.ScannerConnection()
 	con.connect()
