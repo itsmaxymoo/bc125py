@@ -1,6 +1,8 @@
 import os
 import glob
 import time
+import serial
+from bc125py.app import log
 
 
 class CommandError(RuntimeError):
@@ -17,14 +19,14 @@ class CommandError(RuntimeError):
 class ScannerConnection:
 	
 	__connected: bool = False
-	__device = None
+	__serial: serial.Serial = None
 
 
 	def __init__(self):
 		pass
 
 
-	def connect(self, device_path: str = None) -> None:
+	def connect(self, port: str = None) -> None:
 		"""Establish a connection to the scanner
 
 		Args:
@@ -44,10 +46,11 @@ class ScannerConnection:
 		time.sleep(0.1)
 
 		# Second, determine device path
-		device_path = device_path if device_path else self.__find_devices()[0]
+		port = port if port else self.__find_ports()[0]
+		log.debug("con: using port: " + port)
 
 		# Third, establish a device connection.
-		self.__connect_device(device_path)
+		self.__open_connection(port)
 
 		self.__connected = True
 
@@ -76,12 +79,14 @@ class ScannerConnection:
 			driver_file = open(driver_path, "w")
 			print("1965 0017 2 076d 0006", file=driver_file) # Thanks to Rikus Goodell's bc125at-perl
 			driver_file.close()
+			
+			log.debug("con: successfully setup driver string")
 
 		except IOError as e:
 			raise ConnectionError("Error setting up driver: " + str(e))
 
 
-	def __find_devices(self) -> list:
+	def __find_ports(self) -> list:
 		"""internal use. Find likely scanner device file
 
 		Raises:
@@ -91,19 +96,34 @@ class ScannerConnection:
 			list: list of potential device files
 		"""
 
-		# The code to find possible scanner device files is extensible, but we will only use the first match for now
-		found_files = []
-		found_files.extend(glob.glob("/dev/serial/by-id/*Uniden*BC125AT*"))
-		found_files.extend(glob.glob("/dev/ttyACM*"))
+		# Create array for all possible found results
+		found_ports = []
 
-		# We must find a device
-		if len(found_files) < 1:
+		# Try to find scanner ports with pySerial
+		try:
+			# Import port finder function
+			from serial.tools.list_ports import comports
+
+			# Loop through comports. Add those with the 125AT's product id
+			for port in comports():
+				if port.pid == 23: # BC125AT product id 0017 (hex) -> 23
+					found_ports.append(port.device)
+		except Exception as e:
+			log.debug("con: pyserial failed finding ports. falling back to legacy detection... " + str(e))
+
+
+		# These are legacy patterns. Still useful if pySerial doesn't find any ports for some reason
+		found_ports.extend(glob.glob("/dev/serial/by-id/*BC125AT*"))
+		found_ports.extend(glob.glob("/dev/ttyACM*"))
+
+		# Verify we found a device
+		if len(found_ports) < 1:
 			raise ConnectionError("Could not find scanner")
 
-		return found_files
+		return found_ports
 
 
-	def __connect_device(self, device_path: str):
+	def __open_connection(self, device_path: str):
 		"""internal use. Open scanner device file for read/writing
 
 		Args:
