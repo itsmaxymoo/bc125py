@@ -186,6 +186,7 @@ class ScannerConnection:
 			raise ConnectionError("Could not communicate (read) with scanner: " + str(e))
 
 
+	# TODO: Reimplement
 	def exec(self, command, echo: bool = False, return_tuple: bool = True, allow_error = False):
 		"""Execute a command on the scanner. Get response.
 
