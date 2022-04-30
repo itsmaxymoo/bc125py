@@ -193,8 +193,8 @@ class ScannerConnection:
 		Args:
 			command (tuple, str): The command to execute, in string or tuple form
 			echo (bool, optional): Should the response include the command name? Defaults to False.
-			returnTuple (bool, optional): Should the response be in tuple form? Defaults to True.
-			returnTuple (bool, optional): Should we allow an invalid command? Defaults to False.
+			return_tuple (bool, optional): Should the response be in tuple form? Defaults to True.
+			allow_error (bool, optional): Should we allow an invalid command? Defaults to False.
 
 		Raises:
 			ConnectionError: if a connection was never established
