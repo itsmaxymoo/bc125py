@@ -53,6 +53,7 @@ class ScannerConnection:
 		self.__open_connection(port)
 
 		self.connected = True
+		log.debug("con: connection successfully established")
 
 
 	def __setup_driver(self) -> None:
@@ -136,8 +137,9 @@ class ScannerConnection:
 		# Now, try to open the device file
 		try:
 			self.__serial = serial.Serial(port)
-			self.__serial.flushInput()
-			self.__serial.flushOutput()
+			self.__serial.timeout = 120
+			self.__serial.reset_input_buffer()
+			self.__serial.reset_output_buffer()
 
 		except serial.SerialException as e:
 			raise ConnectionError("Error connecting to scanner: " + str(e))
@@ -160,33 +162,27 @@ class ScannerConnection:
 		# First, try to send command to device
 		try:
 			# Don't forget to append a \r. It's the 125AT's line ending
-			# Except for writing, in which case the char to end a command is \n
-			self.__device.write(bytes(command + "\r", "ascii"))
-		except IOError as e:
+			send_data: bytes = bytes(command + "\r", "ascii")
+			# Send command
+			log.debug("con_exec: send:", send_data)
+			self.__serial.write(send_data)
+		except serial.SerialException as e:
 			raise ConnectionError("Could not communicate (write) with scanner: " + str(e))
-		
-		# Create response string
-		resp: str
 
-		# Now we will try to read the device's response
+		# Response variable
+		resp: bytes = b"ERROR"
+
+		# Read data from scanner
 		try:
-			# Create byte string to store scanner response
-			bs = b""
-
-			# Loop through file read, stop at \n
-			by = self.__device.read(1)
-			while by not in (b"\r", b"\n"):
-				bs += by
-				by = self.__device.read(1)
-
-			# Return result
-			return bs.decode("ascii")
-
-		except IOError as e:
+			resp = self.__serial.read_until(b"\r")
+			log.debug("con_exec: resp:", resp)
+		except serial.SerialException as e:
 			raise ConnectionError("Could not communicate (read) with scanner: " + str(e))
 
+		# Decode and return response
+		return resp.decode("ascii").rstrip()
 
-	# TODO: Reimplement
+
 	def exec(self, command, echo: bool = False, return_tuple: bool = True, allow_error = False):
 		"""Execute a command on the scanner. Get response.
 
@@ -245,6 +241,7 @@ class ScannerConnection:
 			raise ConnectionError("Can't close closed connection")
 		self.__serial.close()
 		self.connected = False
+		log.debug("con: connection closed")
 
 
 	def __del__(self):
