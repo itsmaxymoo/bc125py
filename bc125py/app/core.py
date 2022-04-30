@@ -56,7 +56,7 @@ def is_root() -> bool:
 	return os.getuid() == 0
 
 
-def get_scanner_connection() -> bc125py.ScannerConnection:
+def get_scanner_connection(port: str = None) -> bc125py.ScannerConnection:
 	"""Find and connect to the scanner
 
 	Raises:
@@ -81,5 +81,5 @@ def get_scanner_connection() -> bc125py.ScannerConnection:
 			log.debug("core: could not determine if TLP is active")
 
 	con = bc125py.ScannerConnection()
-	con.connect()
+	con.connect(port)
 	return con

@@ -1,0 +1,12 @@
+# Program to test bc125py shell
+
+# Disable scanner backlight
+
+echo off
+MDL
+VER
+echo on
+PRG
+BLT,AF
+EPG
+print Backlight disabled!

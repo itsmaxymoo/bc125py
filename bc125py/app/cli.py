@@ -6,6 +6,10 @@ import bc125py
 from bc125py.app import core, log
 
 
+# Manual port override to be used by cli commands
+_port: str = None
+
+
 # Program entrypoint
 def main() -> int:
 
@@ -14,9 +18,27 @@ def main() -> int:
 	main_parser = argparse.ArgumentParser(prog=bc125py.MODULE_NAME, description=bc125py.MODULE_DESCRIPTION)
 
 	# Add universal cli arguments
-	main_parser.add_argument("-v", "--verbose", action="store_true", help="verbose mode")
-	main_parser.add_argument("-l", "--log", help="additionally log debug statements to the specified file. use in conjunction with verbose mode")
-	main_parser.add_argument("--version", action="version", version=bc125py.MODULE_VERSION)
+	main_parser.add_argument(
+		"-v",
+		"--verbose",
+		action="store_true",
+		help="verbose mode"
+	)
+	main_parser.add_argument(
+		"-l",
+		"--log",
+		help="additionally log debug statements to the specified file. use in conjunction with verbose mode"
+	)
+	main_parser.add_argument(
+		"--version",
+		action="version",
+		version=bc125py.MODULE_VERSION
+	)
+	main_parser.add_argument(
+		"-p",
+		"--port",
+		help="force " + bc125py.MODULE_NAME + " to use the specified device port"
+	)
 
 	# Add subcommands
 	sub_parsers = main_parser.add_subparsers(dest="command", required=True, help="command")
@@ -34,6 +56,7 @@ def main() -> int:
 
 	# Subcommand shell
 	shell_parser = sub_parsers.add_parser("shell", help="launch interactive scanner shell")
+	shell_parser.add_argument("file", help="commands file to execute", nargs="?", default=None)
 
 	# Parse arguments
 	cli_args = main_parser.parse_args()
@@ -51,6 +74,11 @@ def main() -> int:
 	if not core.is_linux():
 		log.warn("Your system is unsupported!")
 
+	# Set port, if specified
+	if cli_args.port:
+		global _port
+		_port = cli_args.port
+
 	# Dispatch subcommand
 	cmd = cli_args.command
 	if cmd == "test":
@@ -60,7 +88,7 @@ def main() -> int:
 	elif cmd == "write":
 		return write(cli_args.file)
 	elif cmd == "shell":
-		return shell()
+		return shell(cmd_file_path=cli_args.file)
 
 	# If this part of the code was reached, something went wrong with argparse
 	log.debug("ERRoneous subc:", cli_args.command)
@@ -110,14 +138,14 @@ def write(in_file: str) -> int:
 
 
 # Shell command
-def shell() -> int:
+def shell(cmd_file_path: str = None) -> int:
 	log.debug("subc: shell")
 
 	enforce_root()
 
 	try:
 		# Connect
-		con = core.get_scanner_connection()
+		con = core.get_scanner_connection(_port)
 
 		# Print header
 		print(bc125py.MODULE_NAME, bc125py.MODULE_VERSION, "scanner shell")
@@ -173,14 +201,33 @@ def shell() -> int:
 				# Execute command, print result
 				print(con.exec(input, echo=shell_echo, return_tuple=False, allow_error=shell_allow_error))
 
-		# Input loop, stop if last command was "exit"
-		in_line: str = ""
-		while in_line != "exit":
-			# Get user input
-			in_line = input("> ").lstrip().rstrip()
+		# Determine method of input (file or interactive)
+		
+		# If we're reading from a command file
+		if cmd_file_path:
+			log.debug("subc: shell: commands file mode:", cmd_file_path)
+
+			# Open file and read
+			in_file = open(cmd_file_path, "r")
+			for line in in_file.readlines():
+				# Process each line
+				process_input(line.lstrip().rstrip())
+
+			in_file.close()
+
+
+		# Else, interactive mode
+		else:
+			log.debug("subc: shell: interactive mode")
+
+			# Input loop, stop if last command was "exit"
+			in_line: str = ""
+			while in_line != "exit":
+				# Get user input
+				in_line = input("> ").lstrip().rstrip()
 			
-			# Process input
-			process_input(in_line)
+				# Process input
+				process_input(in_line)
 			
 		# Close scanner connection
 		con.close()
