@@ -18,7 +18,7 @@ class CommandError(RuntimeError):
 
 class ScannerConnection:
 	
-	__connected: bool = False
+	connected: bool = False
 	__serial: serial.Serial = None
 
 
@@ -36,7 +36,7 @@ class ScannerConnection:
 			ConnectionError: If the connection is already established, or if any errors occur while connecting
 		"""
 
-		if self.__connected:
+		if self.connected:
 			raise ConnectionError("Connection already established")
 
 		# First, set up device driver. It doesn't matter if we do this multiple times
@@ -52,7 +52,7 @@ class ScannerConnection:
 		# Third, establish a device connection.
 		self.__open_connection(port)
 
-		self.__connected = True
+		self.connected = True
 
 
 	def __setup_driver(self) -> None:
@@ -123,21 +123,24 @@ class ScannerConnection:
 		return found_ports
 
 
-	def __open_connection(self, device_path: str):
-		"""internal use. Open scanner device file for read/writing
+	def __open_connection(self, port: str):
+		"""internal use. Open serial connection to device
 
 		Args:
-			device_path (str): open this device
+			port (str): open this device
 
 		Raises:
-			ConnectionError: if cannot open device file
+			ConnectionError: if connection fails
 		"""
 
 		# Now, try to open the device file
 		try:
-			self.__device = open(device_path, "rb+", buffering=0)
-		except IOError:
-			raise ConnectionError("Could not open device file (rb+): " + device_path)
+			self.__serial = serial.Serial(port)
+			self.__serial.flushInput()
+			self.__serial.flushOutput()
+
+		except serial.SerialException as e:
+			raise ConnectionError("Error connecting to scanner: " + str(e))
 
 
 	def _exec(self, command: str) -> str:
@@ -201,7 +204,7 @@ class ScannerConnection:
 			tuple, str: The command response in tuple or string form
 		"""
 
-		if not self.__connected:
+		if not self.connected:
 			raise ConnectionError("Cannot execute command when scanner isn't connected")
 
 		# Convert tuple command to command string
@@ -215,7 +218,7 @@ class ScannerConnection:
 
 		# Make sure command executed properly
 		if not allow_error:
-			if resp.endswith( (",ERR", ",NG") ):
+			if resp.endswith( ("ERR", "NG") ):
 				raise CommandError("Error in command: " + command)
 
 		# If echo is off (default), remove the command name from the response
@@ -237,12 +240,12 @@ class ScannerConnection:
 			ConnectionError: if the scanner never was connected.
 		"""
 
-		if not self.__connected:
+		if not self.connected:
 			raise ConnectionError("Can't close closed connection")
-		self.__device.close()
-		self.__connected = False
+		self.__serial.close()
+		self.connected = False
 
 
 	def __del__(self):
-		if self.__connected:
+		if self.connected:
 			self.close()
