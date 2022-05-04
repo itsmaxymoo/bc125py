@@ -135,3 +135,57 @@ class ExitProgramMode(_ScannerDataObject):
 
 	def get_fetch_command(self) -> str:
 		return "EPG"
+
+
+# MDL Device Model
+class DeviceModel(_ScannerDataObject):
+	"""Scanner device model
+
+	Attributes:
+		model (str): The scanner device mode
+	
+	Notes:
+		Read only
+	"""
+
+	# Defaults
+	model: str
+
+	def __init__(self, data: dict = {}) -> None:
+		if data:
+			self.model = data.model
+
+
+	def get_fetch_command(self, *args, **kwargs) -> str:
+		return "MDL"
+
+
+	def to_dict(self) -> str:
+		return {"model": self.model}
+
+
+# VER Firmware version
+class FirmwareVersion(_ScannerDataObject):
+	"""Scanner firmware version
+
+	Attributes:
+		version (str): The firmware version of the scanner
+	
+	Notes:
+		Read only
+	"""
+
+	# Defaults
+	version: str
+
+	def __init__(self, data: dict = {}) -> None:
+		if data:
+			self.version = data.version
+
+
+	def get_fetch_command(self, *args, **kwargs) -> str:
+		return "VER"
+
+
+	def to_dict(self) -> str:
+		return {"version": self.version}
