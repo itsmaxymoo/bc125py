@@ -278,3 +278,23 @@ class BatteryChargeTimer(_ScannerDataObject):
 
 	def to_dict(self) -> str:
 		return {"hours": self.hours}
+
+
+# CLR Clear Scanner Memory
+class ClearScannerMemory(_ScannerDataObject):
+	"""Clear all scanner memory, settings, and channels (command only)
+
+	Attributes:
+		None
+	
+	Notes:
+		No attributes. Command only. Use get_fetch_command()
+		Takes some time to complete
+	"""
+
+	def __init__(self, data: dict = {}) -> None:
+		pass
+
+
+	def get_fetch_command(self) -> str:
+		return "CLR"
