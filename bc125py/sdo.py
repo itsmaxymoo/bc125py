@@ -206,14 +206,13 @@ class Backlight(_ScannerDataObject):
 		Explore BacklightMode(Enum) to see valid modes
 	"""
 
-
 	# Backlight value enum
 	class BacklightMode(Enum):
-		AO = "Always On"
-		AF = "Always Off"
-		KY = "Keypress"
-		SQ = "Squelch"
-		KS = "Keypress + Squelch"
+		AlwaysOn = "AO"
+		AlwaysOff = "AF"
+		Keypress = "KY"
+		Squelch = "SQ"
+		KeypressSquelch = "KS"
 
 
 	# Defaults
@@ -298,3 +297,53 @@ class ClearScannerMemory(_ScannerDataObject):
 
 	def get_fetch_command(self) -> str:
 		return "CLR"
+
+
+# KBP Keypad/Beep settings
+class KeypadSettings(_ScannerDataObject):
+	"""Keypad/beep settings
+
+	Attributes:
+		beep_level (int): Key beep level, 0: Auto, 99: Off
+		key_lock (int): Keypad lock status, 0: Unlocked, 1: Locked
+	
+	Notes:
+		Explore the BeepLevel and KeypadLock enums
+	"""
+
+	# Key beep level enum
+	class BeepLevel(Enum):
+		Auto = 0
+		Off = 99
+	
+
+	# Keypad lock enum
+	class KeypadLock:
+		Unlocked = 0
+		Locked = 1
+
+
+	# Defaults
+	beep_level: int = 0
+	key_lock: int = 0
+
+
+	def __init__(self, data: dict = {}) -> None:
+		if data:
+			self.beep_level = data.beep_level
+			self.key_lock = data.key_lock
+
+
+	def get_fetch_command(self, *args, **kwargs) -> str:
+		return "KBP"
+
+
+	def to_write_command(self) -> tuple:
+		return (self.get_fetch_command, self.beep_level, self.key_lock)
+
+
+	def to_dict(self) -> str:
+		return {
+			"beep_level": self.beep_level,
+			"key_lock": self.key_lock
+		}
