@@ -234,3 +234,47 @@ class Backlight(_ScannerDataObject):
 
 	def to_dict(self) -> str:
 		return {"backlight": self.backlight}
+
+
+# BSV Battery Charge Timer
+class BatteryChargeTimer(_ScannerDataObject):
+	"""Scanner battery charge timer. Controls how long
+	(in hours) the scanner will charge its batteries for
+	when plugged into USB.
+
+	Attributes:
+		hours (int): The maximum charge time, in hours [1-16]
+	
+	Notes:
+		level must be in range [1-16]
+		level is in hours
+
+		Recommended charge time for Ni-MH:
+			1500 mAh - 9
+			1800 mAh - 11
+			2000 mAh - 12
+			2100 mAh - 13
+			2200 mAh - 13
+			2300 mAh - 14
+			2500 mAh - 15
+			2700 mAh - 16
+	"""
+
+	# Defaults
+	hours: int = 9
+
+	def __init__(self, data: dict = {}) -> None:
+		if data:
+			self.hours = data.hours
+
+
+	def get_fetch_command(self, *args, **kwargs) -> str:
+		return "BSV"
+
+
+	def to_write_command(self) -> tuple:
+		return (self.get_fetch_command, self.hours)
+
+
+	def to_dict(self) -> str:
+		return {"hours": self.hours}
