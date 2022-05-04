@@ -1,3 +1,6 @@
+from enum import Enum
+
+
 class _ScannerDataObject:
 	"""An object to represent a data object on the scanner, eg: channel, volume, backlight, etc...
 	"""
@@ -189,3 +192,45 @@ class FirmwareVersion(_ScannerDataObject):
 
 	def to_dict(self) -> str:
 		return {"version": self.version}
+
+
+# BLT Backlight Settings
+class Backlight(_ScannerDataObject):
+	"""Scanner backlight settings
+
+	Attributes:
+		backlight (str): The backlight state of the scanner
+	
+	Notes:
+		Backlight value expects specific code
+		Explore BacklightMode(Enum) to see valid modes
+	"""
+
+
+	# Backlight value enum
+	class BacklightMode(Enum):
+		AO = "Always On"
+		AF = "Always Off"
+		KY = "Keypress"
+		SQ = "Squelch"
+		KS = "Keypress + Squelch"
+
+
+	# Defaults
+	backlight: str = "AF"
+
+	def __init__(self, data: dict = {}) -> None:
+		if data:
+			self.backlight = data.backlight
+
+
+	def get_fetch_command(self, *args, **kwargs) -> str:
+		return "BLT"
+
+
+	def to_write_command(self) -> tuple:
+		return (self.get_fetch_command, self.backlight)
+
+
+	def to_dict(self) -> str:
+		return {"backlight": self.backlight}
