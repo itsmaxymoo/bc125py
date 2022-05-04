@@ -98,6 +98,10 @@ class _E(_ScannerDataObject):
 		return (self.get_fetch_command, self.attrib)
 
 
+	def import_from_command_response(self, command_response: tuple) -> None:
+		(self.attrib) = command_response
+
+
 	def to_dict(self) -> str:
 		return {"attrib": self.attrib}
 
@@ -163,6 +167,10 @@ class DeviceModel(_ScannerDataObject):
 		return "MDL"
 
 
+	def import_from_command_response(self, command_response: tuple) -> None:
+		(self.model) = command_response
+
+
 	def to_dict(self) -> str:
 		return {"model": self.model}
 
@@ -188,6 +196,10 @@ class FirmwareVersion(_ScannerDataObject):
 
 	def get_fetch_command(self, *args, **kwargs) -> str:
 		return "VER"
+
+
+	def import_from_command_response(self, command_response: tuple) -> None:
+		(self.version) = command_response
 
 
 	def to_dict(self) -> str:
@@ -218,6 +230,7 @@ class Backlight(_ScannerDataObject):
 	# Defaults
 	backlight: str = "AF"
 
+
 	def __init__(self, data: dict = {}) -> None:
 		if data:
 			self.backlight = data.backlight
@@ -229,6 +242,9 @@ class Backlight(_ScannerDataObject):
 
 	def to_write_command(self) -> tuple:
 		return (self.get_fetch_command, self.backlight)
+
+	def import_from_command_response(self, command_response: tuple) -> None:
+		(self.backlight) = command_response
 
 
 	def to_dict(self) -> str:
@@ -262,6 +278,7 @@ class BatteryChargeTimer(_ScannerDataObject):
 	# Defaults
 	hours: int = 9
 
+
 	def __init__(self, data: dict = {}) -> None:
 		if data:
 			self.hours = data.hours
@@ -273,6 +290,10 @@ class BatteryChargeTimer(_ScannerDataObject):
 
 	def to_write_command(self) -> tuple:
 		return (self.get_fetch_command, self.hours)
+	
+
+	def import_from_command_response(self, command_response: tuple) -> None:
+		self.hours = int(command_response[0])
 
 
 	def to_dict(self) -> str:
@@ -340,6 +361,11 @@ class KeypadSettings(_ScannerDataObject):
 
 	def to_write_command(self) -> tuple:
 		return (self.get_fetch_command, self.beep_level, self.key_lock)
+
+
+	def import_from_command_response(self, command_response: tuple) -> None:
+		self.beep_level = int(command_response[0])
+		self.key_lock = int(command_response[1])
 
 
 	def to_dict(self) -> str:
