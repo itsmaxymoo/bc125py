@@ -59,6 +59,9 @@ def is_root() -> bool:
 def get_scanner_connection(port: str = None) -> bc125py.ScannerConnection:
 	"""Find and connect to the scanner
 
+	Args:
+		port (str, optional): Force the use of a specific port. Defaults to None.
+
 	Raises:
 		ConnectionError: if connecting to the scanner failed
 
