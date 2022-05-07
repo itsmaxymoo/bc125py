@@ -5,11 +5,8 @@ class _ScannerDataObject:
 	"""An object to represent a data object on the scanner, eg: channel, volume, backlight, etc...
 	"""
 
-	def __init__(self, data: dict = {}) -> None:
+	def __init__(self) -> None:
 		"""Data object constructor
-
-		Args:
-			data (dict, optional): Object's values. Default if empty. Defaults to {}.
 
 		Raises:
 			NotImplementedError: if sdo._ScannerDataObject is instantiated directly
@@ -17,9 +14,23 @@ class _ScannerDataObject:
 
 		if type(self) == _ScannerDataObject:
 			raise NotImplementedError(type(self).__name__ + " cannot be instantiated directly (abstract)")
+	
+
+	def from_dict(self, data: dict) -> None:
+		"""From a dict, import the values to this object
+
+		Args:
+			data (dict): The data to import to this object
+
+		Raises:
+			NotImplementedError: if this function is not implemented in a child class
+		"""
+
+		if type(self) == _ScannerDataObject:
+			raise NotImplementedError(type(self).__name__ + " must implement from_dict()")
 
 
-	def get_fetch_command(self) -> str:
+	def to_fetch_command(self) -> str:
 		"""Get the scanner command to fetch the data for this object
 
 		Raises:
@@ -29,7 +40,7 @@ class _ScannerDataObject:
 			str, tuple: scanner command
 		"""
 
-		raise NotImplementedError(type(self).__name__ + " must implement get_fetch_command()")
+		raise NotImplementedError(type(self).__name__ + " must implement to_fetch_command()")
 
 
 	def to_write_command(self) -> tuple:
@@ -45,7 +56,7 @@ class _ScannerDataObject:
 		raise NotImplementedError(type(self).__name__ + " must implement to_write_command()")
 
 
-	def import_from_command_response(self, command_response: tuple) -> None:
+	def from_command_response(self, command_response: tuple) -> None:
 		"""From a command response tuple, import the values into this object
 
 		Args:
@@ -55,7 +66,7 @@ class _ScannerDataObject:
 			NotImplementedError: if this function is not implemented in a child class
 		"""
 
-		raise NotImplementedError(type(self).__name__ + " must implement import_from_command_response()")
+		raise NotImplementedError(type(self).__name__ + " must implement from_command_response()")
 
 
 	def to_dict(self) -> str:
@@ -85,20 +96,20 @@ class _E(_ScannerDataObject):
 	# Defaults
 	attrib = 0
 
-	def __init__(self, data: dict = {}) -> None:
+	def from_dict(self, data: dict = {}) -> None:
 		if data:
 			self.attrib = data.attrib
 
 
-	def get_fetch_command(self) -> str:
+	def to_fetch_command(self) -> str:
 		return "EXX"
 
 
 	def to_write_command(self) -> tuple:
-		return (self.get_fetch_command, self.attrib)
+		return (self.to_fetch_command, self.attrib)
 
 
-	def import_from_command_response(self, command_response: tuple) -> None:
+	def from_command_response(self, command_response: tuple) -> None:
 		(self.attrib) = command_response
 
 
@@ -117,7 +128,7 @@ class EnterProgramMode(_ScannerDataObject):
 		No attributes. Write command only.
 	"""
 
-	def __init__(self, data: dict = {}) -> None:
+	def from_dict(self, data: dict = {}) -> None:
 		pass
 
 
@@ -136,7 +147,7 @@ class ExitProgramMode(_ScannerDataObject):
 		No attributes. Write command only.
 	"""
 
-	def __init__(self, data: dict = {}) -> None:
+	def from_dict(self, data: dict = {}) -> None:
 		pass
 
 
@@ -158,16 +169,16 @@ class DeviceModel(_ScannerDataObject):
 	# Defaults
 	model: str
 
-	def __init__(self, data: dict = {}) -> None:
+	def from_dict(self, data: dict = {}) -> None:
 		if data:
 			self.model = data.model
 
 
-	def get_fetch_command(self) -> str:
+	def to_fetch_command(self) -> str:
 		return "MDL"
 
 
-	def import_from_command_response(self, command_response: tuple) -> None:
+	def from_command_response(self, command_response: tuple) -> None:
 		(self.model) = command_response
 
 
@@ -189,16 +200,16 @@ class FirmwareVersion(_ScannerDataObject):
 	# Defaults
 	version: str
 
-	def __init__(self, data: dict = {}) -> None:
+	def from_dict(self, data: dict = {}) -> None:
 		if data:
 			self.version = data.version
 
 
-	def get_fetch_command(self) -> str:
+	def to_fetch_command(self) -> str:
 		return "VER"
 
 
-	def import_from_command_response(self, command_response: tuple) -> None:
+	def from_command_response(self, command_response: tuple) -> None:
 		(self.version) = command_response
 
 
@@ -231,19 +242,19 @@ class Backlight(_ScannerDataObject):
 	backlight: str = "AF"
 
 
-	def __init__(self, data: dict = {}) -> None:
+	def from_dict(self, data: dict = {}) -> None:
 		if data:
 			self.backlight = data.backlight
 
 
-	def get_fetch_command(self) -> str:
+	def to_fetch_command(self) -> str:
 		return "BLT"
 
 
 	def to_write_command(self) -> tuple:
-		return (self.get_fetch_command, self.backlight)
+		return (self.to_fetch_command, self.backlight)
 
-	def import_from_command_response(self, command_response: tuple) -> None:
+	def from_command_response(self, command_response: tuple) -> None:
 		(self.backlight) = command_response
 
 
@@ -279,20 +290,20 @@ class BatteryChargeTimer(_ScannerDataObject):
 	hours: int = 9
 
 
-	def __init__(self, data: dict = {}) -> None:
+	def from_dict(self, data: dict = {}) -> None:
 		if data:
 			self.hours = data.hours
 
 
-	def get_fetch_command(self) -> str:
+	def to_fetch_command(self) -> str:
 		return "BSV"
 
 
 	def to_write_command(self) -> tuple:
-		return (self.get_fetch_command, self.hours)
+		return (self.to_fetch_command, self.hours)
 	
 
-	def import_from_command_response(self, command_response: tuple) -> None:
+	def from_command_response(self, command_response: tuple) -> None:
 		self.hours = int(command_response[0])
 
 
@@ -312,7 +323,7 @@ class ClearScannerMemory(_ScannerDataObject):
 		Takes some time to complete
 	"""
 
-	def __init__(self, data: dict = {}) -> None:
+	def from_dict(self, data: dict = {}) -> None:
 		pass
 
 
@@ -349,21 +360,21 @@ class KeypadSettings(_ScannerDataObject):
 	key_lock: int = 0
 
 
-	def __init__(self, data: dict = {}) -> None:
+	def from_dict(self, data: dict = {}) -> None:
 		if data:
 			self.beep_level = data.beep_level
 			self.key_lock = data.key_lock
 
 
-	def get_fetch_command(self) -> str:
+	def to_fetch_command(self) -> str:
 		return "KBP"
 
 
 	def to_write_command(self) -> tuple:
-		return (self.get_fetch_command, self.beep_level, self.key_lock)
+		return (self.to_fetch_command, self.beep_level, self.key_lock)
 
 
-	def import_from_command_response(self, command_response: tuple) -> None:
+	def from_command_response(self, command_response: tuple) -> None:
 		self.beep_level = int(command_response[0])
 		self.key_lock = int(command_response[1])
 
@@ -398,20 +409,20 @@ class PriorityMode(_ScannerDataObject):
 	mode: int = 0
 
 
-	def __init__(self, data: dict = {}) -> None:
+	def from_dict(self, data: dict = {}) -> None:
 		if data:
 			self.mode = data.mode
 
 
-	def get_fetch_command(self) -> str:
+	def to_fetch_command(self) -> str:
 		return "PRI"
 
 
 	def to_write_command(self) -> tuple:
-		return (self.get_fetch_command, self.mode)
+		return (self.to_fetch_command, self.mode)
 
 
-	def import_from_command_response(self, command_response: tuple) -> None:
+	def from_command_response(self, command_response: tuple) -> None:
 		(self.mode) = command_response
 
 
@@ -435,21 +446,21 @@ class EnabledChannelBanks(_ScannerDataObject):
 	banks: list = [True] * 10
 
 
-	def __init__(self, data: dict = {}) -> None:
+	def from_dict(self, data: dict = {}) -> None:
 		if data:
 			self.banks = data.banks
 
 
-	def get_fetch_command(self) -> str:
+	def to_fetch_command(self) -> str:
 		return "SCG"
 
 
 	def to_write_command(self) -> tuple:
 		cmd_str = "".join(map(lambda n: "1" if n else "0", self.banks))
-		return (self.get_fetch_command, cmd_str)
+		return (self.to_fetch_command, cmd_str)
 
 
-	def import_from_command_response(self, command_response: tuple) -> None:
+	def from_command_response(self, command_response: tuple) -> None:
 		cmd_str: str
 		(cmd_str) = command_response
 		self.banks = map(lambda n: n == "1", cmd_str.split(""))
