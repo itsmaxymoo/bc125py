@@ -373,3 +373,47 @@ class KeypadSettings(_ScannerDataObject):
 			"beep_level": self.beep_level,
 			"key_lock": self.key_lock
 		}
+
+
+# PRI Priority Mode
+class PriorityMode(_ScannerDataObject):
+	"""Scanner priority mode
+
+	Attributes:
+		mode (int): Mode setting [0-3]
+	
+	Notes:
+		Explore the PrioritySetting enum
+	"""
+
+	# Priority Setting enum
+	class PrioritySetting(Enum):
+		Off = 0
+		On = 1
+		PlusOn = 2
+		DoNotDisturb = 3
+
+
+	# Defaults
+	mode: int = 0
+
+
+	def __init__(self, data: dict = {}) -> None:
+		if data:
+			self.mode = data.mode
+
+
+	def get_fetch_command(self, *args, **kwargs) -> str:
+		return "PRI"
+
+
+	def to_write_command(self) -> tuple:
+		return (self.get_fetch_command, self.mode)
+
+
+	def import_from_command_response(self, command_response: tuple) -> None:
+		(self.mode) = command_response
+
+
+	def to_dict(self) -> str:
+		return {"mode": self.mode}
