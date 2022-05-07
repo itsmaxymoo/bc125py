@@ -36,7 +36,7 @@ class _ScannerDataObject:
 			NotImplementedError: if this function is not implemented in a child class
 
 		Returns:
-			str, tuple: scanner command
+			str, tuple: scanner command to read this object
 		"""
 
 		raise NotImplementedError(type(self).__name__ + " must implement to_fetch_command()")

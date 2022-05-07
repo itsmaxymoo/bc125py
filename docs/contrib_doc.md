@@ -24,12 +24,7 @@ Cloning the `_E` class (example SDO) is a good starting point.
 For style's sake, all SDO's should adapt the docstring in `_E`, and maintain the
 order of functions seen in `_E` and `_ScannerDataObject`.
 
-An SDO overriding a function may not modify the function's signature, with one
-exception: adding a mandatory `index: int` parameter for SDO's associated with
-an index on the scanner (e.g: DCH, CIN, CSP, etc...). If an index parameter is
-necessary, it may only be added to the functions `to_write_command` and
-`to_fetch_command`. **Indexes should not be stored in the SDO**.
-
+An SDO implementing a function may not modify the function's signature.
 Any public attribute of an SDO must be an attribute of that scanner setting.
 
 If an SDO implements `to_fetch_command`, it should also implement
