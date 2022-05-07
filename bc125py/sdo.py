@@ -55,14 +55,14 @@ class _ScannerDataObject:
 		raise NotImplementedError(type(self).__name__ + " must implement from_command_response()")
 
 
-	def to_dict(self) -> str:
+	def to_dict(self) -> dict:
 		"""Convert this object to a dict
 
 		Raises:
 			NotImplementedError: if this function is not implemented in a child class
 
 		Returns:
-			str: dict representing this object
+			dict: dict representing this object
 		"""
 
 		raise NotImplementedError(type(self).__name__ + " must implement to_dict()")
@@ -108,7 +108,7 @@ class _E(_ScannerDataObject):
 		(self.attrib) = command_response
 
 
-	def to_dict(self) -> str:
+	def to_dict(self) -> dict:
 		return {"attrib": self.attrib}
 
 
@@ -181,7 +181,7 @@ class DeviceModel(_ScannerDataObject):
 		(self.model) = command_response
 
 
-	def to_dict(self) -> str:
+	def to_dict(self) -> dict:
 		return {"model": self.model}
 
 
@@ -212,7 +212,7 @@ class FirmwareVersion(_ScannerDataObject):
 		(self.version) = command_response
 
 
-	def to_dict(self) -> str:
+	def to_dict(self) -> dict:
 		return {"version": self.version}
 
 
@@ -257,7 +257,7 @@ class Backlight(_ScannerDataObject):
 		(self.backlight) = command_response
 
 
-	def to_dict(self) -> str:
+	def to_dict(self) -> dict:
 		return {"backlight": self.backlight}
 
 
@@ -306,7 +306,7 @@ class BatteryChargeTimer(_ScannerDataObject):
 		self.hours = int(command_response[0])
 
 
-	def to_dict(self) -> str:
+	def to_dict(self) -> dict:
 		return {"hours": self.hours}
 
 
@@ -378,7 +378,7 @@ class KeypadSettings(_ScannerDataObject):
 		self.key_lock = int(command_response[1])
 
 
-	def to_dict(self) -> str:
+	def to_dict(self) -> dict:
 		return {
 			"beep_level": self.beep_level,
 			"key_lock": self.key_lock
@@ -425,7 +425,7 @@ class PriorityMode(_ScannerDataObject):
 		(self.mode) = command_response
 
 
-	def to_dict(self) -> str:
+	def to_dict(self) -> dict:
 		return {"mode": self.mode}
 
 
@@ -465,5 +465,5 @@ class EnabledChannelBanks(_ScannerDataObject):
 		self.banks = map(lambda n: n == "1", cmd_str.split(""))
 
 
-	def to_dict(self) -> str:
+	def to_dict(self) -> dict:
 		return {"banks": self.banks}
