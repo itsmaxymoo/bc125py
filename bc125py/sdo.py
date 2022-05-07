@@ -19,7 +19,7 @@ class _ScannerDataObject:
 			raise NotImplementedError(type(self).__name__ + " cannot be instantiated directly (abstract)")
 
 
-	def get_fetch_command(self, *args, **kwargs) -> str:
+	def get_fetch_command(self) -> str:
 		"""Get the scanner command to fetch the data for this object
 
 		Raises:
@@ -90,7 +90,7 @@ class _E(_ScannerDataObject):
 			self.attrib = data.attrib
 
 
-	def get_fetch_command(self, *args, **kwargs) -> str:
+	def get_fetch_command(self) -> str:
 		return "EXX"
 
 
@@ -114,14 +114,14 @@ class EnterProgramMode(_ScannerDataObject):
 		None
 	
 	Notes:
-		No attributes. Command only. Use get_fetch_command()
+		No attributes. Write command only.
 	"""
 
 	def __init__(self, data: dict = {}) -> None:
 		pass
 
 
-	def get_fetch_command(self) -> str:
+	def to_write_command(self) -> str:
 		return "PRG"
 
 
@@ -133,14 +133,14 @@ class ExitProgramMode(_ScannerDataObject):
 		None
 	
 	Notes:
-		No attributes. Command only. Use get_fetch_command()
+		No attributes. Write command only.
 	"""
 
 	def __init__(self, data: dict = {}) -> None:
 		pass
 
 
-	def get_fetch_command(self) -> str:
+	def to_write_command(self) -> str:
 		return "EPG"
 
 
@@ -163,7 +163,7 @@ class DeviceModel(_ScannerDataObject):
 			self.model = data.model
 
 
-	def get_fetch_command(self, *args, **kwargs) -> str:
+	def get_fetch_command(self) -> str:
 		return "MDL"
 
 
@@ -194,7 +194,7 @@ class FirmwareVersion(_ScannerDataObject):
 			self.version = data.version
 
 
-	def get_fetch_command(self, *args, **kwargs) -> str:
+	def get_fetch_command(self) -> str:
 		return "VER"
 
 
@@ -236,7 +236,7 @@ class Backlight(_ScannerDataObject):
 			self.backlight = data.backlight
 
 
-	def get_fetch_command(self, *args, **kwargs) -> str:
+	def get_fetch_command(self) -> str:
 		return "BLT"
 
 
@@ -284,7 +284,7 @@ class BatteryChargeTimer(_ScannerDataObject):
 			self.hours = data.hours
 
 
-	def get_fetch_command(self, *args, **kwargs) -> str:
+	def get_fetch_command(self) -> str:
 		return "BSV"
 
 
@@ -308,7 +308,7 @@ class ClearScannerMemory(_ScannerDataObject):
 		None
 	
 	Notes:
-		No attributes. Command only. Use get_fetch_command()
+		No attributes. Write command only.
 		Takes some time to complete
 	"""
 
@@ -316,7 +316,7 @@ class ClearScannerMemory(_ScannerDataObject):
 		pass
 
 
-	def get_fetch_command(self) -> str:
+	def to_write_command(self) -> str:
 		return "CLR"
 
 
@@ -355,7 +355,7 @@ class KeypadSettings(_ScannerDataObject):
 			self.key_lock = data.key_lock
 
 
-	def get_fetch_command(self, *args, **kwargs) -> str:
+	def get_fetch_command(self) -> str:
 		return "KBP"
 
 
@@ -403,7 +403,7 @@ class PriorityMode(_ScannerDataObject):
 			self.mode = data.mode
 
 
-	def get_fetch_command(self, *args, **kwargs) -> str:
+	def get_fetch_command(self) -> str:
 		return "PRI"
 
 
@@ -440,7 +440,7 @@ class EnabledChannelBanks(_ScannerDataObject):
 			self.banks = data.banks
 
 
-	def get_fetch_command(self, *args, **kwargs) -> str:
+	def get_fetch_command(self) -> str:
 		return "SCG"
 
 
