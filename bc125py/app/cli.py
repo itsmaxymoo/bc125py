@@ -156,13 +156,13 @@ def shell(cmd_file_path: str = None) -> int:
 		shell_allow_error = True
 
 		# Function for processing input/commands
-		def process_input(input: str) -> None:
+		def process_input(input_str: str) -> None:
 
 			nonlocal shell_echo
 			nonlocal shell_allow_error
 
 			# case: help
-			if input == "help":
+			if input_str == "help":
 				print("help           show this text")
 				print("exit           exit the shell")
 				print("echo on        show command name in response (default)")
@@ -173,33 +173,33 @@ def shell(cmd_file_path: str = None) -> int:
 				print("# <text>       mark line as comment. line will be ignored")
 			
 			# case: exit, blank line, or comment
-			elif not input or input == "exit" or input.startswith("#"):
+			elif not input_str or input_str == "exit" or input_str.startswith("#"):
 				pass
 
 			# case: print <text>
-			elif input.startswith("print ") or input == "print":
-				print(input[6:])
+			elif input_str.startswith("print ") or input_str == "print":
+				print(input_str[6:])
 			
 			# case: echo on
-			elif input == "echo on":
+			elif input_str == "echo on":
 				shell_echo = True
 			
 			# case: echo off
-			elif input == "echo off":
+			elif input_str == "echo off":
 				shell_echo = False
 			
 			# case: error on
-			elif input == "error on":
+			elif input_str == "error on":
 				shell_allow_error = False
 			
 			# case: error off
-			elif input == "error off":
+			elif input_str == "error off":
 				shell_allow_error = True
 
 			# case: Input is not a special command; send input to scanner
 			else:
 				# Execute command, print result
-				print(con.exec(input, echo=shell_echo, return_tuple=False, allow_error=shell_allow_error))
+				print(con.exec(input_str, echo=shell_echo, return_tuple=False, allow_error=shell_allow_error))
 
 		# Determine method of input (file or interactive)
 		
