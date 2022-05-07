@@ -417,3 +417,43 @@ class PriorityMode(_ScannerDataObject):
 
 	def to_dict(self) -> str:
 		return {"mode": self.mode}
+
+
+# SCG Set active scanner banks
+class EnabledChannelBanks(_ScannerDataObject):
+	"""Control which scanning banks are enabled on the scanner
+	Disabled banks will be skipped when in "Scan" mode
+
+	Attributes:
+		banks (bool list, length 10): An array represeting each bank and whether or not it's enabled
+	
+	Notes:
+		banks[] length must be 10
+	"""
+
+	# Defaults
+	banks: list = [True] * 10
+
+
+	def __init__(self, data: dict = {}) -> None:
+		if data:
+			self.banks = data.banks
+
+
+	def get_fetch_command(self, *args, **kwargs) -> str:
+		return "SCG"
+
+
+	def to_write_command(self) -> tuple:
+		cmd_str = "".join(map(lambda n: "1" if n else "0", self.banks))
+		return (self.get_fetch_command, cmd_str)
+
+
+	def import_from_command_response(self, command_response: tuple) -> None:
+		cmd_str: str
+		(cmd_str) = command_response
+		self.banks = map(lambda n: n == "1", cmd_str.split(""))
+
+
+	def to_dict(self) -> str:
+		return {"banks": self.banks}
