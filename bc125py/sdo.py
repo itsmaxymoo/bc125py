@@ -14,33 +14,6 @@ class _ScannerDataObject:
 
 		if type(self) == _ScannerDataObject:
 			raise NotImplementedError(type(self).__name__ + " cannot be instantiated directly (abstract)")
-	
-
-	def from_dict(self, data: dict) -> None:
-		"""From a dict, import the values to this object
-
-		Args:
-			data (dict): The data to import to this object
-
-		Raises:
-			NotImplementedError: if this function is not implemented in a child class
-		"""
-
-		if type(self) == _ScannerDataObject:
-			raise NotImplementedError(type(self).__name__ + " must implement from_dict()")
-
-
-	def to_fetch_command(self) -> str:
-		"""Get the scanner command to fetch the data for this object
-
-		Raises:
-			NotImplementedError: if this function is not implemented in a child class
-
-		Returns:
-			str, tuple: scanner command
-		"""
-
-		raise NotImplementedError(type(self).__name__ + " must implement to_fetch_command()")
 
 
 	def to_write_command(self) -> tuple:
@@ -54,6 +27,19 @@ class _ScannerDataObject:
 		"""
 
 		raise NotImplementedError(type(self).__name__ + " must implement to_write_command()")
+
+
+	def to_fetch_command(self) -> str:
+		"""Get the scanner command to fetch the data for this object
+
+		Raises:
+			NotImplementedError: if this function is not implemented in a child class
+
+		Returns:
+			str, tuple: scanner command
+		"""
+
+		raise NotImplementedError(type(self).__name__ + " must implement to_fetch_command()")
 
 
 	def from_command_response(self, command_response: tuple) -> None:
@@ -82,6 +68,19 @@ class _ScannerDataObject:
 		raise NotImplementedError(type(self).__name__ + " must implement to_dict()")
 
 
+	def from_dict(self, data: dict) -> None:
+		"""From a dict, import the values to this object
+
+		Args:
+			data (dict): The data to import to this object
+
+		Raises:
+			NotImplementedError: if this function is not implemented in a child class
+		"""
+
+		raise NotImplementedError(type(self).__name__ + " must implement from_dict()")
+
+
 # Example SDO to copy & paste
 class _E(_ScannerDataObject):
 	"""Example SDO to copy & paste (describe SDO)
@@ -96,17 +95,13 @@ class _E(_ScannerDataObject):
 	# Defaults
 	attrib = 0
 
-	def from_dict(self, data: dict = {}) -> None:
-		if data:
-			self.attrib = data.attrib
+
+	def to_write_command(self) -> tuple:
+		return (self.to_fetch_command, self.attrib)
 
 
 	def to_fetch_command(self) -> str:
 		return "EXX"
-
-
-	def to_write_command(self) -> tuple:
-		return (self.to_fetch_command, self.attrib)
 
 
 	def from_command_response(self, command_response: tuple) -> None:
@@ -115,6 +110,10 @@ class _E(_ScannerDataObject):
 
 	def to_dict(self) -> str:
 		return {"attrib": self.attrib}
+
+
+	def from_dict(self, data) -> None:
+		self.attrib = data.attrib
 
 
 # PRG Program Mode

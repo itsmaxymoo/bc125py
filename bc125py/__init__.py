@@ -3,7 +3,7 @@ from bc125py._scanner import Scanner
 
 
 MODULE_NAME = "bc125py"
-MODULE_NAME_FULL = "BC125Py"
+MODULE_NAME_FULL = MODULE_NAME
 MODULE_VERSION = "0.1.0"
 MODULE_AUTHOR = "Max Loiacono"
 MODULE_AUTHOR_EMAIL = "max.loiacono@protonmail.com"
