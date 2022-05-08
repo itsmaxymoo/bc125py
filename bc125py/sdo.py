@@ -97,7 +97,7 @@ class _E(_ScannerDataObject):
 
 
 	def to_write_command(self) -> tuple:
-		return (self.to_fetch_command, self.attrib)
+		return (self.to_fetch_command(), self.attrib)
 
 
 	def to_fetch_command(self) -> str:
@@ -105,7 +105,7 @@ class _E(_ScannerDataObject):
 
 
 	def from_command_response(self, command_response: tuple) -> None:
-		(self.attrib) = command_response
+		(self.attrib,) = command_response
 
 
 	def to_dict(self) -> dict:
@@ -127,8 +127,8 @@ class EnterProgramMode(_ScannerDataObject):
 		No attributes. Write command only.
 	"""
 
-	def to_write_command(self) -> str:
-		return "PRG"
+	def to_write_command(self) -> tuple:
+		return ("PRG",)
 
 
 # EPG Exit Program Mode
@@ -142,8 +142,8 @@ class ExitProgramMode(_ScannerDataObject):
 		No attributes. Write command only.
 	"""
 
-	def to_write_command(self) -> str:
-		return "EPG"
+	def to_write_command(self) -> tuple:
+		return ("EPG",)
 
 
 # MDL Device Model
@@ -165,7 +165,7 @@ class DeviceModel(_ScannerDataObject):
 
 
 	def from_command_response(self, command_response: tuple) -> None:
-		(self.model) = command_response
+		(self.model,) = command_response
 
 
 	def to_dict(self) -> dict:
@@ -195,7 +195,7 @@ class FirmwareVersion(_ScannerDataObject):
 
 
 	def from_command_response(self, command_response: tuple) -> None:
-		(self.version) = command_response
+		(self.version,) = command_response
 
 
 	def to_dict(self) -> dict:
@@ -231,7 +231,7 @@ class Backlight(_ScannerDataObject):
 	backlight: str = "AF"
 
 	def to_write_command(self) -> tuple:
-		return (self.to_fetch_command, self.backlight)
+		return (self.to_fetch_command(), self.backlight)
 
 
 	def to_fetch_command(self) -> str:
@@ -239,7 +239,7 @@ class Backlight(_ScannerDataObject):
 
 
 	def from_command_response(self, command_response: tuple) -> None:
-		(self.backlight) = command_response
+		(self.backlight,) = command_response
 
 
 	def to_dict(self) -> dict:
@@ -278,12 +278,12 @@ class BatteryChargeTimer(_ScannerDataObject):
 	hours: int = 9
 
 	def to_write_command(self) -> tuple:
-		return (self.to_fetch_command, self.hours)
+		return (self.to_fetch_command(), self.hours)
 
 
 	def to_fetch_command(self) -> str:
 		return "BSV"
-	
+
 
 	def from_command_response(self, command_response: tuple) -> None:
 		self.hours = int(command_response[0])
@@ -309,8 +309,8 @@ class ClearScannerMemory(_ScannerDataObject):
 		Takes some time to complete
 	"""
 
-	def to_write_command(self) -> str:
-		return "CLR"
+	def to_write_command(self) -> tuple:
+		return ("CLR",)
 
 
 # KBP Keypad/Beep settings
@@ -342,7 +342,7 @@ class KeypadSettings(_ScannerDataObject):
 	key_lock: int = 0
 
 	def to_write_command(self) -> tuple:
-		return (self.to_fetch_command, self.beep_level, self.key_lock)
+		return (self.to_fetch_command(), self.beep_level, self.key_lock)
 
 
 	def to_fetch_command(self) -> str:
@@ -389,7 +389,7 @@ class PriorityMode(_ScannerDataObject):
 	mode: int = 0
 
 	def to_write_command(self) -> tuple:
-		return (self.to_fetch_command, self.mode)
+		return (self.to_fetch_command(), self.mode)
 
 
 	def to_fetch_command(self) -> str:
@@ -397,7 +397,7 @@ class PriorityMode(_ScannerDataObject):
 
 
 	def from_command_response(self, command_response: tuple) -> None:
-		(self.mode) = command_response
+		(self.mode,) = command_response
 
 
 	def to_dict(self) -> dict:
@@ -425,7 +425,7 @@ class EnabledChannelBanks(_ScannerDataObject):
 
 	def to_write_command(self) -> tuple:
 		cmd_str = "".join(map(lambda n: "1" if n else "0", self.banks))
-		return (self.to_fetch_command, cmd_str)
+		return (self.to_fetch_command(), cmd_str)
 
 
 	def to_fetch_command(self) -> str:
@@ -434,7 +434,7 @@ class EnabledChannelBanks(_ScannerDataObject):
 
 	def from_command_response(self, command_response: tuple) -> None:
 		cmd_str: str
-		(cmd_str) = command_response
+		(cmd_str,) = command_response
 		self.banks = map(lambda n: n == "1", cmd_str.split(""))
 
 
