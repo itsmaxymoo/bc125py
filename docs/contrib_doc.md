@@ -24,12 +24,19 @@ Cloning the `_E` class (example SDO) is a good starting point.
 For style's sake, all SDO's should adapt the docstring in `_E`, and maintain the
 order of functions seen in `_E` and `_ScannerDataObject`.
 
-An SDO implementing a function may not modify the function's signature.
-Any public attribute of an SDO must be an attribute of that scanner setting.
+An SDO implementing a function may not modify the function's signature, with one
+exception. Indexed SDO's (CIN, DCH, etc...) may accept an `index: int = 1`
+parameter in the constructor **only**, for ease of creation, reading, and writing.
+The index must be a public member, and it must be assumed the user can modify the
+index. Any public attribute of an SDO must be an attribute of that scanner setting.
 
 If an SDO implements `to_fetch_command`, it should also implement
 `from_command_response`. Likewise, `to_dict` and `from_dict` come in pairs.
 SDO's which represent a write-only command, with no data associated with it
-(e.g: CLR, DCH, etc...), should only implement `to_write_command`.
+(e.g: CLR, PRG, etc...), should only implement `to_write_command`.
 SDO's which represent a read-only command (e.g: MDL, VER) should only implement
 `to_fetch_command`, `from_command_response`, `to_dict`, and `from_dict`.
+
+All SDO public attributes must have a default value that makes sense. SDO's may
+define subclass-enums for cryptic attributes. If done, the enum entries must be
+in the format `EasyValueName = ScannerValue`

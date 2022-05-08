@@ -127,10 +127,6 @@ class EnterProgramMode(_ScannerDataObject):
 		No attributes. Write command only.
 	"""
 
-	def from_dict(self, data: dict = {}) -> None:
-		pass
-
-
 	def to_write_command(self) -> str:
 		return "PRG"
 
@@ -145,10 +141,6 @@ class ExitProgramMode(_ScannerDataObject):
 	Notes:
 		No attributes. Write command only.
 	"""
-
-	def from_dict(self, data: dict = {}) -> None:
-		pass
-
 
 	def to_write_command(self) -> str:
 		return "EPG"
@@ -166,12 +158,7 @@ class DeviceModel(_ScannerDataObject):
 	"""
 
 	# Defaults
-	model: str
-
-	def from_dict(self, data: dict = {}) -> None:
-		if data:
-			self.model = data.model
-
+	model: str = "NO MDL"
 
 	def to_fetch_command(self) -> str:
 		return "MDL"
@@ -183,6 +170,10 @@ class DeviceModel(_ScannerDataObject):
 
 	def to_dict(self) -> dict:
 		return {"model": self.model}
+
+
+	def from_dict(self, data: dict) -> None:
+		self.model = data.model
 
 
 # VER Firmware version
@@ -197,12 +188,7 @@ class FirmwareVersion(_ScannerDataObject):
 	"""
 
 	# Defaults
-	version: str
-
-	def from_dict(self, data: dict = {}) -> None:
-		if data:
-			self.version = data.version
-
+	version: str = "NO VER"
 
 	def to_fetch_command(self) -> str:
 		return "VER"
@@ -214,6 +200,10 @@ class FirmwareVersion(_ScannerDataObject):
 
 	def to_dict(self) -> dict:
 		return {"version": self.version}
+
+
+	def from_dict(self, data: dict = {}) -> None:
+		self.version = data.version
 
 
 # BLT Backlight Settings
@@ -240,18 +230,13 @@ class Backlight(_ScannerDataObject):
 	# Defaults
 	backlight: str = "AF"
 
-
-	def from_dict(self, data: dict = {}) -> None:
-		if data:
-			self.backlight = data.backlight
+	def to_write_command(self) -> tuple:
+		return (self.to_fetch_command, self.backlight)
 
 
 	def to_fetch_command(self) -> str:
 		return "BLT"
 
-
-	def to_write_command(self) -> tuple:
-		return (self.to_fetch_command, self.backlight)
 
 	def from_command_response(self, command_response: tuple) -> None:
 		(self.backlight) = command_response
@@ -259,6 +244,10 @@ class Backlight(_ScannerDataObject):
 
 	def to_dict(self) -> dict:
 		return {"backlight": self.backlight}
+
+
+	def from_dict(self, data: dict) -> None:
+		self.backlight = data.backlight
 
 
 # BSV Battery Charge Timer
@@ -288,18 +277,12 @@ class BatteryChargeTimer(_ScannerDataObject):
 	# Defaults
 	hours: int = 9
 
-
-	def from_dict(self, data: dict = {}) -> None:
-		if data:
-			self.hours = data.hours
+	def to_write_command(self) -> tuple:
+		return (self.to_fetch_command, self.hours)
 
 
 	def to_fetch_command(self) -> str:
 		return "BSV"
-
-
-	def to_write_command(self) -> tuple:
-		return (self.to_fetch_command, self.hours)
 	
 
 	def from_command_response(self, command_response: tuple) -> None:
@@ -308,6 +291,10 @@ class BatteryChargeTimer(_ScannerDataObject):
 
 	def to_dict(self) -> dict:
 		return {"hours": self.hours}
+
+
+	def from_dict(self, data: dict) -> None:
+		self.hours = data.hours
 
 
 # CLR Clear Scanner Memory
@@ -321,10 +308,6 @@ class ClearScannerMemory(_ScannerDataObject):
 		No attributes. Write command only.
 		Takes some time to complete
 	"""
-
-	def from_dict(self, data: dict = {}) -> None:
-		pass
-
 
 	def to_write_command(self) -> str:
 		return "CLR"
@@ -346,7 +329,7 @@ class KeypadSettings(_ScannerDataObject):
 	class BeepLevel(Enum):
 		Auto = 0
 		Off = 99
-	
+
 
 	# Keypad lock enum
 	class KeypadLock:
@@ -358,19 +341,12 @@ class KeypadSettings(_ScannerDataObject):
 	beep_level: int = 0
 	key_lock: int = 0
 
-
-	def from_dict(self, data: dict = {}) -> None:
-		if data:
-			self.beep_level = data.beep_level
-			self.key_lock = data.key_lock
+	def to_write_command(self) -> tuple:
+		return (self.to_fetch_command, self.beep_level, self.key_lock)
 
 
 	def to_fetch_command(self) -> str:
 		return "KBP"
-
-
-	def to_write_command(self) -> tuple:
-		return (self.to_fetch_command, self.beep_level, self.key_lock)
 
 
 	def from_command_response(self, command_response: tuple) -> None:
@@ -383,6 +359,11 @@ class KeypadSettings(_ScannerDataObject):
 			"beep_level": self.beep_level,
 			"key_lock": self.key_lock
 		}
+
+
+	def from_dict(self, data: dict) -> None:
+		self.beep_level = data.beep_level
+		self.key_lock = data.key_lock
 
 
 # PRI Priority Mode
@@ -407,18 +388,12 @@ class PriorityMode(_ScannerDataObject):
 	# Defaults
 	mode: int = 0
 
-
-	def from_dict(self, data: dict = {}) -> None:
-		if data:
-			self.mode = data.mode
+	def to_write_command(self) -> tuple:
+		return (self.to_fetch_command, self.mode)
 
 
 	def to_fetch_command(self) -> str:
 		return "PRI"
-
-
-	def to_write_command(self) -> tuple:
-		return (self.to_fetch_command, self.mode)
 
 
 	def from_command_response(self, command_response: tuple) -> None:
@@ -427,6 +402,10 @@ class PriorityMode(_ScannerDataObject):
 
 	def to_dict(self) -> dict:
 		return {"mode": self.mode}
+
+
+	def from_dict(self, data: dict) -> None:
+		self.mode = data.mode
 
 
 # SCG Set active scanner banks
@@ -444,19 +423,13 @@ class EnabledChannelBanks(_ScannerDataObject):
 	# Defaults
 	banks: list = [True] * 10
 
-
-	def from_dict(self, data: dict = {}) -> None:
-		if data:
-			self.banks = data.banks
+	def to_write_command(self) -> tuple:
+		cmd_str = "".join(map(lambda n: "1" if n else "0", self.banks))
+		return (self.to_fetch_command, cmd_str)
 
 
 	def to_fetch_command(self) -> str:
 		return "SCG"
-
-
-	def to_write_command(self) -> tuple:
-		cmd_str = "".join(map(lambda n: "1" if n else "0", self.banks))
-		return (self.to_fetch_command, cmd_str)
 
 
 	def from_command_response(self, command_response: tuple) -> None:
@@ -467,3 +440,7 @@ class EnabledChannelBanks(_ScannerDataObject):
 
 	def to_dict(self) -> dict:
 		return {"banks": self.banks}
+
+
+	def from_dict(self, data: dict) -> None:
+		self.banks = data.banks
