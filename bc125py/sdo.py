@@ -444,3 +444,24 @@ class EnabledChannelBanks(_ScannerDataObject):
 
 	def from_dict(self, data: dict) -> None:
 		self.banks = data.banks
+
+
+# DCH Delete Channel
+class DeleteChannel(_ScannerDataObject):
+	"""Delete a channel from the scanner
+
+	Attributes:
+		index (int): the index to delete
+
+	Notes:
+		index must be in range [1-500]
+	"""
+
+	index: int = 1
+
+	def __init__(self, index: int = 1) -> None:
+		self.index = index
+
+
+	def to_write_command(self) -> tuple:
+		return ("DCH", self.index)
