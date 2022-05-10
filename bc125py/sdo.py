@@ -1,6 +1,75 @@
 from enum import Enum
 
 
+def freq_to_scanner(freq: str) -> str:
+	"""Convert a frequency in MHz to the scanner format
+
+	Args:
+		freq (str): Input frequency, in MHz
+
+	Returns:
+		str: Frequency in scanner format
+	"""
+
+	return str(
+		round(
+			float(freq) * 10000
+		)
+	)
+
+
+def freq_to_mhz(freq: str) -> str:
+	"""Convert a frequency from the scanner format to MHz
+
+	Args:
+		freq (str): The input frequency, in scanner format
+
+	Returns:
+		str: The output frequency, MHz (padded).
+	"""
+
+	return f"{float(freq) * 10000:08.4f}"
+
+
+def is_valid_freq_scanner(freq: str) -> bool:
+	"""Determines if the given frequency is valid on a BC125AT.
+
+	Args:
+		freq (str): The frequency to test, IN SCANNER FORMAT
+
+	Returns:
+		bool: True if the frequency is valid
+	"""
+
+	val = int(freq)
+
+	if val == 0:
+		return True
+	if 250000 <= val <= 540000:
+		return True
+	if 1080000 <= val <= 1740000:
+		return True
+	if 2250000 <= val <= 3800000:
+		return True
+	if 4000000 <= val <= 5120000:
+		return True
+	
+	return False
+
+
+def is_valid_freq_mhz(freq: str) -> bool:
+	"""Determines if the given frequency is valid on a BC125AT.
+
+	Args:
+		freq (str): The frequency to test, IN MHz
+
+	Returns:
+		bool: True if the frequency is valid
+	"""
+
+	return is_valid_freq_scanner(freq_to_scanner(freq))
+
+
 class _ScannerDataObject:
 	"""An object to represent a data object on the scanner, eg: channel, volume, backlight, etc...
 	"""
@@ -29,14 +98,14 @@ class _ScannerDataObject:
 		raise NotImplementedError(type(self).__name__ + " must implement to_write_command()")
 
 
-	def to_fetch_command(self) -> str:
+	def to_fetch_command(self) -> tuple:
 		"""Get the scanner command to fetch the data for this object
 
 		Raises:
 			NotImplementedError: if this function is not implemented in a child class
 
 		Returns:
-			str, tuple: scanner command to read this object
+			tuple: scanner command to read this object
 		"""
 
 		raise NotImplementedError(type(self).__name__ + " must implement to_fetch_command()")
@@ -97,11 +166,11 @@ class _E(_ScannerDataObject):
 
 
 	def to_write_command(self) -> tuple:
-		return (self.to_fetch_command(), self.attrib)
+		return self.to_fetch_command() + (self.attrib,)
 
 
-	def to_fetch_command(self) -> str:
-		return "EXX"
+	def to_fetch_command(self) -> tuple:
+		return ("EXX",)
 
 
 	def from_command_response(self, command_response: tuple) -> None:
@@ -160,8 +229,8 @@ class DeviceModel(_ScannerDataObject):
 	# Defaults
 	model: str = "NO MDL"
 
-	def to_fetch_command(self) -> str:
-		return "MDL"
+	def to_fetch_command(self) -> tuple:
+		return ("MDL",)
 
 
 	def from_command_response(self, command_response: tuple) -> None:
@@ -190,8 +259,8 @@ class FirmwareVersion(_ScannerDataObject):
 	# Defaults
 	version: str = "NO VER"
 
-	def to_fetch_command(self) -> str:
-		return "VER"
+	def to_fetch_command(self) -> tuple:
+		return ("VER",)
 
 
 	def from_command_response(self, command_response: tuple) -> None:
@@ -231,11 +300,11 @@ class Backlight(_ScannerDataObject):
 	backlight: str = "AF"
 
 	def to_write_command(self) -> tuple:
-		return (self.to_fetch_command(), self.backlight)
+		return self.to_fetch_command() + (self.backlight,)
 
 
-	def to_fetch_command(self) -> str:
-		return "BLT"
+	def to_fetch_command(self) -> tuple:
+		return ("BLT",)
 
 
 	def from_command_response(self, command_response: tuple) -> None:
@@ -278,11 +347,11 @@ class BatteryChargeTimer(_ScannerDataObject):
 	hours: int = 9
 
 	def to_write_command(self) -> tuple:
-		return (self.to_fetch_command(), self.hours)
+		return self.to_fetch_command() + (self.hours,)
 
 
-	def to_fetch_command(self) -> str:
-		return "BSV"
+	def to_fetch_command(self) -> tuple:
+		return ("BSV",)
 
 
 	def from_command_response(self, command_response: tuple) -> None:
@@ -342,11 +411,11 @@ class KeypadSettings(_ScannerDataObject):
 	key_lock: int = 0
 
 	def to_write_command(self) -> tuple:
-		return (self.to_fetch_command(), self.beep_level, self.key_lock)
+		return self.to_fetch_command() + (self.beep_level, self.key_lock)
 
 
-	def to_fetch_command(self) -> str:
-		return "KBP"
+	def to_fetch_command(self) -> tuple:
+		return ("KBP",)
 
 
 	def from_command_response(self, command_response: tuple) -> None:
@@ -389,11 +458,11 @@ class PriorityMode(_ScannerDataObject):
 	mode: int = 0
 
 	def to_write_command(self) -> tuple:
-		return (self.to_fetch_command(), self.mode)
+		return self.to_fetch_command() + (self.mode,)
 
 
-	def to_fetch_command(self) -> str:
-		return "PRI"
+	def to_fetch_command(self) -> tuple:
+		return ("PRI",)
 
 
 	def from_command_response(self, command_response: tuple) -> None:
@@ -425,11 +494,11 @@ class EnabledChannelBanks(_ScannerDataObject):
 
 	def to_write_command(self) -> tuple:
 		cmd_str = "".join(map(lambda n: "1" if n else "0", self.banks))
-		return (self.to_fetch_command(), cmd_str)
+		return self.to_fetch_command() + (cmd_str,)
 
 
-	def to_fetch_command(self) -> str:
-		return "SCG"
+	def to_fetch_command(self) -> tuple:
+		return ("SCG",)
 
 
 	def from_command_response(self, command_response: tuple) -> None:
@@ -465,3 +534,89 @@ class DeleteChannel(_ScannerDataObject):
 
 	def to_write_command(self) -> tuple:
 		return ("DCH", self.index)
+
+
+# CIN Channel Info
+class Channel(_ScannerDataObject):
+	# TODO: DOC
+
+	class Modulation(Enum):
+		Auto = "AUTO"
+		AM = "AM"
+		FM = "FM"
+		NarrowFM = "NFM"
+
+
+	class LockoutMode(Enum):
+		Unlocked = 0
+		Locked = 1
+
+
+	class PriorityStatus(Enum):
+		Normal = 0
+		IsPriority = 1
+
+
+	index: int = 1
+	name: str = "NoName"
+	frequency: str = "146.4"
+	modulation: str = "AUTO"
+	ctcss: int = 0
+	delay: int = 2
+	locked_out: int = 0
+	priority: int = 0
+
+
+	def __init__(self, index: int = 1) -> None:
+		self.index = index
+
+
+	def to_write_command(self) -> tuple:
+		return self.to_fetch_command() + (
+			self.name,
+			self.frequency,
+			self.modulation,
+			self.ctcss,
+			self.delay,
+			self.locked_out,
+			self.priority
+		)
+
+
+	def to_fetch_command(self) -> tuple:
+		return ("CIN", self.index)
+
+
+	def from_command_response(self, command_response: tuple) -> None:
+		self.index = int(command_response[0])
+		self.name = command_response[1]
+		self.frequency = command_response[2]
+		self.modulation = command_response[3]
+		self.ctcss = int(command_response[4])
+		self.delay = int(command_response[5])
+		self.locked_out = int(command_response[6])
+		self.priority = int(command_response[7])
+
+
+	def to_dict(self) -> dict:
+		return {
+			"index": self.index,
+			"name": self.name,
+			"frequency": freq_to_mhz(self.frequency),
+			"modulation": self.modulation,
+			"ctcss": self.ctcss,
+			"delay": self.delay,
+			"locked_out": self.locked_out,
+			"priority": self.priority
+		}
+
+
+	def from_dict(self, data) -> None:
+		self.index = data.index
+		self.name = data.name
+		self.frequency = freq_to_scanner(data.frequency)
+		self.modulation = data.modulation
+		self.ctcss = data.ctcss
+		self.delay = data.delay
+		self.locked_out = data.locked_out
+		self.priority = data.priority
