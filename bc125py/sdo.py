@@ -297,7 +297,7 @@ class Backlight(_ScannerDataObject):
 
 
 	# Defaults
-	backlight: str = "AF"
+	backlight: str = BacklightMode.AlwaysOff.value
 
 	def to_write_command(self) -> tuple:
 		return self.to_fetch_command() + (self.backlight,)
@@ -401,14 +401,14 @@ class KeypadSettings(_ScannerDataObject):
 
 
 	# Keypad lock enum
-	class KeypadLock:
+	class KeypadLock(Enum):
 		Unlocked = 0
 		Locked = 1
 
 
 	# Defaults
-	beep_level: int = 0
-	key_lock: int = 0
+	beep_level: int = BeepLevel.Auto.value
+	key_lock: int = KeypadLock.Unlocked.value
 
 	def to_write_command(self) -> tuple:
 		return self.to_fetch_command() + (self.beep_level, self.key_lock)
@@ -455,7 +455,7 @@ class PriorityMode(_ScannerDataObject):
 
 
 	# Defaults
-	mode: int = 0
+	mode: int = PrioritySetting.Off.value
 
 	def to_write_command(self) -> tuple:
 		return self.to_fetch_command() + (self.mode,)
@@ -560,11 +560,11 @@ class Channel(_ScannerDataObject):
 	index: int = 1
 	name: str = "NoName"
 	frequency: str = "146.4"
-	modulation: str = "AUTO"
+	modulation: str = Modulation.Auto.value
 	ctcss: int = 0
 	delay: int = 2
-	locked_out: int = 0
-	priority: int = 0
+	locked_out: int = LockoutMode.Unlocked.value
+	priority: int = PriorityStatus.Normal.value
 
 
 	def __init__(self, index: int = 1) -> None:
