@@ -19,7 +19,8 @@ bc125at command.
 
 SDO's should only implement the functions in `_ScannerDataObject`, and not define any
 new **public** ones. The overall behavior from one SDO to another should not change.
-Cloning the `_E` class (example SDO) is a good starting point.
+Cloning the `_E` class (example SDO) is a good starting point. No SDO's should
+re-implement `write_to` or `read_from`.
 
 For style's sake, all SDO's should adapt the docstring in `_E`, and maintain the
 order of functions seen in `_E` and `_ScannerDataObject`.

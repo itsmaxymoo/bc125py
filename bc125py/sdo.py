@@ -1,4 +1,5 @@
 from enum import Enum
+import bc125py
 
 
 def freq_to_scanner(freq: str) -> str:
@@ -148,6 +149,40 @@ class _ScannerDataObject:
 		"""
 
 		raise NotImplementedError(type(self).__name__ + " must implement from_dict()")
+
+
+	def write_to(self, scanner_con: bc125py.ScannerConnection) -> None:
+		"""Writes this SDO to the scanner.
+
+		Args:
+			scanner_con (bc125py.ScannerConnection): An active scanner connection
+		"""
+
+		scanner_con.exec(self.to_write_command())
+
+
+	def read_from(self, scanner_con: bc125py.ScannerConnection) -> None:
+		"""Reads this object from the scanner.
+		Populates the SDO's attributes with scanner data.
+
+		Args:
+			scanner_con (bc125py.ScannerConnection): An active scanner connection
+		"""
+
+		self.from_command_response(
+			scanner_con.exec(self.to_fetch_command())
+		)
+
+
+	def __str__(self) -> str:
+		"""Attempts to return dict representation of SDO.
+		Otherwise, returns SDO write command
+		"""
+
+		try:
+			return str(self.to_dict())
+		except NotImplementedError:
+			return ",".join(self.to_write_command())
 
 
 # Example SDO to copy & paste
