@@ -620,3 +620,47 @@ class Channel(_ScannerDataObject):
 		self.delay = data.delay
 		self.locked_out = data.locked_out
 		self.priority = data.priority
+
+
+# SCO Close Call Delay/CTCSS Settings
+class CloseCallDelayCTCSSSettings(_ScannerDataObject):
+	"""Close Call delay and ctcss settings
+
+	Attributes:
+		delay (int): seconds to stay on CC after rx end
+		ctcss (int): whether the scanner should search for a CTCSS/DCS tone in CC's
+
+	Notes:
+		ctcss default is 1 (on)
+		It's not clear why this isn't a part of CLC
+	"""
+
+	class CloseCallCTCSSMode(Enum):
+		Off = 0
+		On = 1
+
+
+	# Defaults
+	delay: int = 2
+	ctcss: int = CloseCallCTCSSMode.On.value
+
+	def to_write_command(self) -> tuple:
+		return self.to_fetch_command() + (self.delay, self.ctcss)
+
+
+	def to_fetch_command(self) -> tuple:
+		return ("SCO",)
+
+
+	def from_command_response(self, command_response: tuple) -> None:
+		self.delay = int(command_response[0])
+		self.ctcss = int(command_response[1])
+
+
+	def to_dict(self) -> dict:
+		return {"delay": self.delay, "ctcss": self.ctcss}
+
+
+	def from_dict(self, data: dict) -> None:
+		self.delay = data.delay
+		self.ctcss = data.ctcss
