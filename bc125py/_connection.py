@@ -244,6 +244,13 @@ class ScannerConnection:
 		log.debug("con: connection closed")
 
 
+	def disconnect(self) -> None:
+		"""Alias to close()
+		"""
+
+		self.close()
+
+
 	def __del__(self):
 		if self.connected:
 			self.close()
