@@ -573,7 +573,21 @@ class DeleteChannel(_ScannerDataObject):
 
 # CIN Channel Info
 class Channel(_ScannerDataObject):
-	# TODO: DOC
+	"""Represents a channel on the scanner
+
+	Attributes:
+		index (int): The index of the channel. [1-500]
+		name (str): The name of the channel
+		frequency (str): The frequency of the channel, in MHz
+		modulation (str): The modulation to be used for this channel
+		ctcss (int): The CTCSS/DCS tone for this channel
+		delay (int): How long to stay on this channel after rx
+		locked_out (int): Should we skip this channel when scanning?
+		priority (int): Should this channel get priority in pri-scans?
+
+	Notes:
+		Explore included enums.
+	"""
 
 	class Modulation(Enum):
 		Auto = "AUTO"
@@ -668,6 +682,7 @@ class CloseCallDelayCTCSSSettings(_ScannerDataObject):
 	Notes:
 		ctcss default is 1 (on)
 		It's not clear why this isn't a part of CLC
+		Explore CloseCallCTCSSMode enum
 	"""
 
 	class CloseCallCTCSSMode(Enum):
