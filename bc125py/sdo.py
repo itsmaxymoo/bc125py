@@ -29,7 +29,7 @@ def freq_to_mhz(freq: str) -> str:
 		str: The output frequency, MHz (padded).
 	"""
 
-	return f"{float(freq) * 10000:08.4f}"
+	return f"{float(freq) / 10000:08.4f}"
 
 
 def is_valid_freq_scanner(freq: str) -> bool:
