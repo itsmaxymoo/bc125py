@@ -1,5 +1,4 @@
 from bc125py._connection import ScannerConnection, CommandError
-from bc125py._scanner import Scanner
 
 
 MODULE_NAME = "bc125py"

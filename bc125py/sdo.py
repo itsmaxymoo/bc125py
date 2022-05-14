@@ -2,7 +2,7 @@ from enum import Enum
 import bc125py
 
 
-# --- GLOBAL FUNCTIONS ---
+#region Global Functions
 
 def freq_to_scanner(freq: str) -> str:
 	"""Convert a frequency in MHz to the scanner format
@@ -72,8 +72,10 @@ def is_valid_freq_mhz(freq: str) -> bool:
 
 	return is_valid_freq_scanner(freq_to_scanner(freq))
 
+#endregion
 
-# --- ENUMS ---
+
+#region Enums
 
 class E_TrueFalse(Enum):
 	true: str = "0"
@@ -111,8 +113,10 @@ class E_PriorityMode(Enum):
 	plus_on: str = "2"
 	do_not_disturb: str = "3"
 
+#endregion
 
-# --- SDO ---
+
+#region SDO
 
 class _ScannerDataObject:
 	"""An object to represent a data object on the scanner, eg: channel, volume, backlight, etc...
@@ -673,7 +677,6 @@ class CloseCallDelayCTCSSSettings(_ScannerDataObject):
 	Notes:
 		ctcss default is 1 (on)
 		It's not clear why this isn't a part of CLC
-		Explore CloseCallCTCSSMode enum
 	"""
 
 	# Defaults
@@ -700,3 +703,13 @@ class CloseCallDelayCTCSSSettings(_ScannerDataObject):
 	def from_dict(self, data: dict) -> None:
 		self.delay = data.delay
 		self.ctcss = E_TrueFalse[data.ctcss]
+
+#endregion
+
+
+#region Scanner
+
+class Scanner:
+	pass
+
+#endregion
