@@ -76,13 +76,13 @@ def is_valid_freq_mhz(freq: str) -> bool:
 # --- ENUMS ---
 
 class E_TrueFalse(Enum):
-	T: int = 0
-	F: int = 1
+	T: str = "0"
+	F: str = "1"
 
 
 class E_LockState(Enum):
-	Unlocked: int = 0
-	Locked: int = 1
+	Unlocked: str = "0"
+	Locked: str = "1"
 
 
 class E_BacklightMode(Enum):
@@ -94,8 +94,8 @@ class E_BacklightMode(Enum):
 
 
 class E_BeepLevel(Enum):
-	Auto: int = 0
-	Off: int = 99
+	Auto: str = "0"
+	Off: str = "99"
 
 
 class E_Modulation(Enum):
@@ -106,10 +106,10 @@ class E_Modulation(Enum):
 
 
 class E_PriorityMode(Enum):
-	Off: int = 0
-	On: int = 1
-	PlusOn: int = 2
-	DoNotDisturb: int = 3
+	Off: str = "0"
+	On: str = "1"
+	PlusOn: str = "2"
+	DoNotDisturb: str = "3"
 
 
 # --- SDO ---
@@ -455,31 +455,16 @@ class KeypadSettings(_ScannerDataObject):
 	"""Keypad/beep settings
 
 	Attributes:
-		beep_level (int): Key beep level, 0: Auto, 99: Off
-		key_lock (int): Keypad lock status, 0: Unlocked, 1: Locked
-	
-	Notes:
-		Explore the BeepLevel and KeypadLock enums
+		beep_level (E_BeepLevel): Key beep level, 0: Auto, 99: Off
+		key_lock (E_LockState): Keypad lock status, 0: Unlocked, 1: Locked
 	"""
 
-	# Key beep level enum
-	class BeepLevel(Enum):
-		Auto = 0
-		Off = 99
-
-
-	# Keypad lock enum
-	class KeypadLock(Enum):
-		Unlocked = 0
-		Locked = 1
-
-
 	# Defaults
-	beep_level: int = BeepLevel.Auto.value
-	key_lock: int = KeypadLock.Unlocked.value
+	beep_level: E_BeepLevel = E_BeepLevel.Auto
+	key_lock: E_LockState = E_LockState.Unlocked
 
 	def to_write_command(self) -> tuple:
-		return self.to_fetch_command() + (self.beep_level, self.key_lock)
+		return self.to_fetch_command() + (self.beep_level.value, self.key_lock.value)
 
 
 	def to_fetch_command(self) -> tuple:
@@ -487,20 +472,20 @@ class KeypadSettings(_ScannerDataObject):
 
 
 	def from_command_response(self, command_response: tuple) -> None:
-		self.beep_level = int(command_response[0])
-		self.key_lock = int(command_response[1])
+		self.beep_level = E_BeepLevel(command_response[0])
+		self.key_lock = E_LockState(command_response[1])
 
 
 	def to_dict(self) -> dict:
 		return {
-			"beep_level": self.beep_level,
-			"key_lock": self.key_lock
+			"beep_level": self.beep_level.name,
+			"key_lock": self.key_lock.name
 		}
 
 
 	def from_dict(self, data: dict) -> None:
-		self.beep_level = data.beep_level
-		self.key_lock = data.key_lock
+		self.beep_level = E_BeepLevel[data.beep_level]
+		self.key_lock = E_LockState[data.key_lock]
 
 
 # PRI Priority Mode
