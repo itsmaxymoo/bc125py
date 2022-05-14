@@ -586,41 +586,25 @@ class Channel(_ScannerDataObject):
 		index (int): The index of the channel. [1-500]
 		name (str): The name of the channel
 		frequency (str): The frequency of the channel, in MHz
-		modulation (str): The modulation to be used for this channel
+		modulation (E_Modulation): The modulation to be used for this channel
 		ctcss (int): The CTCSS/DCS tone for this channel
 		delay (int): How long to stay on this channel after rx
-		locked_out (int): Should we skip this channel when scanning?
-		priority (int): Should this channel get priority in pri-scans?
+		locked_out (E_LockState): Should we skip this channel when scanning?
+		priority (E_TrueFalse): Should this channel get priority in pri-scans?
 
 	Notes:
-		Explore included enums.
+		name may not be > 16 chars.
+		name should avoid special characters
 	"""
-
-	class Modulation(Enum):
-		Auto = "AUTO"
-		AM = "AM"
-		FM = "FM"
-		NarrowFM = "NFM"
-
-
-	class LockoutMode(Enum):
-		Unlocked = 0
-		Locked = 1
-
-
-	class PriorityStatus(Enum):
-		Normal = 0
-		IsPriority = 1
-
 
 	index: int = 1
 	name: str = "NoName"
 	frequency: str = "146.4"
-	modulation: str = Modulation.Auto.value
+	modulation: E_Modulation = E_Modulation.Auto
 	ctcss: int = 0
 	delay: int = 2
-	locked_out: int = LockoutMode.Unlocked.value
-	priority: int = PriorityStatus.Normal.value
+	locked_out: E_LockState = E_LockState.Unlocked
+	priority: E_TrueFalse = E_TrueFalse.F
 
 
 	def __init__(self, index: int = 1) -> None:
@@ -631,11 +615,11 @@ class Channel(_ScannerDataObject):
 		return self.to_fetch_command() + (
 			self.name,
 			self.frequency,
-			self.modulation,
+			self.modulation.value,
 			self.ctcss,
 			self.delay,
-			self.locked_out,
-			self.priority
+			self.locked_out.value,
+			self.priority.value
 		)
 
 
@@ -647,11 +631,11 @@ class Channel(_ScannerDataObject):
 		self.index = int(command_response[0])
 		self.name = command_response[1]
 		self.frequency = command_response[2]
-		self.modulation = command_response[3]
+		self.modulation = E_Modulation(command_response[3])
 		self.ctcss = int(command_response[4])
 		self.delay = int(command_response[5])
-		self.locked_out = int(command_response[6])
-		self.priority = int(command_response[7])
+		self.locked_out = E_LockState(command_response[6])
+		self.priority = E_PriorityMode(command_response[7])
 
 
 	def to_dict(self) -> dict:
@@ -659,11 +643,11 @@ class Channel(_ScannerDataObject):
 			"index": self.index,
 			"name": self.name,
 			"frequency": freq_to_mhz(self.frequency),
-			"modulation": self.modulation,
+			"modulation": self.modulation.name,
 			"ctcss": self.ctcss,
 			"delay": self.delay,
-			"locked_out": self.locked_out,
-			"priority": self.priority
+			"locked_out": self.locked_out.name,
+			"priority": self.priority.name
 		}
 
 
@@ -671,11 +655,11 @@ class Channel(_ScannerDataObject):
 		self.index = data.index
 		self.name = data.name
 		self.frequency = freq_to_scanner(data.frequency)
-		self.modulation = data.modulation
+		self.modulation = E_Modulation[data.modulation]
 		self.ctcss = data.ctcss
 		self.delay = data.delay
-		self.locked_out = data.locked_out
-		self.priority = data.priority
+		self.locked_out = E_LockState[data.locked_out]
+		self.priority = E_PriorityMode[data.priority]
 
 
 # SCO Close Call Delay/CTCSS Settings
@@ -684,7 +668,7 @@ class CloseCallDelayCTCSSSettings(_ScannerDataObject):
 
 	Attributes:
 		delay (int): seconds to stay on CC after rx end
-		ctcss (int): whether the scanner should search for a CTCSS/DCS tone in CC's
+		ctcss (E_TrueFalse): whether the scanner should search for a CTCSS/DCS tone in CC's
 
 	Notes:
 		ctcss default is 1 (on)
@@ -692,17 +676,12 @@ class CloseCallDelayCTCSSSettings(_ScannerDataObject):
 		Explore CloseCallCTCSSMode enum
 	"""
 
-	class CloseCallCTCSSMode(Enum):
-		Off = 0
-		On = 1
-
-
 	# Defaults
 	delay: int = 2
-	ctcss: int = CloseCallCTCSSMode.On.value
+	ctcss: E_TrueFalse = E_TrueFalse.F
 
 	def to_write_command(self) -> tuple:
-		return self.to_fetch_command() + (self.delay, self.ctcss)
+		return self.to_fetch_command() + (self.delay, self.ctcss.value)
 
 
 	def to_fetch_command(self) -> tuple:
@@ -711,13 +690,13 @@ class CloseCallDelayCTCSSSettings(_ScannerDataObject):
 
 	def from_command_response(self, command_response: tuple) -> None:
 		self.delay = int(command_response[0])
-		self.ctcss = int(command_response[1])
+		self.ctcss = E_TrueFalse(command_response[1])
 
 
 	def to_dict(self) -> dict:
-		return {"delay": self.delay, "ctcss": self.ctcss}
+		return {"delay": self.delay, "ctcss": self.ctcss.name}
 
 
 	def from_dict(self, data: dict) -> None:
 		self.delay = data.delay
-		self.ctcss = data.ctcss
+		self.ctcss = E_TrueFalse[data.ctcss]
