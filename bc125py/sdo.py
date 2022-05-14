@@ -493,25 +493,14 @@ class PriorityMode(_ScannerDataObject):
 	"""Scanner priority mode
 
 	Attributes:
-		mode (int): Mode setting [0-3]
-	
-	Notes:
-		Explore the PrioritySetting enum
+		mode (E_PriorityMode): Mode setting
 	"""
 
-	# Priority Setting enum
-	class PrioritySetting(Enum):
-		Off = 0
-		On = 1
-		PlusOn = 2
-		DoNotDisturb = 3
-
-
 	# Defaults
-	mode: int = PrioritySetting.Off.value
+	mode: E_PriorityMode = E_PriorityMode.Off
 
 	def to_write_command(self) -> tuple:
-		return self.to_fetch_command() + (self.mode,)
+		return self.to_fetch_command() + (self.mode.value,)
 
 
 	def to_fetch_command(self) -> tuple:
@@ -519,15 +508,15 @@ class PriorityMode(_ScannerDataObject):
 
 
 	def from_command_response(self, command_response: tuple) -> None:
-		(self.mode,) = command_response
+		self.mode = E_PriorityMode(command_response[0])
 
 
 	def to_dict(self) -> dict:
-		return {"mode": self.mode}
+		return {"mode": self.mode.name}
 
 
 	def from_dict(self, data: dict) -> None:
-		self.mode = data.mode
+		self.mode = E_PriorityMode[data.mode]
 
 
 # SCG Set active scanner banks
