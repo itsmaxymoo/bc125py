@@ -2,8 +2,10 @@ import os
 import sys
 import argparse
 import datetime
+from termios import CRTSCTS
 import bc125py
 from bc125py.app import core, log
+from bc125py import sdo
 
 
 # Manual port override to be used by cli commands
@@ -46,13 +48,25 @@ def main() -> int:
 	# Subcommand test
 	test_parser = sub_parsers.add_parser("test", help="test scanner connection")
 
-	# Subcommand read
-	read_parser = sub_parsers.add_parser("read", help="read data from scanner, output to file")
-	read_parser.add_argument("file", help="output file")
+	# Subcommand import/read
+	import_parser = sub_parsers.add_parser("import", help="read data from scanner, output to file")
+	import_parser.add_argument("file", help="output file")
+	import_parser.add_argument(
+		"-c",
+		"--csv",
+		action="store_true",
+		help="import channels ONLY, and write as CSV"
+	)
 
-	# Subcommand write
-	write_parser = sub_parsers.add_parser("write", help="write data from file to scanner")
-	write_parser.add_argument("file", help="input file")
+	# Subcommand export/write
+	export_parser = sub_parsers.add_parser("export", help="write data from file to scanner")
+	export_parser.add_argument("file", help="input file")
+	export_parser.add_argument(
+		"-c",
+		"--csv",
+		action="store_true",
+		help="export and write channels CSV file"
+	)
 
 	# Subcommand shell
 	shell_parser = sub_parsers.add_parser("shell", help="launch interactive scanner shell")
@@ -83,10 +97,10 @@ def main() -> int:
 	cmd = cli_args.command
 	if cmd == "test":
 		return test()
-	elif cmd == "read":
-		return read(cli_args.file)
-	elif cmd == "write":
-		return write(cli_args.file)
+	elif cmd == "import":
+		return import_read(cli_args.file, cli_args.csv)
+	elif cmd == "export":
+		return export_write(cli_args.file, cli_args.csv)
 	elif cmd == "shell":
 		return shell(cmd_file_path=cli_args.file)
 
@@ -125,15 +139,108 @@ def test() -> int:
 		return 1
 
 
-# Read command
-def read(out_file: str) -> int:
-	log.debug("subc: read", out_file)
-	return 0
+# Import/Read command
+def import_read(out_file: str, csv: bool) -> int:
+	log.debug(
+		"subc: import/read",
+		"file:",
+		out_file,
+		"csv:", csv
+	)
+
+	enforce_root()
 
 
-# Write command
-def write(in_file: str) -> int:
-	log.debug("subc: write", in_file)
+	try:
+
+		# Connect to scanner
+		scanner_con = bc125py.ScannerConnection()
+		scanner_con.connect()
+
+		# Enter program mode
+		sdo.EnterProgramMode().write_to(scanner_con)
+
+		if not csv:
+
+			# Import normally
+			log.error("Not implemented!")
+
+		else:
+
+			# CSV (channel only) import
+			import csv
+
+			log.debug("csv import: creating channels & then reading")
+
+			# Create channels list
+			channels: list = []
+			for i in range(1, 501):
+				channels.append(sdo.Channel(i))
+
+			# Read channels
+			c: sdo.Channel
+			for c in channels:
+				c.read_from(scanner_con)
+			log.debug("read", len(channels), "channels")
+
+			log.debug("writing csv")
+			# Open output file and create CSV writer
+			fout = open(out_file, "w")
+			csv_writer = csv.writer(fout, dialect="excel")
+
+			# Create CSV header
+			csv_writer.writerow(
+				["Index", "Name", "Frequency (MHz)", "Modulation", "CTCSS", "Delay (sec)", "Lockout", "Priority"]
+			)
+
+			# Loop through write channel info
+			c: sdo.Channel
+			for c in channels:
+				c_dict = c.to_dict()
+
+				log.debug("cin", c_dict)
+
+				csv_writer.writerow(
+					[
+						c_dict["index"],
+						c_dict["name"],
+						c_dict["frequency"],
+						c_dict["modulation"],
+						c_dict["ctcss"],
+						c_dict["delay"],
+						c_dict["locked_out"],
+						c_dict["priority"]
+					]
+				)
+			del c
+
+			log.debug("wrote csv")
+
+			# Close file
+			fout.close()
+		
+		# Exit program mode
+		sdo.ExitProgramMode().write_to(scanner_con)
+
+		# Close scanner connection
+		scanner_con.close()
+
+		return 0
+
+	except Exception as e:
+		log.error(str(e))
+		return 1
+
+
+# Export/Write command
+def export_write(in_file: str, csv: bool) -> int:
+	log.debug(
+		"subc: export/write",
+		"file:",
+		in_file,
+		"csv:", csv
+	)
+
 	return 0
 
 
