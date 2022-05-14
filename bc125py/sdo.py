@@ -76,40 +76,40 @@ def is_valid_freq_mhz(freq: str) -> bool:
 # --- ENUMS ---
 
 class E_TrueFalse(Enum):
-	T: str = "0"
-	F: str = "1"
+	true: str = "0"
+	false: str = "1"
 
 
 class E_LockState(Enum):
-	Unlocked: str = "0"
-	Locked: str = "1"
+	unlocked: str = "0"
+	locked: str = "1"
 
 
 class E_BacklightMode(Enum):
-	AlwaysOn: str = "AO"
-	AlwaysOff: str = "AF"
-	Keypress: str = "KY"
-	Squelch: str = "SQ"
-	KeypressSquelch: str = "KS"
+	always_on: str = "AO"
+	always_off: str = "AF"
+	keypress: str = "KY"
+	squelch: str = "SQ"
+	keypress_squelch: str = "KS"
 
 
 class E_BeepLevel(Enum):
-	Auto: str = "0"
-	Off: str = "99"
+	auto: str = "0"
+	off: str = "99"
 
 
 class E_Modulation(Enum):
-	Auto: str = "AUTO"
-	FM: str = "FM"
-	NFM: str = "NFM"
-	AM: str = "AM"
+	auto: str = "AUTO"
+	fm: str = "FM"
+	nfm: str = "NFM"
+	am: str = "AM"
 
 
 class E_PriorityMode(Enum):
-	Off: str = "0"
-	On: str = "1"
-	PlusOn: str = "2"
-	DoNotDisturb: str = "3"
+	off: str = "0"
+	on: str = "1"
+	plus_on: str = "2"
+	do_not_disturb: str = "3"
 
 
 # --- SDO ---
@@ -365,7 +365,7 @@ class Backlight(_ScannerDataObject):
 	"""
 
 	# Defaults
-	backlight: E_BacklightMode = E_BacklightMode.AlwaysOff
+	backlight: E_BacklightMode = E_BacklightMode.always_off
 
 	def to_write_command(self) -> tuple:
 		return self.to_fetch_command() + (self.backlight.value,)
@@ -460,8 +460,8 @@ class KeypadSettings(_ScannerDataObject):
 	"""
 
 	# Defaults
-	beep_level: E_BeepLevel = E_BeepLevel.Auto
-	key_lock: E_LockState = E_LockState.Unlocked
+	beep_level: E_BeepLevel = E_BeepLevel.auto
+	key_lock: E_LockState = E_LockState.unlocked
 
 	def to_write_command(self) -> tuple:
 		return self.to_fetch_command() + (self.beep_level.value, self.key_lock.value)
@@ -497,7 +497,7 @@ class PriorityMode(_ScannerDataObject):
 	"""
 
 	# Defaults
-	mode: E_PriorityMode = E_PriorityMode.Off
+	mode: E_PriorityMode = E_PriorityMode.off
 
 	def to_write_command(self) -> tuple:
 		return self.to_fetch_command() + (self.mode.value,)
@@ -600,11 +600,11 @@ class Channel(_ScannerDataObject):
 	index: int = 1
 	name: str = "NoName"
 	frequency: str = "146.4"
-	modulation: E_Modulation = E_Modulation.Auto
+	modulation: E_Modulation = E_Modulation.auto
 	ctcss: int = 0
 	delay: int = 2
-	locked_out: E_LockState = E_LockState.Unlocked
-	priority: E_TrueFalse = E_TrueFalse.F
+	locked_out: E_LockState = E_LockState.unlocked
+	priority: E_TrueFalse = E_TrueFalse.false
 
 
 	def __init__(self, index: int = 1) -> None:
@@ -678,7 +678,7 @@ class CloseCallDelayCTCSSSettings(_ScannerDataObject):
 
 	# Defaults
 	delay: int = 2
-	ctcss: E_TrueFalse = E_TrueFalse.F
+	ctcss: E_TrueFalse = E_TrueFalse.false
 
 	def to_write_command(self) -> tuple:
 		return self.to_fetch_command() + (self.delay, self.ctcss.value)
