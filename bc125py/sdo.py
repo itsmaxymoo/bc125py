@@ -2,6 +2,8 @@ from enum import Enum
 import bc125py
 
 
+# --- GLOBAL FUNCTIONS ---
+
 def freq_to_scanner(freq: str) -> str:
 	"""Convert a frequency in MHz to the scanner format
 
@@ -70,6 +72,47 @@ def is_valid_freq_mhz(freq: str) -> bool:
 
 	return is_valid_freq_scanner(freq_to_scanner(freq))
 
+
+# --- ENUMS ---
+
+class E_TrueFalse(Enum):
+	T: int = 0
+	F: int = 1
+
+
+class E_LockState(Enum):
+	Unlocked: int = 0
+	Locked: int = 1
+
+
+class E_BacklightMode(Enum):
+	AlwaysOn: str = "AO"
+	AlwaysOff: str = "AF"
+	Keypress: str = "KY"
+	Squelch: str = "SQ"
+	KeypressSquelch: str = "KS"
+
+
+class E_BeepLevel(Enum):
+	Auto: int = 0
+	Off: int = 99
+
+
+class E_Modulation(Enum):
+	Auto: str = "AUTO"
+	FM: str = "FM"
+	NFM: str = "NFM"
+	AM: str = "AM"
+
+
+class E_PriorityMode(Enum):
+	Off: int = 0
+	On: int = 1
+	PlusOn: int = 2
+	DoNotDisturb: int = 3
+
+
+# --- SDO ---
 
 class _ScannerDataObject:
 	"""An object to represent a data object on the scanner, eg: channel, volume, backlight, etc...
