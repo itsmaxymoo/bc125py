@@ -1,8 +1,11 @@
 import os
 import glob
 import time
-import serial
 from bc125py.app import log
+try:
+	import serial
+except ImportError:
+	log.error("pySerial not found (import serial failed)")
 
 
 class CommandError(RuntimeError):
