@@ -358,27 +358,17 @@ class Backlight(_ScannerDataObject):
 	"""Scanner backlight settings
 
 	Attributes:
-		backlight (str): The backlight state of the scanner
+		backlight (E_BacklightMode): The backlight state of the scanner
 	
 	Notes:
 		Backlight value expects specific code
-		Explore BacklightMode(Enum) to see valid modes
 	"""
 
-	# Backlight value enum
-	class BacklightMode(Enum):
-		AlwaysOn = "AO"
-		AlwaysOff = "AF"
-		Keypress = "KY"
-		Squelch = "SQ"
-		KeypressSquelch = "KS"
-
-
 	# Defaults
-	backlight: str = BacklightMode.AlwaysOff.value
+	backlight: E_BacklightMode = E_BacklightMode.AlwaysOff
 
 	def to_write_command(self) -> tuple:
-		return self.to_fetch_command() + (self.backlight,)
+		return self.to_fetch_command() + (self.backlight.value,)
 
 
 	def to_fetch_command(self) -> tuple:
@@ -386,15 +376,15 @@ class Backlight(_ScannerDataObject):
 
 
 	def from_command_response(self, command_response: tuple) -> None:
-		(self.backlight,) = command_response
+		self.backlight = E_BacklightMode(command_response[0])
 
 
 	def to_dict(self) -> dict:
-		return {"backlight": self.backlight}
+		return {"backlight": self.backlight.name}
 
 
 	def from_dict(self, data: dict) -> None:
-		self.backlight = data.backlight
+		self.backlight = E_BacklightMode[data.backlight]
 
 
 # BSV Battery Charge Timer
