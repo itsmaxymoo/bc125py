@@ -264,7 +264,7 @@ class _E(_ScannerDataObject):
 
 
 	def from_dict(self, data) -> None:
-		self.attrib = data.attrib
+		self.attrib = data["attrib"]
 
 
 # PRG Program Mode
@@ -324,7 +324,7 @@ class DeviceModel(_ScannerDataObject):
 
 
 	def from_dict(self, data: dict) -> None:
-		self.model = data.model
+		self.model = data["model"]
 
 
 # VER Firmware version
@@ -354,7 +354,7 @@ class FirmwareVersion(_ScannerDataObject):
 
 
 	def from_dict(self, data: dict = {}) -> None:
-		self.version = data.version
+		self.version = data["version"]
 
 
 # BLT Backlight Settings
@@ -388,7 +388,7 @@ class Backlight(_ScannerDataObject):
 
 
 	def from_dict(self, data: dict) -> None:
-		self.backlight = E_BacklightMode[data.backlight]
+		self.backlight = E_BacklightMode[data["backlight"]]
 
 
 # BSV Battery Charge Timer
@@ -435,7 +435,7 @@ class BatteryChargeTimer(_ScannerDataObject):
 
 
 	def from_dict(self, data: dict) -> None:
-		self.hours = data.hours
+		self.hours = data["hours"]
 
 
 # CLR Clear Scanner Memory
@@ -488,8 +488,8 @@ class KeypadSettings(_ScannerDataObject):
 
 
 	def from_dict(self, data: dict) -> None:
-		self.beep_level = E_BeepLevel[data.beep_level]
-		self.key_lock = E_LockState[data.key_lock]
+		self.beep_level = E_BeepLevel[data["beep_level"]]
+		self.key_lock = E_LockState[data["key_lock"]]
 
 
 # PRI Priority Mode
@@ -520,7 +520,7 @@ class PriorityMode(_ScannerDataObject):
 
 
 	def from_dict(self, data: dict) -> None:
-		self.mode = E_PriorityMode[data.mode]
+		self.mode = E_PriorityMode[data["mode"]]
 
 
 # SCG Set active scanner banks
@@ -558,7 +558,7 @@ class EnabledChannelBanks(_ScannerDataObject):
 
 
 	def from_dict(self, data: dict) -> None:
-		self.banks = data.banks
+		self.banks = data["banks"]
 
 
 # DCH Delete Channel
@@ -656,14 +656,14 @@ class Channel(_ScannerDataObject):
 
 
 	def from_dict(self, data) -> None:
-		self.index = data.index
-		self.name = data.name
-		self.frequency = freq_to_scanner(data.frequency)
-		self.modulation = E_Modulation[data.modulation]
-		self.ctcss = data.ctcss
-		self.delay = data.delay
-		self.locked_out = E_LockState[data.locked_out]
-		self.priority = E_PriorityMode[data.priority]
+		self.index = data["index"]
+		self.name = data["name"]
+		self.frequency = freq_to_scanner(data["frequency"])
+		self.modulation = E_Modulation[data["modulation"]]
+		self.ctcss = data["ctcss"]
+		self.delay = data["delay"]
+		self.locked_out = E_LockState[data["locked_out"]]
+		self.priority = E_PriorityMode[data["priority"]]
 
 
 # SCO Close Call Delay/CTCSS Settings
@@ -701,8 +701,8 @@ class CloseCallDelayCTCSSSettings(_ScannerDataObject):
 
 
 	def from_dict(self, data: dict) -> None:
-		self.delay = data.delay
-		self.ctcss = E_TrueFalse[data.ctcss]
+		self.delay = data["delay"]
+		self.ctcss = E_TrueFalse[data["ctcss"]]
 
 #endregion
 
