@@ -105,8 +105,7 @@ def main() -> int:
 		return shell(cmd_file_path=cli_args.file)
 
 	# If this part of the code was reached, something went wrong with argparse
-	log.debug("ERRoneous subc:", cli_args.command)
-	print("Invalid subcommand")
+	log.error("ERRoneous subc:", cli_args.command)
 
 	return 1
 
@@ -150,42 +149,39 @@ def import_read(out_file: str, csv: bool) -> int:
 
 	enforce_root()
 
-
 	try:
 
 		# Connect to scanner
 		scanner_con = bc125py.ScannerConnection()
 		scanner_con.connect()
 
-		# Enter program mode
-		sdo.EnterProgramMode().write_to(scanner_con)
+		# Read from scanner
+		print("Reading from scanner...")
+		log.debug("Attempting full scanner read")
+		scanner: sdo.Scanner = sdo.Scanner()
+		scanner.read_from(scanner_con)
+		print("done")
+
+		# Open output file
+		log.debug("import: creating output file")
+		fout = open(out_file, "w")
 
 		if not csv:
 
-			# Import normally
-			log.error("Not implemented!")
+			# Import json
+			import json
+
+			log.debug("full import: writing to json")
+
+			fout.write(json.dumps(scanner.to_dict(), indent=4, sort_keys=False))
 
 		else:
 
 			# CSV (channel only) import
 			import csv
 
-			log.debug("csv import: creating channels & then reading")
-
-			# Create channels list
-			channels: list = []
-			for i in range(1, 501):
-				channels.append(sdo.Channel(i))
-
-			# Read channels
-			c: sdo.Channel
-			for c in channels:
-				c.read_from(scanner_con)
-			log.debug("read", len(channels), "channels")
-
-			log.debug("writing csv")
-			# Open output file and create CSV writer
-			fout = open(out_file, "w")
+			log.debug("csv import: writing csv")
+			# create CSV writer
 			csv_writer = csv.writer(fout, dialect="excel")
 
 			# Create CSV header
@@ -195,10 +191,10 @@ def import_read(out_file: str, csv: bool) -> int:
 
 			# Loop through write channel info
 			c: sdo.Channel
-			for c in channels:
+			for c in scanner.channels:
 				c_dict = c.to_dict()
 
-				log.debug("cin", c_dict)
+				log.debug("csv cin", c_dict)
 
 				csv_writer.writerow(
 					[
@@ -215,12 +211,9 @@ def import_read(out_file: str, csv: bool) -> int:
 			del c
 
 			log.debug("wrote csv")
-
-			# Close file
-			fout.close()
 		
-		# Exit program mode
-		sdo.ExitProgramMode().write_to(scanner_con)
+		# Close output file
+		fout.close()
 
 		# Close scanner connection
 		scanner_con.close()

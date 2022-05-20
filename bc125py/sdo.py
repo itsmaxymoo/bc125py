@@ -550,7 +550,7 @@ class EnabledChannelBanks(_ScannerDataObject):
 	def from_command_response(self, command_response: tuple) -> None:
 		cmd_str: str
 		(cmd_str,) = command_response
-		self.banks = map(lambda n: n == "1", cmd_str.split(""))
+		self.banks = list(map(lambda n: n == "1", cmd_str.split("")))
 
 
 	def to_dict(self) -> dict:
@@ -710,6 +710,62 @@ class CloseCallDelayCTCSSSettings(_ScannerDataObject):
 #region Scanner
 
 class Scanner:
-	pass
+
+	bc125py_version: str = bc125py.MODULE_VERSION
+
+	channels: list
+
+	def __init__(self) -> None:
+		self.channels = []
+		for i in range(1, 501):
+			self.channels.append(Channel(i))
+
+
+	def write_to(self, scanner_con: bc125py.ScannerConnection) -> None:
+		"""Writes this scanner to the scanner
+
+		Args:
+			scanner_con (bc125py.ScannerConnection): An active scanner connection
+		"""
+
+		for c in self.channels:
+			c.write_to(scanner_con)
+
+
+	def read_from(self, scanner_con: bc125py.ScannerConnection) -> None:
+		"""Reads this scanner from the scanner.
+
+		Args:
+			scanner_con (bc125py.ScannerConnection): An active scanner connection
+		"""
+
+		EnterProgramMode().write_to(scanner_con)
+
+		for c in self.channels:
+			c.read_from(scanner_con)
+		
+		ExitProgramMode().write_to(scanner_con)
+
+
+	def to_dict(self) -> dict:
+		return {
+			"bc125py_version": self.bc125py_version,
+
+			"channels": list(map(lambda c : c.to_dict(), self.channels))
+		}
+
+
+	def from_dict(self, data: dict) -> None:
+		self.bc125py_version = data.get("bc125py_version", "error")
+
+		self.channels = list(map(lambda d : d.from_dict(d), data["channels"]))
+
+
+	def __str__(self) -> str:
+		"""Attempts to return dict representation of SDO.
+		Otherwise, returns SDO write command
+		"""
+
+		return str(self.to_dict())
 
 #endregion
