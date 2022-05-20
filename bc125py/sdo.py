@@ -713,9 +713,17 @@ class Scanner:
 
 	bc125py_version: str = bc125py.MODULE_VERSION
 
+	model: DeviceModel
+	firmware: FirmwareVersion
+	backlight: Backlight
+	battery_charge_timer: BatteryChargeTimer
 	channels: list
 
 	def __init__(self) -> None:
+		self.model = DeviceModel()
+		self.firmware = FirmwareVersion()
+		self.backlight = Backlight()
+		self.battery_charge_timer = BatteryChargeTimer()
 		self.channels = []
 		for i in range(1, 501):
 			self.channels.append(Channel(i))
@@ -728,8 +736,17 @@ class Scanner:
 			scanner_con (bc125py.ScannerConnection): An active scanner connection
 		"""
 
+		EnterProgramMode().write_to(scanner_con)
+
+		self.model.write_to(scanner_con)
+		self.firmware.write_to(scanner_con)
+		self.backlight.write_to(scanner_con)
+		self.battery_charge_timer.write_to(scanner_con)
+
 		for c in self.channels:
 			c.write_to(scanner_con)
+
+		ExitProgramMode().write_to(scanner_con)
 
 
 	def read_from(self, scanner_con: bc125py.ScannerConnection) -> None:
@@ -741,9 +758,14 @@ class Scanner:
 
 		EnterProgramMode().write_to(scanner_con)
 
+		self.model.read_from(scanner_con)
+		self.firmware.read_from(scanner_con)
+		self.backlight.read_from(scanner_con)
+		self.battery_charge_timer.read_from(scanner_con)
+
 		for c in self.channels:
 			c.read_from(scanner_con)
-		
+
 		ExitProgramMode().write_to(scanner_con)
 
 
@@ -751,6 +773,10 @@ class Scanner:
 		return {
 			"bc125py_version": self.bc125py_version,
 
+			"model": self.model.to_dict(),
+			"firmware": self.firmware.to_dict(),
+			"backlight": self.backlight.to_dict(),
+			"battery_charge_timer": self.battery_charge_timer.to_dict(),
 			"channels": list(map(lambda c : c.to_dict(), self.channels))
 		}
 
@@ -758,7 +784,14 @@ class Scanner:
 	def from_dict(self, data: dict) -> None:
 		self.bc125py_version = data.get("bc125py_version", "error")
 
-		self.channels = list(map(lambda d : d.from_dict(d), data["channels"]))
+		self.model.from_dict(data["model"])
+		self.firmware.from_dict(data["firmware"])
+		self.backlight.from_dict(data["backlight"])
+		self.battery_charge_timer.from_dict(data["battery_charge_timer"])
+		self.channels = []
+		for cd in data["channels"]:
+			c: Channel = Channel()
+			c.from_dict(cd)
 
 
 	def __str__(self) -> str:
