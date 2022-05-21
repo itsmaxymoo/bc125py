@@ -533,13 +533,18 @@ class EnabledChannelBanks(_ScannerDataObject):
 	
 	Notes:
 		banks[] length must be 10
+		At least one bank must be enabled
 	"""
 
 	# Defaults
 	banks: list = [True] * 10
 
 	def to_write_command(self) -> tuple:
-		cmd_str = "".join(map(lambda n: "1" if n else "0", self.banks))
+		cmd_str = "".join(map(lambda n: "0" if n else "1", self.banks))
+
+		if "0" not in cmd_str:
+			raise ValueError("At least one channel bank must be enabled!")
+
 		return self.to_fetch_command() + (cmd_str,)
 
 
@@ -550,7 +555,7 @@ class EnabledChannelBanks(_ScannerDataObject):
 	def from_command_response(self, command_response: tuple) -> None:
 		cmd_str: str
 		(cmd_str,) = command_response
-		self.banks = list(map(lambda n: n == "1", cmd_str.split("")))
+		self.banks = list(map(lambda n: n == "0", list(cmd_str)))
 
 
 	def to_dict(self) -> dict:
@@ -717,16 +722,26 @@ class Scanner:
 	firmware: FirmwareVersion
 	backlight: Backlight
 	battery_charge_timer: BatteryChargeTimer
+	keypad: KeypadSettings
+	priority_mode: PriorityMode
+	enabled_channel_banks: EnabledChannelBanks
 	channels: list
+	cc_ctcss_delay: CloseCallDelayCTCSSSettings
 
 	def __init__(self) -> None:
 		self.model = DeviceModel()
 		self.firmware = FirmwareVersion()
 		self.backlight = Backlight()
 		self.battery_charge_timer = BatteryChargeTimer()
+		self.keypad = KeypadSettings()
+		self.priority_mode = PriorityMode()
+		self.enabled_channel_banks = EnabledChannelBanks()
+
 		self.channels = []
 		for i in range(1, 501):
 			self.channels.append(Channel(i))
+
+		self.cc_ctcss_delay = CloseCallDelayCTCSSSettings()
 
 
 	def write_to(self, scanner_con: bc125py.ScannerConnection) -> None:
@@ -742,9 +757,14 @@ class Scanner:
 		self.firmware.write_to(scanner_con)
 		self.backlight.write_to(scanner_con)
 		self.battery_charge_timer.write_to(scanner_con)
+		self.keypad.write_to(scanner_con)
+		self.priority_mode.write_to(scanner_con)
+		self.enabled_channel_banks.write_to(scanner_con)
 
 		for c in self.channels:
 			c.write_to(scanner_con)
+		
+		self.cc_ctcss_delay.write_to(scanner_con)
 
 		ExitProgramMode().write_to(scanner_con)
 
@@ -762,14 +782,20 @@ class Scanner:
 		self.firmware.read_from(scanner_con)
 		self.backlight.read_from(scanner_con)
 		self.battery_charge_timer.read_from(scanner_con)
+		self.keypad.read_from(scanner_con)
+		self.priority_mode.read_from(scanner_con)
+		self.enabled_channel_banks.read_from(scanner_con)
 
 		for c in self.channels:
 			c.read_from(scanner_con)
+		
+		self.cc_ctcss_delay.read_from(scanner_con)
 
 		ExitProgramMode().write_to(scanner_con)
 
 
 	def to_dict(self) -> dict:
+		# Dict shall have channels last; for ease of editing
 		return {
 			"bc125py_version": self.bc125py_version,
 
@@ -777,6 +803,11 @@ class Scanner:
 			"firmware": self.firmware.to_dict(),
 			"backlight": self.backlight.to_dict(),
 			"battery_charge_timer": self.battery_charge_timer.to_dict(),
+			"keypad": self.keypad.to_dict(),
+			"priority_mode": self.priority_mode.to_dict(),
+			"enabled_channel_banks": self.enabled_channel_banks.to_dict(),
+			"cc_ctcss_delay": self.cc_ctcss_delay.to_dict(),
+
 			"channels": list(map(lambda c : c.to_dict(), self.channels))
 		}
 
@@ -788,10 +819,16 @@ class Scanner:
 		self.firmware.from_dict(data["firmware"])
 		self.backlight.from_dict(data["backlight"])
 		self.battery_charge_timer.from_dict(data["battery_charge_timer"])
+		self.keypad.from_dict(data["keypad"])
+		self.priority_mode.from_dict(data["priority_mode"])
+		self.enabled_channel_banks.from_dict(data["enabled_channel_banks"])
+
 		self.channels = []
 		for cd in data["channels"]:
 			c: Channel = Channel()
 			c.from_dict(cd)
+
+		self.cc_ctcss_delay.from_dict(data["cc_ctcss_delay"])
 
 
 	def __str__(self) -> str:
