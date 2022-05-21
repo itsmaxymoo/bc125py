@@ -173,7 +173,7 @@ def import_read(out_file: str, csv: bool) -> int:
 
 			log.debug("full import: writing to json")
 
-			fout.write(json.dumps(scanner.to_dict(), indent=4, sort_keys=False))
+			fout.write(json.dumps(scanner.to_dict(), indent="\t", sort_keys=False))
 
 		else:
 
