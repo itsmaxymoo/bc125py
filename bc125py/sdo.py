@@ -623,7 +623,7 @@ class Channel(_ScannerDataObject):
 	def to_write_command(self) -> tuple:
 		return self.to_fetch_command() + (
 			self.name,
-			self.frequency,
+			freq_to_scanner(self.frequency),
 			self.modulation.value,
 			self.ctcss,
 			self.delay,
@@ -639,7 +639,7 @@ class Channel(_ScannerDataObject):
 	def from_command_response(self, command_response: tuple) -> None:
 		self.index = int(command_response[0])
 		self.name = command_response[1]
-		self.frequency = command_response[2]
+		self.frequency = freq_to_mhz(command_response[2])
 		self.modulation = E_Modulation(command_response[3])
 		self.ctcss = int(command_response[4])
 		self.delay = int(command_response[5])
@@ -651,7 +651,7 @@ class Channel(_ScannerDataObject):
 		return {
 			"index": self.index,
 			"name": self.name,
-			"frequency": freq_to_mhz(self.frequency),
+			"frequency": self.frequency,
 			"modulation": self.modulation.name,
 			"ctcss": self.ctcss,
 			"delay": self.delay,
@@ -663,7 +663,7 @@ class Channel(_ScannerDataObject):
 	def from_dict(self, data) -> None:
 		self.index = data["index"]
 		self.name = data["name"]
-		self.frequency = freq_to_scanner(data["frequency"])
+		self.frequency = data["frequency"]
 		self.modulation = E_Modulation[data["modulation"]]
 		self.ctcss = data["ctcss"]
 		self.delay = data["delay"]
