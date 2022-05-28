@@ -57,6 +57,13 @@ def is_root() -> bool:
 
 
 def detect_tlp() -> bool:
+	"""Determines if TLP is active. TLP can interfere with scanner communication.
+	THIS MAY NOT BE 100% ACCURATE!!!
+
+	Returns:
+		bool: True if tlp detected & enabled.
+	"""
+
 	if tlp_bin := shutil.which("tlp-stat"):
 		log.debug("core: detected TLP")
 
