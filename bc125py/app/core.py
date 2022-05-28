@@ -56,6 +56,22 @@ def is_root() -> bool:
 	return os.getuid() == 0
 
 
+def detect_tlp() -> bool:
+	if tlp_bin := shutil.which("tlp-stat"):
+		log.debug("core: detected TLP")
+
+		try:
+			# See if TLP is actually enabled, warn if true
+			if "TLP_ENABLE=\"1\"" in subprocess.check_output([tlp_bin, "-c"], stderr=subprocess.DEVNULL).decode():
+				log.warn("TLP is enabled. This may block scanner connection")
+
+				return True
+		except Exception:
+			log.debug("core: could not determine if TLP is active")
+	
+	return False
+
+
 def get_scanner_connection(port: str = None, simulate = False) -> bc125py.ScannerConnection:
 	"""Find and connect to the scanner
 
@@ -74,15 +90,8 @@ def get_scanner_connection(port: str = None, simulate = False) -> bc125py.Scanne
 
 	# Check to see if TLP (power management tool) is enabled
 	# TLP can interfere with the BC125AT connection
-	if tlp_bin := shutil.which("tlp-stat") and not simulate:
-		log.debug("core: detected TLP")
-
-		try:
-			# See if TLP is actually enabled, warn if true
-			if "TLP_ENABLE=\"1\"" in subprocess.check_output([tlp_bin, "-c"], stderr=subprocess.DEVNULL).decode():
-				log.warn("TLP is enabled. This may block scanner connection")
-		except Exception:
-			log.debug("core: could not determine if TLP is active")
+	if not simulate:
+		detect_tlp()
 
 	con: bc125py.ScannerConnection
 
