@@ -67,6 +67,12 @@ def main() -> int:
 		action="store_true",
 		help="export and write channels CSV file"
 	)
+	export_parser.add_argument(
+		"-s",
+		"--simulate",
+		action="store_true",
+		help="simulate scanner write operation. MUST specify output file with --port"
+	)
 
 	# Subcommand shell
 	shell_parser = sub_parsers.add_parser("shell", help="launch interactive scanner shell")
@@ -100,7 +106,7 @@ def main() -> int:
 	elif cmd == "import":
 		return import_read(cli_args.file, cli_args.csv)
 	elif cmd == "export":
-		return export_write(cli_args.file, cli_args.csv)
+		return export_write(cli_args.file, cli_args.csv, simulate=cli_args.simulate)
 	elif cmd == "shell":
 		return shell(cmd_file_path=cli_args.file)
 
@@ -127,7 +133,7 @@ def test() -> int:
 
 	try:
 		# Connect, try to get device model
-		con = core.get_scanner_connection()
+		con = core.get_scanner_connection(_port)
 		print("Scanner model:", con.exec("MDL", return_tuple=False), "(success)")
 		con.close()
 
@@ -152,8 +158,7 @@ def import_read(out_file: str, csv: bool) -> int:
 	try:
 
 		# Connect to scanner
-		scanner_con = bc125py.ScannerConnection()
-		scanner_con.connect()
+		scanner_con = core.get_scanner_connection(_port)
 
 		# Read from scanner
 		print("Reading from scanner...")
@@ -226,7 +231,7 @@ def import_read(out_file: str, csv: bool) -> int:
 
 
 # Export/Write command
-def export_write(in_file: str, csv: bool) -> int:
+def export_write(in_file: str, csv: bool, simulate: bool = False) -> int:
 	log.debug(
 		"subc: export/write",
 		"file:",

@@ -1,4 +1,4 @@
-from bc125py._connection import ScannerConnection, CommandError
+from bc125py._connection import CommandError, ScannerConnection, SimulatedScannerConnection
 
 
 MODULE_NAME = "bc125py"

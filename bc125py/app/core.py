@@ -56,11 +56,12 @@ def is_root() -> bool:
 	return os.getuid() == 0
 
 
-def get_scanner_connection(port: str = None) -> bc125py.ScannerConnection:
+def get_scanner_connection(port: str = None, simulate = False) -> bc125py.ScannerConnection:
 	"""Find and connect to the scanner
 
 	Args:
-		port (str, optional): Force the use of a specific port. Defaults to None.
+		port (str, optional): The port to connect to
+		simulate (bool, optional): Whether this should create a simulated connection.
 
 	Raises:
 		ConnectionError: if connecting to the scanner failed
@@ -73,7 +74,7 @@ def get_scanner_connection(port: str = None) -> bc125py.ScannerConnection:
 
 	# Check to see if TLP (power management tool) is enabled
 	# TLP can interfere with the BC125AT connection
-	if tlp_bin := shutil.which("tlp-stat"):
+	if tlp_bin := shutil.which("tlp-stat") and not simulate:
 		log.debug("core: detected TLP")
 
 		try:
@@ -83,6 +84,12 @@ def get_scanner_connection(port: str = None) -> bc125py.ScannerConnection:
 		except Exception:
 			log.debug("core: could not determine if TLP is active")
 
-	con = bc125py.ScannerConnection()
+	con: bc125py.ScannerConnection
+
+	if simulate == False:
+		con = bc125py.ScannerConnection()
+	else:
+		con = bc125py.SimulatedScannerConnection()
+
 	con.connect(port)
 	return con

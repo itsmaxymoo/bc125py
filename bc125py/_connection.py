@@ -20,7 +20,9 @@ class CommandError(RuntimeError):
 
 
 class ScannerConnection:
-	
+	"""A connection to the scanner
+	"""
+
 	connected: bool = False
 	__serial: serial.Serial = None
 
@@ -127,7 +129,7 @@ class ScannerConnection:
 		return found_ports
 
 
-	def __open_connection(self, port: str):
+	def __open_connection(self, port: str) -> None:
 		"""internal use. Open serial connection to device
 
 		Args:
@@ -243,6 +245,142 @@ class ScannerConnection:
 		if not self.connected:
 			raise ConnectionError("Can't close closed connection")
 		self.__serial.close()
+		self.connected = False
+		log.debug("con: connection closed")
+
+
+	def disconnect(self) -> None:
+		"""Alias to close()
+		"""
+
+		self.close()
+
+
+	def __del__(self):
+		if self.connected:
+			self.close()
+
+
+class SimulatedScannerConnection(ScannerConnection):
+	"""A simulated scanner connection.
+	All commands are logged instead of executed.
+	For debugging purposes.
+	"""
+
+	connected: bool = False
+	__log_file = None # file
+
+
+	def __init__(self, log_file_path: str = None):
+		if log_file_path:
+			self.connect(log_file_path)
+
+
+	def connect(self, port: str) -> None:
+		"""Establish a connection to the scanner
+
+		Args:
+			port (str): The port (log file) to write to.
+
+		Raises:
+			ConnectionError: If the connection is already established, or if any errors occur while connecting
+		"""
+
+		if self.connected:
+			raise ConnectionError("Connection already established")
+
+		# Try to open file in write mode
+		try:
+			self.__log_file = open(port, "w")
+		except IOError as e:
+			raise ConnectionError("Could not connect to simulated port -", str(e))
+
+		self.connected = True
+		log.debug("con: SIM connection successfully established at port", port)
+
+
+	def __setup_driver(self) -> None:
+		pass
+
+
+	def __find_ports(self) -> list:
+		return []
+
+
+	def __open_connection(self, port: str) -> None:
+		pass
+
+
+	def _exec(self, command: str) -> str:
+		"""INTERNAL USE! USE exec() INSTEAD! -- Execute a command
+
+		Args:
+			command (str): the command to execute
+
+		Raises:
+			ConnectionError: if the command fails to send
+
+		Returns:
+			str: inputted command
+		"""
+
+		# First, try to send command to device
+		try:
+			self.__log_file.write(command + "\n")
+		except IOError as e:
+			raise ConnectionError("Could not communicate (write) with scanner: " + str(e))
+
+		# Simulated connection; return input
+		return command
+
+
+	def exec(self, command, echo: bool = False, return_tuple: bool = True, allow_error = False):
+		"""Execute a command on the scanner. Get response.
+
+		Args:
+			command (tuple, str): The command to execute, in string or tuple form
+			echo (bool, optional): Should the response include the command name? Defaults to False.
+			return_tuple (bool, optional): Should the response be in tuple form? Defaults to True.
+			allow_error (bool, optional): Should we allow an invalid command? Defaults to False.
+
+		Raises:
+			ConnectionError: if a connection was never established
+			ConnectionError: if there is an error communicating with the scanner
+			bc125py.CommandError: if the command produces an error
+
+		Returns:
+			tuple, str: The command response in tuple or string form
+		"""
+
+		if not self.connected:
+			raise ConnectionError("Cannot execute command when scanner isn't connected")
+
+		# Convert tuple command to command string
+		if type(command) is tuple:
+			command = ",".join(map(str, command))
+		elif type(command) is not str:
+			raise TypeError("exec() command must be str or tuple")
+
+		# Execute command, store result
+		resp = self._exec(command)
+
+		# If we want the result as a tuple (default), create tuple
+		if return_tuple:
+			resp = tuple(resp.split(","))
+
+		return resp
+
+
+	def close(self) -> None:
+		"""Disconnect scanner. Safely closes connection.
+
+		Raises:
+			ConnectionError: if the scanner never was connected.
+		"""
+
+		if not self.connected:
+			raise ConnectionError("Can't close closed connection")
+		self.__log_file.close()
 		self.connected = False
 		log.debug("con: connection closed")
 
