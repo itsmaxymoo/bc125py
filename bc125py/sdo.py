@@ -709,6 +709,140 @@ class CloseCallDelayCTCSSSettings(_ScannerDataObject):
 		self.delay = data["delay"]
 		self.ctcss = E_TrueFalse[data["ctcss"]]
 
+
+# GLF / ULF / LOF Locked Out Channels Bank
+class LockedFrequencies(_ScannerDataObject):
+	"""Locked out channels bank.
+
+	Attributes:
+		frequencies (string list): A list of all locked out frequencies, in MHz
+	
+	Notes:
+		Object behavior does not translate directly to a scanner command.
+		Directly overrides write_to() and read_from.
+		Most traditional SDO functions not implemented. Use write_to() and read_from().
+	"""
+
+	# Defaults
+	frequencies: list = []
+
+
+	def to_fetch_command(self) -> tuple:
+		return ("GLF",)
+
+
+	def to_dict(self) -> dict:
+		return {"freqs": self.frequencies}
+
+
+	def from_dict(self, data: dict) -> None:
+		self.frequencies = data["freqs"]
+	
+
+	def write_to(self, scanner_con: bc125py.ScannerConnection) -> None:
+		"""Writes this SDO to the scanner.
+
+		Args:
+			scanner_con (bc125py.ScannerConnection): An active scanner connection
+		"""
+
+		# --- First we must get the locked out freqs to delete.
+		delete_freqs: list = []
+
+		# EPG, PRG necessary to reset the lockout frequency tracker (dumb uniden design)
+		ExitProgramMode().write_to(scanner_con)
+		EnterProgramMode().write_to(scanner_con)
+
+		# Get first lock out freq (LOF)
+		lof: str = scanner_con.exec("GLF")[0]
+
+		# Ensure we aren't at the end of locked out freqs and this isn't a simulated write
+		while lof not in ["-1", "GLF"]:
+			# Add freq to list
+			delete_freqs.append(freq_to_mhz(lof))
+
+			# Get next
+			lof = scanner_con.exec("GLF")[0]
+		
+		# EPG, PRG necessary to reset the lockout frequency tracker (dumb uniden design)
+		ExitProgramMode().write_to(scanner_con)
+		EnterProgramMode().write_to(scanner_con)
+
+		# Unlock all locked frequencies
+		for f in delete_freqs:
+			UnlockFrequency(f).write_to(scanner_con)
+		
+		# Now, lock appropriate freqs
+		for f in self.frequencies:
+			LockFrequency(f).write_to(scanner_con)
+
+
+	def read_from(self, scanner_con: bc125py.ScannerConnection) -> None:
+		"""Reads this object from the scanner.
+		Populates the SDO's attributes with scanner data.
+
+		Args:
+			scanner_con (bc125py.ScannerConnection): An active scanner connection
+		"""
+
+		# EPG, PRG necessary to reset the lockout frequency tracker (dumb uniden design)
+		ExitProgramMode().write_to(scanner_con)
+		EnterProgramMode().write_to(scanner_con)
+
+		# Get first lock out freq (LOF)
+		lof: str = scanner_con.exec("GLF")[0]
+
+		# Ensure we aren't at the end of locked out freqs
+		while lof != "-1":
+			# Add freq to list
+			self.frequencies.append(freq_to_mhz(lof))
+
+			# Get next
+			lof = scanner_con.exec("GLF")[0]
+
+
+# ULF Unlock Locked Frequency
+class UnlockFrequency(_ScannerDataObject):
+	"""Unlock a locked frequency
+
+	Attributes:
+		frequency (str): The frequency to unlock, in MHz.
+
+	Notes:
+		May set frequency via constructor
+	"""
+
+	frequency: str
+
+	def __init__(self, frequency: str = "0") -> None:
+		self.frequency = frequency
+
+
+	def to_write_command(self) -> tuple:
+		return ("ULF", freq_to_scanner(self.frequency))
+
+
+# LOF Lockout Frequency
+class LockFrequency(_ScannerDataObject):
+	"""Lock a frequency
+
+	Attributes:
+		frequency (str): The frequency to lock, in MHz.
+
+	Notes:
+		May set frequency via constructor
+	"""
+
+	frequency: str
+
+	def __init__(self, frequency: str = "0") -> None:
+		self.frequency = frequency
+
+
+	def to_write_command(self) -> tuple:
+		return ("LOF", freq_to_scanner(self.frequency))
+
+
 #endregion
 
 
@@ -727,6 +861,7 @@ class Scanner:
 	enabled_channel_banks: EnabledChannelBanks
 	channels: list
 	cc_ctcss_delay: CloseCallDelayCTCSSSettings
+	locked_frequencies: LockedFrequencies
 
 	def __init__(self) -> None:
 		self.model = DeviceModel()
@@ -742,6 +877,7 @@ class Scanner:
 			self.channels.append(Channel(i))
 
 		self.cc_ctcss_delay = CloseCallDelayCTCSSSettings()
+		self.locked_frequencies = LockedFrequencies()
 
 
 	def write_to(self, scanner_con: bc125py.ScannerConnection) -> None:
@@ -765,6 +901,7 @@ class Scanner:
 			c.write_to(scanner_con)
 		
 		self.cc_ctcss_delay.write_to(scanner_con)
+		self.locked_frequencies.write_to(scanner_con)
 
 		ExitProgramMode().write_to(scanner_con)
 
@@ -790,6 +927,7 @@ class Scanner:
 			c.read_from(scanner_con)
 		
 		self.cc_ctcss_delay.read_from(scanner_con)
+		self.locked_frequencies.read_from(scanner_con)
 
 		ExitProgramMode().write_to(scanner_con)
 
@@ -807,6 +945,7 @@ class Scanner:
 			"priority_mode": self.priority_mode.to_dict(),
 			"enabled_channel_banks": self.enabled_channel_banks.to_dict(),
 			"cc_ctcss_delay": self.cc_ctcss_delay.to_dict(),
+			"locked_frequencies": self.locked_frequencies.to_dict(),
 
 			"channels": list(map(lambda c : c.to_dict(), self.channels))
 		}
@@ -829,6 +968,7 @@ class Scanner:
 			c.from_dict(cd)
 
 		self.cc_ctcss_delay.from_dict(data["cc_ctcss_delay"])
+		self.locked_frequencies.from_dict(data["locked_frequencies"])
 
 
 	def __str__(self) -> str:
