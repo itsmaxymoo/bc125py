@@ -113,6 +113,13 @@ class E_PriorityMode(Enum):
 	plus_on: str = "2"
 	do_not_disturb: str = "3"
 
+
+class E_CloseCallMode(Enum):
+	off: str = "0"
+	priority: str = "1"
+	do_not_disturb = "2"
+
+
 #endregion
 
 
@@ -843,6 +850,69 @@ class LockFrequency(_ScannerDataObject):
 		return ("LOF", freq_to_scanner(self.frequency))
 
 
+# CLC Close Call Main Settings
+class CloseCallSettings(_ScannerDataObject):
+	"""Close call main settings
+
+	Attributes:
+		mode (E_CloseCallMode): The mode of close call operation
+		alert_beep (E_TrueFalse): Should the scanner beep when CC is found
+		alert_light (E_TrueFalse): Should the scanner backlight flash when CC is found
+		cc_bands (bool list, length 5): Which CC bands are enabled
+		lockout (E_LockState): Unknown
+	
+	Notes:
+		cc_bands length must be 5
+	"""
+
+	# Defaults
+	mode: E_CloseCallMode = E_CloseCallMode.off
+	alert_beep: E_TrueFalse = E_TrueFalse.true
+	alert_light: E_TrueFalse = E_TrueFalse.true
+	cc_bands: list = [True] * 5
+	lockout: E_LockState = E_LockState.unlocked
+
+
+	def to_write_command(self) -> tuple:
+		return self.to_fetch_command() + (
+			self.mode.value,
+			self.alert_beep.value,
+			self.alert_light.value,
+			"".join(map(lambda n: "1" if n else "0", self.cc_bands)),
+			self.lockout.value
+		)
+
+
+	def to_fetch_command(self) -> tuple:
+		return ("CLC",)
+
+
+	def from_command_response(self, command_response: tuple) -> None:
+		self.mode = E_CloseCallMode(command_response[0])
+		self.alert_beep = E_TrueFalse(command_response[1])
+		self.alert_light = E_TrueFalse(command_response[2])
+		self.cc_bands = list(map(lambda n: n == "1", list(command_response[3])))
+		self.lockout = E_LockState(command_response[4])
+
+
+	def to_dict(self) -> dict:
+		return {
+			"mode": self.mode.name,
+			"alert_beep": self.alert_beep.name,
+			"alert_light": self.alert_light.name,
+			"enabled_cc_bands": self.cc_bands,
+			"lockout": self.lockout.name
+		}
+
+
+	def from_dict(self, data) -> None:
+		self.mode = E_CloseCallMode[data["mode"]]
+		self.alert_beep = E_TrueFalse[data["alert_beep"]]
+		self.alert_light = E_TrueFalse[data["alert_light"]]
+		self.cc_bands = data["enabled_cc_bands"]
+		self.lockout - E_LockState[data["lockout"]]
+
+
 #endregion
 
 
@@ -862,6 +932,7 @@ class Scanner:
 	channels: list
 	cc_ctcss_delay: CloseCallDelayCTCSSSettings
 	locked_frequencies: LockedFrequencies
+	cc_main_settings: CloseCallSettings
 
 	def __init__(self) -> None:
 		self.model = DeviceModel()
@@ -878,6 +949,7 @@ class Scanner:
 
 		self.cc_ctcss_delay = CloseCallDelayCTCSSSettings()
 		self.locked_frequencies = LockedFrequencies()
+		self.cc_main_settings = CloseCallSettings()
 
 
 	def write_to(self, scanner_con: bc125py.ScannerConnection) -> None:
@@ -902,6 +974,7 @@ class Scanner:
 		
 		self.cc_ctcss_delay.write_to(scanner_con)
 		self.locked_frequencies.write_to(scanner_con)
+		self.cc_main_settings.write_to(scanner_con)
 
 		ExitProgramMode().write_to(scanner_con)
 
@@ -928,6 +1001,7 @@ class Scanner:
 		
 		self.cc_ctcss_delay.read_from(scanner_con)
 		self.locked_frequencies.read_from(scanner_con)
+		self.cc_main_settings.read_from(scanner_con)
 
 		ExitProgramMode().write_to(scanner_con)
 
@@ -944,6 +1018,7 @@ class Scanner:
 			"keypad": self.keypad.to_dict(),
 			"priority_mode": self.priority_mode.to_dict(),
 			"enabled_channel_banks": self.enabled_channel_banks.to_dict(),
+			"cc_main_settings": self.cc_main_settings.to_dict(),
 			"cc_ctcss_delay": self.cc_ctcss_delay.to_dict(),
 			"locked_frequencies": self.locked_frequencies.to_dict(),
 
@@ -969,6 +1044,7 @@ class Scanner:
 
 		self.cc_ctcss_delay.from_dict(data["cc_ctcss_delay"])
 		self.locked_frequencies.from_dict(data["locked_frequencies"])
+		self.cc_main_settings.from_dict(data["cc_main_settings"])
 
 
 	def __str__(self) -> str:
