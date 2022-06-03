@@ -929,6 +929,7 @@ class EnabledSearchBanks(_ScannerDataObject):
 	# Defaults
 	banks: list = [True] * 10
 
+
 	def to_write_command(self) -> tuple:
 		cmd_str = "".join(map(lambda n: "0" if n else "1", self.banks))
 
@@ -971,6 +972,7 @@ class EnabledCustomSearchBanks(_ScannerDataObject):
 
 	# Defaults
 	banks: list = [True] * 10
+
 
 	def to_write_command(self) -> tuple:
 		cmd_str = "".join(map(lambda n: "0" if n else "1", self.banks))
@@ -1018,6 +1020,7 @@ class CustomSearchBank(_ScannerDataObject):
 	lower_limit: str = "25.000"
 	upper_limit: str = "512.000"
 
+
 	def __init__(self, index: int = 1) -> None:
 		self.index = index
 
@@ -1064,6 +1067,7 @@ class WeatherAlertSettings(_ScannerDataObject):
 	# Defaults
 	alert_priority: E_TrueFalse = E_TrueFalse.false
 
+
 	def to_write_command(self) -> tuple:
 		return self.to_fetch_command() + (self.alert_priority.value,)
 
@@ -1082,6 +1086,116 @@ class WeatherAlertSettings(_ScannerDataObject):
 
 	def from_dict(self, data: dict) -> None:
 		self.alert_priority = E_BacklightMode[data["alert_priority"]]
+
+
+# CNT Contrast
+class DisplayContrast(_ScannerDataObject):
+	"""Scanner display contrast
+
+	Attributes:
+		contrast (int): Contrast. Default 8
+	
+	Notes:
+		contrast range must be in [1-15]
+	"""
+
+	# Defaults
+	contrast: int = 8
+
+
+	def to_write_command(self) -> tuple:
+		return self.to_fetch_command() + (self.contrast,)
+
+
+	def to_fetch_command(self) -> tuple:
+		return ("CNT",)
+
+
+	def from_command_response(self, command_response: tuple) -> None:
+		self.contrast = int(command_response[0])
+
+
+	def to_dict(self) -> dict:
+		return {"contrast": self.contrast}
+
+
+	def from_dict(self, data) -> None:
+		self.contrast = data["contrast"]
+
+
+# VOL Volume
+class DeviceVolume(_ScannerDataObject):
+	"""Device volume.
+
+	Attributes:
+		volume (int): The device volume
+	
+	Notes:
+		volume range must be in [0-15]
+		0 is mute
+		15 is maximum and quite loud
+	"""
+
+	# Defaults
+	volume: int = 8
+
+
+	def to_write_command(self) -> tuple:
+		return self.to_fetch_command() + (self.volume,)
+
+
+	def to_fetch_command(self) -> tuple:
+		return ("VOL",)
+
+
+	def from_command_response(self, command_response: tuple) -> None:
+		self.volume = int(command_response[0])
+
+
+	def to_dict(self) -> dict:
+		return {"volume": self.volume}
+
+
+	def from_dict(self, data) -> None:
+		self.volume = data["volume"]
+
+
+# SQL Squelch
+class Squelch(_ScannerDataObject):
+	"""Rx squelch
+
+	Attributes:
+		squelch (int): The Rx squelch. Default is 2
+	
+	Notes:
+		squelch must be in range [0-15]
+		0 is off
+		15 is closed
+		2 appears to be optimal value, 1 in some situations.
+	"""
+
+	# Defaults
+	squelch: int = 2
+
+
+	def to_write_command(self) -> tuple:
+		return self.to_fetch_command() + (self.squelch,)
+
+
+	def to_fetch_command(self) -> tuple:
+		return ("SQL",)
+
+
+	def from_command_response(self, command_response: tuple) -> None:
+		self.squelch = int(command_response[0])
+
+
+	def to_dict(self) -> dict:
+		return {"squelch": self.squelch}
+
+
+	def from_dict(self, data) -> None:
+		self.squelch = data["squelch"]
 
 
 #endregion
@@ -1108,6 +1222,9 @@ class Scanner:
 	enabled_custom_search_banks: EnabledCustomSearchBanks
 	custom_search_banks: list
 	weather_alert_settings: WeatherAlertSettings
+	display_contrast: DisplayContrast
+	device_volume: DeviceVolume
+	squelch: Squelch
 
 	def __init__(self) -> None:
 		self.model = DeviceModel()
@@ -1133,6 +1250,9 @@ class Scanner:
 			self.custom_search_banks.append(CustomSearchBank(i))
 		
 		self.weather_alert_settings = WeatherAlertSettings()
+		self.display_contrast = DisplayContrast()
+		self.device_volume = DeviceVolume()
+		self.squelch = Squelch()
 
 
 	def write_to(self, scanner_con: bc125py.ScannerConnection) -> None:
@@ -1165,6 +1285,9 @@ class Scanner:
 			c.write_to(scanner_con)
 		
 		self.weather_alert_settings.write_to(scanner_con)
+		self.display_contrast.write_to(scanner_con)
+		self.device_volume.write_to(scanner_con)
+		self.squelch.write_to(scanner_con)
 
 		ExitProgramMode().write_to(scanner_con)
 
@@ -1198,7 +1321,10 @@ class Scanner:
 		for c in self.custom_search_banks:
 			c.read_from(scanner_con)
 		
-		self.weather_alert_settings.write_to(scanner_con)
+		self.weather_alert_settings.read_from(scanner_con)
+		self.display_contrast.read_from(scanner_con)
+		self.device_volume.read_from(scanner_con)
+		self.squelch.read_from(scanner_con)
 
 		ExitProgramMode().write_to(scanner_con)
 
@@ -1222,6 +1348,9 @@ class Scanner:
 			"enabled_custom_search_banks": self.enabled_custom_search_banks.to_dict(),
 			"custom_search_banks": list(map(lambda c : c.to_dict(), self.custom_search_banks)),
 			"weather_alert_settings": self.weather_alert_settings.to_dict(),
+			"display_contrast": self.display_contrast.to_dict(),
+			"device_volume": self.device_volume.to_dict(),
+			"squelch": self.squelch.to_dict(),
 
 			"channels": list(map(lambda c : c.to_dict(), self.channels))
 		}
@@ -1255,6 +1384,9 @@ class Scanner:
 			c.from_dict(csb)
 		
 		self.weather_alert_settings.from_dict(data["weather_alert_settings"])
+		self.display_contrast.from_dict(data["display_contrast"])
+		self.device_volume.from_dict(data["device_volume"])
+		self.squelch.from_dict(data["squelch"])
 
 
 	def __str__(self) -> str:
