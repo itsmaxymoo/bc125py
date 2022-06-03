@@ -1013,10 +1013,10 @@ class CustomSearchBank(_ScannerDataObject):
 		index MUST be in range [1-10]
 	"""
 
+	# Defaults
 	index: int = 1
 	lower_limit: str = "25.000"
 	upper_limit: str = "512.000"
-
 
 	def __init__(self, index: int = 1) -> None:
 		self.index = index
@@ -1053,6 +1053,37 @@ class CustomSearchBank(_ScannerDataObject):
 		self.upper_limit = data["upper_limit"]
 
 
+# WXS Weather Alert Settings
+class WeatherAlertSettings(_ScannerDataObject):
+	"""Scanner weather WX settings
+
+	Attributes:
+		alert_priority (E_TrueFalse): Should the scanner interrupt when WX alert detected. Default false.
+	"""
+
+	# Defaults
+	alert_priority: E_TrueFalse = E_TrueFalse.false
+
+	def to_write_command(self) -> tuple:
+		return self.to_fetch_command() + (self.alert_priority.value,)
+
+
+	def to_fetch_command(self) -> tuple:
+		return ("WXS",)
+
+
+	def from_command_response(self, command_response: tuple) -> None:
+		self.alert_priority = E_TrueFalse(command_response[0])
+
+
+	def to_dict(self) -> dict:
+		return {"alert_priority": self.alert_priority.name}
+
+
+	def from_dict(self, data: dict) -> None:
+		self.alert_priority = E_BacklightMode[data["alert_priority"]]
+
+
 #endregion
 
 
@@ -1076,6 +1107,7 @@ class Scanner:
 	enabled_search_banks: EnabledSearchBanks
 	enabled_custom_search_banks: EnabledCustomSearchBanks
 	custom_search_banks: list
+	weather_alert_settings: WeatherAlertSettings
 
 	def __init__(self) -> None:
 		self.model = DeviceModel()
@@ -1099,6 +1131,8 @@ class Scanner:
 		self.custom_search_banks = []
 		for i in range(1, 11):
 			self.custom_search_banks.append(CustomSearchBank(i))
+		
+		self.weather_alert_settings = WeatherAlertSettings()
 
 
 	def write_to(self, scanner_con: bc125py.ScannerConnection) -> None:
@@ -1129,6 +1163,8 @@ class Scanner:
 
 		for c in self.custom_search_banks:
 			c.write_to(scanner_con)
+		
+		self.weather_alert_settings.write_to(scanner_con)
 
 		ExitProgramMode().write_to(scanner_con)
 
@@ -1161,6 +1197,8 @@ class Scanner:
 
 		for c in self.custom_search_banks:
 			c.read_from(scanner_con)
+		
+		self.weather_alert_settings.write_to(scanner_con)
 
 		ExitProgramMode().write_to(scanner_con)
 
@@ -1183,6 +1221,7 @@ class Scanner:
 			"enabled_search_banks": self.enabled_search_banks.to_dict(),
 			"enabled_custom_search_banks": self.enabled_custom_search_banks.to_dict(),
 			"custom_search_banks": list(map(lambda c : c.to_dict(), self.custom_search_banks)),
+			"weather_alert_settings": self.weather_alert_settings.to_dict(),
 
 			"channels": list(map(lambda c : c.to_dict(), self.channels))
 		}
@@ -1214,6 +1253,8 @@ class Scanner:
 		for csb in data["custom_search_banks"]:
 			c: CustomSearchBank = CustomSearchBank()
 			c.from_dict(csb)
+		
+		self.weather_alert_settings.from_dict(data["weather_alert_settings"])
 
 
 	def __str__(self) -> str:
