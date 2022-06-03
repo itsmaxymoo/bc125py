@@ -98,6 +98,12 @@ def main() -> int:
 	if cli_args.port:
 		global _port
 		_port = cli_args.port
+	
+	# If simulate, make sure there is a port
+	if hasattr(cli_args, "simulate"):
+		if cli_args.simulate and not cli_args.port:
+			log.error("use of --simulate requires --port")
+			return 1
 
 	# Dispatch subcommand
 	cmd = cli_args.command
@@ -236,8 +242,13 @@ def export_write(in_file: str, csv: bool, simulate: bool = False) -> int:
 		"subc: export/write",
 		"file:",
 		in_file,
-		"csv:", csv
+		"csv:", csv,
+		"simulate:", simulate
 	)
+
+	if not simulate:
+		enforce_root()
+	
 
 	return 0
 
