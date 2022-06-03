@@ -999,6 +999,60 @@ class EnabledCustomSearchBanks(_ScannerDataObject):
 		self.banks = data["banks"]
 
 
+# CSP Custom Search Bank
+class CustomSearchBank(_ScannerDataObject):
+	"""A custom search bank.
+
+	Attributes:
+		index (int): Custom search bank index
+		lower_limit (str): The lower limit frequency, in MHz
+		upper_limit (str): The upper limit frequency, in MHz
+	
+	Notes:
+		Frequencies must be valid
+		index MUST be in range [1-10]
+	"""
+
+	index: int = 1
+	lower_limit: str = "25.000"
+	upper_limit: str = "512.000"
+
+
+	def __init__(self, index: int = 1) -> None:
+		self.index = index
+
+
+	def to_write_command(self) -> tuple:
+		return self.to_fetch_command() + (
+			freq_to_scanner(self.lower_limit),
+			freq_to_scanner(self.upper_limit)
+		)
+
+
+	def to_fetch_command(self) -> tuple:
+		return ("CSP", self.index)
+
+
+	def from_command_response(self, command_response: tuple) -> None:
+		self.index = int(command_response[0])
+		self.lower_limit = freq_to_mhz(command_response[1])
+		self.upper_limit = freq_to_mhz(command_response[2])
+
+
+	def to_dict(self) -> dict:
+		return {
+			"index": self.index,
+			"lower_limit": self.lower_limit,
+			"upper_limit": self.upper_limit
+		}
+
+
+	def from_dict(self, data) -> None:
+		self.index = data["index"]
+		self.lower_limit = data["lower_limit"]
+		self.upper_limit = data["upper_limit"]
+
+
 #endregion
 
 
@@ -1021,6 +1075,7 @@ class Scanner:
 	cc_main_settings: CloseCallSettings
 	enabled_search_banks: EnabledSearchBanks
 	enabled_custom_search_banks: EnabledCustomSearchBanks
+	custom_search_banks: list
 
 	def __init__(self) -> None:
 		self.model = DeviceModel()
@@ -1040,6 +1095,10 @@ class Scanner:
 		self.cc_main_settings = CloseCallSettings()
 		self.enabled_search_banks = EnabledSearchBanks()
 		self.enabled_custom_search_banks = EnabledCustomSearchBanks()
+
+		self.custom_search_banks = []
+		for i in range(1, 11):
+			self.custom_search_banks.append(CustomSearchBank(i))
 
 
 	def write_to(self, scanner_con: bc125py.ScannerConnection) -> None:
@@ -1067,6 +1126,9 @@ class Scanner:
 		self.cc_main_settings.write_to(scanner_con)
 		self.enabled_search_banks.write_to(scanner_con)
 		self.enabled_custom_search_banks.write_to(scanner_con)
+
+		for c in self.custom_search_banks:
+			c.write_to(scanner_con)
 
 		ExitProgramMode().write_to(scanner_con)
 
@@ -1097,6 +1159,9 @@ class Scanner:
 		self.enabled_search_banks.read_from(scanner_con)
 		self.enabled_custom_search_banks.read_from(scanner_con)
 
+		for c in self.custom_search_banks:
+			c.read_from(scanner_con)
+
 		ExitProgramMode().write_to(scanner_con)
 
 
@@ -1117,6 +1182,7 @@ class Scanner:
 			"locked_frequencies": self.locked_frequencies.to_dict(),
 			"enabled_search_banks": self.enabled_search_banks.to_dict(),
 			"enabled_custom_search_banks": self.enabled_custom_search_banks.to_dict(),
+			"custom_search_banks": list(map(lambda c : c.to_dict(), self.custom_search_banks)),
 
 			"channels": list(map(lambda c : c.to_dict(), self.channels))
 		}
@@ -1143,6 +1209,11 @@ class Scanner:
 		self.cc_main_settings.from_dict(data["cc_main_settings"])
 		self.enabled_search_banks.from_dict(data["enabled_search_banks"])
 		self.enabled_custom_search_banks.from_dict(data["enabled_custom_search_banks"])
+
+		self.custom_search_banks = []
+		for csb in data["custom_search_banks"]:
+			c: CustomSearchBank = CustomSearchBank()
+			c.from_dict(csb)
 
 
 	def __str__(self) -> str:
