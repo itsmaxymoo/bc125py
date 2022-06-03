@@ -1,0 +1,5156 @@
+{
+	"bc125py_version": "0.2.indev",
+	"model": {
+		"model": "BC125AT"
+	},
+	"firmware": {
+		"version": "Version 1.04.02"
+	},
+	"backlight": {
+		"backlight": "always_off"
+	},
+	"battery_charge_timer": {
+		"hours": 14
+	},
+	"keypad": {
+		"beep_level": "auto",
+		"key_lock": "unlocked"
+	},
+	"priority_mode": {
+		"mode": "off"
+	},
+	"enabled_channel_banks": {
+		"banks": [
+			false,
+			false,
+			false,
+			true,
+			true,
+			false,
+			false,
+			false,
+			false,
+			false
+		]
+	},
+	"cc_main_settings": {
+		"mode": "off",
+		"alert_beep": "true",
+		"alert_light": "true",
+		"enabled_cc_bands": [
+			true,
+			true,
+			false,
+			true,
+			true
+		],
+		"lockout": "unlocked"
+	},
+	"cc_ctcss_delay": {
+		"delay": 2,
+		"ctcss": "true"
+	},
+	"locked_frequencies": {
+		"freqs": [
+			"032.0000",
+			"049.1500",
+			"111.0000",
+			"454.1875",
+			"454.2000"
+		]
+	},
+	"enabled_service_search_banks": {
+		"banks": [
+			true,
+			true,
+			true,
+			true,
+			true,
+			true,
+			true,
+			true,
+			true,
+			true
+		]
+	},
+	"enabled_custom_search_banks": {
+		"banks": [
+			false,
+			true,
+			true,
+			true,
+			true,
+			true,
+			true,
+			true,
+			true,
+			true
+		]
+	},
+	"custom_search_banks": [
+		{
+			"index": 1,
+			"lower_limit": "025.0000",
+			"upper_limit": "027.9950"
+		},
+		{
+			"index": 2,
+			"lower_limit": "028.0000",
+			"upper_limit": "029.6950"
+		},
+		{
+			"index": 3,
+			"lower_limit": "029.7000",
+			"upper_limit": "049.9950"
+		},
+		{
+			"index": 4,
+			"lower_limit": "050.0000",
+			"upper_limit": "054.0000"
+		},
+		{
+			"index": 5,
+			"lower_limit": "108.0000",
+			"upper_limit": "136.9916"
+		},
+		{
+			"index": 6,
+			"lower_limit": "137.0000",
+			"upper_limit": "143.9950"
+		},
+		{
+			"index": 7,
+			"lower_limit": "144.0000",
+			"upper_limit": "147.9950"
+		},
+		{
+			"index": 8,
+			"lower_limit": "225.0000",
+			"upper_limit": "380.0000"
+		},
+		{
+			"index": 9,
+			"lower_limit": "400.0000",
+			"upper_limit": "449.9937"
+		},
+		{
+			"index": 10,
+			"lower_limit": "450.0000",
+			"upper_limit": "469.9937"
+		}
+	],
+	"weather_alert_settings": {
+		"alert_priority": "false"
+	},
+	"display_contrast": {
+		"contrast": 8
+	},
+	"device_volume": {
+		"volume": 10
+	},
+	"squelch": {
+		"squelch": 2
+	},
+	"channels": [
+		{
+			"index": 1,
+			"name": "AAR HOTD",
+			"frequency": "452.9375",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 2,
+			"name": "AAR EOTD",
+			"frequency": "457.9375",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 3,
+			"name": "Amtk Keystone",
+			"frequency": "160.6350",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 4,
+			"name": "DL East of Pocno",
+			"frequency": "161.1750",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 5,
+			"name": "DL West of Pocno",
+			"frequency": "161.4600",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 6,
+			"name": "DL Yard",
+			"frequency": "160.2450",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 7,
+			"name": "NS Sunbury Line",
+			"frequency": "161.4750",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 8,
+			"name": "NS DH Yard",
+			"frequency": "160.5900",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 9,
+			"name": "NS Pitt Line",
+			"frequency": "160.8000",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 10,
+			"name": "NS MOW",
+			"frequency": "161.4300",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 11,
+			"name": "RBMN Reading S",
+			"frequency": "160.4700",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 12,
+			"name": "RBMN Reading N-L",
+			"frequency": "160.7700",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 13,
+			"name": "RBMN Lehigh",
+			"frequency": "160.8000",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 14,
+			"name": "RBMN Yard",
+			"frequency": "161.3100",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 15,
+			"name": "Strasburg RR",
+			"frequency": "161.2350",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 16,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 17,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 18,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 19,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 20,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 21,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 22,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 23,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 24,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 25,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 26,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 27,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 28,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 29,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 30,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 31,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 32,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 33,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 34,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 35,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 36,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 37,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 38,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 39,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 40,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 41,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 42,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 43,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 44,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 45,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 46,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 47,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 48,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 49,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 50,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "on"
+		},
+		{
+			"index": 51,
+			"name": "PGC NE Reg 5",
+			"frequency": "044.6400",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 52,
+			"name": "PGC NC Reg 3",
+			"frequency": "044.6800",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 53,
+			"name": "PAFishBoat PD 1",
+			"frequency": "045.0400",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 54,
+			"name": "PAFishBoat PD 2",
+			"frequency": "044.9600",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 55,
+			"name": "LackCo PD 1",
+			"frequency": "154.8750",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 56,
+			"name": "LackCo PD 2",
+			"frequency": "154.8150",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 57,
+			"name": "LackCo PD 3",
+			"frequency": "155.7900",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 58,
+			"name": "LackCo Detec",
+			"frequency": "153.9950",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 59,
+			"name": "LackSheriff1",
+			"frequency": "151.4900",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 60,
+			"name": "LackSheriff3",
+			"frequency": "151.0250",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 61,
+			"name": "LackPRCTrans",
+			"frequency": "453.2500",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 62,
+			"name": "Archbald PD",
+			"frequency": "155.5500",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 63,
+			"name": "Clark Smt PD",
+			"frequency": "155.7150",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 64,
+			"name": "Dunmore PD",
+			"frequency": "159.0900",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 65,
+			"name": "Dunmore PD6",
+			"frequency": "154.8300",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 66,
+			"name": "Jessup PD",
+			"frequency": "154.1150",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 67,
+			"name": "Moosic PD",
+			"frequency": "153.8150",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 68,
+			"name": "Moscow PD",
+			"frequency": "154.9800",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 69,
+			"name": "Newton PD",
+			"frequency": "158.7750",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 70,
+			"name": "Scranton PD Disp",
+			"frequency": "453.3750",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 71,
+			"name": "Scranton PD Tac",
+			"frequency": "453.7000",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 72,
+			"name": "S Abngtn PD",
+			"frequency": "156.1200",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 73,
+			"name": "Lz PD Zone-A W",
+			"frequency": "158.7300",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 74,
+			"name": "Lz PD Zone-B CE",
+			"frequency": "151.2650",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 75,
+			"name": "Lz PD Zone-C CW",
+			"frequency": "151.3700",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 76,
+			"name": "Lz PD Zone-D E",
+			"frequency": "155.0700",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 77,
+			"name": "Lz PD Zone-E S",
+			"frequency": "155.9250",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 78,
+			"name": "Lz PD Zone-G N",
+			"frequency": "158.8050",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 79,
+			"name": "Lz Sheriff",
+			"frequency": "155.4150",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 80,
+			"name": "Lz Prison",
+			"frequency": "155.8800",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 81,
+			"name": "Hzltn PD 1",
+			"frequency": "151.1150",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 82,
+			"name": "Kingston PD1",
+			"frequency": "154.9950",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 83,
+			"name": "WB City PD Disp",
+			"frequency": "154.8450",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 84,
+			"name": "WB City PD Tac 1",
+			"frequency": "154.8000",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 85,
+			"name": "WB City PD Tac 2",
+			"frequency": "155.9700",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 86,
+			"name": "SqCo PD Elk",
+			"frequency": "154.7250",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 87,
+			"name": "WyCo PD Disp",
+			"frequency": "155.1900",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 88,
+			"name": "WyCo PD Tac 1",
+			"frequency": "156.2100",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 89,
+			"name": "WyCo PD Tac 2",
+			"frequency": "151.1375",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 90,
+			"name": "WynCo PD",
+			"frequency": "159.1500",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 91,
+			"name": "WynCo Court",
+			"frequency": "154.0025",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 92,
+			"name": "WynCo Sheriff",
+			"frequency": "460.3625",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 93,
+			"name": "WynCo Jail",
+			"frequency": "453.6625",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 94,
+			"name": "Hawley PD",
+			"frequency": "155.0400",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 95,
+			"name": "Honesdale PD",
+			"frequency": "155.8200",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 96,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 97,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 98,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 99,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 100,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "on"
+		},
+		{
+			"index": 101,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 102,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 103,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 104,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 105,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 106,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 107,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 108,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 109,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 110,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 111,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 112,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 113,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 114,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 115,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 116,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 117,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 118,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 119,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 120,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 121,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 122,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 123,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 124,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 125,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 126,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 127,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 128,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 129,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 130,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 131,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 132,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 133,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 134,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 135,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 136,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 137,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 138,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 139,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 140,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 141,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 142,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 143,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 144,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 145,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 146,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 147,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 148,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 149,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 150,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "on"
+		},
+		{
+			"index": 151,
+			"name": "LCFR County Red",
+			"frequency": "154.3100",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 152,
+			"name": "LCFR County Blue",
+			"frequency": "155.2950",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 153,
+			"name": "LCFR Black",
+			"frequency": "151.0625",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 154,
+			"name": "LCFR Brown",
+			"frequency": "151.2125",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 155,
+			"name": "LCFR Green",
+			"frequency": "151.1000",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 156,
+			"name": "LCFR Gray",
+			"frequency": "154.2800",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 157,
+			"name": "LCFR Orange",
+			"frequency": "155.4900",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 158,
+			"name": "LCFR Yellow",
+			"frequency": "154.2125",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 159,
+			"name": "LCFR MED-1",
+			"frequency": "463.0000",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 160,
+			"name": "LackCo EMA",
+			"frequency": "158.8350",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 161,
+			"name": "Cottage FD",
+			"frequency": "154.7100",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 162,
+			"name": "Cottage FG",
+			"frequency": "155.3850",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 163,
+			"name": "Carbondale F",
+			"frequency": "155.6100",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 164,
+			"name": "Covington FD",
+			"frequency": "153.8600",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 165,
+			"name": "Dickson FG",
+			"frequency": "155.7750",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 166,
+			"name": "Fell Twp. FG",
+			"frequency": "154.2350",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 167,
+			"name": "GrnFld FD",
+			"frequency": "159.3075",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 168,
+			"name": "Jtwp FC pvt",
+			"frequency": "154.1300",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 169,
+			"name": "Jtwp FC Locl",
+			"frequency": "154.4300",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 170,
+			"name": "Jtwp Ambo P",
+			"frequency": "155.4000",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 171,
+			"name": "Jermyn FD",
+			"frequency": "154.7100",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 172,
+			"name": "Moosic FG",
+			"frequency": "153.8150",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 173,
+			"name": "Ntwn Rans FD",
+			"frequency": "150.8600",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 174,
+			"name": "OldForge EMS",
+			"frequency": "151.8050",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 175,
+			"name": "OldForgeFire",
+			"frequency": "154.2650",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 176,
+			"name": "Scott Twp FG",
+			"frequency": "154.5150",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 177,
+			"name": "Scranton FD1",
+			"frequency": "453.5000",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 178,
+			"name": "Scranton FD2",
+			"frequency": "453.2000",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 179,
+			"name": "Chnchla FG2",
+			"frequency": "154.2950",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 180,
+			"name": "Chnchla FG3",
+			"frequency": "153.8300",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 181,
+			"name": "Taylor FG",
+			"frequency": "155.8800",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 182,
+			"name": "Throop Fire",
+			"frequency": "154.7850",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 183,
+			"name": "Vandling FG",
+			"frequency": "153.8900",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 184,
+			"name": "Abngtn Tac 2",
+			"frequency": "154.2125",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 185,
+			"name": "Lz Fire EMS",
+			"frequency": "157.4500",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 186,
+			"name": "FortyFord FD",
+			"frequency": "154.7250",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 187,
+			"name": "Hanover Fire",
+			"frequency": "155.7750",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 188,
+			"name": "Hzltn EMS",
+			"frequency": "155.4000",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 189,
+			"name": "MtnTop Fire",
+			"frequency": "154.4150",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 190,
+			"name": "Nescopk Lz",
+			"frequency": "155.3250",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 191,
+			"name": "WB Fire Disp",
+			"frequency": "155.9400",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 192,
+			"name": "SqCo Fire Disp",
+			"frequency": "155.0625",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 193,
+			"name": "SqCo EMS Elk",
+			"frequency": "462.9500",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 194,
+			"name": "WyCo Fire EMS",
+			"frequency": "155.7300",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 195,
+			"name": "WyCo Loc Gov",
+			"frequency": "155.9550",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 196,
+			"name": "WyCo EMA",
+			"frequency": "158.7375",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 197,
+			"name": "Elk Ski Patrol",
+			"frequency": "155.2000",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 198,
+			"name": "Medevac AVP",
+			"frequency": "453.1250",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 199,
+			"name": "Wayne FD Disp",
+			"frequency": "151.4150",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 200,
+			"name": "Wayne EMS",
+			"frequency": "155.3100",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "on"
+		},
+		{
+			"index": 201,
+			"name": "Wayne FD Cmd",
+			"frequency": "155.6775",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 202,
+			"name": "Wayne EMA",
+			"frequency": "158.8350",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 203,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 204,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 205,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 206,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 207,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 208,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 209,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 210,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 211,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 212,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 213,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 214,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 215,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 216,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 217,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 218,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 219,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 220,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 221,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 222,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 223,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 224,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 225,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 226,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 227,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 228,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 229,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 230,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 231,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 232,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 233,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 234,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 235,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 236,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 237,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 238,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 239,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 240,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 241,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 242,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 243,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 244,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 245,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 246,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 247,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 248,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 249,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 250,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "on"
+		},
+		{
+			"index": 251,
+			"name": "PTC 5 Disp NE Ex",
+			"frequency": "156.1950",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 252,
+			"name": "PTC Portable",
+			"frequency": "458.4625",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 253,
+			"name": "LackCo COLT",
+			"frequency": "452.7500",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 254,
+			"name": "AHSD Buses",
+			"frequency": "157.6200",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 255,
+			"name": "Fixed Air2Air",
+			"frequency": "122.7500",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 256,
+			"name": "Heli Air2Air",
+			"frequency": "123.0250",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 257,
+			"name": "GldrBlon Air2Air",
+			"frequency": "123.3000",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 258,
+			"name": "Ocean Air2Air",
+			"frequency": "123.4500",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 259,
+			"name": "KAVP ATIS",
+			"frequency": "111.6000",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 260,
+			"name": "KAVP Tower",
+			"frequency": "120.1000",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 261,
+			"name": "KAVP WX ASOS",
+			"frequency": "120.2750",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 262,
+			"name": "KAVP A/D SE",
+			"frequency": "120.9500",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 263,
+			"name": "KAVP Ground",
+			"frequency": "121.9000",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 264,
+			"name": "KAVP FSS 1",
+			"frequency": "122.2000",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 265,
+			"name": "KAVP FSS 2",
+			"frequency": "122.6000",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 266,
+			"name": "KAVP Unicom",
+			"frequency": "122.9500",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 267,
+			"name": "KAVP A/D NW",
+			"frequency": "126.3000",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 268,
+			"name": "KAVP A/D Mil",
+			"frequency": "256.7000",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 269,
+			"name": "KAVP TowrMil",
+			"frequency": "257.8000",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 270,
+			"name": "Seamans Unicom",
+			"frequency": "122.7000",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 271,
+			"name": "Skyhaven Unicom",
+			"frequency": "122.8000",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 272,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 273,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 274,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 275,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 276,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 277,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 278,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 279,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 280,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 281,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 282,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 283,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 284,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 285,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 286,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 287,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 288,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 289,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 290,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 291,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 292,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 293,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 294,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 295,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 296,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 297,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 298,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 299,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 300,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "on"
+		},
+		{
+			"index": 301,
+			"name": "6m FM Simplex",
+			"frequency": "052.5250",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 302,
+			"name": "2m Simplex",
+			"frequency": "146.5200",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 303,
+			"name": "70cm Simplex",
+			"frequency": "446.0000",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 304,
+			"name": "MURS 1",
+			"frequency": "151.8200",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 305,
+			"name": "MURS 2",
+			"frequency": "151.8800",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 306,
+			"name": "MURS 3",
+			"frequency": "151.9400",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 307,
+			"name": "MURS Blue Dot",
+			"frequency": "154.5700",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 308,
+			"name": "MURS Green Dot",
+			"frequency": "154.6000",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 309,
+			"name": "WAN-RS W-B",
+			"frequency": "147.1500",
+			"modulation": "nfm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 310,
+			"name": "2m R Bald Mtn",
+			"frequency": "146.7150",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 311,
+			"name": "2m R Carbondale",
+			"frequency": "146.7900",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 312,
+			"name": "2m R Dunmore",
+			"frequency": "147.0000",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 313,
+			"name": "2m R Mehoopany",
+			"frequency": "147.2100",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 314,
+			"name": "2m R Scranton",
+			"frequency": "147.2850",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 315,
+			"name": "2m R Elk Mtn",
+			"frequency": "147.8400",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 316,
+			"name": "70cm R Crbondale",
+			"frequency": "440.0562",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 317,
+			"name": "70cm R Tunk",
+			"frequency": "441.1500",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 318,
+			"name": "70cm R Clrks Smt",
+			"frequency": "442.5500",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 319,
+			"name": "70cm R Scranton",
+			"frequency": "448.8250",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 320,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 321,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 322,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 323,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 324,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 325,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 326,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 327,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 328,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 329,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 330,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 331,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 332,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 333,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 334,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 335,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 336,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 337,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 338,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 339,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 340,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 341,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 342,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 343,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 344,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 345,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 346,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 347,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 348,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 349,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 350,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "on"
+		},
+		{
+			"index": 351,
+			"name": "CB 1",
+			"frequency": "026.9650",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 352,
+			"name": "CB 2",
+			"frequency": "026.9750",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 353,
+			"name": "CB 3",
+			"frequency": "026.9850",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 354,
+			"name": "CB 4 OffRoad",
+			"frequency": "027.0050",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 355,
+			"name": "CB 5",
+			"frequency": "027.0150",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 356,
+			"name": "CB 6 Superbowl  ",
+			"frequency": "027.0250",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 357,
+			"name": "CB 7",
+			"frequency": "027.0350",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 358,
+			"name": "CB 8",
+			"frequency": "027.0550",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 359,
+			"name": "CB 9 Emergency",
+			"frequency": "027.0650",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 360,
+			"name": "CB 10 Regional",
+			"frequency": "027.0750",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 361,
+			"name": "CB 11",
+			"frequency": "027.0850",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 362,
+			"name": "CB 12",
+			"frequency": "027.1050",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 363,
+			"name": "CB 13 MarineRV",
+			"frequency": "027.1150",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 364,
+			"name": "CB 14 Portable",
+			"frequency": "027.1250",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 365,
+			"name": "CB 15",
+			"frequency": "027.1350",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 366,
+			"name": "CB 16",
+			"frequency": "027.1550",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 367,
+			"name": "CB 17 Road N/S",
+			"frequency": "027.1650",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 368,
+			"name": "CB 18",
+			"frequency": "027.1750",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 369,
+			"name": "CB 19 Road E/W",
+			"frequency": "027.1850",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 370,
+			"name": "CB 20",
+			"frequency": "027.2050",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 371,
+			"name": "CB 21 Regional",
+			"frequency": "027.2150",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 372,
+			"name": "CB 22",
+			"frequency": "027.2250",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 373,
+			"name": "CB 23",
+			"frequency": "027.2550",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 374,
+			"name": "CB 24",
+			"frequency": "027.2350",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 375,
+			"name": "CB 25",
+			"frequency": "027.2450",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 376,
+			"name": "CB 26",
+			"frequency": "027.2650",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 377,
+			"name": "CB 27",
+			"frequency": "027.2750",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 378,
+			"name": "CB 28",
+			"frequency": "027.2850",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 379,
+			"name": "CB 29",
+			"frequency": "027.2950",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 380,
+			"name": "CB 30",
+			"frequency": "027.3050",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 381,
+			"name": "CB 31",
+			"frequency": "027.3150",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 382,
+			"name": "CB 32",
+			"frequency": "027.3250",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 383,
+			"name": "CB 33",
+			"frequency": "027.3350",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 384,
+			"name": "CB 34",
+			"frequency": "027.3450",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 385,
+			"name": "CB 35",
+			"frequency": "027.3550",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 386,
+			"name": "CB 36",
+			"frequency": "027.3650",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 387,
+			"name": "CB 37",
+			"frequency": "027.3750",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 388,
+			"name": "CB 38",
+			"frequency": "027.3850",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 389,
+			"name": "CB 39",
+			"frequency": "027.3950",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 390,
+			"name": "CB 40",
+			"frequency": "027.4050",
+			"modulation": "am",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 391,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 392,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 393,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 394,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 395,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 396,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 397,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 398,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 399,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 400,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "on"
+		},
+		{
+			"index": 401,
+			"name": "ISS HAM Down",
+			"frequency": "145.8000",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 402,
+			"name": "AO-91 Down",
+			"frequency": "145.9600",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 403,
+			"name": "AO-92 Down",
+			"frequency": "145.8800",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 404,
+			"name": "SO-50 Down",
+			"frequency": "436.7937",
+			"modulation": "fm",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		},
+		{
+			"index": 405,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 406,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 407,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 408,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 409,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 410,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 411,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 412,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 413,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 414,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 415,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 416,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 417,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 418,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 419,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 420,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 421,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 422,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 423,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 424,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 425,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 426,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 427,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 428,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 429,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 430,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 431,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 432,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 433,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 434,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 435,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 436,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 437,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 438,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 439,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 440,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 441,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 442,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 443,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 444,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 445,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 446,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 447,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 448,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 449,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 450,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "on"
+		},
+		{
+			"index": 451,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 452,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 453,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 454,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 455,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 456,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 457,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 458,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 459,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 460,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 461,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 462,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 463,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 464,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 465,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 466,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 467,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 468,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 469,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 470,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 471,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 472,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 473,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 474,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 475,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 476,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 477,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 478,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 479,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 480,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 481,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 482,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 483,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 484,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 485,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 486,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 487,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 488,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 489,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 490,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 491,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 492,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 493,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 494,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 495,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 496,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 497,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 498,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 499,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		},
+		{
+			"index": 500,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": 0,
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "on"
+		}
+	]
+}

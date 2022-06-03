@@ -78,8 +78,8 @@ def is_valid_freq_mhz(freq: str) -> bool:
 #region Enums
 
 class E_TrueFalse(Enum):
-	true: str = "0"
-	false: str = "1"
+	true: str = "1"
+	false: str = "0"
 
 
 class E_LockState(Enum):
@@ -914,9 +914,9 @@ class CloseCallSettings(_ScannerDataObject):
 
 
 # SSG Enabled Search Banks
-class EnabledSearchBanks(_ScannerDataObject):
-	"""Control which search banks are enabled on the scanner
-	Disabled banks will be skipped when in "Srch" mode
+class EnabledServiceSearchBanks(_ScannerDataObject):
+	"""Control which SERVICE search banks are enabled on the scanner
+	Disabled banks will be skipped when in "Srch/Svc" mode
 
 	Attributes:
 		banks (bool list, length 10): An array representing each bank and whether or not it's enabled
@@ -1218,7 +1218,7 @@ class Scanner:
 	cc_ctcss_delay: CloseCallDelayCTCSSSettings
 	locked_frequencies: LockedFrequencies
 	cc_main_settings: CloseCallSettings
-	enabled_search_banks: EnabledSearchBanks
+	enabled_service_search_banks: EnabledServiceSearchBanks
 	enabled_custom_search_banks: EnabledCustomSearchBanks
 	custom_search_banks: list
 	weather_alert_settings: WeatherAlertSettings
@@ -1242,7 +1242,7 @@ class Scanner:
 		self.cc_ctcss_delay = CloseCallDelayCTCSSSettings()
 		self.locked_frequencies = LockedFrequencies()
 		self.cc_main_settings = CloseCallSettings()
-		self.enabled_search_banks = EnabledSearchBanks()
+		self.enabled_service_search_banks = EnabledServiceSearchBanks()
 		self.enabled_custom_search_banks = EnabledCustomSearchBanks()
 
 		self.custom_search_banks = []
@@ -1278,7 +1278,7 @@ class Scanner:
 		self.cc_ctcss_delay.write_to(scanner_con)
 		self.locked_frequencies.write_to(scanner_con)
 		self.cc_main_settings.write_to(scanner_con)
-		self.enabled_search_banks.write_to(scanner_con)
+		self.enabled_service_search_banks.write_to(scanner_con)
 		self.enabled_custom_search_banks.write_to(scanner_con)
 
 		for c in self.custom_search_banks:
@@ -1315,7 +1315,7 @@ class Scanner:
 		self.cc_ctcss_delay.read_from(scanner_con)
 		self.locked_frequencies.read_from(scanner_con)
 		self.cc_main_settings.read_from(scanner_con)
-		self.enabled_search_banks.read_from(scanner_con)
+		self.enabled_service_search_banks.read_from(scanner_con)
 		self.enabled_custom_search_banks.read_from(scanner_con)
 
 		for c in self.custom_search_banks:
@@ -1344,7 +1344,7 @@ class Scanner:
 			"cc_main_settings": self.cc_main_settings.to_dict(),
 			"cc_ctcss_delay": self.cc_ctcss_delay.to_dict(),
 			"locked_frequencies": self.locked_frequencies.to_dict(),
-			"enabled_search_banks": self.enabled_search_banks.to_dict(),
+			"enabled_service_search_banks": self.enabled_service_search_banks.to_dict(),
 			"enabled_custom_search_banks": self.enabled_custom_search_banks.to_dict(),
 			"custom_search_banks": list(map(lambda c : c.to_dict(), self.custom_search_banks)),
 			"weather_alert_settings": self.weather_alert_settings.to_dict(),
@@ -1375,7 +1375,7 @@ class Scanner:
 		self.cc_ctcss_delay.from_dict(data["cc_ctcss_delay"])
 		self.locked_frequencies.from_dict(data["locked_frequencies"])
 		self.cc_main_settings.from_dict(data["cc_main_settings"])
-		self.enabled_search_banks.from_dict(data["enabled_search_banks"])
+		self.enabled_service_search_banks.from_dict(data["enabled_service_search_banks"])
 		self.enabled_custom_search_banks.from_dict(data["enabled_custom_search_banks"])
 
 		self.custom_search_banks = []
