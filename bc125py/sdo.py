@@ -910,7 +910,7 @@ class CloseCallSettings(_ScannerDataObject):
 		self.alert_beep = E_TrueFalse[data["alert_beep"]]
 		self.alert_light = E_TrueFalse[data["alert_light"]]
 		self.cc_bands = data["enabled_cc_bands"]
-		self.lockout - E_LockState[data["lockout"]]
+		self.lockout = E_LockState[data["lockout"]]
 
 
 # SSG Enabled Search Banks
@@ -1085,7 +1085,7 @@ class WeatherAlertSettings(_ScannerDataObject):
 
 
 	def from_dict(self, data: dict) -> None:
-		self.alert_priority = E_BacklightMode[data["alert_priority"]]
+		self.alert_priority = E_TrueFalse[data["alert_priority"]]
 
 
 # CNT Contrast
@@ -1264,8 +1264,6 @@ class Scanner:
 
 		EnterProgramMode().write_to(scanner_con)
 
-		self.model.write_to(scanner_con)
-		self.firmware.write_to(scanner_con)
 		self.backlight.write_to(scanner_con)
 		self.battery_charge_timer.write_to(scanner_con)
 		self.keypad.write_to(scanner_con)
@@ -1371,6 +1369,7 @@ class Scanner:
 		for cd in data["channels"]:
 			c: Channel = Channel()
 			c.from_dict(cd)
+			self.channels.append(c)
 
 		self.cc_ctcss_delay.from_dict(data["cc_ctcss_delay"])
 		self.locked_frequencies.from_dict(data["locked_frequencies"])
