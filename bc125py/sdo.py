@@ -536,7 +536,7 @@ class EnabledChannelBanks(_ScannerDataObject):
 	Disabled banks will be skipped when in "Scan" mode
 
 	Attributes:
-		banks (bool list, length 10): An array represeting each bank and whether or not it's enabled
+		banks (bool list, length 10): An array representing each bank and whether or not it's enabled
 	
 	Notes:
 		banks[] length must be 10
