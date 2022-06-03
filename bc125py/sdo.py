@@ -913,6 +913,92 @@ class CloseCallSettings(_ScannerDataObject):
 		self.lockout - E_LockState[data["lockout"]]
 
 
+# SSG Enabled Search Banks
+class EnabledSearchBanks(_ScannerDataObject):
+	"""Control which search banks are enabled on the scanner
+	Disabled banks will be skipped when in "Srch" mode
+
+	Attributes:
+		banks (bool list, length 10): An array representing each bank and whether or not it's enabled
+	
+	Notes:
+		banks[] length must be 10
+		At least one bank must be enabled
+	"""
+
+	# Defaults
+	banks: list = [True] * 10
+
+	def to_write_command(self) -> tuple:
+		cmd_str = "".join(map(lambda n: "0" if n else "1", self.banks))
+
+		if "0" not in cmd_str:
+			raise ValueError("At least one channel bank must be enabled!")
+
+		return self.to_fetch_command() + (cmd_str,)
+
+
+	def to_fetch_command(self) -> tuple:
+		return ("SSG",)
+
+
+	def from_command_response(self, command_response: tuple) -> None:
+		cmd_str: str
+		(cmd_str,) = command_response
+		self.banks = list(map(lambda n: n == "0", list(cmd_str)))
+
+
+	def to_dict(self) -> dict:
+		return {"banks": self.banks}
+
+
+	def from_dict(self, data: dict) -> None:
+		self.banks = data["banks"]
+
+
+# CSG Enabled Custom Search Banks
+class EnabledCustomSearchBanks(_ScannerDataObject):
+	"""Control which custom search banks are enabled on the scanner
+	Disabled banks will be skipped when in "Srch" mode
+
+	Attributes:
+		banks (bool list, length 10): An array representing each bank and whether or not it's enabled
+	
+	Notes:
+		banks[] length must be 10
+		At least one bank must be enabled
+	"""
+
+	# Defaults
+	banks: list = [True] * 10
+
+	def to_write_command(self) -> tuple:
+		cmd_str = "".join(map(lambda n: "0" if n else "1", self.banks))
+
+		if "0" not in cmd_str:
+			raise ValueError("At least one channel bank must be enabled!")
+
+		return self.to_fetch_command() + (cmd_str,)
+
+
+	def to_fetch_command(self) -> tuple:
+		return ("CSG",)
+
+
+	def from_command_response(self, command_response: tuple) -> None:
+		cmd_str: str
+		(cmd_str,) = command_response
+		self.banks = list(map(lambda n: n == "0", list(cmd_str)))
+
+
+	def to_dict(self) -> dict:
+		return {"banks": self.banks}
+
+
+	def from_dict(self, data: dict) -> None:
+		self.banks = data["banks"]
+
+
 #endregion
 
 
@@ -933,6 +1019,8 @@ class Scanner:
 	cc_ctcss_delay: CloseCallDelayCTCSSSettings
 	locked_frequencies: LockedFrequencies
 	cc_main_settings: CloseCallSettings
+	enabled_search_banks: EnabledSearchBanks
+	enabled_custom_search_banks: EnabledCustomSearchBanks
 
 	def __init__(self) -> None:
 		self.model = DeviceModel()
@@ -950,6 +1038,8 @@ class Scanner:
 		self.cc_ctcss_delay = CloseCallDelayCTCSSSettings()
 		self.locked_frequencies = LockedFrequencies()
 		self.cc_main_settings = CloseCallSettings()
+		self.enabled_search_banks = EnabledSearchBanks()
+		self.enabled_custom_search_banks = EnabledCustomSearchBanks()
 
 
 	def write_to(self, scanner_con: bc125py.ScannerConnection) -> None:
@@ -975,6 +1065,8 @@ class Scanner:
 		self.cc_ctcss_delay.write_to(scanner_con)
 		self.locked_frequencies.write_to(scanner_con)
 		self.cc_main_settings.write_to(scanner_con)
+		self.enabled_search_banks.write_to(scanner_con)
+		self.enabled_custom_search_banks.write_to(scanner_con)
 
 		ExitProgramMode().write_to(scanner_con)
 
@@ -1002,6 +1094,8 @@ class Scanner:
 		self.cc_ctcss_delay.read_from(scanner_con)
 		self.locked_frequencies.read_from(scanner_con)
 		self.cc_main_settings.read_from(scanner_con)
+		self.enabled_search_banks.read_from(scanner_con)
+		self.enabled_custom_search_banks.read_from(scanner_con)
 
 		ExitProgramMode().write_to(scanner_con)
 
@@ -1021,6 +1115,8 @@ class Scanner:
 			"cc_main_settings": self.cc_main_settings.to_dict(),
 			"cc_ctcss_delay": self.cc_ctcss_delay.to_dict(),
 			"locked_frequencies": self.locked_frequencies.to_dict(),
+			"enabled_search_banks": self.enabled_search_banks.to_dict(),
+			"enabled_custom_search_banks": self.enabled_custom_search_banks.to_dict(),
 
 			"channels": list(map(lambda c : c.to_dict(), self.channels))
 		}
@@ -1045,6 +1141,8 @@ class Scanner:
 		self.cc_ctcss_delay.from_dict(data["cc_ctcss_delay"])
 		self.locked_frequencies.from_dict(data["locked_frequencies"])
 		self.cc_main_settings.from_dict(data["cc_main_settings"])
+		self.enabled_search_banks.from_dict(data["enabled_search_banks"])
+		self.enabled_custom_search_banks.from_dict(data["enabled_custom_search_banks"])
 
 
 	def __str__(self) -> str:
