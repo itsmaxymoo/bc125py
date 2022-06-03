@@ -261,7 +261,22 @@ def export_write(in_file: str, csv: bool, simulate: bool = False) -> int:
 
 		if not csv:
 
-			log.error("Not implemented")
+			# Normal (JSON) export
+			import json
+
+			# Read file data
+			in_file_data = fin.read()
+
+			# Create scanner from file data
+			scanner: sdo.Scanner = sdo.Scanner()
+			log.debug("full export: parsing json")
+			scanner.from_dict(
+				json.loads(in_file_data)
+			)
+
+			# Write to scanner
+			log.debug("full export: writing to scanner")
+			scanner.write_to(scanner_con)
 
 		else:
 
