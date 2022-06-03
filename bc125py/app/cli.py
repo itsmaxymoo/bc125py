@@ -2,7 +2,6 @@ import os
 import sys
 import argparse
 import datetime
-from termios import CRTSCTS
 import bc125py
 from bc125py.app import core, log
 from bc125py import sdo
@@ -153,7 +152,7 @@ def test() -> int:
 # Import/Read command
 def import_read(out_file: str, csv: bool) -> int:
 	log.debug(
-		"subc: import/read",
+		"subc: import",
 		"file:",
 		out_file,
 		"csv:", csv
@@ -239,7 +238,7 @@ def import_read(out_file: str, csv: bool) -> int:
 # Export/Write command
 def export_write(in_file: str, csv: bool, simulate: bool = False) -> int:
 	log.debug(
-		"subc: export/write",
+		"subc: export",
 		"file:",
 		in_file,
 		"csv:", csv,
@@ -248,9 +247,87 @@ def export_write(in_file: str, csv: bool, simulate: bool = False) -> int:
 
 	if not simulate:
 		enforce_root()
-	
 
-	return 0
+	try:
+
+		# Connect to scanner
+		scanner_con = core.get_scanner_connection(port=_port, simulate=simulate)
+
+		# Open input file
+		log.debug("Attempting full file read")
+		fin = open(in_file, "r")
+
+		print("Writing to scanner...")
+
+		if not csv:
+
+			log.error("Not implemented")
+
+		else:
+
+			# CSV (channel only) export
+			import csv
+
+			log.debug("csv export: reading csv")
+			# create CSV reader
+			csv_reader = csv.reader(fin, dialect="excel")
+
+			# Skip header row
+			next(csv_reader)
+
+			# Create list of channels
+			channels: list = []
+
+			# Loop through each row
+			log.debug("csv export: parsing csv")
+			for row in csv_reader:
+				# Create channel dict first
+				c_dict = {
+					"index": int(row[0]),
+					"name": row[1],
+					"frequency": row[2],
+					"modulation": row[3],
+					"ctcss": int(row[4]),
+					"delay": int(row[5]),
+					"locked_out": row[6],
+					"priority": row[7]
+				}
+
+				# Create channel from dict
+				c: sdo.Channel = sdo.Channel()
+				c.from_dict(c_dict)
+				channels.append(c)
+
+			# Write channels
+			log.debug("csv export: write channels")
+
+			# PRG
+			sdo.EnterProgramMode().write_to(scanner_con)
+
+			c: sdo.Channel
+
+			for c in channels:
+				log.debug("WRITING CHANNEL", ",".join(map(lambda n : str(n), c.to_write_command())))
+				c.write_to(scanner_con)
+
+			del c
+
+			# EPG
+			sdo.ExitProgramMode().write_to(scanner_con)
+
+		# Close input file
+		fin.close()
+
+		# Close scanner connection
+		scanner_con.close()
+
+		print("done")
+
+		return 0
+
+	except Exception as e:
+		log.error(str(e))
+		return 1
 
 
 # Shell command
