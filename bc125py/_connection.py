@@ -296,7 +296,7 @@ class SimulatedScannerConnection(ScannerConnection):
 			raise ConnectionError("Could not connect to simulated port -", str(e))
 
 		self.connected = True
-		log.debug("con: SIM connection successfully established at port", port)
+		log.debug("con: SIMULATED connection successfully established at port", port)
 
 
 	def __setup_driver(self) -> None:
@@ -327,6 +327,7 @@ class SimulatedScannerConnection(ScannerConnection):
 		# First, try to send command to device
 		try:
 			self.__log_file.write(command + "\n")
+			log.debug("con_exec: send:", command)
 		except IOError as e:
 			raise ConnectionError("Could not communicate (write) with scanner: " + str(e))
 
