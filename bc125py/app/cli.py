@@ -77,6 +77,9 @@ def main() -> int:
 	shell_parser = sub_parsers.add_parser("shell", help="launch interactive scanner shell")
 	shell_parser.add_argument("file", help="commands file to execute", nargs="?", default=None)
 
+	# Subcommand wipe
+	wipe_parser = sub_parsers.add_parser("wipe", help="factory reset scanner")
+
 	# Parse arguments
 	cli_args = main_parser.parse_args()
 
@@ -114,6 +117,8 @@ def main() -> int:
 		return export_write(cli_args.file, cli_args.csv, simulate=cli_args.simulate)
 	elif cmd == "shell":
 		return shell(cmd_file_path=cli_args.file)
+	elif cmd == "wipe":
+		return wipe()
 
 	# If this part of the code was reached, something went wrong with argparse
 	log.error("ERRoneous subc:", cli_args.command)
@@ -439,6 +444,53 @@ def shell(cmd_file_path: str = None) -> int:
 			
 		# Close scanner connection
 		con.close()
+
+		return 0
+
+	except Exception as e:
+		log.error(str(e))
+		return 1
+
+
+# Wipe command
+def wipe():
+	log.debug("subc: wipe")
+
+	# User confirmation password
+	USER_CONFIRMATION_PASSWORD = "I understand the consequences."
+
+	enforce_root()
+
+	# Inform user about the danger of this command
+	print("This command will perform a factory reset on the connected scanner and DELETE ALL CHANNELS!")
+	print("It is STRONGLY recommended to back up your scanner first, using:", bc125py.MODULE_NAME, "import\n")
+	print("To wipe the connected scanner, type:", USER_CONFIRMATION_PASSWORD)
+
+	# Get user confirmation
+	user_input = input("> ")
+
+	log.debug("wipe: confirm input == password:", user_input, "==", USER_CONFIRMATION_PASSWORD)
+
+	if user_input != USER_CONFIRMATION_PASSWORD:
+		log.debug("**PASSWORD MISMATCH**")
+		log.error("Confirmation not obtained!")
+		return 1
+
+	else:
+		log.debug("continuing with wipe")
+
+	try:
+
+		# Connect
+		con = core.get_scanner_connection(_port)
+
+		# Issue wipe command
+		print("Wiping scanner. DO NOT UNPLUG THE DEVICE OR TURN POWER OFF!")
+		print("This will take some time...")
+		sdo.ClearScannerMemory().write_to(con)
+
+		# Done
+		print("done")
 
 		return 0
 
