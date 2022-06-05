@@ -123,6 +123,14 @@ class E_CloseCallMode(Enum):
 #endregion
 
 
+#region Helper Classes
+
+class BankListManager:
+	pass
+
+#endregion
+
+
 #region SDO
 
 class _ScannerDataObject:
