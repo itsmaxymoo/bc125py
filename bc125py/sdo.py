@@ -126,7 +126,58 @@ class E_CloseCallMode(Enum):
 #region Helper Classes
 
 class BankListManager:
-	pass
+	"""An object to represent a list of related banks and their state.
+	This is NOT an SDO.
+	"""
+
+	banks: list
+	__chr_bnk_enabled: str
+	__chr_bnk_disabled: str
+	__require_enabled: bool
+
+
+	def __init__(self, size: int, invert: bool = False, require_enabled: bool = True) -> None:
+		"""Constructor
+
+		Args:
+			size (int): How many banks in this list?
+			invert (bool, optional): Should 1 be considered enabled? Defaults to False.
+			require_enabled (bool, optional): Should the manager require at least one bank enabled? Defaults to True.
+		"""
+
+		if size < 1:
+			raise ValueError("BankManager size must be >= 1!")
+
+		self.banks = [True] * size
+
+		# Recall that 1 typically means "locked out"
+		self.__chr_bnk_enabled = "1" if invert else "0"
+		self.__chr_bnk_disabled = "0" if invert else "1"
+
+		self.__require_enabled = require_enabled
+
+
+	def to_write_command(self) -> str:
+		return "".join(map(lambda n: self.__chr_bnk_enabled if n else self.__chr_bnk_disabled, self.banks))
+
+
+	def from_command_response(self, command_response: str) -> None:
+		self.banks = list(map(lambda n: n == self.__chr_bnk_enabled, list(command_response)))
+
+
+	def to_dict(self) -> list:
+		return self.banks
+
+
+	def from_dict(self, banks: list) -> None:
+		self.banks = banks
+
+
+	def validate(self) -> None:
+		if self.__require_enabled:
+			if not any(self.banks):
+				raise ValueError("At least one bank must be enabled!")
+
 
 #endregion
 
@@ -234,6 +285,16 @@ class _ScannerDataObject:
 		self.from_command_response(
 			scanner_con.exec(self.to_fetch_command())
 		)
+
+
+	def validate(self) -> None:
+		"""Allow an SDO to validate its data.
+
+		Raises:
+			ValueError: if any data validation error is encountered.
+		"""
+
+		return None
 
 
 	def __str__(self) -> str:
