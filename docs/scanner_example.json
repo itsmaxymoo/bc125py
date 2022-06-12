@@ -1,5 +1,5 @@
 {
-	"bc125py_version": "0.2.indev",
+	"bc125py_version": "0.5.0_indev",
 	"model": {
 		"model": "BC125AT"
 	},
@@ -21,7 +21,7 @@
 	},
 	"enabled_channel_banks": {
 		"banks": [
-			false,
+			true,
 			false,
 			false,
 			true,
@@ -40,7 +40,7 @@
 		"enabled_cc_bands": [
 			true,
 			true,
-			false,
+			true,
 			true,
 			true
 		],
