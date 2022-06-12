@@ -613,15 +613,11 @@ class EnabledChannelBanks(_ScannerDataObject):
 	"""
 
 	# Defaults
-	banks: list = [True] * 10
+	bank_list_manager: BankListManager = BankListManager(size=10)
 
 	def to_write_command(self) -> tuple:
-		cmd_str = "".join(map(lambda n: "0" if n else "1", self.banks))
 
-		if "0" not in cmd_str:
-			raise ValueError("At least one channel bank must be enabled!")
-
-		return self.to_fetch_command() + (cmd_str,)
+		return self.to_fetch_command() + (self.bank_list_manager.to_write_command(),)
 
 
 	def to_fetch_command(self) -> tuple:
@@ -629,17 +625,15 @@ class EnabledChannelBanks(_ScannerDataObject):
 
 
 	def from_command_response(self, command_response: tuple) -> None:
-		cmd_str: str
-		(cmd_str,) = command_response
-		self.banks = list(map(lambda n: n == "0", list(cmd_str)))
+		self.banks = self.bank_list_manager.from_command_response(command_response[0])
 
 
 	def to_dict(self) -> dict:
-		return {"banks": self.banks}
+		return {"banks": self.bank_list_manager.to_dict()}
 
 
 	def from_dict(self, data: dict) -> None:
-		self.banks = data["banks"]
+		self.bank_list_manager.from_dict(data["banks"])
 
 
 # DCH Delete Channel
