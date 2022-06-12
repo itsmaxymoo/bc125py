@@ -605,10 +605,9 @@ class EnabledChannelBanks(_ScannerDataObject):
 	Disabled banks will be skipped when in "Scan" mode
 
 	Attributes:
-		banks (bool list, length 10): An array representing each bank and whether or not it's enabled
+		banks (BankListManager): Bank manager
 	
 	Notes:
-		banks[] length must be 10
 		At least one bank must be enabled
 	"""
 
@@ -921,7 +920,7 @@ class CloseCallSettings(_ScannerDataObject):
 		mode (E_CloseCallMode): The mode of close call operation
 		alert_beep (E_TrueFalse): Should the scanner beep when CC is found
 		alert_light (E_TrueFalse): Should the scanner backlight flash when CC is found
-		cc_bands (bool list, length 5): Which CC bands are enabled
+		cc_bands (BankListManager): Which CC bands are enabled
 		lockout (E_LockState): Unknown
 	
 	Notes:
@@ -932,7 +931,7 @@ class CloseCallSettings(_ScannerDataObject):
 	mode: E_CloseCallMode = E_CloseCallMode.off
 	alert_beep: E_TrueFalse = E_TrueFalse.true
 	alert_light: E_TrueFalse = E_TrueFalse.true
-	cc_bands: list = [True] * 5
+	cc_bands: BankListManager = BankListManager(size=5, invert=True)
 	lockout: E_LockState = E_LockState.unlocked
 
 
@@ -941,7 +940,7 @@ class CloseCallSettings(_ScannerDataObject):
 			self.mode.value,
 			self.alert_beep.value,
 			self.alert_light.value,
-			"".join(map(lambda n: "1" if n else "0", self.cc_bands)),
+			self.cc_bands.to_write_command(),
 			self.lockout.value
 		)
 
@@ -954,7 +953,7 @@ class CloseCallSettings(_ScannerDataObject):
 		self.mode = E_CloseCallMode(command_response[0])
 		self.alert_beep = E_TrueFalse(command_response[1])
 		self.alert_light = E_TrueFalse(command_response[2])
-		self.cc_bands = list(map(lambda n: n == "1", list(command_response[3])))
+		self.cc_bands.from_command_response(command_response[3])
 		self.lockout = E_LockState(command_response[4])
 
 
@@ -963,7 +962,7 @@ class CloseCallSettings(_ScannerDataObject):
 			"mode": self.mode.name,
 			"alert_beep": self.alert_beep.name,
 			"alert_light": self.alert_light.name,
-			"enabled_cc_bands": self.cc_bands,
+			"enabled_cc_bands": self.cc_bands.to_dict(),
 			"lockout": self.lockout.name
 		}
 
@@ -972,7 +971,7 @@ class CloseCallSettings(_ScannerDataObject):
 		self.mode = E_CloseCallMode[data["mode"]]
 		self.alert_beep = E_TrueFalse[data["alert_beep"]]
 		self.alert_light = E_TrueFalse[data["alert_light"]]
-		self.cc_bands = data["enabled_cc_bands"]
+		self.cc_bands.from_dict(data["enabled_cc_bands"])
 		self.lockout = E_LockState[data["lockout"]]
 
 
