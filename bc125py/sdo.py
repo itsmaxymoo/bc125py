@@ -931,7 +931,7 @@ class CloseCallSettings(_ScannerDataObject):
 	mode: E_CloseCallMode = E_CloseCallMode.off
 	alert_beep: E_TrueFalse = E_TrueFalse.true
 	alert_light: E_TrueFalse = E_TrueFalse.true
-	cc_bands: BankListManager = BankListManager(size=5, invert=True)
+	cc_bands: BankListManager = BankListManager(size=5, invert=True, require_enabled=False)
 	lockout: E_LockState = E_LockState.unlocked
 
 
@@ -981,24 +981,19 @@ class EnabledServiceSearchBanks(_ScannerDataObject):
 	Disabled banks will be skipped when in "Srch/Svc" mode
 
 	Attributes:
-		banks (bool list, length 10): An array representing each bank and whether or not it's enabled
+		bank_list_manager (BankListManager): Bank list manager
 	
 	Notes:
-		banks[] length must be 10
+		banks length must be 10
 		At least one bank must be enabled
 	"""
 
 	# Defaults
-	banks: list = [True] * 10
+	bank_list_manager: BankListManager = BankListManager(size=10)
 
 
 	def to_write_command(self) -> tuple:
-		cmd_str = "".join(map(lambda n: "0" if n else "1", self.banks))
-
-		if "0" not in cmd_str:
-			raise ValueError("At least one channel bank must be enabled!")
-
-		return self.to_fetch_command() + (cmd_str,)
+		return self.to_fetch_command() + (self.bank_list_manager.to_write_command(),)
 
 
 	def to_fetch_command(self) -> tuple:
@@ -1006,17 +1001,15 @@ class EnabledServiceSearchBanks(_ScannerDataObject):
 
 
 	def from_command_response(self, command_response: tuple) -> None:
-		cmd_str: str
-		(cmd_str,) = command_response
-		self.banks = list(map(lambda n: n == "0", list(cmd_str)))
+		self.bank_list_manager.from_command_response(command_response[0])
 
 
 	def to_dict(self) -> dict:
-		return {"banks": self.banks}
+		return {"banks": self.bank_list_manager.to_dict()}
 
 
 	def from_dict(self, data: dict) -> None:
-		self.banks = data["banks"]
+		self.bank_list_manager.from_dict(data["banks"])
 
 
 # CSG Enabled Custom Search Banks
@@ -1025,24 +1018,19 @@ class EnabledCustomSearchBanks(_ScannerDataObject):
 	Disabled banks will be skipped when in "Srch" mode
 
 	Attributes:
-		banks (bool list, length 10): An array representing each bank and whether or not it's enabled
+		bank_list_manager (BankListManager): Bank list manager
 	
 	Notes:
-		banks[] length must be 10
+		banks length must be 10
 		At least one bank must be enabled
 	"""
 
 	# Defaults
-	banks: list = [True] * 10
+	bank_list_manager: BankListManager = BankListManager(size=10)
 
 
 	def to_write_command(self) -> tuple:
-		cmd_str = "".join(map(lambda n: "0" if n else "1", self.banks))
-
-		if "0" not in cmd_str:
-			raise ValueError("At least one channel bank must be enabled!")
-
-		return self.to_fetch_command() + (cmd_str,)
+		return self.to_fetch_command() + (self.bank_list_manager.to_write_command(),)
 
 
 	def to_fetch_command(self) -> tuple:
@@ -1050,17 +1038,15 @@ class EnabledCustomSearchBanks(_ScannerDataObject):
 
 
 	def from_command_response(self, command_response: tuple) -> None:
-		cmd_str: str
-		(cmd_str,) = command_response
-		self.banks = list(map(lambda n: n == "0", list(cmd_str)))
+		self.bank_list_manager.from_command_response(command_response[0])
 
 
 	def to_dict(self) -> dict:
-		return {"banks": self.banks}
+		return {"banks": self.bank_list_manager.to_dict()}
 
 
 	def from_dict(self, data: dict) -> None:
-		self.banks = data["banks"]
+		self.bank_list_manager.from_dict(data["banks"])
 
 
 # CSP Custom Search Bank
