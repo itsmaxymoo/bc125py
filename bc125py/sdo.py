@@ -343,6 +343,11 @@ class _E(_ScannerDataObject):
 		self.attrib = data["attrib"]
 
 
+	def validate(self) -> None:
+		if self.attrib < 0:
+			raise ValueError("Attrib must be >= 0!")
+
+
 # PRG Program Mode
 class EnterProgramMode(_ScannerDataObject):
 	"""Enter program mode (command only)
