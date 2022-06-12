@@ -279,6 +279,14 @@ def export_write(in_file: str, csv: bool, simulate: bool = False) -> int:
 				json.loads(in_file_data)
 			)
 
+			# Validate scanner
+			try:
+				scanner.validate()
+			except ValueError as e:
+				for line in str(e).splitlines():
+					log.error(line)
+				return 1
+
 			# Write to scanner
 			log.debug("full export: writing to scanner")
 			scanner.write_to(scanner_con)
@@ -316,6 +324,15 @@ def export_write(in_file: str, csv: bool, simulate: bool = False) -> int:
 				# Create channel from dict
 				c: sdo.Channel = sdo.Channel()
 				c.from_dict(c_dict)
+
+				# Validate channel
+				try:
+					c.validate()
+				except ValueError as e:
+					log.error(str(e))
+					return 1
+
+				# Append channel, once validated
 				channels.append(c)
 
 			# Write channels

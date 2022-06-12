@@ -75,6 +75,11 @@ def is_valid_freq_mhz(freq: str) -> bool:
 		bool: True if the frequency is valid
 	"""
 
+	try:
+		float(freq)
+	except ValueError:
+		return False
+
 	return is_valid_freq_scanner(freq_to_scanner(freq))
 
 
@@ -792,9 +797,9 @@ class Channel(_ScannerDataObject):
 			err_found = True
 			err_message += ", index must be in range [1-500]"
 
-		if not self.name or len(self.name) > 16:
+		if self.name == None or len(self.name) > 16:
 			err_found = True
-			err_message += ", channel name must be [1-16] characters"
+			err_message += ", channel name must be [0-16] characters"
 
 		if not is_valid_freq_mhz(self.frequency):
 			err_found = True
@@ -1218,9 +1223,9 @@ class CustomSearchBank(_ScannerDataObject):
 		err_found = False
 		err_message = "search_bnk: " + str(self.index)
 
-		if not (self.index >= 1 and self.index <= 500):
+		if not (self.index >= 1 and self.index <= 10):
 			err_found = True
-			err_message += ", index must be in range [1-500]"
+			err_message += ", index must be in range [1-10]"
 		
 		if not is_valid_freq_mhz(self.lower_limit):
 			err_found = True
@@ -1580,6 +1585,41 @@ class Scanner:
 		self.display_contrast.from_dict(data["display_contrast"])
 		self.device_volume.from_dict(data["device_volume"])
 		self.squelch.from_dict(data["squelch"])
+
+
+	def validate(self) -> None:
+		# Create list of every SDO comprising this scanner
+		sdo_list: list = [
+			self.model,
+			self.firmware,
+			self.backlight,
+			self.battery_charge_timer,
+			self.keypad,
+			self.priority_mode,
+			self.enabled_channel_banks,
+			self.cc_ctcss_delay,
+			self.locked_frequencies,
+			self.cc_main_settings,
+			self.enabled_service_search_banks,
+			self.enabled_custom_search_banks,
+			self.weather_alert_settings,
+			self.display_contrast,
+			self.device_volume,
+			self.squelch,
+		]
+		sdo_list.extend(self.channels)
+		sdo_list.extend(self.custom_search_banks)
+
+		err_messages: list = []
+
+		for sdo in sdo_list:
+			try:
+				sdo.validate()
+			except ValueError as e:
+				err_messages.append(str(e))
+		
+		if len(err_messages) > 0:
+			raise ValueError("\n".join(err_messages))
 
 
 	def __str__(self) -> str:
