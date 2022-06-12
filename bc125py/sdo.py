@@ -1429,6 +1429,7 @@ class Scanner:
 		for csb in data["custom_search_banks"]:
 			c: CustomSearchBank = CustomSearchBank()
 			c.from_dict(csb)
+			self.custom_search_banks.append(c)
 		
 		self.weather_alert_settings.from_dict(data["weather_alert_settings"])
 		self.display_contrast.from_dict(data["display_contrast"])
