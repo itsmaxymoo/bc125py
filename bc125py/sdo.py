@@ -44,7 +44,12 @@ def is_valid_freq_scanner(freq: str) -> bool:
 		bool: True if the frequency is valid
 	"""
 
-	val = int(freq)
+	val: int = 0
+
+	try:
+		val = int(freq)
+	except Exception:
+		return False
 
 	if val == 0:
 		return True
@@ -71,6 +76,23 @@ def is_valid_freq_mhz(freq: str) -> bool:
 	"""
 
 	return is_valid_freq_scanner(freq_to_scanner(freq))
+
+
+def is_valid_delay(delay: int) -> bool:
+	return delay in [-10, -5, 0, 1, 2, 3, 4, 5]
+
+
+def is_valid_ctcss(tone: int) -> bool:
+	if tone == 0:
+		return True
+	elif (tone >= 64 and tone <= 113):
+		return True
+	elif (tone >= 127 and tone <= 231):
+		return True
+	elif tone == 240:
+		return True
+	else: return False
+
 
 #endregion
 
@@ -519,6 +541,11 @@ class BatteryChargeTimer(_ScannerDataObject):
 		self.hours = data["hours"]
 
 
+	def validate(self) -> None:
+		if not (self.hours >= 1 and self.hours <= 16):
+			raise ValueError("Battery charge time hours must be in range [1-16], given " + str(self.hours))
+
+
 # CLR Clear Scanner Memory
 class ClearScannerMemory(_ScannerDataObject):
 	"""Clear all scanner memory, settings, and channels (command only)
@@ -640,6 +667,13 @@ class EnabledChannelBanks(_ScannerDataObject):
 		self.bank_list_manager.from_dict(data["banks"])
 
 
+	def validate(self) -> None:
+		try:
+			self.bank_list_manager.validate()
+		except ValueError as e:
+			raise ValueError("Channel banks: " + str(e))
+
+
 # DCH Delete Channel
 class DeleteChannel(_ScannerDataObject):
 	"""Delete a channel from the scanner
@@ -659,6 +693,11 @@ class DeleteChannel(_ScannerDataObject):
 
 	def to_write_command(self) -> tuple:
 		return ("DCH", self.index)
+
+
+	def validate(self) -> None:
+		if not (self.index >= 1 and self.index <= 500):
+			raise ValueError("DCH: index must be in range [1-500], given " + str(self.index))
 
 
 # CIN Channel Info
@@ -745,6 +784,34 @@ class Channel(_ScannerDataObject):
 		self.priority = E_PriorityMode[data["priority"]]
 
 
+	def validate(self) -> None:
+		err_message: str = "channel: " + str(self.index)
+		err_found: bool = False
+
+		if not (self.index >= 1 and self.index <= 500):
+			err_found = True
+			err_message += ", index must be in range [1-500]"
+
+		if not self.name or len(self.name) > 16:
+			err_found = True
+			err_message += ", channel name must be [1-16] characters"
+
+		if not is_valid_freq_mhz(self.frequency):
+			err_found = True
+			err_message += ", invalid frequency (" + self.frequency + " MHz)"
+		
+		if not is_valid_delay(self.delay):
+			err_found = True
+			err_message += ", invalid delay: " + str(self.delay)
+		
+		if not is_valid_ctcss(self.ctcss):
+			err_found = True
+			err_message += ", invalid ctcss/dcs: " + str(self.ctcss)
+		
+		if err_found:
+			raise ValueError(err_message)
+
+
 # SCO Close Call Delay/CTCSS Settings
 class CloseCallDelayCTCSSSettings(_ScannerDataObject):
 	"""Close Call delay and ctcss settings
@@ -782,6 +849,11 @@ class CloseCallDelayCTCSSSettings(_ScannerDataObject):
 	def from_dict(self, data: dict) -> None:
 		self.delay = data["delay"]
 		self.ctcss = E_TrueFalse[data["ctcss"]]
+
+
+	def validate(self) -> None:
+		if not is_valid_delay(self.delay):
+			raise ValueError("cc_ctcss_settings: invalid delay: " + str(self.delay))
 
 
 # GLF / ULF / LOF Locked Out Channels Bank
@@ -873,6 +945,17 @@ class LockedFrequencies(_ScannerDataObject):
 
 			# Get next
 			lof = scanner_con.exec("GLF")[0]
+	
+
+	def validate(self) -> None:
+		invalid_freqs: list = []
+
+		for f in self.frequencies:
+			if not is_valid_freq_mhz(f):
+				invalid_freqs.append(f)
+
+		if len(invalid_freqs) > 0:
+			raise ValueError("invalid global L/O freqs: " + ", ".join(invalid_freqs))
 
 
 # ULF Unlock Locked Frequency
@@ -894,6 +977,11 @@ class UnlockFrequency(_ScannerDataObject):
 
 	def to_write_command(self) -> tuple:
 		return ("ULF", freq_to_scanner(self.frequency))
+	
+
+	def validate(self) -> None:
+		if not is_valid_freq_mhz(self.frequency):
+			raise ValueError("ulf: invalid freq: " + self.frequency)
 
 
 # LOF Lockout Frequency
@@ -915,6 +1003,11 @@ class LockFrequency(_ScannerDataObject):
 
 	def to_write_command(self) -> tuple:
 		return ("LOF", freq_to_scanner(self.frequency))
+	
+
+	def validate(self) -> None:
+		if not is_valid_freq_mhz(self.frequency):
+			raise ValueError("lof: invalid freq: " + self.frequency)
 
 
 # CLC Close Call Main Settings
@@ -980,6 +1073,10 @@ class CloseCallSettings(_ScannerDataObject):
 		self.lockout = E_LockState[data["lockout"]]
 
 
+	def validate(self) -> None:
+		self.cc_bands.validate()
+
+
 # SSG Enabled Search Banks
 class EnabledServiceSearchBanks(_ScannerDataObject):
 	"""Control which SERVICE search banks are enabled on the scanner
@@ -1017,6 +1114,10 @@ class EnabledServiceSearchBanks(_ScannerDataObject):
 		self.bank_list_manager.from_dict(data["banks"])
 
 
+	def validate(self) -> None:
+		self.bank_list_manager.validate()
+
+
 # CSG Enabled Custom Search Banks
 class EnabledCustomSearchBanks(_ScannerDataObject):
 	"""Control which custom search banks are enabled on the scanner
@@ -1052,6 +1153,10 @@ class EnabledCustomSearchBanks(_ScannerDataObject):
 
 	def from_dict(self, data: dict) -> None:
 		self.bank_list_manager.from_dict(data["banks"])
+
+
+	def validate(self) -> None:
+		self.bank_list_manager.validate()
 
 
 # CSP Custom Search Bank
@@ -1107,6 +1212,26 @@ class CustomSearchBank(_ScannerDataObject):
 		self.index = data["index"]
 		self.lower_limit = data["lower_limit"]
 		self.upper_limit = data["upper_limit"]
+
+
+	def validate(self) -> None:
+		err_found = False
+		err_message = "search_bnk: " + str(self.index)
+
+		if not (self.index >= 1 and self.index <= 500):
+			err_found = True
+			err_message += ", index must be in range [1-500]"
+		
+		if not is_valid_freq_mhz(self.lower_limit):
+			err_found = True
+			err_message += ", invalid lower limit: " + self.lower_limit + " MHz"
+		
+		if not is_valid_freq_mhz(self.upper_limit):
+			err_found = True
+			err_message += ", invalid upper limit: " + self.upper_limit + " MHz"
+		
+		if err_found:
+			raise ValueError(err_message)
 
 
 # WXS Weather Alert Settings
@@ -1176,6 +1301,11 @@ class DisplayContrast(_ScannerDataObject):
 		self.contrast = data["contrast"]
 
 
+	def validate(self) -> None:
+		if not (self.contrast >= 1 and self.contrast <= 15):
+			raise ValueError("screen contrast must be in range [1-15]")
+
+
 # VOL Volume
 class DeviceVolume(_ScannerDataObject):
 	"""Device volume.
@@ -1211,6 +1341,11 @@ class DeviceVolume(_ScannerDataObject):
 
 	def from_dict(self, data) -> None:
 		self.volume = data["volume"]
+
+
+	def validate(self) -> None:
+		if not (self.volume >= 0 and self.volume <= 15):
+			raise ValueError("device volume must be in range [0-15]")
 
 
 # SQL Squelch
@@ -1249,6 +1384,11 @@ class Squelch(_ScannerDataObject):
 
 	def from_dict(self, data) -> None:
 		self.squelch = data["squelch"]
+
+
+	def validate(self) -> None:
+		if not (self.squelch >= 0 and self.squelch <= 15):
+			raise ValueError("squelch must be in range [0-15]")
 
 
 #endregion
