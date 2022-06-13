@@ -725,8 +725,8 @@ class Channel(_ScannerDataObject):
 	"""
 
 	index: int = 1
-	name: str = "NoName"
-	frequency: str = "146.4"
+	name: str = ""
+	frequency: str = "000.0000"
 	modulation: E_Modulation = E_Modulation.auto
 	ctcss: int = 0
 	delay: int = 2
@@ -1505,6 +1505,12 @@ class Scanner:
 		self.priority_mode.read_from(scanner_con)
 		self.enabled_channel_banks.read_from(scanner_con)
 
+		# Reset channels, in case some are missing from array
+		self.channels = []
+		for i in range(1, 501):
+			self.channels.append(Channel(i))
+
+		# Read ALL channels from scanner
 		for c in self.channels:
 			c.read_from(scanner_con)
 		
@@ -1514,6 +1520,12 @@ class Scanner:
 		self.enabled_service_search_banks.read_from(scanner_con)
 		self.enabled_custom_search_banks.read_from(scanner_con)
 
+		# Reset csb, in case some are missing from array
+		self.custom_search_banks = []
+		for i in range(1, 11):
+			self.custom_search_banks.append(CustomSearchBank(i))
+
+		# Read ALL CSBs
 		for c in self.custom_search_banks:
 			c.read_from(scanner_con)
 		
