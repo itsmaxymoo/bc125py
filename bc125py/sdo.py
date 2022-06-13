@@ -1443,9 +1443,32 @@ class Scanner:
 		self.enabled_service_search_banks = EnabledServiceSearchBanks()
 		self.enabled_custom_search_banks = EnabledCustomSearchBanks()
 
+		# Create default 10 CSBs
 		self.custom_search_banks = []
 		for i in range(1, 11):
 			self.custom_search_banks.append(CustomSearchBank(i))
+		
+		# Populate CSBs with default ranges
+		self.custom_search_banks[0].lower_limit = "025.0000"
+		self.custom_search_banks[0].upper_limit = "027.9950"
+		self.custom_search_banks[1].lower_limit = "028.0000"
+		self.custom_search_banks[1].upper_limit = "029.6950"
+		self.custom_search_banks[2].lower_limit = "029.7000"
+		self.custom_search_banks[2].upper_limit = "049.9950"
+		self.custom_search_banks[3].lower_limit = "050.0000"
+		self.custom_search_banks[3].upper_limit = "054.0000"
+		self.custom_search_banks[4].lower_limit = "108.0000"
+		self.custom_search_banks[4].upper_limit = "136.9916"
+		self.custom_search_banks[5].lower_limit = "137.0000"
+		self.custom_search_banks[5].upper_limit = "143.9950"
+		self.custom_search_banks[6].lower_limit = "144.0000"
+		self.custom_search_banks[6].upper_limit = "147.9950"
+		self.custom_search_banks[7].lower_limit = "225.0000"
+		self.custom_search_banks[7].upper_limit = "380.0000"
+		self.custom_search_banks[8].lower_limit = "400.0000"
+		self.custom_search_banks[8].upper_limit = "449.9937"
+		self.custom_search_banks[9].lower_limit = "450.0000"
+		self.custom_search_banks[9].upper_limit = "469.9937"
 		
 		self.weather_alert_settings = WeatherAlertSettings()
 		self.display_contrast = DisplayContrast()
@@ -1592,7 +1615,7 @@ class Scanner:
 			c: CustomSearchBank = CustomSearchBank()
 			c.from_dict(csb)
 			self.custom_search_banks.append(c)
-		
+
 		self.weather_alert_settings.from_dict(data["weather_alert_settings"])
 		self.display_contrast.from_dict(data["display_contrast"])
 		self.device_volume.from_dict(data["device_volume"])
@@ -1629,7 +1652,7 @@ class Scanner:
 				sdo.validate()
 			except ValueError as e:
 				err_messages.append(str(e))
-		
+
 		if len(err_messages) > 0:
 			raise ValueError("\n".join(err_messages))
 
