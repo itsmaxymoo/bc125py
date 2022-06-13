@@ -1653,6 +1653,46 @@ class Scanner:
 			except ValueError as e:
 				err_messages.append(str(e))
 
+		# Make sure there aren't duplicate channels
+		# Loop through each channel
+		for i in range(0, len(self.channels)):
+
+			# Compare to each other channel
+			for j in range(0, len(self.channels)):
+
+				# As long as these aren't the same channels
+				# AND the channel.index's are the same (bad)
+				if i != j and self.channels[i].index == self.channels[j].index:
+
+					# Create channel conflict message
+					cin_conflict: str = "duplicate channel index: " + str(self.channels[i].index)
+
+					# AND we haven't already logged this conflict
+					if cin_conflict not in err_messages:
+
+						# Log conflict
+						err_messages.append(cin_conflict)
+
+		# Make sure there aren't duplicate CSBs
+		# Loop through each CSB
+		for i in range(0, len(self.custom_search_banks)):
+
+			# Compare to each other channel
+			for j in range(0, len(self.custom_search_banks)):
+
+				# As long as these aren't the same channels
+				# AND the channel.index's are the same (bad)
+				if i != j and self.custom_search_banks[i].index == self.custom_search_banks[j].index:
+
+					# Create channel conflict message
+					csb_conflict: str = "duplicate custom search bank index: " + str(self.custom_search_banks[i].index)
+
+					# AND we haven't already logged this conflict
+					if csb_conflict not in err_messages:
+
+						# Log conflict
+						err_messages.append(csb_conflict)
+
 		if len(err_messages) > 0:
 			raise ValueError("\n".join(err_messages))
 
