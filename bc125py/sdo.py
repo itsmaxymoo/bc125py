@@ -1221,7 +1221,7 @@ class CustomSearchBank(_ScannerDataObject):
 
 	def validate(self) -> None:
 		err_found = False
-		err_message = "search_bnk: " + str(self.index)
+		err_message = "search bnk: " + str(self.index)
 
 		if not (self.index >= 1 and self.index <= 10):
 			err_found = True
@@ -1229,11 +1229,11 @@ class CustomSearchBank(_ScannerDataObject):
 		
 		if not is_valid_freq_mhz(self.lower_limit):
 			err_found = True
-			err_message += ", invalid lower limit: " + self.lower_limit + " MHz"
+			err_message += ", invalid lower_limit: " + self.lower_limit + " MHz"
 		
 		if not is_valid_freq_mhz(self.upper_limit):
 			err_found = True
-			err_message += ", invalid upper limit: " + self.upper_limit + " MHz"
+			err_message += ", invalid upper_limit: " + self.upper_limit + " MHz"
 		
 		if err_found:
 			raise ValueError(err_message)

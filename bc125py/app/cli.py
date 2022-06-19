@@ -575,7 +575,9 @@ def wipe():
 		# Issue wipe command
 		print("Wiping scanner. DO NOT UNPLUG THE DEVICE OR TURN POWER OFF!")
 		print("This will take some time...")
+		sdo.EnterProgramMode().write_to(con)
 		sdo.ClearScannerMemory().write_to(con)
+		sdo.ExitProgramMode().write_to(con)
 
 		# Done
 		print("done")
