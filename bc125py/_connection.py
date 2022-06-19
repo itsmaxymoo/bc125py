@@ -261,6 +261,7 @@ class ScannerConnection:
 		# These are legacy patterns. Still useful if pySerial doesn't find any ports for some reason
 		if legacy_detection:
 			found_ports.extend(glob.glob("/dev/serial/by-id/*BC125AT*"))
+			found_ports.extend(glob.glob("/dev/serial/by-id/*BC126AT*")) # international version
 			found_ports.extend(glob.glob("/dev/ttyACM*"))
 
 		return found_ports
