@@ -112,7 +112,8 @@ def main() -> int:
 	)
 	main_parser.add_argument(
 		"--legacy-detect",
-		help="use the legacy method of scanner detection. more likely to find device, but will present duplicates"
+		help="use the legacy method of scanner detection. more likely to find device, but will present duplicates",
+		action="store_true"
 	)
 
 	# Add subcommands
