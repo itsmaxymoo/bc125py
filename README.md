@@ -89,7 +89,7 @@ the [docs directory](docs/) for examples.
 * BC125Py is currently in beta.
 * I have tested every function on my personal scanner; the program just lacks a large-scale test.
 * No coming major changes.
-* If there are no report problems, this release will eventually become 1.0
+* If there are no reported problems, this release will eventually become 1.0
 
 ### *1.0*
 
