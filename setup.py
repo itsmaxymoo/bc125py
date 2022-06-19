@@ -19,7 +19,9 @@ setuptools.setup(
 	},
 	classifiers=[
 		"Programming Language :: Python :: 3",
+		"Topic :: Communications :: Ham Radio",
 		"License :: OSI Approved :: MIT License",
+		"Development Status :: 4 - Beta",
 		"Operating System :: POSIX :: Linux",
 	],
 	package_dir={PACKAGE_NAME: PACKAGE_NAME},
