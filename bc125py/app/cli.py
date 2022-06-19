@@ -4,7 +4,7 @@ import argparse
 import datetime
 import bc125py
 from bc125py.app import core, log
-from bc125py import MODULE_URL, sdo
+from bc125py import sdo
 
 
 # Manual port override to be used by cli commands
@@ -26,7 +26,7 @@ def enforce_root() -> None:
 
 
 # CLI Get Scanner Connection w/ port prompt
-def get_scanner_connection(port: str = None, simulate = False) -> bc125py.ScannerConnection:
+def get_scanner_connection(port: str = None) -> bc125py.ScannerConnection:
 	log.debug(
 		"cli get_scanner_connection",
 		"provided port:", port,
@@ -71,7 +71,7 @@ def get_scanner_connection(port: str = None, simulate = False) -> bc125py.Scanne
 			port = found_ports[0]
 		
 	# Now, get scanner connection
-	return core.get_scanner_connection(port, simulate)
+	return core.get_scanner_connection(port)
 
 
 # --- Program entrypoint
@@ -141,12 +141,6 @@ def main() -> int:
 		action="store_true",
 		help="export and write channels CSV file"
 	)
-	export_parser.add_argument(
-		"-s",
-		"--simulate",
-		action="store_true",
-		help="simulate scanner write operation. MUST specify output file with --port"
-	)
 
 	# Subcommand shell
 	shell_parser = sub_parsers.add_parser("shell", help="launch interactive scanner shell")
@@ -180,12 +174,6 @@ def main() -> int:
 	if cli_args.legacy_detect:
 		global _port_detect_legacy
 		_port_detect_legacy = True
-	
-	# If simulate, make sure there is a port
-	if hasattr(cli_args, "simulate"):
-		if cli_args.simulate and not cli_args.port:
-			log.error("use of --simulate requires --port")
-			return 1
 
 	# Dispatch subcommand
 	cmd = cli_args.command
@@ -194,7 +182,7 @@ def main() -> int:
 	elif cmd == "import":
 		return import_read(cli_args.file, cli_args.csv)
 	elif cmd == "export":
-		return export_write(cli_args.file, cli_args.csv, simulate=cli_args.simulate)
+		return export_write(cli_args.file, cli_args.csv)
 	elif cmd == "shell":
 		return shell(cmd_file_path=cli_args.file)
 	elif cmd == "wipe":
@@ -312,22 +300,20 @@ def import_read(out_file: str, csv: bool) -> int:
 
 
 # Export/Write command
-def export_write(in_file: str, csv: bool, simulate: bool = False) -> int:
+def export_write(in_file: str, csv: bool) -> int:
 	log.debug(
 		"subc: export",
 		"file:",
 		in_file,
 		"csv:", csv,
-		"simulate:", simulate
 	)
 
-	if not simulate:
-		enforce_root()
+	enforce_root()
 
 	try:
 
 		# Connect to scanner
-		scanner_con = get_scanner_connection(port=_port, simulate=simulate)
+		scanner_con = get_scanner_connection(port=_port)
 
 		# Open input file
 		log.debug("Attempting full file read")

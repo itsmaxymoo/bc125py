@@ -79,7 +79,7 @@ def detect_tlp() -> bool:
 	return False
 
 
-def get_scanner_connection(port: str = None, simulate = False) -> bc125py.ScannerConnection:
+def get_scanner_connection(port: str = None) -> bc125py.ScannerConnection:
 	"""Find and connect to the scanner
 
 	Args:
@@ -97,15 +97,10 @@ def get_scanner_connection(port: str = None, simulate = False) -> bc125py.Scanne
 
 	# Check to see if TLP (power management tool) is enabled
 	# TLP can interfere with the BC125AT connection
-	if not simulate:
-		detect_tlp()
+	detect_tlp()
 
 	con: bc125py.ScannerConnection
-
-	if simulate == False:
-		con = bc125py.ScannerConnection()
-	else:
-		con = bc125py.SimulatedScannerConnection()
-
+	con = bc125py.ScannerConnection()
 	con.connect(port)
+
 	return con

@@ -235,9 +235,6 @@ class ScannerConnection:
 	def find_ports(legacy_detection = False) -> list:
 		"""Find likely scanner device file
 
-		Raises:
-			ConnectionError: if could not find candidate
-
 		Returns:
 			list: list of potential device files
 		"""
@@ -275,7 +272,7 @@ class ScannerConnection:
 
 class SimulatedScannerConnection(ScannerConnection):
 	"""A simulated scanner connection.
-	All commands are logged instead of executed.
+	All commands are logged to the specified "port".
 	For debugging purposes.
 	"""
 
@@ -288,7 +285,7 @@ class SimulatedScannerConnection(ScannerConnection):
 			self.connect(log_file_path)
 
 
-	def connect(self, port: str) -> None:
+	def connect(self, port: str = "/dev/null") -> None:
 		"""Establish a connection to the scanner
 
 		Args:
