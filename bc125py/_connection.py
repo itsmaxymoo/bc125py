@@ -256,6 +256,7 @@ class ScannerConnection:
 					found_ports.append(port.device)
 		except Exception as e:
 			log.debug("con: pyserial failed finding ports. falling back to legacy detection... " + str(e))
+			legacy_detection = True
 
 
 		# These are legacy patterns. Still useful if pySerial doesn't find any ports for some reason
