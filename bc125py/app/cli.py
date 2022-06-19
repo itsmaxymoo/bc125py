@@ -4,7 +4,7 @@ import argparse
 import datetime
 import bc125py
 from bc125py.app import core, log
-from bc125py import sdo
+from bc125py import sdo, con as _c
 
 
 # Manual port override to be used by cli commands
@@ -19,14 +19,14 @@ _port_detect_legacy = False
 # Make sure we are root function
 def enforce_root() -> None:
 	if not core.is_root():
-		print(bc125py.MODULE_NAME, "must be ran as superuser (root) to perform this function.")
+		print(bc125py.PACKAGE_NAME, "must be ran as superuser (root) to perform this function.")
 		sys.exit(126)
 	
 	log.debug("root permissions found")
 
 
 # CLI Get Scanner Connection w/ port prompt
-def get_scanner_connection(port: str = None) -> bc125py.ScannerConnection:
+def get_scanner_connection(port: str = None) -> _c.ScannerConnection:
 	log.debug(
 		"cli get_scanner_connection",
 		"provided port:", port,
@@ -36,7 +36,7 @@ def get_scanner_connection(port: str = None) -> bc125py.ScannerConnection:
 	# If we have not a user provided port, we must find one
 	if not port:
 		# Get all ports
-		found_ports: list = bc125py.ScannerConnection.find_ports(_port_detect_legacy)
+		found_ports: list = _c.ScannerConnection.find_ports(_port_detect_legacy)
 
 		# Error and exit if none found
 		if not found_ports:
@@ -80,11 +80,11 @@ def main() -> int:
 	# --- Command Line Arguments ---
 	# Create main cli parser
 	main_parser = argparse.ArgumentParser(
-		prog=bc125py.MODULE_NAME,
-		description=bc125py.MODULE_DESCRIPTION,
+		prog=bc125py.PACKAGE_NAME,
+		description=bc125py.PACKAGE_DESCRIPTION,
 		epilog="Please report all issues at {url} or to {email}".format(
-			url=bc125py.MODULE_URL,
-			email=bc125py.MODULE_AUTHOR_EMAIL
+			url=bc125py.PACKAGE_URL,
+			email=bc125py.PACKAGE_AUTHOR_EMAIL
 		)
 	)
 
@@ -103,12 +103,12 @@ def main() -> int:
 	main_parser.add_argument(
 		"--version",
 		action="version",
-		version=bc125py.MODULE_VERSION
+		version=bc125py.PACKAGE_VERSION
 	)
 	main_parser.add_argument(
 		"-p",
 		"--port",
-		help="force " + bc125py.MODULE_NAME + " to use the specified device port"
+		help="force " + bc125py.PACKAGE_NAME + " to use the specified device port"
 	)
 	main_parser.add_argument(
 		"--legacy-detect",
@@ -160,7 +160,7 @@ def main() -> int:
 	# Set up logging
 	if cli_args.log:
 		log._FILE = open(cli_args.log, "w")
-	log.debug(bc125py.MODULE_NAME, "version", bc125py.MODULE_VERSION + ", started on", datetime.datetime.now())
+	log.debug(bc125py.PACKAGE_NAME, "version", bc125py.PACKAGE_VERSION + ", started on", datetime.datetime.now())
 	log.debug("sysinfo:", core.get_system_str())
 	if not core.is_linux():
 		log.warn("Your system is unsupported!")
@@ -435,7 +435,7 @@ def shell(cmd_file_path: str = None) -> int:
 		con = get_scanner_connection(_port)
 
 		# Print header
-		print(bc125py.MODULE_NAME, bc125py.MODULE_VERSION, "scanner shell")
+		print(bc125py.PACKAGE_NAME, bc125py.PACKAGE_VERSION, "scanner shell")
 		print("try commands \"help\" or \"exit\"", os.linesep)
 
 		# User controllable variables
@@ -537,7 +537,7 @@ def wipe():
 
 	# Inform user about the danger of this command
 	print("This command will perform a factory reset on the connected scanner and DELETE ALL CHANNELS!")
-	print("It is STRONGLY recommended to back up your scanner first, using:", bc125py.MODULE_NAME, "import\n")
+	print("It is STRONGLY recommended to back up your scanner first, using:", bc125py.PACKAGE_NAME, "import\n")
 	print("To wipe the connected scanner, type:", USER_CONFIRMATION_PASSWORD)
 
 	# Get user confirmation

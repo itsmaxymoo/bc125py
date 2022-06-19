@@ -3,7 +3,7 @@ import sys
 import os
 import shutil
 import subprocess
-import bc125py
+from bc125py.con import *
 from bc125py.app import log
 
 
@@ -79,7 +79,7 @@ def detect_tlp() -> bool:
 	return False
 
 
-def get_scanner_connection(port: str = None) -> bc125py.ScannerConnection:
+def get_scanner_connection(port: str = None) -> ScannerConnection:
 	"""Find and connect to the scanner
 
 	Args:
@@ -90,7 +90,7 @@ def get_scanner_connection(port: str = None) -> bc125py.ScannerConnection:
 		ConnectionError: if connecting to the scanner failed
 
 	Returns:
-		bc125py.ScannerConnection: The active connection
+		bc125py.con.ScannerConnection: The active connection
 	"""
 
 	log.debug("core: attempting to find scanner & connect")
@@ -99,8 +99,8 @@ def get_scanner_connection(port: str = None) -> bc125py.ScannerConnection:
 	# TLP can interfere with the BC125AT connection
 	detect_tlp()
 
-	con: bc125py.ScannerConnection
-	con = bc125py.ScannerConnection()
+	con: ScannerConnection
+	con = ScannerConnection()
 	con.connect(port)
 
 	return con

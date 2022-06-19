@@ -291,22 +291,22 @@ class _ScannerDataObject:
 		raise NotImplementedError(type(self).__name__ + " must implement from_dict()")
 
 
-	def write_to(self, scanner_con: bc125py.ScannerConnection) -> None:
+	def write_to(self, scanner_con) -> None:
 		"""Writes this SDO to the scanner.
 
 		Args:
-			scanner_con (bc125py.ScannerConnection): An active scanner connection
+			scanner_con (bc125py.con.ScannerConnection): An active scanner connection
 		"""
 
 		scanner_con.exec(self.to_write_command())
 
 
-	def read_from(self, scanner_con: bc125py.ScannerConnection) -> None:
+	def read_from(self, scanner_con) -> None:
 		"""Reads this object from the scanner.
 		Populates the SDO's attributes with scanner data.
 
 		Args:
-			scanner_con (bc125py.ScannerConnection): An active scanner connection
+			scanner_con (bc125py.con.ScannerConnection): An active scanner connection
 		"""
 
 		self.from_command_response(
@@ -890,11 +890,11 @@ class LockedFrequencies(_ScannerDataObject):
 		self.frequencies = data["freqs"]
 	
 
-	def write_to(self, scanner_con: bc125py.ScannerConnection) -> None:
+	def write_to(self, scanner_con) -> None:
 		"""Writes this SDO to the scanner.
 
 		Args:
-			scanner_con (bc125py.ScannerConnection): An active scanner connection
+			scanner_con (bc125py.con.ScannerConnection): An active scanner connection
 		"""
 
 		# --- First we must get the locked out freqs to delete.
@@ -928,12 +928,12 @@ class LockedFrequencies(_ScannerDataObject):
 			LockFrequency(f).write_to(scanner_con)
 
 
-	def read_from(self, scanner_con: bc125py.ScannerConnection) -> None:
+	def read_from(self, scanner_con) -> None:
 		"""Reads this object from the scanner.
 		Populates the SDO's attributes with scanner data.
 
 		Args:
-			scanner_con (bc125py.ScannerConnection): An active scanner connection
+			scanner_con (bc125py.con.ScannerConnection): An active scanner connection
 		"""
 
 		# EPG, PRG necessary to reset the lockout frequency tracker (dumb uniden design)
@@ -1403,7 +1403,7 @@ class Squelch(_ScannerDataObject):
 
 class Scanner:
 
-	bc125py_version: str = bc125py.MODULE_VERSION
+	bc125py_version: str = bc125py.PACKAGE_VERSION
 
 	model: DeviceModel
 	firmware: FirmwareVersion
@@ -1476,11 +1476,11 @@ class Scanner:
 		self.squelch = Squelch()
 
 
-	def write_to(self, scanner_con: bc125py.ScannerConnection) -> None:
+	def write_to(self, scanner_con) -> None:
 		"""Writes this scanner to the scanner
 
 		Args:
-			scanner_con (bc125py.ScannerConnection): An active scanner connection
+			scanner_con (bc125py.con.ScannerConnection): An active scanner connection
 		"""
 
 		EnterProgramMode().write_to(scanner_con)
@@ -1511,11 +1511,11 @@ class Scanner:
 		ExitProgramMode().write_to(scanner_con)
 
 
-	def read_from(self, scanner_con: bc125py.ScannerConnection) -> None:
+	def read_from(self, scanner_con) -> None:
 		"""Reads this scanner from the scanner.
 
 		Args:
-			scanner_con (bc125py.ScannerConnection): An active scanner connection
+			scanner_con (bc125py.con.ScannerConnection): An active scanner connection
 		"""
 
 		EnterProgramMode().write_to(scanner_con)

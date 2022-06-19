@@ -10,7 +10,9 @@ CLI is not hard to use at all!
 
 # Installation
 
-`pip install bc125py`
+`sudo pip install bc125py`
+
+*It is recommended to install bc125py as root.*
 
 
 # Quick Start
