@@ -27,8 +27,9 @@ All commands **must be ran as root**.
 
 Then, edit the CSV file in a spreadsheet editor!
 
-**Note:** Bank 1 starts at 1, 2 at 51, bank 2 at 101, etc...  
-**Note:** omitting the `--csv` flag will import all channels
+**Note:** Depending on your CSV editor, the channels may be offset by 1 or 2  
+**Note:** All 500 channels are together. Bank 1 starts at 1 or 2, bank 2 starts at 51 or 52, etc...  
+**Note:** omitting the `--csv` flag will import all channels  
 **and** settings, and use the **json** file format.
 
 ### Export channels to scanner
