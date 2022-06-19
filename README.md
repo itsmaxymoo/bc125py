@@ -14,8 +14,6 @@ CLI is not hard to use at all!
 
 *It is recommended to install bc125py as root.*
 
-Requires [pySerial](https://pyserial.readthedocs.io/en/latest/)
-
 
 # Quick Start
 
