@@ -19,7 +19,7 @@ Requires [pySerial](https://pyserial.readthedocs.io/en/latest/)
 
 # Quick Start
 
-All command **must be ran as root**.
+All commands **must be ran as root**.
 
 ### Import scanner channels
 
