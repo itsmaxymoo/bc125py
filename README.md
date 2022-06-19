@@ -71,3 +71,30 @@ The `shell` subcommand accepts an optional parameter for an input file,
 to be processed as a script. Run `help` once inside the shell to learn
 more. The recommended extension for these scripts is `.125at`; see
 the [docs directory](docs/) for examples.
+
+
+# Contributing
+
+* The module `bc125py`, excluding `app`, should only contain library (non-executable) code.
+* `sdo.py` shall be for all scanner-data abstraction classes.
+* The `app` module shall be for all executable code.
+* `app/cli.py` shall be the CLI portion of the program.
+* `app/core.py` shall be all common functions for the executable portion of the program, both CLI and GUI.
+* `app/log.py` shall be the logger. **Use the logger wherever possible!**
+
+## Releases
+
+### 0.9 (current)
+
+* BC125Py is currently in beta.
+* I have tested every function on my personal scanner; the program just lacks a large-scale test.
+* No coming major changes.
+* If there are no report problems, this release will eventually become 1.0
+
+### *1.0*
+
+* First stable release (see above)
+
+### *2.0*
+
+* GUI release
