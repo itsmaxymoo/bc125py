@@ -44,7 +44,7 @@ def get_scanner_connection(port: str = None, simulate = False) -> bc125py.Scanne
 			sys.exit(1)
 		
 		# Make user select if more than 1
-		if len(found_ports > 1):
+		if len(found_ports) > 1:
 			print("Please select port:\n")
 
 			for i in range(0, len(found_ports)):
@@ -56,11 +56,11 @@ def get_scanner_connection(port: str = None, simulate = False) -> bc125py.Scanne
 			
 			print()
 
-			selected_port = input("selected port: ")
+			selected_port = input("select port: ")
 
 			try:
 				selected_port = int(selected_port)
-				port = found_ports(selected_port - 1)
+				port = found_ports[selected_port - 1]
 			except Exception:
 				log.error("Invalid selection:", selected_port)
 				sys.exit(1)

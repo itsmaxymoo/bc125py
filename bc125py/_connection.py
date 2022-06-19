@@ -54,7 +54,7 @@ class ScannerConnection:
 		if not port:
 			found_ports = ScannerConnection.find_ports()
 
-			if len(found_ports < 1):
+			if len(found_ports) < 1:
 				raise ConnectionError("Could not find any scanner")
 
 			port = found_ports[0]
@@ -265,6 +265,11 @@ class ScannerConnection:
 			found_ports.extend(glob.glob("/dev/serial/by-id/*BC126AT*")) # international version
 			found_ports.extend(glob.glob("/dev/ttyACM*"))
 
+		log.debug(
+			"find_ports,",
+			"legacy-mode:", legacy_detection, "-",
+			found_ports
+		)
 		return found_ports
 
 
