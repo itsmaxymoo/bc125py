@@ -51,7 +51,14 @@ class ScannerConnection:
 		time.sleep(0.1)
 
 		# Second, determine device path
-		port = port if port else self.__find_ports()[0]
+		if not port:
+			found_ports = ScannerConnection.find_ports()
+
+			if len(found_ports < 1):
+				raise ConnectionError("Could not find any scanner")
+
+			port = found_ports[0]
+
 		log.debug("con: using port: " + port)
 
 		# Third, establish a device connection.
@@ -90,43 +97,6 @@ class ScannerConnection:
 
 		except IOError as e:
 			raise ConnectionError("Error setting up driver: " + str(e))
-
-
-	def __find_ports(self) -> list:
-		"""internal use. Find likely scanner device file
-
-		Raises:
-			ConnectionError: if could not find candidate
-
-		Returns:
-			list: list of potential device files
-		"""
-
-		# Create array for all possible found results
-		found_ports = []
-
-		# Try to find scanner ports with pySerial
-		try:
-			# Import port finder function
-			from serial.tools.list_ports import comports
-
-			# Loop through comports. Add those with the 125AT's product id
-			for port in comports():
-				if port.pid == 23: # BC125AT product id 0017 (hex) -> 23
-					found_ports.append(port.device)
-		except Exception as e:
-			log.debug("con: pyserial failed finding ports. falling back to legacy detection... " + str(e))
-
-
-		# These are legacy patterns. Still useful if pySerial doesn't find any ports for some reason
-		found_ports.extend(glob.glob("/dev/serial/by-id/*BC125AT*"))
-		found_ports.extend(glob.glob("/dev/ttyACM*"))
-
-		# Verify we found a device
-		if len(found_ports) < 1:
-			raise ConnectionError("Could not find scanner")
-
-		return found_ports
 
 
 	def __open_connection(self, port: str) -> None:
@@ -259,6 +229,41 @@ class ScannerConnection:
 	def __del__(self):
 		if self.connected:
 			self.close()
+	
+
+	@staticmethod
+	def find_ports(legacy_detection = False) -> list:
+		"""Find likely scanner device file
+
+		Raises:
+			ConnectionError: if could not find candidate
+
+		Returns:
+			list: list of potential device files
+		"""
+
+		# Create array for all possible found results
+		found_ports = []
+
+		# Try to find scanner ports with pySerial
+		try:
+			# Import port finder function
+			from serial.tools.list_ports import comports
+
+			# Loop through comports. Add those with the 125AT's product id
+			for port in comports():
+				if port.pid == 23: # BC125AT product id 0017 (hex) -> 23
+					found_ports.append(port.device)
+		except Exception as e:
+			log.debug("con: pyserial failed finding ports. falling back to legacy detection... " + str(e))
+
+
+		# These are legacy patterns. Still useful if pySerial doesn't find any ports for some reason
+		if legacy_detection:
+			found_ports.extend(glob.glob("/dev/serial/by-id/*BC125AT*"))
+			found_ports.extend(glob.glob("/dev/ttyACM*"))
+
+		return found_ports
 
 
 class SimulatedScannerConnection(ScannerConnection):

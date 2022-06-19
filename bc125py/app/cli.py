@@ -4,19 +4,89 @@ import argparse
 import datetime
 import bc125py
 from bc125py.app import core, log
-from bc125py import sdo
+from bc125py import MODULE_URL, sdo
 
 
 # Manual port override to be used by cli commands
 _port: str = None
 
+# Port finding method
+_port_detect_legacy = False
 
-# Program entrypoint
+
+# --- CLI Utility functions
+
+# Make sure we are root function
+def enforce_root() -> None:
+	if not core.is_root():
+		print(bc125py.MODULE_NAME, "must be ran as superuser (root) to perform this function.")
+		sys.exit(126)
+	
+	log.debug("root permissions found")
+
+
+# CLI Get Scanner Connection w/ port prompt
+def get_scanner_connection(port: str = None, simulate = False) -> bc125py.ScannerConnection:
+	log.debug(
+		"cli get_scanner_connection",
+		"provided port:", port,
+		"legacy mode:", _port_detect_legacy
+	)
+
+	# If we have not a user provided port, we must find one
+	if not port:
+		# Get all ports
+		found_ports: list = bc125py.ScannerConnection.find_ports(_port_detect_legacy)
+
+		# Error and exit if none found
+		if not found_ports:
+			log.error("No device found")
+			sys.exit(1)
+		
+		# Make user select if more than 1
+		if len(found_ports > 1):
+			print("Please select port:\n")
+
+			for i in range(0, len(found_ports)):
+				print(
+					"   "
+					+ str(i + 1) + ") "
+					+ found_ports[i]
+				)
+			
+			print()
+
+			selected_port = input("selected port: ")
+
+			try:
+				selected_port = int(selected_port)
+				port = found_ports(selected_port - 1)
+			except Exception:
+				log.error("Invalid selection:", selected_port)
+				sys.exit(1)
+
+
+		# Else, just make the port the only device
+		else:
+			port = found_ports[0]
+		
+	# Now, get scanner connection
+	return core.get_scanner_connection(port, simulate)
+
+
+# --- Program entrypoint
 def main() -> int:
 
 	# --- Command Line Arguments ---
 	# Create main cli parser
-	main_parser = argparse.ArgumentParser(prog=bc125py.MODULE_NAME, description=bc125py.MODULE_DESCRIPTION)
+	main_parser = argparse.ArgumentParser(
+		prog=bc125py.MODULE_NAME,
+		description=bc125py.MODULE_DESCRIPTION,
+		epilog="Please report all issues at {url} or to {email}".format(
+			url=bc125py.MODULE_URL,
+			email=bc125py.MODULE_AUTHOR_EMAIL
+		)
+	)
 
 	# Add universal cli arguments
 	main_parser.add_argument(
@@ -39,6 +109,10 @@ def main() -> int:
 		"-p",
 		"--port",
 		help="force " + bc125py.MODULE_NAME + " to use the specified device port"
+	)
+	main_parser.add_argument(
+		"--legacy-detect",
+		help="use the legacy method of scanner detection. more likely to find device, but will present duplicates"
 	)
 
 	# Add subcommands
@@ -101,6 +175,11 @@ def main() -> int:
 		global _port
 		_port = cli_args.port
 	
+	# Set port detection mode
+	if cli_args.legacy_detect:
+		global _port_detect_legacy
+		_port_detect_legacy = True
+	
 	# If simulate, make sure there is a port
 	if hasattr(cli_args, "simulate"):
 		if cli_args.simulate and not cli_args.port:
@@ -126,15 +205,6 @@ def main() -> int:
 	return 1
 
 
-# Make sure we are root function
-def enforce_root() -> None:
-	if not core.is_root():
-		print(bc125py.MODULE_NAME, "must be ran as superuser (root) to perform this function.")
-		sys.exit(126)
-	
-	log.debug("root permissions found")
-
-
 # Test command
 def test() -> int:
 	log.debug("subc: test")
@@ -143,7 +213,7 @@ def test() -> int:
 
 	try:
 		# Connect, try to get device model
-		con = core.get_scanner_connection(_port)
+		con = get_scanner_connection(_port)
 		print("Scanner model:", con.exec("MDL", return_tuple=False), "(success)")
 		con.close()
 
@@ -168,7 +238,7 @@ def import_read(out_file: str, csv: bool) -> int:
 	try:
 
 		# Connect to scanner
-		scanner_con = core.get_scanner_connection(_port)
+		scanner_con = get_scanner_connection(_port)
 
 		# Read from scanner
 		print("Reading from scanner...")
@@ -256,7 +326,7 @@ def export_write(in_file: str, csv: bool, simulate: bool = False) -> int:
 	try:
 
 		# Connect to scanner
-		scanner_con = core.get_scanner_connection(port=_port, simulate=simulate)
+		scanner_con = get_scanner_connection(port=_port, simulate=simulate)
 
 		# Open input file
 		log.debug("Attempting full file read")
@@ -375,7 +445,7 @@ def shell(cmd_file_path: str = None) -> int:
 
 	try:
 		# Connect
-		con = core.get_scanner_connection(_port)
+		con = get_scanner_connection(_port)
 
 		# Print header
 		print(bc125py.MODULE_NAME, bc125py.MODULE_VERSION, "scanner shell")
@@ -499,7 +569,7 @@ def wipe():
 	try:
 
 		# Connect
-		con = core.get_scanner_connection(_port)
+		con = get_scanner_connection(_port)
 
 		# Issue wipe command
 		print("Wiping scanner. DO NOT UNPLUG THE DEVICE OR TURN POWER OFF!")
