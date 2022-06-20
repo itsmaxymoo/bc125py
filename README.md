@@ -19,6 +19,8 @@ CLI is not hard to use at all!
 
 All commands **must be ran as root**.
 
+Plug the BC125AT into your computer, and power the device on.
+
 ### Import scanner channels
 
 `sudo bc125py import --csv channels.csv`
