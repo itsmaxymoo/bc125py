@@ -21,7 +21,7 @@ All commands **must be ran as root**.
 
 ### Import scanner channels
 
-`bc125py import --csv channels.csv`
+`sudo bc125py import --csv channels.csv`
 
 Then, edit the CSV file in a spreadsheet editor!
 
@@ -32,20 +32,20 @@ Then, edit the CSV file in a spreadsheet editor!
 
 ### Export channels to scanner
 
-`bc125py export --csv channels.csv`
+`sudo bc125py export --csv channels.csv`
 
 **Note:** omitting the `--csv` flag will export all channels
 **and** settings, and use the **json** file format.
 
 ### Launch scanner shell
 
-`bc125py shell`
+`sudo bc125py shell`
 
 The shell allows you to send commands directly to the device.
 
 ### Factory reset the scanner
 
-`bc125py wipe`
+`sudo bc125py wipe`
 
 This will **erase all channels** and reset all settings.
 
@@ -74,6 +74,15 @@ The `shell` subcommand accepts an optional parameter for an input file,
 to be processed as a script. Run `help` once inside the shell to learn
 more. The recommended extension for these scripts is `.125at`; see
 the [docs directory](docs/) for examples.
+
+### TLP
+
+TLP, a power management tool on some laptops,
+may interfere with the operation of BC125Py.
+To use BC125Py on a TLP-enabled laptop, follow
+[this guide](https://askubuntu.com/questions/1239176/how-to-disable-tlp)
+to disable it. This is easily reversible afterwards.
+If you are aware of a better way to work around TLP, please fork and submit a PR!
 
 
 # Contributing
