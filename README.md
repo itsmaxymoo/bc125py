@@ -96,9 +96,13 @@ If you are aware of a better way to work around TLP, please fork and submit a PR
 * `app/core.py` shall be all common functions for the executable portion of the program, both CLI and GUI.
 * `app/log.py` shall be the logger. **Use the logger wherever possible!**
 
+The 'main' branch shall be the most up-to-date version of the project. Once the main branch reaches
+stability, the version number will be incremented, a release will be generated, and a 'release-x.x.x'
+branch will be created to preserve the repository at its state.
+
 ## Releases
 
-### 0.9 (current)
+### 0.X (current)
 
 * BC125Py is currently in beta.
 * I have tested every function on my personal scanner; the program just lacks a large-scale test.
@@ -108,7 +112,3 @@ If you are aware of a better way to work around TLP, please fork and submit a PR
 ### *1.0*
 
 * First stable release (see above)
-
-### *2.0*
-
-* GUI release
