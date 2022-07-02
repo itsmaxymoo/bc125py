@@ -328,12 +328,12 @@ def export_write(in_file: str, csv: bool) -> int:
 		log.debug("Attempting full file read")
 		fin = None
 
-		# If the filename is -, read from stdin
+		# If filename is -, read from stdin
 		if in_file == "-":
-			fin = sys.stdin
 			log.debug("export: using stdin")
-		
-		# Else, read from file as usual
+			fin = sys.stdin
+
+		# Else, open file to read as usual
 		else:
 			fin = open(in_file, "r")
 
