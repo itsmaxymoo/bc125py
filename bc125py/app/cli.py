@@ -208,7 +208,7 @@ def test() -> int:
 
 		return 0
 
-	except (ConnectionError, bc125py.CommandError) as e:
+	except (ConnectionError, _c.CommandError) as e:
 		log.error(str(e))
 		return 1
 
