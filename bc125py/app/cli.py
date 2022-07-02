@@ -238,7 +238,16 @@ def import_read(out_file: str, csv: bool) -> int:
 
 		# Open output file
 		log.debug("import: creating output file")
-		fout = open(out_file, "w")
+		fout = None
+
+		# If the output filename is -, use stdout instead
+		if out_file == "-":
+			log.debug("import: using stdout")
+			fout = sys.stdout
+		
+		# Else, open output file as usual
+		else:
+			fout = open(out_file, "w")
 
 		if not csv:
 
@@ -317,7 +326,16 @@ def export_write(in_file: str, csv: bool) -> int:
 
 		# Open input file
 		log.debug("Attempting full file read")
-		fin = open(in_file, "r")
+		fin = None
+
+		# If the filename is -, read from stdin
+		if in_file == "-":
+			fin = sys.stdin
+			log.debug("export: using stdin")
+		
+		# Else, read from file as usual
+		else:
+			fin = open(in_file, "r")
 
 		print("Writing to scanner...")
 
@@ -495,12 +513,22 @@ def shell(cmd_file_path: str = None) -> int:
 			log.debug("subc: shell: commands file mode:", cmd_file_path)
 
 			# Open file and read
-			in_file = open(cmd_file_path, "r")
-			for line in in_file.readlines():
+			fin = None
+
+			# If the filename is -, read from stdin
+			if cmd_file_path == "-":
+				fin = sys.stdin
+				log.debug("shell: using stdin")
+		
+			# Else, read from file as usual
+			else:
+				fin = open(cmd_file_path, "r")
+			
+			for line in fin.readlines():
 				# Process each line
 				process_input(line.lstrip().rstrip())
 
-			in_file.close()
+			fin.close()
 
 
 		# Else, interactive mode

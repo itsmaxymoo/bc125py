@@ -64,7 +64,7 @@ The following are top level flags, to be use after the
 | `-p`, `--port` PORT | Force BC125Py to use port (device file) PORT |
 | `--legacy-detect` | Use the legacy automatic port detection method. Try this if BC125Py does not initially detect your scanner. This may produce duplicate results |
 
-### `import`/`export` and `--csv`
+### import/export and `--csv`
 
 By default, import and export will process all of the scanner's channels
 and settings, and work with json files. The `--csv` flag tells these
@@ -86,6 +86,12 @@ To use BC125Py on a TLP-enabled laptop, follow
 to disable it. This is easily reversible afterwards.
 If you are aware of a better way to work around TLP, please fork and submit a PR!
 
+### stdin/stdout
+
+The import, export, and shell subcommands may accept a single dash
+( `-` ) as a filename to use stdin/stdout. In this mode, the `import`
+subcommand will write to stdout. `export` and `shell` will read from stdin.
+
 
 # Contributing
 
@@ -99,16 +105,3 @@ If you are aware of a better way to work around TLP, please fork and submit a PR
 The 'main' branch shall be the most up-to-date version of the project. Once the main branch reaches
 stability, the version number will be incremented, a release will be generated, and a 'release-x.x.x'
 branch will be created to preserve the repository at its state.
-
-## Releases
-
-### 0.X (current)
-
-* BC125Py is currently in beta.
-* I have tested every function on my personal scanner; the program just lacks a large-scale test.
-* No coming major changes.
-* If there are no reported problems, this release will eventually become 1.0
-
-### *1.0*
-
-* First stable release (see above)
