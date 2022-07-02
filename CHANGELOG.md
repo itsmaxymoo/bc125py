@@ -1,6 +1,6 @@
 # Release History
 
-## 0.9.7
+## 0.9.7 (upcoming)
 
 * Improved documentation
 * stdout support for import subcommand
