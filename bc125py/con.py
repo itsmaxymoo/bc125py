@@ -45,10 +45,7 @@ class ScannerConnection:
 			raise ConnectionError("Connection already established")
 
 		# First, set up device driver. It doesn't matter if we do this multiple times
-		self.__setup_driver()
-
-		# Pause to give the OS time to generate the device file
-		time.sleep(0.1)
+		ScannerConnection.__setup_driver()
 
 		# Second, determine device path
 		if not port:
@@ -66,37 +63,6 @@ class ScannerConnection:
 
 		self.connected = True
 		log.debug("con: connection successfully established")
-
-
-	def __setup_driver(self) -> None:
-		"""internal use. inject driver string into kernel
-
-		Raises:
-			ConnectionError: if no scanner detected
-			ConnectionError: if error writing to new_id file
-		"""
-
-		try:
-			# Path to new acm device file
-			driver_path: str = "/sys/bus/usb/drivers/cdc_acm/new_id"
-
-			# Make directories up to this file
-			# They likely do not exist
-			os.makedirs(os.path.dirname(driver_path), exist_ok=True)
-
-		except IOError as e:
-			raise ConnectionError("No scanner found")
-		
-		try:
-			# Open new_id file, write driver string
-			driver_file = open(driver_path, "w")
-			print("1965 0017 2 076d 0006", file=driver_file) # Thanks to Rikus Goodell's bc125at-perl
-			driver_file.close()
-			
-			log.debug("con: successfully setup driver string")
-
-		except IOError as e:
-			raise ConnectionError("Error setting up driver: " + str(e))
 
 
 	def __open_connection(self, port: str) -> None:
@@ -239,6 +205,9 @@ class ScannerConnection:
 			list: list of potential device files
 		"""
 
+		# First, set up device driver. It doesn't matter if we do this multiple times
+		ScannerConnection.__setup_driver()
+
 		# Create array for all possible found results
 		found_ports = []
 
@@ -268,6 +237,41 @@ class ScannerConnection:
 			found_ports
 		)
 		return found_ports
+	
+
+	@staticmethod
+	def __setup_driver() -> None:
+		"""internal use. inject driver string into kernel
+
+		Raises:
+			ConnectionError: if no scanner detected
+			ConnectionError: if error writing to new_id file
+		"""
+
+		try:
+			# Path to new acm device file
+			driver_path: str = "/sys/bus/usb/drivers/cdc_acm/new_id"
+
+			# Make directories up to this file
+			# They likely do not exist
+			os.makedirs(os.path.dirname(driver_path), exist_ok=True)
+
+		except IOError as e:
+			raise ConnectionError("No scanner found")
+		
+		try:
+			# Open new_id file, write driver string
+			driver_file = open(driver_path, "w")
+			print("1965 0017 2 076d 0006", file=driver_file) # Thanks to Rikus Goodell's bc125at-perl
+			driver_file.close()
+			
+			log.debug("con: successfully setup driver string")
+
+		except IOError as e:
+			raise ConnectionError("Error setting up driver: " + str(e))
+		
+		# Pause to give the OS time to generate the device file
+		time.sleep(0.1)
 
 
 class SimulatedScannerConnection(ScannerConnection):

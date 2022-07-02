@@ -1,5 +1,5 @@
 {
-	"bc125py_version": "0.9.1",
+	"bc125py_version": "0.9.7",
 	"model": {
 		"model": "BC125AT"
 	},
@@ -75,7 +75,7 @@
 	},
 	"enabled_custom_search_banks": {
 		"banks": [
-			false,
+			true,
 			true,
 			true,
 			true,

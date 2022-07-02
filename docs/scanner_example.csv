@@ -354,7 +354,7 @@ Index,Name,Frequency (MHz),Modulation,CTCSS,Delay (sec),Lockout,Priority
 353,CB 3,026.9850,am,0,2,unlocked,off
 354,CB 4 OffRoad,027.0050,am,0,2,unlocked,off
 355,CB 5,027.0150,am,0,2,unlocked,off
-356,CB 6 Superbowl  ,027.0250,am,0,2,unlocked,off
+356,CB 6 Superbowl,027.0250,am,0,2,unlocked,off
 357,CB 7,027.0350,am,0,2,unlocked,off
 358,CB 8,027.0550,am,0,2,unlocked,off
 359,CB 9 Emergency,027.0650,am,0,2,unlocked,off

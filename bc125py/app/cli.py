@@ -225,23 +225,28 @@ def import_read(out_file: str, csv: bool) -> int:
 	enforce_root()
 
 	try:
+		# Determine if we are outputting to stdout
+		stdout_mode: bool = out_file == "-"
+			
 
 		# Connect to scanner
 		scanner_con = get_scanner_connection(_port)
 
 		# Read from scanner
-		print("Reading from scanner...")
+		if not stdout_mode:
+			print("Reading from scanner...")
 		log.debug("Attempting full scanner read")
 		scanner: sdo.Scanner = sdo.Scanner()
 		scanner.read_from(scanner_con)
-		print("done")
+		if not stdout_mode:
+			print("done")
 
 		# Open output file
 		log.debug("import: creating output file")
 		fout = None
 
 		# If the output filename is -, use stdout instead
-		if out_file == "-":
+		if stdout_mode:
 			log.debug("import: using stdout")
 			fout = sys.stdout
 		
@@ -510,7 +515,7 @@ def shell(cmd_file_path: str = None) -> int:
 		
 		# If we're reading from a command file
 		if cmd_file_path:
-			log.debug("subc: shell: commands file mode:", cmd_file_path)
+			log.debug("subc: shell: commands file:", cmd_file_path)
 
 			# Open file and read
 			fin = None
