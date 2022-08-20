@@ -44,6 +44,8 @@ Then, edit the CSV file in a spreadsheet editor!
 `sudo bc125py shell`
 
 The shell allows you to send commands directly to the device.
+The `shell` subcommand accepts a script filename as an optional parameter.
+Specifying `-` as the input script will tell the shell to read from stdin.
 
 ### Factory reset the scanner
 

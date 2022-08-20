@@ -1,5 +1,9 @@
 # Release History
 
+## 0.9.8
+
+* Improved shell documentation
+
 ## 0.9.7
 
 * Improved documentation
