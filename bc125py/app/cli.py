@@ -81,7 +81,7 @@ def main() -> int:
 	# Create main cli parser
 	main_parser = argparse.ArgumentParser(
 		prog=bc125py.PACKAGE_NAME,
-		description=bc125py.PACKAGE_DESCRIPTION,
+		description=bc125py.PACKAGE_DESCRIPTION + ", version " + bc125py.PACKAGE_VERSION,
 		epilog="Please report all issues at {url} or to {email}".format(
 			url=bc125py.PACKAGE_URL,
 			email=bc125py.PACKAGE_AUTHOR_EMAIL
