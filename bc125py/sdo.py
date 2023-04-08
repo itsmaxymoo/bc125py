@@ -740,7 +740,7 @@ class Channel(_ScannerDataObject):
 
 	def to_write_command(self) -> tuple:
 		return self.to_fetch_command() + (
-			self.name,
+			self.name if self.name else " ",
 			freq_to_scanner(self.frequency),
 			self.modulation.value,
 			self.ctcss,
