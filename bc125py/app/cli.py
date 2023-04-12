@@ -1,7 +1,9 @@
+import cmd
 import os
 import sys
 import argparse
 import datetime
+import readline
 import bc125py
 from bc125py.app import core, log
 from bc125py import sdo, con as _c
@@ -447,6 +449,74 @@ def export_write(in_file: str, csv: bool) -> int:
 		return 1
 
 
+class Shell(cmd.Cmd):
+	def __init__(self, con):
+		super(Shell, self).__init__()
+		self.intro = (bc125py.PACKAGE_NAME + " " + bc125py.PACKAGE_VERSION +
+					  " scanner shell" + os.linesep +
+					  "try commands \"help\" or \"exit\"" + os.linesep)
+		self.prompt = "> "
+		self.__con = con
+		self.__shell_echo = True
+		self.__shell_allow_error = True
+		self.__shell_history_file = os.path.expanduser('~/.bc125py_history')
+		self.__shell_history_size = 1000
+
+	def preloop(self):
+		if os.path.exists(self.__shell_history_file):
+			readline.read_history_file(self.__shell_history_file)
+
+	def postloop(self):
+		readline.set_history_length(self.__shell_history_size)
+		readline.write_history_file(self.__shell_history_file)
+
+	def help_echo(self):
+		print("In response, show command name with \"echo on\" (default) or do not " +
+		      "show command name with \"echo off\".")
+	def do_echo(self, arg):
+		if not arg:
+			print("echo is " + ("on" if self.__shell_echo else "off"))
+		elif arg == "on":
+			self.__shell_echo = True
+		elif arg == "off":
+			self.__shell_echo = False
+		else:
+			print("Unexpected argument to \"echo\".")
+
+	def help_error(self):
+		print("On command error, crash with \"error on\" or do not crash with " +
+		      "\"error off\" (default).")
+	def do_error(self, arg):
+		if not arg:
+			print("error is " + ("off" if self.__shell_allow_error else "on"))
+		elif arg == "on":
+			self.__shell_allow_error = False
+		elif arg == "off":
+			self.__shell_allow_error = True
+		else:
+			print("Unexpected argument to \"error\".")
+
+	def help_exit(self):
+		self.help_EOF()
+	def do_exit(self, arg):
+		return self.do_EOF(arg)
+
+	def help_print(self):
+		print("Print all text after \"print\".")
+	def do_print(self, arg):
+		print(arg)
+
+	def help_EOF(self):
+		print("Exit the shell.")
+	def do_EOF(self, arg):
+		return True
+
+	def default(self, arg):
+		if arg[:1] == "#":
+			return False
+		print(self.__con.exec(arg, echo=self.__shell_echo, return_tuple=False,
+							  allow_error=self.__shell_allow_error))
+
 # Shell command
 def shell(cmd_file_path: str = None) -> int:
 	log.debug("subc: shell")
@@ -457,62 +527,8 @@ def shell(cmd_file_path: str = None) -> int:
 		# Connect
 		con = get_scanner_connection(_port)
 
-		# Print header
-		print(bc125py.PACKAGE_NAME, bc125py.PACKAGE_VERSION, "scanner shell")
-		print("try commands \"help\" or \"exit\"", os.linesep)
+		the_shell = Shell(con)
 
-		# User controllable variables
-		shell_echo = True
-		shell_allow_error = True
-
-		# Function for processing input/commands
-		def process_input(input_str: str) -> None:
-
-			nonlocal shell_echo
-			nonlocal shell_allow_error
-
-			# case: help
-			if input_str == "help":
-				print("help           show this text")
-				print("exit           exit the shell")
-				print("echo on        show command name in response (default)")
-				print("echo off       do not include command name in response")
-				print("error on       crash program on command error")
-				print("error off      do not crash on command error (default)")
-				print("print <text>   print all text after \"print\"")
-				print("# <text>       mark line as comment. line will be ignored")
-			
-			# case: exit, blank line, or comment
-			elif not input_str or input_str == "exit" or input_str.startswith("#"):
-				pass
-
-			# case: print <text>
-			elif input_str.startswith("print ") or input_str == "print":
-				print(input_str[6:])
-			
-			# case: echo on
-			elif input_str == "echo on":
-				shell_echo = True
-			
-			# case: echo off
-			elif input_str == "echo off":
-				shell_echo = False
-			
-			# case: error on
-			elif input_str == "error on":
-				shell_allow_error = False
-			
-			# case: error off
-			elif input_str == "error off":
-				shell_allow_error = True
-
-			# case: Input is not a special command; send input to scanner
-			else:
-				# Execute command, print result
-				print(con.exec(input_str, echo=shell_echo, return_tuple=False, allow_error=shell_allow_error))
-
-		# Determine method of input (file or interactive)
-		
 		# If we're reading from a command file
 		if cmd_file_path:
 			log.debug("subc: shell: commands file:", cmd_file_path)
@@ -528,26 +544,14 @@ def shell(cmd_file_path: str = None) -> int:
 			# Else, read from file as usual
 			else:
 				fin = open(cmd_file_path, "r")
-			
-			for line in fin.readlines():
-				# Process each line
-				process_input(line.lstrip().rstrip())
+
+			# Skip the intro and exit when done
+			the_shell.intro = ""
+			the_shell.cmdqueue.extend(fin.read().splitlines() + ["exit"])
 
 			fin.close()
 
-
-		# Else, interactive mode
-		else:
-			log.debug("subc: shell: interactive mode")
-
-			# Input loop, stop if last command was "exit"
-			in_line: str = ""
-			while in_line != "exit":
-				# Get user input
-				in_line = input("> ").lstrip().rstrip()
-			
-				# Process input
-				process_input(in_line)
+		the_shell.cmdloop()
 			
 		# Close scanner connection
 		con.close()
