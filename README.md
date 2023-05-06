@@ -47,6 +47,10 @@ The shell allows you to send commands directly to the device.
 The `shell` subcommand accepts a script filename as an optional parameter.
 Specifying `-` as the input script will tell the shell to read from stdin.
 
+The shell remembers its history by default. This can be cleared by deleting
+`~/.bc125py_history` (but usually for the root user), or by running the shell
+subcommand with the `-c` or `--clear-history` flags.
+
 ### Factory reset the scanner
 
 `sudo bc125py wipe`
