@@ -147,6 +147,12 @@ def main() -> int:
 	# Subcommand shell
 	shell_parser = sub_parsers.add_parser("shell", help="launch interactive scanner shell")
 	shell_parser.add_argument("file", help="commands file to execute", nargs="?", default=None)
+	shell_parser.add_argument(
+		"-c",
+		"--clear-history",
+		action="store_true",
+		help="clear the shell's history before start"
+	)
 
 	# Subcommand wipe
 	wipe_parser = sub_parsers.add_parser("wipe", help="factory reset scanner")
@@ -186,7 +192,7 @@ def main() -> int:
 	elif cmd == "export":
 		return export_write(cli_args.file, cli_args.csv)
 	elif cmd == "shell":
-		return shell(cmd_file_path=cli_args.file)
+		return shell(cmd_file_path=cli_args.file, clear_history=cli_args.clear_history)
 	elif cmd == "wipe":
 		return wipe()
 
@@ -450,6 +456,8 @@ def export_write(in_file: str, csv: bool) -> int:
 
 
 class Shell(cmd.Cmd):
+	HISTORY_FILE_PATH = os.path.expanduser('~/.bc125py_history')
+
 	def __init__(self, con):
 		super(Shell, self).__init__()
 		self.intro = (bc125py.PACKAGE_NAME + " " + bc125py.PACKAGE_VERSION +
@@ -459,7 +467,7 @@ class Shell(cmd.Cmd):
 		self.__con = con
 		self.__shell_echo = True
 		self.__shell_allow_error = True
-		self.__shell_history_file = os.path.expanduser('~/.bc125py_history')
+		self.__shell_history_file = self.HISTORY_FILE_PATH
 		self.__shell_history_size = 1000
 
 	def preloop(self):
@@ -518,10 +526,19 @@ class Shell(cmd.Cmd):
 							  allow_error=self.__shell_allow_error))
 
 # Shell command
-def shell(cmd_file_path: str = None) -> int:
+def shell(cmd_file_path: str = None, clear_history: bool = False) -> int:
 	log.debug("subc: shell")
 
 	enforce_root()
+
+	# Clear history if the user requested it. Fail silently
+	if clear_history:
+		log.debug("subc: shell: Clearing shell history file: " + Shell.HISTORY_FILE_PATH)
+		try:
+			os.unlink(Shell.HISTORY_FILE_PATH)
+			log.debug("subc: shell: Shell history file successfully cleared")
+		except Exception as e:
+			log.debug("subc: shell: error deleting history file: " + str(e))
 
 	try:
 		# Connect
