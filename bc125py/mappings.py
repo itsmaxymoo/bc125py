@@ -215,15 +215,19 @@ def ctcss_dcs_h2i(provided: str | float | int) -> int:
         ValueError: If the provided value is not valid.
     """
     _provided = str(provided)
-    if _provided.lower() in ("none", "all", "none/all"):
+
+    # Some convenience variations
+    if _provided.lower() in ("none", "all", "noneall"):
         _provided = NONE
-    if _provided.lower() == "search":
-        _provided = SEARCH
-    if _provided.lower() in ("no_tone", "no tone"):
+    if _provided.lower() in ("no tone", "notone"):
         _provided = NO_TONE
+
     for key, value in VALID_VALUES.items():
-        if value == _provided:
+        if value.lower() == _provided.lower():
             return key
+    _provided = _provided.lower()
+    
+    
     valid_values = f"Special: [{', '.join(SPECIAL_VALUES.values())}]" 
     valid_values += f" CTCSS: [{', '.join(CTCSS.values())}]"
     valid_values += f" DCS: [{', '.join(DCS.values())}]"
