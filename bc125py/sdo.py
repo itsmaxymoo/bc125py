@@ -1,5 +1,4 @@
 from enum import Enum
-
 import bc125py
 from .mappings import ctcss_dcs_h2i, ctcss_dcs_i2h
 
