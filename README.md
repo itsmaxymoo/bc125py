@@ -76,6 +76,8 @@ By default, import and export will process all of the scanner's channels
 and settings, and work with json files. The `--csv` flag tells these
 command to process channels only, and work with csv files.
 
+**Note:** The CTCSS and DCS values returned by the scanner and added to the json or csv file are not the actual frequency or code. They are mapped to integer values which can be found in the [protocol specification](docs/BC125AT_Protocol.pdf) on page 63.
+
 ### Shell Scripts
 
 The `shell` subcommand accepts an optional parameter for an input file,
