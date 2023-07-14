@@ -1,5 +1,7 @@
 from enum import Enum
+
 import bc125py
+from .mappings import ctcss_dcs_h2i, ctcss_dcs_i2h
 
 
 #region Global Functions
@@ -85,19 +87,6 @@ def is_valid_freq_mhz(freq: str) -> bool:
 
 def is_valid_delay(delay: int) -> bool:
 	return delay in [-10, -5, 0, 1, 2, 3, 4, 5]
-
-
-def is_valid_ctcss(tone: int) -> bool:
-	if tone == 0:
-		return True
-	elif (tone >= 64 and tone <= 113):
-		return True
-	elif (tone >= 127 and tone <= 231):
-		return True
-	elif tone == 240:
-		return True
-	else: return False
-
 
 #endregion
 
@@ -728,7 +717,8 @@ class Channel(_ScannerDataObject):
 	name: str = ""
 	frequency: str = "000.0000"
 	modulation: E_Modulation = E_Modulation.auto
-	ctcss: int = 0
+	# The CTCSS/DCS code is stored as human readable
+	ctcss: str = ctcss_dcs_i2h(0)
 	delay: int = 2
 	locked_out: E_LockState = E_LockState.unlocked
 	priority: E_TrueFalse = E_TrueFalse.false
@@ -743,7 +733,7 @@ class Channel(_ScannerDataObject):
 			self.name if self.name else " ",
 			freq_to_scanner(self.frequency),
 			self.modulation.value,
-			self.ctcss,
+			ctcss_dcs_h2i(self.ctcss),
 			self.delay,
 			self.locked_out.value,
 			self.priority.value
@@ -759,7 +749,7 @@ class Channel(_ScannerDataObject):
 		self.name = command_response[1]
 		self.frequency = freq_to_mhz(command_response[2])
 		self.modulation = E_Modulation(command_response[3])
-		self.ctcss = int(command_response[4])
+		self.ctcss = ctcss_dcs_i2h(command_response[4])
 		self.delay = int(command_response[5])
 		self.locked_out = E_LockState(command_response[6])
 		self.priority = E_PriorityMode(command_response[7])
@@ -809,9 +799,11 @@ class Channel(_ScannerDataObject):
 			err_found = True
 			err_message += ", invalid delay: " + str(self.delay)
 		
-		if not is_valid_ctcss(self.ctcss):
+		try:
+			ctcss_dcs_h2i(self.ctcss)
+		except ValueError as exc:
 			err_found = True
-			err_message += ", invalid ctcss/dcs: " + str(self.ctcss)
+			err_message = str(exc)
 		
 		if err_found:
 			raise ValueError(err_message)

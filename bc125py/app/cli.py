@@ -403,7 +403,7 @@ def export_write(in_file: str, csv: bool) -> int:
 					"name": row[1],
 					"frequency": row[2],
 					"modulation": row[3],
-					"ctcss": int(row[4]),
+					"ctcss": row[4],
 					"delay": int(row[5]),
 					"locked_out": row[6],
 					"priority": row[7]
