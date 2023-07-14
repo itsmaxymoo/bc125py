@@ -196,7 +196,7 @@ def ctcss_dcs_i2h(code: int|str) -> int | float | str:
     try:
         return VALID_VALUES[code]
     except KeyError as exc:
-        raise ValueError(f"Invalid internal CTCSS/DCS value: {code}") from exc
+        raise ValueError(f"invalid internal ctcss/dcs: {code}") from exc
 
 
 def ctcss_dcs_h2i(provided: str | float | int) -> int:
@@ -227,4 +227,4 @@ def ctcss_dcs_h2i(provided: str | float | int) -> int:
     valid_values = f"Special: [{', '.join(SPECIAL_VALUES.values())}]" 
     valid_values += f" CTCSS: [{', '.join(CTCSS.values())}]"
     valid_values += f" DCS: [{', '.join(DCS.values())}]"
-    raise ValueError(f"Invalid user-provided CTCSS/DCS value: {provided}, valid values: {valid_values}")
+    raise ValueError(f"invalid provided ctcss/dcs: {provided}, valid values: {valid_values}")
