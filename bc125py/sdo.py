@@ -802,7 +802,7 @@ class Channel(_ScannerDataObject):
 			ctcss_dcs_h2i(self.ctcss)
 		except ValueError as exc:
 			err_found = True
-			err_message = str(exc)
+			err_message += str(exc)
 		
 		if err_found:
 			raise ValueError(err_message)
