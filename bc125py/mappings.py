@@ -1,8 +1,19 @@
 """Lookup values for CTCSS and DCS codes."""
 
+# Documented string representations of special values
+NONE: str = "NONE/All"
+SEARCH: str = "SEARCH"
+NO_TONE: str = "NO_TONE"
 
-CTCSSDCS: dict[int, str] = {
-    # CTCSS mapping follows
+# A mapping of internal special values to human-readable values
+SPECIAL_VALUES: dict[int, str] = {
+    0: NONE,
+    127: SEARCH,
+    240: NO_TONE,
+}
+
+# A mapping of internal CTCSS values to human-readable values
+CTCSS: dict[int, str] = {
     64: "67.0",
     65: "69.3",
     66: "71.9",
@@ -52,8 +63,11 @@ CTCSSDCS: dict[int, str] = {
     110: "233.6",
     111: "241.8",
     112: "250.3",
-    113: "254.1",
-    # DCS mapping follows
+    113: "254.1"
+}
+
+# A mapping of internal DCS values to human-readable values
+DCS: dict[int, str] = {
     128: "23",
     129: "25",
     130: "26",
@@ -160,6 +174,8 @@ CTCSSDCS: dict[int, str] = {
     231: "754",
 }
 
+VALID_VALUES: dict[int, str] = {**SPECIAL_VALUES, **CTCSS, **DCS}
+
 
 def ctcss_dcs_i2h(code: int|str) -> int | float | str:
     """Lookup CTCSS/DCS code and return a human-readable value.
@@ -177,14 +193,8 @@ def ctcss_dcs_i2h(code: int|str) -> int | float | str:
         ValueError: If the code is not valid. This should never happen.
     """
     code = int(code)
-    if code == 0:
-        return "NONE/All"
-    if code == 127:
-        return "SEARCH"
-    if code == 240:
-        return "NO_TONE"
     try:
-        return CTCSSDCS[code]
+        return VALID_VALUES[code]
     except KeyError as exc:
         raise ValueError(f"Invalid internal CTCSS/DCS value: {code}") from exc
 
@@ -206,13 +216,15 @@ def ctcss_dcs_h2i(provided: str | float | int) -> int:
     """
     _provided = str(provided)
     if _provided.lower() in ("none", "all", "none/all"):
-        return 0
+        _provided = NONE
     if _provided.lower() == "search":
-        return 127
+        _provided = SEARCH
     if _provided.lower() in ("no_tone", "no tone"):
-        return 240
-    for key, value in CTCSSDCS.items():
+        _provided = NO_TONE
+    for key, value in VALID_VALUES.items():
         if value == _provided:
             return key
-    valid_values = ", ".join(CTCSSDCS.values()) + ", NONE/All, SEARCH, NO_TONE"
+    valid_values = f"Special: [{', '.join(SPECIAL_VALUES.values())}]" 
+    valid_values += f" CTCSS: [{', '.join(CTCSS.values())}]"
+    valid_values += f" DCS: [{', '.join(DCS.values())}]"
     raise ValueError(f"Invalid user-provided CTCSS/DCS value: {provided}, valid values: {valid_values}")
