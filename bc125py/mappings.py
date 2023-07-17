@@ -190,7 +190,7 @@ def ctcss_dcs_i2h(code: int|str) -> int | float | str:
         The human-readable value of the code.
 
     Raises:
-        ValueError: If the code is not valid. This should never happen.
+        ValueError: If the code is not valid.
     """
     code = int(code)
     try:

@@ -716,8 +716,7 @@ class Channel(_ScannerDataObject):
 	name: str = ""
 	frequency: str = "000.0000"
 	modulation: E_Modulation = E_Modulation.auto
-	# The CTCSS/DCS code is stored as human readable
-	ctcss: str = ctcss_dcs_i2h(0)
+	ctcss: str = 0
 	delay: int = 2
 	locked_out: E_LockState = E_LockState.unlocked
 	priority: E_TrueFalse = E_TrueFalse.false
@@ -732,7 +731,7 @@ class Channel(_ScannerDataObject):
 			self.name if self.name else " ",
 			freq_to_scanner(self.frequency),
 			self.modulation.value,
-			ctcss_dcs_h2i(self.ctcss),
+			self.ctcss,
 			self.delay,
 			self.locked_out.value,
 			self.priority.value
@@ -748,7 +747,7 @@ class Channel(_ScannerDataObject):
 		self.name = command_response[1]
 		self.frequency = freq_to_mhz(command_response[2])
 		self.modulation = E_Modulation(command_response[3])
-		self.ctcss = ctcss_dcs_i2h(command_response[4])
+		self.ctcss = int(command_response[4])
 		self.delay = int(command_response[5])
 		self.locked_out = E_LockState(command_response[6])
 		self.priority = E_PriorityMode(command_response[7])
@@ -760,7 +759,7 @@ class Channel(_ScannerDataObject):
 			"name": self.name,
 			"frequency": self.frequency,
 			"modulation": self.modulation.name,
-			"ctcss": self.ctcss,
+			"ctcss": ctcss_dcs_i2h(self.ctcss),
 			"delay": self.delay,
 			"locked_out": self.locked_out.name,
 			"priority": self.priority.name
@@ -772,7 +771,7 @@ class Channel(_ScannerDataObject):
 		self.name = data["name"]
 		self.frequency = data["frequency"]
 		self.modulation = E_Modulation[data["modulation"]]
-		self.ctcss = data["ctcss"]
+		self.ctcss = ctcss_dcs_h2i(data["ctcss"])
 		self.delay = data["delay"]
 		self.locked_out = E_LockState[data["locked_out"]]
 		self.priority = E_PriorityMode[data["priority"]]
@@ -799,7 +798,7 @@ class Channel(_ScannerDataObject):
 			err_message += ", invalid delay: " + str(self.delay)
 		
 		try:
-			ctcss_dcs_h2i(self.ctcss)
+			ctcss_dcs_i2h(self.ctcss)
 		except ValueError as exc:
 			err_found = True
 			err_message += f", {exc}"
