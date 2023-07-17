@@ -32,7 +32,7 @@ VALIDH2IDATA = (DataStruct(human="NONE", internal=0),
 
 @pytest.mark.parametrize("data", VALIDH2IDATA, ids=str)
 def test_ctcss_dcs_h2i(data: DataStruct):
-    """Ensure variations of human readable values are mapped to internal.
+    """Ensure variations of human-friendly values are mapped to internal.
     
     Args:
         data: The test data.
@@ -49,7 +49,7 @@ INVALIDH2IDATA = (DataStruct(human="12345"),
 
 @pytest.mark.parametrize("data", INVALIDH2IDATA, ids=str)  
 def test_ctcss_dcs_h2i_invalid(data: DataStruct):
-    """Ensure invalid human readable values raise ValueError.
+    """Ensure invalid human-friendly values raise ValueError.
     
     Args:
         data: The test data.
@@ -66,7 +66,7 @@ VALIDI2HDATA = (DataStruct(human="NONE/All", internal=0),
 
 @pytest.mark.parametrize("data", VALIDI2HDATA, ids=str)
 def test_ctcss_dcs_i2h(data: DataStruct):
-    """Ensure internal values are mapped to human readable.
+    """Ensure internal values are mapped to human-friendly values.
     
     Args:
         data: The test data.

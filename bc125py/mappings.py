@@ -5,14 +5,14 @@ NONE: str = "NONE/All"
 SEARCH: str = "SEARCH"
 NO_TONE: str = "NO_TONE"
 
-# A mapping of internal special values to human-readable values
+# A mapping of internal special values to human-friendly values
 SPECIAL_VALUES: dict[int, str] = {
     0: NONE,
     127: SEARCH,
     240: NO_TONE,
 }
 
-# A mapping of internal CTCSS values to human-readable values
+# A mapping of internal CTCSS values to human-friendly values
 CTCSS: dict[int, str] = {
     64: "67.0",
     65: "69.3",
@@ -66,7 +66,7 @@ CTCSS: dict[int, str] = {
     113: "254.1"
 }
 
-# A mapping of internal DCS values to human-readable values
+# A mapping of internal DCS values to human-friendly values
 DCS: dict[int, str] = {
     128: "23",
     129: "25",
@@ -178,7 +178,7 @@ VALID_VALUES: dict[int, str] = {**SPECIAL_VALUES, **CTCSS, **DCS}
 
 
 def ctcss_dcs_i2h(code: int|str) -> int | float | str:
-    """Lookup CTCSS/DCS code and return a human-readable value.
+    """Lookup CTCSS/DCS code and return a human-friendly value.
 
     Although multiple viable values exist for 0, 127, 240, use the value from the protocol
     documentation.
@@ -187,7 +187,7 @@ def ctcss_dcs_i2h(code: int|str) -> int | float | str:
         code: The CTCSS/DCS code to lookup.
 
     Returns:
-        The human-readable value of the code.
+        The human-friendly value of the code.
 
     Raises:
         ValueError: If the code is not valid.
