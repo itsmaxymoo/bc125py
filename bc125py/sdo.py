@@ -716,7 +716,7 @@ class Channel(_ScannerDataObject):
 	name: str = ""
 	frequency: str = "000.0000"
 	modulation: E_Modulation = E_Modulation.auto
-	ctcss: str = 0
+	ctcss: int = 0
 	delay: int = 2
 	locked_out: E_LockState = E_LockState.unlocked
 	priority: E_TrueFalse = E_TrueFalse.false
