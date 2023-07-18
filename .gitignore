@@ -1,6 +1,9 @@
 # bc125py-driver output
 driver/bc125py-driver
 
+# for testing
+channels.csv
+
 # ---
 
 # Byte-compiled / optimized / DLL files
