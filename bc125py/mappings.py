@@ -1,11 +1,14 @@
-"""Lookup values for CTCSS and DCS codes."""
+"""More complex mappings for human readable values to scanner data"""
 
 
 import re
 
 
+# region CTCSS/DCS
+
+
 # A mapping of internal special values to human-friendly values
-SPECIAL_VALUES: dict[int, str] = {
+SPECIAL_CTCSS_DCS_VALUES: dict[int, str] = {
 	0: "none",
 	127: "search",
 	240: "no_tone",
@@ -173,7 +176,7 @@ DCS: dict[int, str] = {
 	231: "dcs_754",
 }
 
-VALID_VALUES: dict[int, str] = {**SPECIAL_VALUES, **CTCSS, **DCS}
+VALID_CTCSS_DCS_VALUES: dict[int, str] = {**SPECIAL_CTCSS_DCS_VALUES, **CTCSS, **DCS}
 
 
 def ctcss_dcs_to_human(code: int) -> str:
@@ -190,7 +193,7 @@ def ctcss_dcs_to_human(code: int) -> str:
 	"""
 
 	try:
-		return VALID_VALUES[code]
+		return VALID_CTCSS_DCS_VALUES[code]
 	except KeyError as exc:
 		raise ValueError(f"invalid internal ctcss/dcs: {code}") from exc
 
@@ -215,9 +218,12 @@ def ctcss_dcs_to_internal(provided: str) -> int:
 	provided = str(provided).lower()
 	provided = re.sub(minimize_regex, "", provided)
 
-	for key, value in VALID_VALUES.items():
+	for key, value in VALID_CTCSS_DCS_VALUES.items():
 		value = re.sub(minimize_regex, "", provided)
 		if value == provided:
 			return key
 
 	raise ValueError("Invalid input value: " + str(provided))
+
+
+# endregion
