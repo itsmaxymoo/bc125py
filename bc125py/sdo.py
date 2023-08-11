@@ -206,6 +206,12 @@ class BankListManager:
 				raise ValueError("At least one bank must be enabled!")
 
 
+class InputValidationError(ValueError):
+	"""A subclass of ValueError, for when an SDO has an issue parsing from_dict.
+	"""
+	pass
+
+
 #endregion
 
 
@@ -279,13 +285,15 @@ class _ScannerDataObject:
 
 
 	def from_dict(self, data: dict) -> None:
-		"""From a dict, import the values to this object
+		"""From a dict, import the values to this object. This
+		function should also perform data validation.
 
 		Args:
 			data (dict): The data to import to this object
 
 		Raises:
 			NotImplementedError: if this function is not implemented in a child class
+			InputValidationError: if any data validation error is encountered.
 		"""
 
 		raise NotImplementedError(type(self).__name__ + " must implement from_dict()")
@@ -312,16 +320,6 @@ class _ScannerDataObject:
 		self.from_command_response(
 			scanner_con.exec(self.to_fetch_command())
 		)
-
-
-	def validate(self) -> None:
-		"""Allow an SDO to validate its data.
-
-		Raises:
-			ValueError: if any data validation error is encountered.
-		"""
-
-		return None
 
 
 	def __str__(self) -> str:
