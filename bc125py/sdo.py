@@ -1,5 +1,6 @@
 from enum import Enum
 import bc125py
+from mappings import ctcss_dcs_to_internal, ctcss_dcs_to_human
 
 
 #region Global Functions
@@ -87,6 +88,7 @@ def is_valid_delay(delay: int) -> bool:
 	return delay in [-10, -5, 0, 1, 2, 3, 4, 5]
 
 
+# TODO: Deprecate
 def is_valid_ctcss(tone: int) -> bool:
 	if tone == 0:
 		return True
@@ -199,11 +201,9 @@ class BankListManager:
 	def from_dict(self, banks: list) -> None:
 		self.banks = banks
 
-
-	def validate(self) -> None:
 		if self.__require_enabled:
 			if not any(self.banks):
-				raise ValueError("At least one bank must be enabled!")
+				raise InputValidationError("At least one bank must be enabled!")
 
 
 class InputValidationError(ValueError):
@@ -367,10 +367,8 @@ class _E(_ScannerDataObject):
 	def from_dict(self, data) -> None:
 		self.attrib = data["attrib"]
 
-
-	def validate(self) -> None:
 		if self.attrib < 0:
-			raise ValueError("Attrib must be >= 0!")
+			raise InputValidationError("Attrib must be >= 0!")
 
 
 # PRG Program Mode
@@ -543,10 +541,8 @@ class BatteryChargeTimer(_ScannerDataObject):
 	def from_dict(self, data: dict) -> None:
 		self.hours = data["hours"]
 
-
-	def validate(self) -> None:
 		if not (self.hours >= 1 and self.hours <= 16):
-			raise ValueError("Battery charge time hours must be in range [1-16], given " + str(self.hours))
+			raise InputValidationError("Battery charge time hours must be in range [1-16], given " + str(self.hours))		
 
 
 # CLR Clear Scanner Memory
@@ -667,14 +663,10 @@ class EnabledChannelBanks(_ScannerDataObject):
 
 
 	def from_dict(self, data: dict) -> None:
-		self.bank_list_manager.from_dict(data["banks"])
-
-
-	def validate(self) -> None:
 		try:
-			self.bank_list_manager.validate()
-		except ValueError as e:
-			raise ValueError("Channel banks: " + str(e))
+			self.bank_list_manager.from_dict(data["banks"])
+		except InputValidationError as e:
+			raise InputValidationError("Channel banks: " + str(e))
 
 
 # DCH Delete Channel
@@ -769,7 +761,7 @@ class Channel(_ScannerDataObject):
 			"name": self.name,
 			"frequency": self.frequency,
 			"modulation": self.modulation.name,
-			"ctcss": self.ctcss,
+			"ctcss": ctcss_dcs_to_human(self.ctcss),
 			"delay": self.delay,
 			"locked_out": self.locked_out.name,
 			"priority": self.priority.name
@@ -781,13 +773,11 @@ class Channel(_ScannerDataObject):
 		self.name = data["name"]
 		self.frequency = data["frequency"]
 		self.modulation = E_Modulation[data["modulation"]]
-		self.ctcss = data["ctcss"]
+		# We do ctcss later
 		self.delay = data["delay"]
 		self.locked_out = E_LockState[data["locked_out"]]
 		self.priority = E_PriorityMode[data["priority"]]
 
-
-	def validate(self) -> None:
 		err_message: str = "channel: " + str(self.index)
 		err_found: bool = False
 
@@ -807,12 +797,17 @@ class Channel(_ScannerDataObject):
 			err_found = True
 			err_message += ", invalid delay: " + str(self.delay)
 		
-		if not is_valid_ctcss(self.ctcss):
-			err_found = True
-			err_message += ", invalid ctcss/dcs: " + str(self.ctcss)
+		try:
+			self.ctcss = int(data["ctcss"])
+		except ValueError:
+			try:
+				self.ctcss = ctcss_dcs_to_internal(data["ctcss"])
+			except ValueError:
+				err_found = True
+				err_message += ", invalid ctcss/dcs: " + str(self.ctcss)
 		
 		if err_found:
-			raise ValueError(err_message)
+			raise InputValidationError(err_message)
 
 
 # SCO Close Call Delay/CTCSS Settings
@@ -853,8 +848,6 @@ class CloseCallDelayCTCSSSettings(_ScannerDataObject):
 		self.delay = data["delay"]
 		self.ctcss = E_TrueFalse[data["ctcss"]]
 
-
-	def validate(self) -> None:
 		if not is_valid_delay(self.delay):
 			raise ValueError("cc_ctcss_settings: invalid delay: " + str(self.delay))
 
@@ -886,6 +879,15 @@ class LockedFrequencies(_ScannerDataObject):
 
 	def from_dict(self, data: dict) -> None:
 		self.frequencies = data["freqs"]
+
+		invalid_freqs: list = []
+
+		for f in self.frequencies:
+			if not is_valid_freq_mhz(f):
+				invalid_freqs.append(f)
+
+		if len(invalid_freqs) > 0:
+			raise InputValidationError("invalid global L/O freqs: " + ", ".join(invalid_freqs))
 	
 
 	def write_to(self, scanner_con) -> None:
@@ -948,17 +950,6 @@ class LockedFrequencies(_ScannerDataObject):
 
 			# Get next
 			lof = scanner_con.exec("GLF")[0]
-	
-
-	def validate(self) -> None:
-		invalid_freqs: list = []
-
-		for f in self.frequencies:
-			if not is_valid_freq_mhz(f):
-				invalid_freqs.append(f)
-
-		if len(invalid_freqs) > 0:
-			raise ValueError("invalid global L/O freqs: " + ", ".join(invalid_freqs))
 
 
 # ULF Unlock Locked Frequency
@@ -980,11 +971,6 @@ class UnlockFrequency(_ScannerDataObject):
 
 	def to_write_command(self) -> tuple:
 		return ("ULF", freq_to_scanner(self.frequency))
-	
-
-	def validate(self) -> None:
-		if not is_valid_freq_mhz(self.frequency):
-			raise ValueError("ulf: invalid freq: " + self.frequency)
 
 
 # LOF Lockout Frequency
@@ -1006,11 +992,6 @@ class LockFrequency(_ScannerDataObject):
 
 	def to_write_command(self) -> tuple:
 		return ("LOF", freq_to_scanner(self.frequency))
-	
-
-	def validate(self) -> None:
-		if not is_valid_freq_mhz(self.frequency):
-			raise ValueError("lof: invalid freq: " + self.frequency)
 
 
 # CLC Close Call Main Settings
@@ -1076,10 +1057,6 @@ class CloseCallSettings(_ScannerDataObject):
 		self.lockout = E_LockState[data["lockout"]]
 
 
-	def validate(self) -> None:
-		self.cc_bands.validate()
-
-
 # SSG Enabled Search Banks
 class EnabledServiceSearchBanks(_ScannerDataObject):
 	"""Control which SERVICE search banks are enabled on the scanner
@@ -1117,10 +1094,6 @@ class EnabledServiceSearchBanks(_ScannerDataObject):
 		self.bank_list_manager.from_dict(data["banks"])
 
 
-	def validate(self) -> None:
-		self.bank_list_manager.validate()
-
-
 # CSG Enabled Custom Search Banks
 class EnabledCustomSearchBanks(_ScannerDataObject):
 	"""Control which custom search banks are enabled on the scanner
@@ -1156,10 +1129,6 @@ class EnabledCustomSearchBanks(_ScannerDataObject):
 
 	def from_dict(self, data: dict) -> None:
 		self.bank_list_manager.from_dict(data["banks"])
-
-
-	def validate(self) -> None:
-		self.bank_list_manager.validate()
 
 
 # CSP Custom Search Bank
@@ -1216,8 +1185,6 @@ class CustomSearchBank(_ScannerDataObject):
 		self.lower_limit = data["lower_limit"]
 		self.upper_limit = data["upper_limit"]
 
-
-	def validate(self) -> None:
 		err_found = False
 		err_message = "search bnk: " + str(self.index)
 
@@ -1234,7 +1201,7 @@ class CustomSearchBank(_ScannerDataObject):
 			err_message += ", invalid upper_limit: " + self.upper_limit + " MHz"
 		
 		if err_found:
-			raise ValueError(err_message)
+			raise InputValidationError(err_message)
 
 
 # WXS Weather Alert Settings
@@ -1303,10 +1270,8 @@ class DisplayContrast(_ScannerDataObject):
 	def from_dict(self, data) -> None:
 		self.contrast = data["contrast"]
 
-
-	def validate(self) -> None:
 		if not (self.contrast >= 1 and self.contrast <= 15):
-			raise ValueError("screen contrast must be in range [1-15]")
+			raise InputValidationError("screen contrast must be in range [1-15]")
 
 
 # VOL Volume
@@ -1345,10 +1310,8 @@ class DeviceVolume(_ScannerDataObject):
 	def from_dict(self, data) -> None:
 		self.volume = data["volume"]
 
-
-	def validate(self) -> None:
 		if not (self.volume >= 0 and self.volume <= 15):
-			raise ValueError("device volume must be in range [0-15]")
+			raise InputValidationError("device volume must be in range [0-15]")
 
 
 # SQL Squelch
@@ -1388,10 +1351,8 @@ class Squelch(_ScannerDataObject):
 	def from_dict(self, data) -> None:
 		self.squelch = data["squelch"]
 
-
-	def validate(self) -> None:
 		if not (self.squelch >= 0 and self.squelch <= 15):
-			raise ValueError("squelch must be in range [0-15]")
+			raise InputValidationError("squelch must be in range [0-15]")
 
 
 #endregion
@@ -1596,28 +1557,28 @@ class Scanner:
 		self.priority_mode.from_dict(data["priority_mode"])
 		self.enabled_channel_banks.from_dict(data["enabled_channel_banks"])
 
-		self.channels = []
-		for cd in data["channels"]:
-			c: Channel = Channel()
-			c.from_dict(cd)
-			self.channels.append(c)
-
 		self.cc_ctcss_delay.from_dict(data["cc_ctcss_delay"])
 		self.locked_frequencies.from_dict(data["locked_frequencies"])
 		self.cc_main_settings.from_dict(data["cc_main_settings"])
 		self.enabled_service_search_banks.from_dict(data["enabled_service_search_banks"])
 		self.enabled_custom_search_banks.from_dict(data["enabled_custom_search_banks"])
 
+		self.weather_alert_settings.from_dict(data["weather_alert_settings"])
+		self.display_contrast.from_dict(data["display_contrast"])
+		self.device_volume.from_dict(data["device_volume"])
+		self.squelch.from_dict(data["squelch"])
+
+		self.channels = []
+		for cd in data["channels"]:
+			c: Channel = Channel()
+			c.from_dict(cd)
+			self.channels.append(c)
+
 		self.custom_search_banks = []
 		for csb in data["custom_search_banks"]:
 			c: CustomSearchBank = CustomSearchBank()
 			c.from_dict(csb)
 			self.custom_search_banks.append(c)
-
-		self.weather_alert_settings.from_dict(data["weather_alert_settings"])
-		self.display_contrast.from_dict(data["display_contrast"])
-		self.device_volume.from_dict(data["device_volume"])
-		self.squelch.from_dict(data["squelch"])
 
 
 	def validate(self) -> None:
