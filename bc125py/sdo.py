@@ -1,7 +1,7 @@
 from enum import Enum
 import warnings
 import bc125py
-from mappings import ctcss_dcs_to_internal, ctcss_dcs_to_human
+from bc125py.mappings import ctcss_dcs_to_internal, ctcss_dcs_to_human
 
 
 #region Global Functions
