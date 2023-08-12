@@ -1,501 +1,501 @@
 Index,Name,Frequency (MHz),Modulation,CTCSS,Delay (sec),Lockout,Priority
-1,AAR HOTD,452.9375,nfm,0,2,unlocked,off
-2,AAR EOTD,457.9375,nfm,0,2,unlocked,off
-3,Amtk Keystone,160.6350,nfm,0,2,unlocked,off
-4,DL East of Pocno,161.1750,nfm,0,2,unlocked,off
-5,DL West of Pocno,161.4600,nfm,0,2,unlocked,off
-6,DL Yard,160.2450,fm,0,2,unlocked,off
-7,NS Sunbury Line,161.4750,nfm,0,2,unlocked,off
-8,NS DH Yard,160.5900,nfm,0,2,unlocked,off
-9,NS Pitt Line,160.8000,nfm,0,2,unlocked,off
-10,NS MOW,161.4300,nfm,0,2,unlocked,off
-11,RBMN Reading S,160.4700,nfm,0,2,unlocked,off
-12,RBMN Reading N-L,160.7700,nfm,0,2,unlocked,off
-13,RBMN Lehigh,160.8000,nfm,0,2,unlocked,off
-14,RBMN Yard,161.3100,nfm,0,2,unlocked,off
-15,Strasburg RR,161.2350,fm,0,2,unlocked,off
-16,,000.0000,auto,0,2,locked,off
-17,,000.0000,auto,0,2,locked,off
-18,,000.0000,auto,0,2,locked,off
-19,,000.0000,auto,0,2,locked,off
-20,,000.0000,auto,0,2,locked,off
-21,,000.0000,auto,0,2,locked,off
-22,,000.0000,auto,0,2,locked,off
-23,,000.0000,auto,0,2,locked,off
-24,,000.0000,auto,0,2,locked,off
-25,,000.0000,auto,0,2,locked,off
-26,,000.0000,auto,0,2,locked,off
-27,,000.0000,auto,0,2,locked,off
-28,,000.0000,auto,0,2,locked,off
-29,,000.0000,auto,0,2,locked,off
-30,,000.0000,auto,0,2,locked,off
-31,,000.0000,auto,0,2,locked,off
-32,,000.0000,auto,0,2,locked,off
-33,,000.0000,auto,0,2,locked,off
-34,,000.0000,auto,0,2,locked,off
-35,,000.0000,auto,0,2,locked,off
-36,,000.0000,auto,0,2,locked,off
-37,,000.0000,auto,0,2,locked,off
-38,,000.0000,auto,0,2,locked,off
-39,,000.0000,auto,0,2,locked,off
-40,,000.0000,auto,0,2,locked,off
-41,,000.0000,auto,0,2,locked,off
-42,,000.0000,auto,0,2,locked,off
-43,,000.0000,auto,0,2,locked,off
-44,,000.0000,auto,0,2,locked,off
-45,,000.0000,auto,0,2,locked,off
-46,,000.0000,auto,0,2,locked,off
-47,,000.0000,auto,0,2,locked,off
-48,,000.0000,auto,0,2,locked,off
-49,,000.0000,auto,0,2,locked,off
-50,,000.0000,auto,0,2,locked,on
-51,PGC NE Reg 5,044.6400,fm,0,2,unlocked,off
-52,PGC NC Reg 3,044.6800,fm,0,2,unlocked,off
-53,PAFishBoat PD 1,045.0400,fm,0,2,unlocked,off
-54,PAFishBoat PD 2,044.9600,fm,0,2,unlocked,off
-55,LackCo PD 1,154.8750,nfm,0,2,unlocked,off
-56,LackCo PD 2,154.8150,nfm,0,2,unlocked,off
-57,LackCo PD 3,155.7900,nfm,0,2,unlocked,off
-58,LackCo Detec,153.9950,fm,0,2,unlocked,off
-59,LackSheriff1,151.4900,fm,0,2,unlocked,off
-60,LackSheriff3,151.0250,fm,0,2,unlocked,off
-61,LackPRCTrans,453.2500,fm,0,2,unlocked,off
-62,Archbald PD,155.5500,fm,0,2,unlocked,off
-63,Clark Smt PD,155.7150,fm,0,2,unlocked,off
-64,Dunmore PD,159.0900,fm,0,2,unlocked,off
-65,Dunmore PD6,154.8300,fm,0,2,unlocked,off
-66,Jessup PD,154.1150,fm,0,2,unlocked,off
-67,Moosic PD,153.8150,fm,0,2,unlocked,off
-68,Moscow PD,154.9800,fm,0,2,unlocked,off
-69,Newton PD,158.7750,fm,0,2,unlocked,off
-70,Scranton PD Disp,453.3750,nfm,0,2,unlocked,off
-71,Scranton PD Tac,453.7000,nfm,0,2,unlocked,off
-72,S Abngtn PD,156.1200,fm,0,2,unlocked,off
-73,Lz PD Zone-A W,158.7300,nfm,0,2,unlocked,off
-74,Lz PD Zone-B CE,151.2650,nfm,0,2,unlocked,off
-75,Lz PD Zone-C CW,151.3700,nfm,0,2,unlocked,off
-76,Lz PD Zone-D E,155.0700,nfm,0,2,unlocked,off
-77,Lz PD Zone-E S,155.9250,nfm,0,2,unlocked,off
-78,Lz PD Zone-G N,158.8050,nfm,0,2,unlocked,off
-79,Lz Sheriff,155.4150,nfm,0,2,unlocked,off
-80,Lz Prison,155.8800,fm,0,2,unlocked,off
-81,Hzltn PD 1,151.1150,fm,0,2,locked,off
-82,Kingston PD1,154.9950,fm,0,2,unlocked,off
-83,WB City PD Disp,154.8450,fm,0,2,unlocked,off
-84,WB City PD Tac 1,154.8000,fm,0,2,unlocked,off
-85,WB City PD Tac 2,155.9700,fm,0,2,unlocked,off
-86,SqCo PD Elk,154.7250,fm,0,2,unlocked,off
-87,WyCo PD Disp,155.1900,fm,0,2,unlocked,off
-88,WyCo PD Tac 1,156.2100,fm,0,2,unlocked,off
-89,WyCo PD Tac 2,151.1375,fm,0,2,unlocked,off
-90,WynCo PD,159.1500,nfm,0,2,unlocked,off
-91,WynCo Court,154.0025,nfm,0,2,unlocked,off
-92,WynCo Sheriff,460.3625,nfm,0,2,unlocked,off
-93,WynCo Jail,453.6625,nfm,0,2,unlocked,off
-94,Hawley PD,155.0400,nfm,0,2,unlocked,off
-95,Honesdale PD,155.8200,nfm,0,2,unlocked,off
-96,,000.0000,auto,0,2,locked,off
-97,,000.0000,auto,0,2,locked,off
-98,,000.0000,auto,0,2,locked,off
-99,,000.0000,auto,0,2,locked,off
-100,,000.0000,auto,0,2,locked,on
-101,,000.0000,auto,0,2,locked,off
-102,,000.0000,auto,0,2,locked,off
-103,,000.0000,auto,0,2,locked,off
-104,,000.0000,auto,0,2,locked,off
-105,,000.0000,auto,0,2,locked,off
-106,,000.0000,auto,0,2,locked,off
-107,,000.0000,auto,0,2,locked,off
-108,,000.0000,auto,0,2,locked,off
-109,,000.0000,auto,0,2,locked,off
-110,,000.0000,auto,0,2,locked,off
-111,,000.0000,auto,0,2,locked,off
-112,,000.0000,auto,0,2,locked,off
-113,,000.0000,auto,0,2,locked,off
-114,,000.0000,auto,0,2,locked,off
-115,,000.0000,auto,0,2,locked,off
-116,,000.0000,auto,0,2,locked,off
-117,,000.0000,auto,0,2,locked,off
-118,,000.0000,auto,0,2,locked,off
-119,,000.0000,auto,0,2,locked,off
-120,,000.0000,auto,0,2,locked,off
-121,,000.0000,auto,0,2,locked,off
-122,,000.0000,auto,0,2,locked,off
-123,,000.0000,auto,0,2,locked,off
-124,,000.0000,auto,0,2,locked,off
-125,,000.0000,auto,0,2,locked,off
-126,,000.0000,auto,0,2,locked,off
-127,,000.0000,auto,0,2,locked,off
-128,,000.0000,auto,0,2,locked,off
-129,,000.0000,auto,0,2,locked,off
-130,,000.0000,auto,0,2,locked,off
-131,,000.0000,auto,0,2,locked,off
-132,,000.0000,auto,0,2,locked,off
-133,,000.0000,auto,0,2,locked,off
-134,,000.0000,auto,0,2,locked,off
-135,,000.0000,auto,0,2,locked,off
-136,,000.0000,auto,0,2,locked,off
-137,,000.0000,auto,0,2,locked,off
-138,,000.0000,auto,0,2,locked,off
-139,,000.0000,auto,0,2,locked,off
-140,,000.0000,auto,0,2,locked,off
-141,,000.0000,auto,0,2,locked,off
-142,,000.0000,auto,0,2,locked,off
-143,,000.0000,auto,0,2,locked,off
-144,,000.0000,auto,0,2,locked,off
-145,,000.0000,auto,0,2,locked,off
-146,,000.0000,auto,0,2,locked,off
-147,,000.0000,auto,0,2,locked,off
-148,,000.0000,auto,0,2,locked,off
-149,,000.0000,auto,0,2,locked,off
-150,,000.0000,auto,0,2,locked,on
-151,LCFR County Red,154.3100,nfm,0,2,unlocked,off
-152,LCFR County Blue,155.2950,nfm,0,2,unlocked,off
-153,LCFR Black,151.0625,nfm,0,2,unlocked,off
-154,LCFR Brown,151.2125,nfm,0,2,unlocked,off
-155,LCFR Green,151.1000,nfm,0,2,unlocked,off
-156,LCFR Gray,154.2800,nfm,0,2,unlocked,off
-157,LCFR Orange,155.4900,nfm,0,2,unlocked,off
-158,LCFR Yellow,154.2125,nfm,0,2,unlocked,off
-159,LCFR MED-1,463.0000,nfm,0,2,unlocked,off
-160,LackCo EMA,158.8350,fm,0,2,unlocked,off
-161,Cottage FD,154.7100,nfm,0,2,unlocked,off
-162,Cottage FG,155.3850,nfm,0,2,unlocked,off
-163,Carbondale F,155.6100,nfm,0,2,unlocked,off
-164,Covington FD,153.8600,fm,0,2,unlocked,off
-165,Dickson FG,155.7750,fm,0,2,unlocked,off
-166,Fell Twp. FG,154.2350,nfm,0,2,unlocked,off
-167,GrnFld FD,159.3075,nfm,0,2,unlocked,off
-168,Jtwp FC pvt,154.1300,fm,0,2,unlocked,off
-169,Jtwp FC Locl,154.4300,fm,0,2,unlocked,off
-170,Jtwp Ambo P,155.4000,fm,0,2,unlocked,off
-171,Jermyn FD,154.7100,nfm,0,2,unlocked,off
-172,Moosic FG,153.8150,fm,0,2,unlocked,off
-173,Ntwn Rans FD,150.8600,fm,0,2,unlocked,off
-174,OldForge EMS,151.8050,fm,0,2,unlocked,off
-175,OldForgeFire,154.2650,fm,0,2,unlocked,off
-176,Scott Twp FG,154.5150,nfm,0,2,unlocked,off
-177,Scranton FD1,453.5000,nfm,0,2,unlocked,off
-178,Scranton FD2,453.2000,nfm,0,2,unlocked,off
-179,Chnchla FG2,154.2950,fm,0,2,unlocked,off
-180,Chnchla FG3,153.8300,nfm,0,2,unlocked,off
-181,Taylor FG,155.8800,fm,0,2,unlocked,off
-182,Throop Fire,154.7850,fm,0,2,unlocked,off
-183,Vandling FG,153.8900,fm,0,2,unlocked,off
-184,Abngtn Tac 2,154.2125,fm,0,2,unlocked,off
-185,Lz Fire EMS,157.4500,fm,0,2,unlocked,off
-186,FortyFord FD,154.7250,fm,0,2,unlocked,off
-187,Hanover Fire,155.7750,fm,0,2,unlocked,off
-188,Hzltn EMS,155.4000,fm,0,2,unlocked,off
-189,MtnTop Fire,154.4150,fm,0,2,unlocked,off
-190,Nescopk Lz,155.3250,fm,0,2,unlocked,off
-191,WB Fire Disp,155.9400,fm,0,2,unlocked,off
-192,SqCo Fire Disp,155.0625,nfm,0,2,unlocked,off
-193,SqCo EMS Elk,462.9500,fm,0,2,unlocked,off
-194,WyCo Fire EMS,155.7300,nfm,0,2,unlocked,off
-195,WyCo Loc Gov,155.9550,fm,0,2,unlocked,off
-196,WyCo EMA,158.7375,fm,0,2,unlocked,off
-197,Elk Ski Patrol,155.2000,nfm,0,2,unlocked,off
-198,Medevac AVP,453.1250,nfm,0,2,unlocked,off
-199,Wayne FD Disp,151.4150,nfm,0,2,unlocked,off
-200,Wayne EMS,155.3100,nfm,0,2,unlocked,on
-201,Wayne FD Cmd,155.6775,nfm,0,2,unlocked,off
-202,Wayne EMA,158.8350,nfm,0,2,unlocked,off
-203,,000.0000,auto,0,2,locked,off
-204,,000.0000,auto,0,2,locked,off
-205,,000.0000,auto,0,2,locked,off
-206,,000.0000,auto,0,2,locked,off
-207,,000.0000,auto,0,2,locked,off
-208,,000.0000,auto,0,2,locked,off
-209,,000.0000,auto,0,2,locked,off
-210,,000.0000,auto,0,2,locked,off
-211,,000.0000,auto,0,2,locked,off
-212,,000.0000,auto,0,2,locked,off
-213,,000.0000,auto,0,2,locked,off
-214,,000.0000,auto,0,2,locked,off
-215,,000.0000,auto,0,2,locked,off
-216,,000.0000,auto,0,2,locked,off
-217,,000.0000,auto,0,2,locked,off
-218,,000.0000,auto,0,2,locked,off
-219,,000.0000,auto,0,2,locked,off
-220,,000.0000,auto,0,2,locked,off
-221,,000.0000,auto,0,2,locked,off
-222,,000.0000,auto,0,2,locked,off
-223,,000.0000,auto,0,2,locked,off
-224,,000.0000,auto,0,2,locked,off
-225,,000.0000,auto,0,2,locked,off
-226,,000.0000,auto,0,2,locked,off
-227,,000.0000,auto,0,2,locked,off
-228,,000.0000,auto,0,2,locked,off
-229,,000.0000,auto,0,2,locked,off
-230,,000.0000,auto,0,2,locked,off
-231,,000.0000,auto,0,2,locked,off
-232,,000.0000,auto,0,2,locked,off
-233,,000.0000,auto,0,2,locked,off
-234,,000.0000,auto,0,2,locked,off
-235,,000.0000,auto,0,2,locked,off
-236,,000.0000,auto,0,2,locked,off
-237,,000.0000,auto,0,2,locked,off
-238,,000.0000,auto,0,2,locked,off
-239,,000.0000,auto,0,2,locked,off
-240,,000.0000,auto,0,2,locked,off
-241,,000.0000,auto,0,2,locked,off
-242,,000.0000,auto,0,2,locked,off
-243,,000.0000,auto,0,2,locked,off
-244,,000.0000,auto,0,2,locked,off
-245,,000.0000,auto,0,2,locked,off
-246,,000.0000,auto,0,2,locked,off
-247,,000.0000,auto,0,2,locked,off
-248,,000.0000,auto,0,2,locked,off
-249,,000.0000,auto,0,2,locked,off
-250,,000.0000,auto,0,2,locked,on
-251,PTC 5 Disp NE Ex,156.1950,nfm,0,2,unlocked,off
-252,PTC Portable,458.4625,nfm,0,2,unlocked,off
-253,LackCo COLT,452.7500,fm,0,2,unlocked,off
-254,AHSD Buses,157.6200,fm,0,2,unlocked,off
-255,Fixed Air2Air,122.7500,am,0,2,unlocked,off
-256,Heli Air2Air,123.0250,am,0,2,unlocked,off
-257,GldrBlon Air2Air,123.3000,am,0,2,unlocked,off
-258,Ocean Air2Air,123.4500,am,0,2,unlocked,off
-259,KAVP ATIS,111.6000,am,0,2,unlocked,off
-260,KAVP Tower,120.1000,am,0,2,unlocked,off
-261,KAVP WX ASOS,120.2750,am,0,2,unlocked,off
-262,KAVP A/D SE,120.9500,am,0,2,unlocked,off
-263,KAVP Ground,121.9000,am,0,2,unlocked,off
-264,KAVP FSS 1,122.2000,am,0,2,unlocked,off
-265,KAVP FSS 2,122.6000,am,0,2,unlocked,off
-266,KAVP Unicom,122.9500,am,0,2,unlocked,off
-267,KAVP A/D NW,126.3000,am,0,2,unlocked,off
-268,KAVP A/D Mil,256.7000,am,0,2,unlocked,off
-269,KAVP TowrMil,257.8000,am,0,2,unlocked,off
-270,Seamans Unicom,122.7000,am,0,2,unlocked,off
-271,Skyhaven Unicom,122.8000,am,0,2,unlocked,off
-272,,000.0000,auto,0,2,locked,off
-273,,000.0000,auto,0,2,locked,off
-274,,000.0000,auto,0,2,locked,off
-275,,000.0000,auto,0,2,locked,off
-276,,000.0000,auto,0,2,locked,off
-277,,000.0000,auto,0,2,locked,off
-278,,000.0000,auto,0,2,locked,off
-279,,000.0000,auto,0,2,locked,off
-280,,000.0000,auto,0,2,locked,off
-281,,000.0000,auto,0,2,locked,off
-282,,000.0000,auto,0,2,locked,off
-283,,000.0000,auto,0,2,locked,off
-284,,000.0000,auto,0,2,locked,off
-285,,000.0000,auto,0,2,locked,off
-286,,000.0000,auto,0,2,locked,off
-287,,000.0000,auto,0,2,locked,off
-288,,000.0000,auto,0,2,locked,off
-289,,000.0000,auto,0,2,locked,off
-290,,000.0000,auto,0,2,locked,off
-291,,000.0000,auto,0,2,locked,off
-292,,000.0000,auto,0,2,locked,off
-293,,000.0000,auto,0,2,locked,off
-294,,000.0000,auto,0,2,locked,off
-295,,000.0000,auto,0,2,locked,off
-296,,000.0000,auto,0,2,locked,off
-297,,000.0000,auto,0,2,locked,off
-298,,000.0000,auto,0,2,locked,off
-299,,000.0000,auto,0,2,locked,off
-300,,000.0000,auto,0,2,locked,on
-301,6m FM Simplex,052.5250,fm,0,2,unlocked,off
-302,2m Simplex,146.5200,fm,0,2,unlocked,off
-303,70cm Simplex,446.0000,fm,0,2,unlocked,off
-304,MURS 1,151.8200,nfm,0,2,unlocked,off
-305,MURS 2,151.8800,nfm,0,2,unlocked,off
-306,MURS 3,151.9400,nfm,0,2,unlocked,off
-307,MURS Blue Dot,154.5700,nfm,0,2,unlocked,off
-308,MURS Green Dot,154.6000,nfm,0,2,unlocked,off
-309,WAN-RS W-B,147.1500,nfm,0,2,unlocked,off
-310,2m R Bald Mtn,146.7150,fm,0,2,unlocked,off
-311,2m R Carbondale,146.7900,fm,0,2,unlocked,off
-312,2m R Dunmore,147.0000,fm,0,2,unlocked,off
-313,2m R Mehoopany,147.2100,fm,0,2,unlocked,off
-314,2m R Scranton,147.2850,fm,0,2,unlocked,off
-315,2m R Elk Mtn,147.8400,fm,0,2,unlocked,off
-316,70cm R Crbondale,440.0562,fm,0,2,unlocked,off
-317,70cm R Tunk,441.1500,fm,0,2,unlocked,off
-318,70cm R Clrks Smt,442.5500,fm,0,2,unlocked,off
-319,70cm R Scranton,448.8250,fm,0,2,unlocked,off
-320,,000.0000,auto,0,2,locked,off
-321,,000.0000,auto,0,2,locked,off
-322,,000.0000,auto,0,2,locked,off
-323,,000.0000,auto,0,2,locked,off
-324,,000.0000,auto,0,2,locked,off
-325,,000.0000,auto,0,2,locked,off
-326,,000.0000,auto,0,2,locked,off
-327,,000.0000,auto,0,2,locked,off
-328,,000.0000,auto,0,2,locked,off
-329,,000.0000,auto,0,2,locked,off
-330,,000.0000,auto,0,2,locked,off
-331,,000.0000,auto,0,2,locked,off
-332,,000.0000,auto,0,2,locked,off
-333,,000.0000,auto,0,2,locked,off
-334,,000.0000,auto,0,2,locked,off
-335,,000.0000,auto,0,2,locked,off
-336,,000.0000,auto,0,2,locked,off
-337,,000.0000,auto,0,2,locked,off
-338,,000.0000,auto,0,2,locked,off
-339,,000.0000,auto,0,2,locked,off
-340,,000.0000,auto,0,2,locked,off
-341,,000.0000,auto,0,2,locked,off
-342,,000.0000,auto,0,2,locked,off
-343,,000.0000,auto,0,2,locked,off
-344,,000.0000,auto,0,2,locked,off
-345,,000.0000,auto,0,2,locked,off
-346,,000.0000,auto,0,2,locked,off
-347,,000.0000,auto,0,2,locked,off
-348,,000.0000,auto,0,2,locked,off
-349,,000.0000,auto,0,2,locked,off
-350,,000.0000,auto,0,2,locked,on
-351,CB 1,026.9650,am,0,2,unlocked,off
-352,CB 2,026.9750,am,0,2,unlocked,off
-353,CB 3,026.9850,am,0,2,unlocked,off
-354,CB 4 OffRoad,027.0050,am,0,2,unlocked,off
-355,CB 5,027.0150,am,0,2,unlocked,off
-356,CB 6 Superbowl,027.0250,am,0,2,unlocked,off
-357,CB 7,027.0350,am,0,2,unlocked,off
-358,CB 8,027.0550,am,0,2,unlocked,off
-359,CB 9 Emergency,027.0650,am,0,2,unlocked,off
-360,CB 10 Regional,027.0750,am,0,2,unlocked,off
-361,CB 11,027.0850,am,0,2,unlocked,off
-362,CB 12,027.1050,am,0,2,unlocked,off
-363,CB 13 MarineRV,027.1150,am,0,2,unlocked,off
-364,CB 14 Portable,027.1250,am,0,2,unlocked,off
-365,CB 15,027.1350,am,0,2,unlocked,off
-366,CB 16,027.1550,am,0,2,unlocked,off
-367,CB 17 Road N/S,027.1650,am,0,2,unlocked,off
-368,CB 18,027.1750,am,0,2,unlocked,off
-369,CB 19 Road E/W,027.1850,am,0,2,unlocked,off
-370,CB 20,027.2050,am,0,2,unlocked,off
-371,CB 21 Regional,027.2150,am,0,2,unlocked,off
-372,CB 22,027.2250,am,0,2,unlocked,off
-373,CB 23,027.2550,am,0,2,unlocked,off
-374,CB 24,027.2350,am,0,2,unlocked,off
-375,CB 25,027.2450,am,0,2,unlocked,off
-376,CB 26,027.2650,am,0,2,unlocked,off
-377,CB 27,027.2750,am,0,2,unlocked,off
-378,CB 28,027.2850,am,0,2,unlocked,off
-379,CB 29,027.2950,am,0,2,unlocked,off
-380,CB 30,027.3050,am,0,2,unlocked,off
-381,CB 31,027.3150,am,0,2,unlocked,off
-382,CB 32,027.3250,am,0,2,unlocked,off
-383,CB 33,027.3350,am,0,2,unlocked,off
-384,CB 34,027.3450,am,0,2,unlocked,off
-385,CB 35,027.3550,am,0,2,unlocked,off
-386,CB 36,027.3650,am,0,2,unlocked,off
-387,CB 37,027.3750,am,0,2,unlocked,off
-388,CB 38,027.3850,am,0,2,unlocked,off
-389,CB 39,027.3950,am,0,2,unlocked,off
-390,CB 40,027.4050,am,0,2,unlocked,off
-391,,000.0000,auto,0,2,locked,off
-392,,000.0000,auto,0,2,locked,off
-393,,000.0000,auto,0,2,locked,off
-394,,000.0000,auto,0,2,locked,off
-395,,000.0000,auto,0,2,locked,off
-396,,000.0000,auto,0,2,locked,off
-397,,000.0000,auto,0,2,locked,off
-398,,000.0000,auto,0,2,locked,off
-399,,000.0000,auto,0,2,locked,off
-400,,000.0000,auto,0,2,locked,on
-401,ISS HAM Down,145.8000,fm,0,2,unlocked,off
-402,AO-91 Down,145.9600,fm,0,2,unlocked,off
-403,AO-92 Down,145.8800,fm,0,2,unlocked,off
-404,SO-50 Down,436.7937,fm,0,2,unlocked,off
-405,,000.0000,auto,0,2,locked,off
-406,,000.0000,auto,0,2,locked,off
-407,,000.0000,auto,0,2,locked,off
-408,,000.0000,auto,0,2,locked,off
-409,,000.0000,auto,0,2,locked,off
-410,,000.0000,auto,0,2,locked,off
-411,,000.0000,auto,0,2,locked,off
-412,,000.0000,auto,0,2,locked,off
-413,,000.0000,auto,0,2,locked,off
-414,,000.0000,auto,0,2,locked,off
-415,,000.0000,auto,0,2,locked,off
-416,,000.0000,auto,0,2,locked,off
-417,,000.0000,auto,0,2,locked,off
-418,,000.0000,auto,0,2,locked,off
-419,,000.0000,auto,0,2,locked,off
-420,,000.0000,auto,0,2,locked,off
-421,,000.0000,auto,0,2,locked,off
-422,,000.0000,auto,0,2,locked,off
-423,,000.0000,auto,0,2,locked,off
-424,,000.0000,auto,0,2,locked,off
-425,,000.0000,auto,0,2,locked,off
-426,,000.0000,auto,0,2,locked,off
-427,,000.0000,auto,0,2,locked,off
-428,,000.0000,auto,0,2,locked,off
-429,,000.0000,auto,0,2,locked,off
-430,,000.0000,auto,0,2,locked,off
-431,,000.0000,auto,0,2,locked,off
-432,,000.0000,auto,0,2,locked,off
-433,,000.0000,auto,0,2,locked,off
-434,,000.0000,auto,0,2,locked,off
-435,,000.0000,auto,0,2,locked,off
-436,,000.0000,auto,0,2,locked,off
-437,,000.0000,auto,0,2,locked,off
-438,,000.0000,auto,0,2,locked,off
-439,,000.0000,auto,0,2,locked,off
-440,,000.0000,auto,0,2,locked,off
-441,,000.0000,auto,0,2,locked,off
-442,,000.0000,auto,0,2,locked,off
-443,,000.0000,auto,0,2,locked,off
-444,,000.0000,auto,0,2,locked,off
-445,,000.0000,auto,0,2,locked,off
-446,,000.0000,auto,0,2,locked,off
-447,,000.0000,auto,0,2,locked,off
-448,,000.0000,auto,0,2,locked,off
-449,,000.0000,auto,0,2,locked,off
-450,,000.0000,auto,0,2,locked,on
-451,,000.0000,auto,0,2,locked,off
-452,,000.0000,auto,0,2,locked,off
-453,,000.0000,auto,0,2,locked,off
-454,,000.0000,auto,0,2,locked,off
-455,,000.0000,auto,0,2,locked,off
-456,,000.0000,auto,0,2,locked,off
-457,,000.0000,auto,0,2,locked,off
-458,,000.0000,auto,0,2,locked,off
-459,,000.0000,auto,0,2,locked,off
-460,,000.0000,auto,0,2,locked,off
-461,,000.0000,auto,0,2,locked,off
-462,,000.0000,auto,0,2,locked,off
-463,,000.0000,auto,0,2,locked,off
-464,,000.0000,auto,0,2,locked,off
-465,,000.0000,auto,0,2,locked,off
-466,,000.0000,auto,0,2,locked,off
-467,,000.0000,auto,0,2,locked,off
-468,,000.0000,auto,0,2,locked,off
-469,,000.0000,auto,0,2,locked,off
-470,,000.0000,auto,0,2,locked,off
-471,,000.0000,auto,0,2,locked,off
-472,,000.0000,auto,0,2,locked,off
-473,,000.0000,auto,0,2,locked,off
-474,,000.0000,auto,0,2,locked,off
-475,,000.0000,auto,0,2,locked,off
-476,,000.0000,auto,0,2,locked,off
-477,,000.0000,auto,0,2,locked,off
-478,,000.0000,auto,0,2,locked,off
-479,,000.0000,auto,0,2,locked,off
-480,,000.0000,auto,0,2,locked,off
-481,,000.0000,auto,0,2,locked,off
-482,,000.0000,auto,0,2,locked,off
-483,,000.0000,auto,0,2,locked,off
-484,,000.0000,auto,0,2,locked,off
-485,,000.0000,auto,0,2,locked,off
-486,,000.0000,auto,0,2,locked,off
-487,,000.0000,auto,0,2,locked,off
-488,,000.0000,auto,0,2,locked,off
-489,,000.0000,auto,0,2,locked,off
-490,,000.0000,auto,0,2,locked,off
-491,,000.0000,auto,0,2,locked,off
-492,,000.0000,auto,0,2,locked,off
-493,,000.0000,auto,0,2,locked,off
-494,,000.0000,auto,0,2,locked,off
-495,,000.0000,auto,0,2,locked,off
-496,,000.0000,auto,0,2,locked,off
-497,,000.0000,auto,0,2,locked,off
-498,,000.0000,auto,0,2,locked,off
-499,,000.0000,auto,0,2,locked,off
-500,,000.0000,auto,0,2,locked,on
+1,AAR HOTD,452.9375,nfm,none,2,unlocked,off
+2,AAR EOTD,457.9375,nfm,none,2,unlocked,off
+3,Amtk Keystone,160.6350,nfm,none,2,unlocked,off
+4,DL East of Pocno,161.1750,nfm,none,2,unlocked,off
+5,DL West of Pocno,161.4600,nfm,none,2,unlocked,off
+6,DL Yard,160.2450,fm,none,2,unlocked,off
+7,NS Sunbury Line,161.4750,nfm,none,2,unlocked,off
+8,NS DH Yard,160.5900,nfm,none,2,unlocked,off
+9,NS Pitt Line,160.8000,nfm,none,2,unlocked,off
+10,NS MOW,161.4300,nfm,none,2,unlocked,off
+11,RBMN Reading S,160.4700,nfm,none,2,unlocked,off
+12,RBMN Reading N-L,160.7700,nfm,none,2,unlocked,off
+13,RBMN Lehigh,160.8000,nfm,none,2,unlocked,off
+14,RBMN Yard,161.3100,nfm,none,2,unlocked,off
+15,Strasburg RR,161.2350,fm,none,2,unlocked,off
+16,,000.0000,auto,none,2,locked,off
+17,,000.0000,auto,none,2,locked,off
+18,,000.0000,auto,none,2,locked,off
+19,,000.0000,auto,none,2,locked,off
+20,,000.0000,auto,none,2,locked,off
+21,,000.0000,auto,none,2,locked,off
+22,,000.0000,auto,none,2,locked,off
+23,,000.0000,auto,none,2,locked,off
+24,,000.0000,auto,none,2,locked,off
+25,,000.0000,auto,none,2,locked,off
+26,,000.0000,auto,none,2,locked,off
+27,,000.0000,auto,none,2,locked,off
+28,,000.0000,auto,none,2,locked,off
+29,,000.0000,auto,none,2,locked,off
+30,,000.0000,auto,none,2,locked,off
+31,,000.0000,auto,none,2,locked,off
+32,,000.0000,auto,none,2,locked,off
+33,,000.0000,auto,none,2,locked,off
+34,,000.0000,auto,none,2,locked,off
+35,,000.0000,auto,none,2,locked,off
+36,,000.0000,auto,none,2,locked,off
+37,,000.0000,auto,none,2,locked,off
+38,,000.0000,auto,none,2,locked,off
+39,,000.0000,auto,none,2,locked,off
+40,,000.0000,auto,none,2,locked,off
+41,,000.0000,auto,none,2,locked,off
+42,,000.0000,auto,none,2,locked,off
+43,,000.0000,auto,none,2,locked,off
+44,,000.0000,auto,none,2,locked,off
+45,,000.0000,auto,none,2,locked,off
+46,,000.0000,auto,none,2,locked,off
+47,,000.0000,auto,none,2,locked,off
+48,,000.0000,auto,none,2,locked,off
+49,,000.0000,auto,none,2,locked,off
+50,,000.0000,auto,none,2,locked,on
+51,PGC NE Reg 5,044.6400,fm,none,2,unlocked,off
+52,PGC NC Reg 3,044.6800,fm,none,2,unlocked,off
+53,PAFishBoat PD 1,045.0400,fm,none,2,unlocked,off
+54,PAFishBoat PD 2,044.9600,fm,none,2,unlocked,off
+55,LackCo PD 1,154.8750,nfm,none,2,unlocked,off
+56,LackCo PD 2,154.8150,nfm,none,2,unlocked,off
+57,LackCo PD 3,155.7900,nfm,none,2,unlocked,off
+58,LackCo Detec,153.9950,fm,none,2,unlocked,off
+59,LackSheriff1,151.4900,fm,none,2,unlocked,off
+60,LackSheriff3,151.0250,fm,none,2,unlocked,off
+61,LackPRCTrans,453.2500,fm,none,2,unlocked,off
+62,Archbald PD,155.5500,fm,none,2,unlocked,off
+63,Clark Smt PD,155.7150,fm,none,2,unlocked,off
+64,Dunmore PD,159.0900,fm,none,2,unlocked,off
+65,Dunmore PD6,154.8300,fm,none,2,unlocked,off
+66,Jessup PD,154.1150,fm,none,2,unlocked,off
+67,Moosic PD,153.8150,fm,none,2,unlocked,off
+68,Moscow PD,154.9800,fm,none,2,unlocked,off
+69,Newton PD,158.7750,fm,none,2,unlocked,off
+70,Scranton PD Disp,453.3750,nfm,none,2,unlocked,off
+71,Scranton PD Tac,453.7000,nfm,none,2,unlocked,off
+72,S Abngtn PD,156.1200,fm,none,2,unlocked,off
+73,Lz PD Zone-A W,158.7300,nfm,none,2,unlocked,off
+74,Lz PD Zone-B CE,151.2650,nfm,none,2,unlocked,off
+75,Lz PD Zone-C CW,151.3700,nfm,none,2,unlocked,off
+76,Lz PD Zone-D E,155.0700,nfm,none,2,unlocked,off
+77,Lz PD Zone-E S,155.9250,nfm,none,2,unlocked,off
+78,Lz PD Zone-G N,158.8050,nfm,none,2,unlocked,off
+79,Lz Sheriff,155.4150,nfm,none,2,unlocked,off
+80,Lz Prison,155.8800,fm,none,2,unlocked,off
+81,Hzltn PD 1,151.1150,fm,none,2,locked,off
+82,Kingston PD1,154.9950,fm,none,2,unlocked,off
+83,WB City PD Disp,154.8450,fm,none,2,unlocked,off
+84,WB City PD Tac 1,154.8000,fm,none,2,unlocked,off
+85,WB City PD Tac 2,155.9700,fm,none,2,unlocked,off
+86,SqCo PD Elk,154.7250,fm,none,2,unlocked,off
+87,WyCo PD Disp,155.1900,fm,none,2,unlocked,off
+88,WyCo PD Tac 1,156.2100,fm,none,2,unlocked,off
+89,WyCo PD Tac 2,151.1375,fm,none,2,unlocked,off
+90,WynCo PD,159.1500,nfm,none,2,unlocked,off
+91,WynCo Court,154.0025,nfm,none,2,unlocked,off
+92,WynCo Sheriff,460.3625,nfm,none,2,unlocked,off
+93,WynCo Jail,453.6625,nfm,none,2,unlocked,off
+94,Hawley PD,155.0400,nfm,none,2,unlocked,off
+95,Honesdale PD,155.8200,nfm,none,2,unlocked,off
+96,,000.0000,auto,none,2,locked,off
+97,,000.0000,auto,none,2,locked,off
+98,,000.0000,auto,none,2,locked,off
+99,,000.0000,auto,none,2,locked,off
+100,,000.0000,auto,none,2,locked,on
+101,,000.0000,auto,none,2,locked,off
+102,,000.0000,auto,none,2,locked,off
+103,,000.0000,auto,none,2,locked,off
+104,,000.0000,auto,none,2,locked,off
+105,,000.0000,auto,none,2,locked,off
+106,,000.0000,auto,none,2,locked,off
+107,,000.0000,auto,none,2,locked,off
+108,,000.0000,auto,none,2,locked,off
+109,,000.0000,auto,none,2,locked,off
+110,,000.0000,auto,none,2,locked,off
+111,,000.0000,auto,none,2,locked,off
+112,,000.0000,auto,none,2,locked,off
+113,,000.0000,auto,none,2,locked,off
+114,,000.0000,auto,none,2,locked,off
+115,,000.0000,auto,none,2,locked,off
+116,,000.0000,auto,none,2,locked,off
+117,,000.0000,auto,none,2,locked,off
+118,,000.0000,auto,none,2,locked,off
+119,,000.0000,auto,none,2,locked,off
+120,,000.0000,auto,none,2,locked,off
+121,,000.0000,auto,none,2,locked,off
+122,,000.0000,auto,none,2,locked,off
+123,,000.0000,auto,none,2,locked,off
+124,,000.0000,auto,none,2,locked,off
+125,,000.0000,auto,none,2,locked,off
+126,,000.0000,auto,none,2,locked,off
+127,,000.0000,auto,none,2,locked,off
+128,,000.0000,auto,none,2,locked,off
+129,,000.0000,auto,none,2,locked,off
+130,,000.0000,auto,none,2,locked,off
+131,,000.0000,auto,none,2,locked,off
+132,,000.0000,auto,none,2,locked,off
+133,,000.0000,auto,none,2,locked,off
+134,,000.0000,auto,none,2,locked,off
+135,,000.0000,auto,none,2,locked,off
+136,,000.0000,auto,none,2,locked,off
+137,,000.0000,auto,none,2,locked,off
+138,,000.0000,auto,none,2,locked,off
+139,,000.0000,auto,none,2,locked,off
+140,,000.0000,auto,none,2,locked,off
+141,,000.0000,auto,none,2,locked,off
+142,,000.0000,auto,none,2,locked,off
+143,,000.0000,auto,none,2,locked,off
+144,,000.0000,auto,none,2,locked,off
+145,,000.0000,auto,none,2,locked,off
+146,,000.0000,auto,none,2,locked,off
+147,,000.0000,auto,none,2,locked,off
+148,,000.0000,auto,none,2,locked,off
+149,,000.0000,auto,none,2,locked,off
+150,,000.0000,auto,none,2,locked,on
+151,LCFR County Red,154.3100,nfm,none,2,unlocked,off
+152,LCFR County Blue,155.2950,nfm,none,2,unlocked,off
+153,LCFR Black,151.0625,nfm,none,2,unlocked,off
+154,LCFR Brown,151.2125,nfm,none,2,unlocked,off
+155,LCFR Green,151.1000,nfm,none,2,unlocked,off
+156,LCFR Gray,154.2800,nfm,none,2,unlocked,off
+157,LCFR Orange,155.4900,nfm,none,2,unlocked,off
+158,LCFR Yellow,154.2125,nfm,none,2,unlocked,off
+159,LCFR MED-1,463.0000,nfm,none,2,unlocked,off
+160,LackCo EMA,158.8350,fm,none,2,unlocked,off
+161,Cottage FD,154.7100,nfm,none,2,unlocked,off
+162,Cottage FG,155.3850,nfm,none,2,unlocked,off
+163,Carbondale F,155.6100,nfm,none,2,unlocked,off
+164,Covington FD,153.8600,fm,none,2,unlocked,off
+165,Dickson FG,155.7750,fm,none,2,unlocked,off
+166,Fell Twp. FG,154.2350,nfm,none,2,unlocked,off
+167,GrnFld FD,159.3075,nfm,none,2,unlocked,off
+168,Jtwp FC pvt,154.1300,fm,none,2,unlocked,off
+169,Jtwp FC Locl,154.4300,fm,none,2,unlocked,off
+170,Jtwp Ambo P,155.4000,fm,none,2,unlocked,off
+171,Jermyn FD,154.7100,nfm,none,2,unlocked,off
+172,Moosic FG,153.8150,fm,none,2,unlocked,off
+173,Ntwn Rans FD,150.8600,fm,none,2,unlocked,off
+174,OldForge EMS,151.8050,fm,none,2,unlocked,off
+175,OldForgeFire,154.2650,fm,none,2,unlocked,off
+176,Scott Twp FG,154.5150,nfm,none,2,unlocked,off
+177,Scranton FD1,453.5000,nfm,none,2,unlocked,off
+178,Scranton FD2,453.2000,nfm,none,2,unlocked,off
+179,Chnchla FG2,154.2950,fm,none,2,unlocked,off
+180,Chnchla FG3,153.8300,nfm,none,2,unlocked,off
+181,Taylor FG,155.8800,fm,none,2,unlocked,off
+182,Throop Fire,154.7850,fm,none,2,unlocked,off
+183,Vandling FG,153.8900,fm,none,2,unlocked,off
+184,Abngtn Tac 2,154.2125,fm,none,2,unlocked,off
+185,Lz Fire EMS,157.4500,fm,none,2,unlocked,off
+186,FortyFord FD,154.7250,fm,none,2,unlocked,off
+187,Hanover Fire,155.7750,fm,none,2,unlocked,off
+188,Hzltn EMS,155.4000,fm,none,2,unlocked,off
+189,MtnTop Fire,154.4150,fm,none,2,unlocked,off
+190,Nescopk Lz,155.3250,fm,none,2,unlocked,off
+191,WB Fire Disp,155.9400,fm,none,2,unlocked,off
+192,SqCo Fire Disp,155.0625,nfm,none,2,unlocked,off
+193,SqCo EMS Elk,462.9500,fm,none,2,unlocked,off
+194,WyCo Fire EMS,155.7300,nfm,none,2,unlocked,off
+195,WyCo Loc Gov,155.9550,fm,none,2,unlocked,off
+196,WyCo EMA,158.7375,fm,none,2,unlocked,off
+197,Elk Ski Patrol,155.2000,nfm,none,2,unlocked,off
+198,Medevac AVP,453.1250,nfm,none,2,unlocked,off
+199,Wayne FD Disp,151.4150,nfm,none,2,unlocked,off
+200,Wayne EMS,155.3100,nfm,none,2,unlocked,on
+201,Wayne FD Cmd,155.6775,nfm,none,2,unlocked,off
+202,Wayne EMA,158.8350,nfm,none,2,unlocked,off
+203,,000.0000,auto,none,2,locked,off
+204,,000.0000,auto,none,2,locked,off
+205,,000.0000,auto,none,2,locked,off
+206,,000.0000,auto,none,2,locked,off
+207,,000.0000,auto,none,2,locked,off
+208,,000.0000,auto,none,2,locked,off
+209,,000.0000,auto,none,2,locked,off
+210,,000.0000,auto,none,2,locked,off
+211,,000.0000,auto,none,2,locked,off
+212,,000.0000,auto,none,2,locked,off
+213,,000.0000,auto,none,2,locked,off
+214,,000.0000,auto,none,2,locked,off
+215,,000.0000,auto,none,2,locked,off
+216,,000.0000,auto,none,2,locked,off
+217,,000.0000,auto,none,2,locked,off
+218,,000.0000,auto,none,2,locked,off
+219,,000.0000,auto,none,2,locked,off
+220,,000.0000,auto,none,2,locked,off
+221,,000.0000,auto,none,2,locked,off
+222,,000.0000,auto,none,2,locked,off
+223,,000.0000,auto,none,2,locked,off
+224,,000.0000,auto,none,2,locked,off
+225,,000.0000,auto,none,2,locked,off
+226,,000.0000,auto,none,2,locked,off
+227,,000.0000,auto,none,2,locked,off
+228,,000.0000,auto,none,2,locked,off
+229,,000.0000,auto,none,2,locked,off
+230,,000.0000,auto,none,2,locked,off
+231,,000.0000,auto,none,2,locked,off
+232,,000.0000,auto,none,2,locked,off
+233,,000.0000,auto,none,2,locked,off
+234,,000.0000,auto,none,2,locked,off
+235,,000.0000,auto,none,2,locked,off
+236,,000.0000,auto,none,2,locked,off
+237,,000.0000,auto,none,2,locked,off
+238,,000.0000,auto,none,2,locked,off
+239,,000.0000,auto,none,2,locked,off
+240,,000.0000,auto,none,2,locked,off
+241,,000.0000,auto,none,2,locked,off
+242,,000.0000,auto,none,2,locked,off
+243,,000.0000,auto,none,2,locked,off
+244,,000.0000,auto,none,2,locked,off
+245,,000.0000,auto,none,2,locked,off
+246,,000.0000,auto,none,2,locked,off
+247,,000.0000,auto,none,2,locked,off
+248,,000.0000,auto,none,2,locked,off
+249,,000.0000,auto,none,2,locked,off
+250,,000.0000,auto,none,2,locked,on
+251,PTC 5 Disp NE Ex,156.1950,nfm,none,2,unlocked,off
+252,PTC Portable,458.4625,nfm,none,2,unlocked,off
+253,LackCo COLT,452.7500,fm,none,2,unlocked,off
+254,AHSD Buses,157.6200,fm,none,2,unlocked,off
+255,Fixed Air2Air,122.7500,am,none,2,unlocked,off
+256,Heli Air2Air,123.0250,am,none,2,unlocked,off
+257,GldrBlon Air2Air,123.3000,am,none,2,unlocked,off
+258,Ocean Air2Air,123.4500,am,none,2,unlocked,off
+259,KAVP ATIS,111.6000,am,none,2,unlocked,off
+260,KAVP Tower,120.1000,am,none,2,unlocked,off
+261,KAVP WX ASOS,120.2750,am,none,2,unlocked,off
+262,KAVP A/D SE,120.9500,am,none,2,unlocked,off
+263,KAVP Ground,121.9000,am,none,2,unlocked,off
+264,KAVP FSS 1,122.2000,am,none,2,unlocked,off
+265,KAVP FSS 2,122.6000,am,none,2,unlocked,off
+266,KAVP Unicom,122.9500,am,none,2,unlocked,off
+267,KAVP A/D NW,126.3000,am,none,2,unlocked,off
+268,KAVP A/D Mil,256.7000,am,none,2,unlocked,off
+269,KAVP TowrMil,257.8000,am,none,2,unlocked,off
+270,Seamans Unicom,122.7000,am,none,2,unlocked,off
+271,Skyhaven Unicom,122.8000,am,none,2,unlocked,off
+272,,000.0000,auto,none,2,locked,off
+273,,000.0000,auto,none,2,locked,off
+274,,000.0000,auto,none,2,locked,off
+275,,000.0000,auto,none,2,locked,off
+276,,000.0000,auto,none,2,locked,off
+277,,000.0000,auto,none,2,locked,off
+278,,000.0000,auto,none,2,locked,off
+279,,000.0000,auto,none,2,locked,off
+280,,000.0000,auto,none,2,locked,off
+281,,000.0000,auto,none,2,locked,off
+282,,000.0000,auto,none,2,locked,off
+283,,000.0000,auto,none,2,locked,off
+284,,000.0000,auto,none,2,locked,off
+285,,000.0000,auto,none,2,locked,off
+286,,000.0000,auto,none,2,locked,off
+287,,000.0000,auto,none,2,locked,off
+288,,000.0000,auto,none,2,locked,off
+289,,000.0000,auto,none,2,locked,off
+290,,000.0000,auto,none,2,locked,off
+291,,000.0000,auto,none,2,locked,off
+292,,000.0000,auto,none,2,locked,off
+293,,000.0000,auto,none,2,locked,off
+294,,000.0000,auto,none,2,locked,off
+295,,000.0000,auto,none,2,locked,off
+296,,000.0000,auto,none,2,locked,off
+297,,000.0000,auto,none,2,locked,off
+298,,000.0000,auto,none,2,locked,off
+299,,000.0000,auto,none,2,locked,off
+300,,000.0000,auto,none,2,locked,on
+301,6m FM Simplex,052.5250,fm,none,2,unlocked,off
+302,2m Simplex,146.5200,fm,none,2,unlocked,off
+303,70cm Simplex,446.0000,fm,none,2,unlocked,off
+304,MURS 1,151.8200,nfm,none,2,unlocked,off
+305,MURS 2,151.8800,nfm,none,2,unlocked,off
+306,MURS 3,151.9400,nfm,none,2,unlocked,off
+307,MURS Blue Dot,154.5700,nfm,none,2,unlocked,off
+308,MURS Green Dot,154.6000,nfm,none,2,unlocked,off
+309,WAN-RS W-B,147.1500,nfm,none,2,unlocked,off
+310,2m R Bald Mtn,146.7150,fm,none,2,unlocked,off
+311,2m R Carbondale,146.7900,fm,none,2,unlocked,off
+312,2m R Dunmore,147.0000,fm,none,2,unlocked,off
+313,2m R Mehoopany,147.2100,fm,none,2,unlocked,off
+314,2m R Scranton,147.2850,fm,none,2,unlocked,off
+315,2m R Elk Mtn,147.8400,fm,none,2,unlocked,off
+316,70cm R Crbondale,440.0562,fm,none,2,unlocked,off
+317,70cm R Tunk,441.1500,fm,none,2,unlocked,off
+318,70cm R Clrks Smt,442.5500,fm,none,2,unlocked,off
+319,70cm R Scranton,448.8250,fm,none,2,unlocked,off
+320,,000.0000,auto,none,2,locked,off
+321,,000.0000,auto,none,2,locked,off
+322,,000.0000,auto,none,2,locked,off
+323,,000.0000,auto,none,2,locked,off
+324,,000.0000,auto,none,2,locked,off
+325,,000.0000,auto,none,2,locked,off
+326,,000.0000,auto,none,2,locked,off
+327,,000.0000,auto,none,2,locked,off
+328,,000.0000,auto,none,2,locked,off
+329,,000.0000,auto,none,2,locked,off
+330,,000.0000,auto,none,2,locked,off
+331,,000.0000,auto,none,2,locked,off
+332,,000.0000,auto,none,2,locked,off
+333,,000.0000,auto,none,2,locked,off
+334,,000.0000,auto,none,2,locked,off
+335,,000.0000,auto,none,2,locked,off
+336,,000.0000,auto,none,2,locked,off
+337,,000.0000,auto,none,2,locked,off
+338,,000.0000,auto,none,2,locked,off
+339,,000.0000,auto,none,2,locked,off
+340,,000.0000,auto,none,2,locked,off
+341,,000.0000,auto,none,2,locked,off
+342,,000.0000,auto,none,2,locked,off
+343,,000.0000,auto,none,2,locked,off
+344,,000.0000,auto,none,2,locked,off
+345,,000.0000,auto,none,2,locked,off
+346,,000.0000,auto,none,2,locked,off
+347,,000.0000,auto,none,2,locked,off
+348,,000.0000,auto,none,2,locked,off
+349,,000.0000,auto,none,2,locked,off
+350,,000.0000,auto,none,2,locked,on
+351,CB 1,026.9650,am,none,2,unlocked,off
+352,CB 2,026.9750,am,none,2,unlocked,off
+353,CB 3,026.9850,am,none,2,unlocked,off
+354,CB 4 OffRoad,027.0050,am,none,2,unlocked,off
+355,CB 5,027.0150,am,none,2,unlocked,off
+356,CB 6 Superbowl,027.0250,am,none,2,unlocked,off
+357,CB 7,027.0350,am,none,2,unlocked,off
+358,CB 8,027.0550,am,none,2,unlocked,off
+359,CB 9 Emergency,027.0650,am,none,2,unlocked,off
+360,CB 10 Regional,027.0750,am,none,2,unlocked,off
+361,CB 11,027.0850,am,none,2,unlocked,off
+362,CB 12,027.1050,am,none,2,unlocked,off
+363,CB 13 MarineRV,027.1150,am,none,2,unlocked,off
+364,CB 14 Portable,027.1250,am,none,2,unlocked,off
+365,CB 15,027.1350,am,none,2,unlocked,off
+366,CB 16,027.1550,am,none,2,unlocked,off
+367,CB 17 Road N/S,027.1650,am,none,2,unlocked,off
+368,CB 18,027.1750,am,none,2,unlocked,off
+369,CB 19 Road E/W,027.1850,am,none,2,unlocked,off
+370,CB 20,027.2050,am,none,2,unlocked,off
+371,CB 21 Regional,027.2150,am,none,2,unlocked,off
+372,CB 22,027.2250,am,none,2,unlocked,off
+373,CB 23,027.2550,am,none,2,unlocked,off
+374,CB 24,027.2350,am,none,2,unlocked,off
+375,CB 25,027.2450,am,none,2,unlocked,off
+376,CB 26,027.2650,am,none,2,unlocked,off
+377,CB 27,027.2750,am,none,2,unlocked,off
+378,CB 28,027.2850,am,none,2,unlocked,off
+379,CB 29,027.2950,am,none,2,unlocked,off
+380,CB 30,027.3050,am,none,2,unlocked,off
+381,CB 31,027.3150,am,none,2,unlocked,off
+382,CB 32,027.3250,am,none,2,unlocked,off
+383,CB 33,027.3350,am,none,2,unlocked,off
+384,CB 34,027.3450,am,none,2,unlocked,off
+385,CB 35,027.3550,am,none,2,unlocked,off
+386,CB 36,027.3650,am,none,2,unlocked,off
+387,CB 37,027.3750,am,none,2,unlocked,off
+388,CB 38,027.3850,am,none,2,unlocked,off
+389,CB 39,027.3950,am,none,2,unlocked,off
+390,CB 40,027.4050,am,none,2,unlocked,off
+391,,000.0000,auto,none,2,locked,off
+392,,000.0000,auto,none,2,locked,off
+393,,000.0000,auto,none,2,locked,off
+394,,000.0000,auto,none,2,locked,off
+395,,000.0000,auto,none,2,locked,off
+396,,000.0000,auto,none,2,locked,off
+397,,000.0000,auto,none,2,locked,off
+398,,000.0000,auto,none,2,locked,off
+399,,000.0000,auto,none,2,locked,off
+400,,000.0000,auto,none,2,locked,on
+401,ISS HAM Down,145.8000,fm,none,2,unlocked,off
+402,AO-91 Down,145.9600,fm,none,2,unlocked,off
+403,AO-92 Down,145.8800,fm,none,2,unlocked,off
+404,SO-50 Down,436.7937,fm,none,2,unlocked,off
+405,,000.0000,auto,none,2,locked,off
+406,,000.0000,auto,none,2,locked,off
+407,,000.0000,auto,none,2,locked,off
+408,,000.0000,auto,none,2,locked,off
+409,,000.0000,auto,none,2,locked,off
+410,,000.0000,auto,none,2,locked,off
+411,,000.0000,auto,none,2,locked,off
+412,,000.0000,auto,none,2,locked,off
+413,,000.0000,auto,none,2,locked,off
+414,,000.0000,auto,none,2,locked,off
+415,,000.0000,auto,none,2,locked,off
+416,,000.0000,auto,none,2,locked,off
+417,,000.0000,auto,none,2,locked,off
+418,,000.0000,auto,none,2,locked,off
+419,,000.0000,auto,none,2,locked,off
+420,,000.0000,auto,none,2,locked,off
+421,,000.0000,auto,none,2,locked,off
+422,,000.0000,auto,none,2,locked,off
+423,,000.0000,auto,none,2,locked,off
+424,,000.0000,auto,none,2,locked,off
+425,,000.0000,auto,none,2,locked,off
+426,,000.0000,auto,none,2,locked,off
+427,,000.0000,auto,none,2,locked,off
+428,,000.0000,auto,none,2,locked,off
+429,,000.0000,auto,none,2,locked,off
+430,,000.0000,auto,none,2,locked,off
+431,,000.0000,auto,none,2,locked,off
+432,,000.0000,auto,none,2,locked,off
+433,,000.0000,auto,none,2,locked,off
+434,,000.0000,auto,none,2,locked,off
+435,,000.0000,auto,none,2,locked,off
+436,,000.0000,auto,none,2,locked,off
+437,,000.0000,auto,none,2,locked,off
+438,,000.0000,auto,none,2,locked,off
+439,,000.0000,auto,none,2,locked,off
+440,,000.0000,auto,none,2,locked,off
+441,,000.0000,auto,none,2,locked,off
+442,,000.0000,auto,none,2,locked,off
+443,,000.0000,auto,none,2,locked,off
+444,,000.0000,auto,none,2,locked,off
+445,,000.0000,auto,none,2,locked,off
+446,,000.0000,auto,none,2,locked,off
+447,,000.0000,auto,none,2,locked,off
+448,,000.0000,auto,none,2,locked,off
+449,,000.0000,auto,none,2,locked,off
+450,,000.0000,auto,none,2,locked,on
+451,,000.0000,auto,none,2,locked,off
+452,,000.0000,auto,none,2,locked,off
+453,,000.0000,auto,none,2,locked,off
+454,,000.0000,auto,none,2,locked,off
+455,,000.0000,auto,none,2,locked,off
+456,,000.0000,auto,none,2,locked,off
+457,,000.0000,auto,none,2,locked,off
+458,,000.0000,auto,none,2,locked,off
+459,,000.0000,auto,none,2,locked,off
+460,,000.0000,auto,none,2,locked,off
+461,,000.0000,auto,none,2,locked,off
+462,,000.0000,auto,none,2,locked,off
+463,,000.0000,auto,none,2,locked,off
+464,,000.0000,auto,none,2,locked,off
+465,,000.0000,auto,none,2,locked,off
+466,,000.0000,auto,none,2,locked,off
+467,,000.0000,auto,none,2,locked,off
+468,,000.0000,auto,none,2,locked,off
+469,,000.0000,auto,none,2,locked,off
+470,,000.0000,auto,none,2,locked,off
+471,,000.0000,auto,none,2,locked,off
+472,,000.0000,auto,none,2,locked,off
+473,,000.0000,auto,none,2,locked,off
+474,,000.0000,auto,none,2,locked,off
+475,,000.0000,auto,none,2,locked,off
+476,,000.0000,auto,none,2,locked,off
+477,,000.0000,auto,none,2,locked,off
+478,,000.0000,auto,none,2,locked,off
+479,,000.0000,auto,none,2,locked,off
+480,,000.0000,auto,none,2,locked,off
+481,,000.0000,auto,none,2,locked,off
+482,,000.0000,auto,none,2,locked,off
+483,,000.0000,auto,none,2,locked,off
+484,,000.0000,auto,none,2,locked,off
+485,,000.0000,auto,none,2,locked,off
+486,,000.0000,auto,none,2,locked,off
+487,,000.0000,auto,none,2,locked,off
+488,,000.0000,auto,none,2,locked,off
+489,,000.0000,auto,none,2,locked,off
+490,,000.0000,auto,none,2,locked,off
+491,,000.0000,auto,none,2,locked,off
+492,,000.0000,auto,none,2,locked,off
+493,,000.0000,auto,none,2,locked,off
+494,,000.0000,auto,none,2,locked,off
+495,,000.0000,auto,none,2,locked,off
+496,,000.0000,auto,none,2,locked,off
+497,,000.0000,auto,none,2,locked,off
+498,,000.0000,auto,none,2,locked,off
+499,,000.0000,auto,none,2,locked,off
+500,,000.0000,auto,none,2,locked,on

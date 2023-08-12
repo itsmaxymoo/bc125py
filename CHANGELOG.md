@@ -4,7 +4,9 @@
 
 * Deprecate `bc125py.sdo.is_valid_ctcss(int)`
 * Implement human readable CTCSS/DCS tones (thanks to [Bradley A. Thornton](https://github.com/cidrblock))
-* Added the `--help-tones` flag which lists all valid CTCSS/DCS/Special tones.
+	* Please note that the old index-based tones still work
+* Added the `--help-tones` flag which lists all valid CTCSS/DCS/Special tones
+* Updated examples
 
 ## 0.9.10
 

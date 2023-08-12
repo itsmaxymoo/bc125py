@@ -219,7 +219,7 @@ def ctcss_dcs_to_internal(provided: str) -> int:
 	provided = re.sub(minimize_regex, "", provided)
 
 	for key, value in VALID_CTCSS_DCS_VALUES.items():
-		value = re.sub(minimize_regex, "", provided)
+		value = re.sub(minimize_regex, "", value)
 		if value == provided:
 			return key
 

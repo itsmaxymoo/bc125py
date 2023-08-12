@@ -819,7 +819,7 @@ class Channel(_ScannerDataObject):
 				self.ctcss = ctcss_dcs_to_internal(data["ctcss"])
 			except ValueError:
 				err_found = True
-				err_message += ", invalid ctcss/dcs: " + str(self.ctcss)
+				err_message += ", invalid ctcss/dcs: " + str(data["ctcss"]) + " (see --help-tones)"
 		
 		if err_found:
 			raise InputValidationError(err_message)

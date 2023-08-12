@@ -1,5 +1,5 @@
 {
-	"bc125py_version": "0.9.7",
+	"bc125py_version": "0.9.11",
 	"model": {
 		"model": "BC125AT"
 	},
@@ -157,7 +157,7 @@
 			"name": "AAR HOTD",
 			"frequency": "452.9375",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -167,7 +167,7 @@
 			"name": "AAR EOTD",
 			"frequency": "457.9375",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -177,7 +177,7 @@
 			"name": "Amtk Keystone",
 			"frequency": "160.6350",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -187,7 +187,7 @@
 			"name": "DL East of Pocno",
 			"frequency": "161.1750",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -197,7 +197,7 @@
 			"name": "DL West of Pocno",
 			"frequency": "161.4600",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -207,7 +207,7 @@
 			"name": "DL Yard",
 			"frequency": "160.2450",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -217,7 +217,7 @@
 			"name": "NS Sunbury Line",
 			"frequency": "161.4750",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -227,7 +227,7 @@
 			"name": "NS DH Yard",
 			"frequency": "160.5900",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -237,7 +237,7 @@
 			"name": "NS Pitt Line",
 			"frequency": "160.8000",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -247,7 +247,7 @@
 			"name": "NS MOW",
 			"frequency": "161.4300",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -257,7 +257,7 @@
 			"name": "RBMN Reading S",
 			"frequency": "160.4700",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -267,7 +267,7 @@
 			"name": "RBMN Reading N-L",
 			"frequency": "160.7700",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -277,7 +277,7 @@
 			"name": "RBMN Lehigh",
 			"frequency": "160.8000",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -287,7 +287,7 @@
 			"name": "RBMN Yard",
 			"frequency": "161.3100",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -297,7 +297,7 @@
 			"name": "Strasburg RR",
 			"frequency": "161.2350",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -307,7 +307,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -317,7 +317,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -327,7 +327,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -337,7 +337,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -347,7 +347,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -357,7 +357,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -367,7 +367,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -377,7 +377,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -387,7 +387,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -397,7 +397,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -407,7 +407,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -417,7 +417,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -427,7 +427,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -437,7 +437,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -447,7 +447,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -457,7 +457,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -467,7 +467,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -477,7 +477,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -487,7 +487,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -497,7 +497,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -507,7 +507,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -517,7 +517,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -527,7 +527,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -537,7 +537,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -547,7 +547,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -557,7 +557,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -567,7 +567,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -577,7 +577,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -587,7 +587,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -597,7 +597,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -607,7 +607,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -617,7 +617,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -627,7 +627,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -637,7 +637,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -647,7 +647,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "on"
@@ -657,7 +657,7 @@
 			"name": "PGC NE Reg 5",
 			"frequency": "044.6400",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -667,7 +667,7 @@
 			"name": "PGC NC Reg 3",
 			"frequency": "044.6800",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -677,7 +677,7 @@
 			"name": "PAFishBoat PD 1",
 			"frequency": "045.0400",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -687,7 +687,7 @@
 			"name": "PAFishBoat PD 2",
 			"frequency": "044.9600",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -697,7 +697,7 @@
 			"name": "LackCo PD 1",
 			"frequency": "154.8750",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -707,7 +707,7 @@
 			"name": "LackCo PD 2",
 			"frequency": "154.8150",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -717,7 +717,7 @@
 			"name": "LackCo PD 3",
 			"frequency": "155.7900",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -727,7 +727,7 @@
 			"name": "LackCo Detec",
 			"frequency": "153.9950",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -737,7 +737,7 @@
 			"name": "LackSheriff1",
 			"frequency": "151.4900",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -747,7 +747,7 @@
 			"name": "LackSheriff3",
 			"frequency": "151.0250",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -757,7 +757,7 @@
 			"name": "LackPRCTrans",
 			"frequency": "453.2500",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -767,7 +767,7 @@
 			"name": "Archbald PD",
 			"frequency": "155.5500",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -777,7 +777,7 @@
 			"name": "Clark Smt PD",
 			"frequency": "155.7150",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -787,7 +787,7 @@
 			"name": "Dunmore PD",
 			"frequency": "159.0900",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -797,7 +797,7 @@
 			"name": "Dunmore PD6",
 			"frequency": "154.8300",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -807,7 +807,7 @@
 			"name": "Jessup PD",
 			"frequency": "154.1150",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -817,7 +817,7 @@
 			"name": "Moosic PD",
 			"frequency": "153.8150",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -827,7 +827,7 @@
 			"name": "Moscow PD",
 			"frequency": "154.9800",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -837,7 +837,7 @@
 			"name": "Newton PD",
 			"frequency": "158.7750",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -847,7 +847,7 @@
 			"name": "Scranton PD Disp",
 			"frequency": "453.3750",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -857,7 +857,7 @@
 			"name": "Scranton PD Tac",
 			"frequency": "453.7000",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -867,7 +867,7 @@
 			"name": "S Abngtn PD",
 			"frequency": "156.1200",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -877,7 +877,7 @@
 			"name": "Lz PD Zone-A W",
 			"frequency": "158.7300",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -887,7 +887,7 @@
 			"name": "Lz PD Zone-B CE",
 			"frequency": "151.2650",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -897,7 +897,7 @@
 			"name": "Lz PD Zone-C CW",
 			"frequency": "151.3700",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -907,7 +907,7 @@
 			"name": "Lz PD Zone-D E",
 			"frequency": "155.0700",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -917,7 +917,7 @@
 			"name": "Lz PD Zone-E S",
 			"frequency": "155.9250",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -927,7 +927,7 @@
 			"name": "Lz PD Zone-G N",
 			"frequency": "158.8050",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -937,7 +937,7 @@
 			"name": "Lz Sheriff",
 			"frequency": "155.4150",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -947,7 +947,7 @@
 			"name": "Lz Prison",
 			"frequency": "155.8800",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -957,7 +957,7 @@
 			"name": "Hzltn PD 1",
 			"frequency": "151.1150",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -967,7 +967,7 @@
 			"name": "Kingston PD1",
 			"frequency": "154.9950",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -977,7 +977,7 @@
 			"name": "WB City PD Disp",
 			"frequency": "154.8450",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -987,7 +987,7 @@
 			"name": "WB City PD Tac 1",
 			"frequency": "154.8000",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -997,7 +997,7 @@
 			"name": "WB City PD Tac 2",
 			"frequency": "155.9700",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1007,7 +1007,7 @@
 			"name": "SqCo PD Elk",
 			"frequency": "154.7250",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1017,7 +1017,7 @@
 			"name": "WyCo PD Disp",
 			"frequency": "155.1900",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1027,7 +1027,7 @@
 			"name": "WyCo PD Tac 1",
 			"frequency": "156.2100",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1037,7 +1037,7 @@
 			"name": "WyCo PD Tac 2",
 			"frequency": "151.1375",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1047,7 +1047,7 @@
 			"name": "WynCo PD",
 			"frequency": "159.1500",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1057,7 +1057,7 @@
 			"name": "WynCo Court",
 			"frequency": "154.0025",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1067,7 +1067,7 @@
 			"name": "WynCo Sheriff",
 			"frequency": "460.3625",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1077,7 +1077,7 @@
 			"name": "WynCo Jail",
 			"frequency": "453.6625",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1087,7 +1087,7 @@
 			"name": "Hawley PD",
 			"frequency": "155.0400",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1097,7 +1097,7 @@
 			"name": "Honesdale PD",
 			"frequency": "155.8200",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1107,7 +1107,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1117,7 +1117,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1127,7 +1127,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1137,7 +1137,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1147,7 +1147,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "on"
@@ -1157,7 +1157,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1167,7 +1167,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1177,7 +1177,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1187,7 +1187,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1197,7 +1197,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1207,7 +1207,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1217,7 +1217,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1227,7 +1227,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1237,7 +1237,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1247,7 +1247,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1257,7 +1257,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1267,7 +1267,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1277,7 +1277,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1287,7 +1287,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1297,7 +1297,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1307,7 +1307,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1317,7 +1317,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1327,7 +1327,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1337,7 +1337,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1347,7 +1347,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1357,7 +1357,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1367,7 +1367,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1377,7 +1377,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1387,7 +1387,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1397,7 +1397,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1407,7 +1407,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1417,7 +1417,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1427,7 +1427,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1437,7 +1437,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1447,7 +1447,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1457,7 +1457,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1467,7 +1467,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1477,7 +1477,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1487,7 +1487,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1497,7 +1497,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1507,7 +1507,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1517,7 +1517,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1527,7 +1527,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1537,7 +1537,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1547,7 +1547,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1557,7 +1557,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1567,7 +1567,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1577,7 +1577,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1587,7 +1587,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1597,7 +1597,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1607,7 +1607,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1617,7 +1617,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1627,7 +1627,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1637,7 +1637,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -1647,7 +1647,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "on"
@@ -1657,7 +1657,7 @@
 			"name": "LCFR County Red",
 			"frequency": "154.3100",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1667,7 +1667,7 @@
 			"name": "LCFR County Blue",
 			"frequency": "155.2950",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1677,7 +1677,7 @@
 			"name": "LCFR Black",
 			"frequency": "151.0625",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1687,7 +1687,7 @@
 			"name": "LCFR Brown",
 			"frequency": "151.2125",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1697,7 +1697,7 @@
 			"name": "LCFR Green",
 			"frequency": "151.1000",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1707,7 +1707,7 @@
 			"name": "LCFR Gray",
 			"frequency": "154.2800",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1717,7 +1717,7 @@
 			"name": "LCFR Orange",
 			"frequency": "155.4900",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1727,7 +1727,7 @@
 			"name": "LCFR Yellow",
 			"frequency": "154.2125",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1737,7 +1737,7 @@
 			"name": "LCFR MED-1",
 			"frequency": "463.0000",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1747,7 +1747,7 @@
 			"name": "LackCo EMA",
 			"frequency": "158.8350",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1757,7 +1757,7 @@
 			"name": "Cottage FD",
 			"frequency": "154.7100",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1767,7 +1767,7 @@
 			"name": "Cottage FG",
 			"frequency": "155.3850",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1777,7 +1777,7 @@
 			"name": "Carbondale F",
 			"frequency": "155.6100",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1787,7 +1787,7 @@
 			"name": "Covington FD",
 			"frequency": "153.8600",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1797,7 +1797,7 @@
 			"name": "Dickson FG",
 			"frequency": "155.7750",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1807,7 +1807,7 @@
 			"name": "Fell Twp. FG",
 			"frequency": "154.2350",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1817,7 +1817,7 @@
 			"name": "GrnFld FD",
 			"frequency": "159.3075",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1827,7 +1827,7 @@
 			"name": "Jtwp FC pvt",
 			"frequency": "154.1300",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1837,7 +1837,7 @@
 			"name": "Jtwp FC Locl",
 			"frequency": "154.4300",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1847,7 +1847,7 @@
 			"name": "Jtwp Ambo P",
 			"frequency": "155.4000",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1857,7 +1857,7 @@
 			"name": "Jermyn FD",
 			"frequency": "154.7100",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1867,7 +1867,7 @@
 			"name": "Moosic FG",
 			"frequency": "153.8150",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1877,7 +1877,7 @@
 			"name": "Ntwn Rans FD",
 			"frequency": "150.8600",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1887,7 +1887,7 @@
 			"name": "OldForge EMS",
 			"frequency": "151.8050",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1897,7 +1897,7 @@
 			"name": "OldForgeFire",
 			"frequency": "154.2650",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1907,7 +1907,7 @@
 			"name": "Scott Twp FG",
 			"frequency": "154.5150",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1917,7 +1917,7 @@
 			"name": "Scranton FD1",
 			"frequency": "453.5000",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1927,7 +1927,7 @@
 			"name": "Scranton FD2",
 			"frequency": "453.2000",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1937,7 +1937,7 @@
 			"name": "Chnchla FG2",
 			"frequency": "154.2950",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1947,7 +1947,7 @@
 			"name": "Chnchla FG3",
 			"frequency": "153.8300",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1957,7 +1957,7 @@
 			"name": "Taylor FG",
 			"frequency": "155.8800",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1967,7 +1967,7 @@
 			"name": "Throop Fire",
 			"frequency": "154.7850",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1977,7 +1977,7 @@
 			"name": "Vandling FG",
 			"frequency": "153.8900",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1987,7 +1987,7 @@
 			"name": "Abngtn Tac 2",
 			"frequency": "154.2125",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -1997,7 +1997,7 @@
 			"name": "Lz Fire EMS",
 			"frequency": "157.4500",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2007,7 +2007,7 @@
 			"name": "FortyFord FD",
 			"frequency": "154.7250",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2017,7 +2017,7 @@
 			"name": "Hanover Fire",
 			"frequency": "155.7750",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2027,7 +2027,7 @@
 			"name": "Hzltn EMS",
 			"frequency": "155.4000",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2037,7 +2037,7 @@
 			"name": "MtnTop Fire",
 			"frequency": "154.4150",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2047,7 +2047,7 @@
 			"name": "Nescopk Lz",
 			"frequency": "155.3250",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2057,7 +2057,7 @@
 			"name": "WB Fire Disp",
 			"frequency": "155.9400",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2067,7 +2067,7 @@
 			"name": "SqCo Fire Disp",
 			"frequency": "155.0625",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2077,7 +2077,7 @@
 			"name": "SqCo EMS Elk",
 			"frequency": "462.9500",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2087,7 +2087,7 @@
 			"name": "WyCo Fire EMS",
 			"frequency": "155.7300",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2097,7 +2097,7 @@
 			"name": "WyCo Loc Gov",
 			"frequency": "155.9550",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2107,7 +2107,7 @@
 			"name": "WyCo EMA",
 			"frequency": "158.7375",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2117,7 +2117,7 @@
 			"name": "Elk Ski Patrol",
 			"frequency": "155.2000",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2127,7 +2127,7 @@
 			"name": "Medevac AVP",
 			"frequency": "453.1250",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2137,7 +2137,7 @@
 			"name": "Wayne FD Disp",
 			"frequency": "151.4150",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2147,7 +2147,7 @@
 			"name": "Wayne EMS",
 			"frequency": "155.3100",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "on"
@@ -2157,7 +2157,7 @@
 			"name": "Wayne FD Cmd",
 			"frequency": "155.6775",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2167,7 +2167,7 @@
 			"name": "Wayne EMA",
 			"frequency": "158.8350",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2177,7 +2177,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2187,7 +2187,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2197,7 +2197,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2207,7 +2207,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2217,7 +2217,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2227,7 +2227,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2237,7 +2237,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2247,7 +2247,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2257,7 +2257,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2267,7 +2267,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2277,7 +2277,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2287,7 +2287,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2297,7 +2297,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2307,7 +2307,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2317,7 +2317,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2327,7 +2327,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2337,7 +2337,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2347,7 +2347,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2357,7 +2357,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2367,7 +2367,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2377,7 +2377,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2387,7 +2387,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2397,7 +2397,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2407,7 +2407,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2417,7 +2417,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2427,7 +2427,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2437,7 +2437,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2447,7 +2447,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2457,7 +2457,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2467,7 +2467,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2477,7 +2477,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2487,7 +2487,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2497,7 +2497,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2507,7 +2507,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2517,7 +2517,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2527,7 +2527,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2537,7 +2537,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2547,7 +2547,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2557,7 +2557,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2567,7 +2567,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2577,7 +2577,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2587,7 +2587,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2597,7 +2597,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2607,7 +2607,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2617,7 +2617,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2627,7 +2627,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2637,7 +2637,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2647,7 +2647,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "on"
@@ -2657,7 +2657,7 @@
 			"name": "PTC 5 Disp NE Ex",
 			"frequency": "156.1950",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2667,7 +2667,7 @@
 			"name": "PTC Portable",
 			"frequency": "458.4625",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2677,7 +2677,7 @@
 			"name": "LackCo COLT",
 			"frequency": "452.7500",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2687,7 +2687,7 @@
 			"name": "AHSD Buses",
 			"frequency": "157.6200",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2697,7 +2697,7 @@
 			"name": "Fixed Air2Air",
 			"frequency": "122.7500",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2707,7 +2707,7 @@
 			"name": "Heli Air2Air",
 			"frequency": "123.0250",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2717,7 +2717,7 @@
 			"name": "GldrBlon Air2Air",
 			"frequency": "123.3000",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2727,7 +2727,7 @@
 			"name": "Ocean Air2Air",
 			"frequency": "123.4500",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2737,7 +2737,7 @@
 			"name": "KAVP ATIS",
 			"frequency": "111.6000",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2747,7 +2747,7 @@
 			"name": "KAVP Tower",
 			"frequency": "120.1000",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2757,7 +2757,7 @@
 			"name": "KAVP WX ASOS",
 			"frequency": "120.2750",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2767,7 +2767,7 @@
 			"name": "KAVP A/D SE",
 			"frequency": "120.9500",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2777,7 +2777,7 @@
 			"name": "KAVP Ground",
 			"frequency": "121.9000",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2787,7 +2787,7 @@
 			"name": "KAVP FSS 1",
 			"frequency": "122.2000",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2797,7 +2797,7 @@
 			"name": "KAVP FSS 2",
 			"frequency": "122.6000",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2807,7 +2807,7 @@
 			"name": "KAVP Unicom",
 			"frequency": "122.9500",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2817,7 +2817,7 @@
 			"name": "KAVP A/D NW",
 			"frequency": "126.3000",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2827,7 +2827,7 @@
 			"name": "KAVP A/D Mil",
 			"frequency": "256.7000",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2837,7 +2837,7 @@
 			"name": "KAVP TowrMil",
 			"frequency": "257.8000",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2847,7 +2847,7 @@
 			"name": "Seamans Unicom",
 			"frequency": "122.7000",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2857,7 +2857,7 @@
 			"name": "Skyhaven Unicom",
 			"frequency": "122.8000",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -2867,7 +2867,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2877,7 +2877,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2887,7 +2887,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2897,7 +2897,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2907,7 +2907,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2917,7 +2917,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2927,7 +2927,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2937,7 +2937,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2947,7 +2947,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2957,7 +2957,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2967,7 +2967,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2977,7 +2977,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2987,7 +2987,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -2997,7 +2997,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3007,7 +3007,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3017,7 +3017,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3027,7 +3027,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3037,7 +3037,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3047,7 +3047,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3057,7 +3057,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3067,7 +3067,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3077,7 +3077,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3087,7 +3087,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3097,7 +3097,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3107,7 +3107,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3117,7 +3117,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3127,7 +3127,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3137,7 +3137,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3147,7 +3147,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "on"
@@ -3157,7 +3157,7 @@
 			"name": "6m FM Simplex",
 			"frequency": "052.5250",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3167,7 +3167,7 @@
 			"name": "2m Simplex",
 			"frequency": "146.5200",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3177,7 +3177,7 @@
 			"name": "70cm Simplex",
 			"frequency": "446.0000",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3187,7 +3187,7 @@
 			"name": "MURS 1",
 			"frequency": "151.8200",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3197,7 +3197,7 @@
 			"name": "MURS 2",
 			"frequency": "151.8800",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3207,7 +3207,7 @@
 			"name": "MURS 3",
 			"frequency": "151.9400",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3217,7 +3217,7 @@
 			"name": "MURS Blue Dot",
 			"frequency": "154.5700",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3227,7 +3227,7 @@
 			"name": "MURS Green Dot",
 			"frequency": "154.6000",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3237,7 +3237,7 @@
 			"name": "WAN-RS W-B",
 			"frequency": "147.1500",
 			"modulation": "nfm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3247,7 +3247,7 @@
 			"name": "2m R Bald Mtn",
 			"frequency": "146.7150",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3257,7 +3257,7 @@
 			"name": "2m R Carbondale",
 			"frequency": "146.7900",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3267,7 +3267,7 @@
 			"name": "2m R Dunmore",
 			"frequency": "147.0000",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3277,7 +3277,7 @@
 			"name": "2m R Mehoopany",
 			"frequency": "147.2100",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3287,7 +3287,7 @@
 			"name": "2m R Scranton",
 			"frequency": "147.2850",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3297,7 +3297,7 @@
 			"name": "2m R Elk Mtn",
 			"frequency": "147.8400",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3307,7 +3307,7 @@
 			"name": "70cm R Crbondale",
 			"frequency": "440.0562",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3317,7 +3317,7 @@
 			"name": "70cm R Tunk",
 			"frequency": "441.1500",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3327,7 +3327,7 @@
 			"name": "70cm R Clrks Smt",
 			"frequency": "442.5500",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3337,7 +3337,7 @@
 			"name": "70cm R Scranton",
 			"frequency": "448.8250",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3347,7 +3347,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3357,7 +3357,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3367,7 +3367,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3377,7 +3377,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3387,7 +3387,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3397,7 +3397,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3407,7 +3407,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3417,7 +3417,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3427,7 +3427,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3437,7 +3437,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3447,7 +3447,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3457,7 +3457,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3467,7 +3467,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3477,7 +3477,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3487,7 +3487,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3497,7 +3497,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3507,7 +3507,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3517,7 +3517,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3527,7 +3527,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3537,7 +3537,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3547,7 +3547,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3557,7 +3557,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3567,7 +3567,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3577,7 +3577,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3587,7 +3587,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3597,7 +3597,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3607,7 +3607,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3617,7 +3617,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3627,7 +3627,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3637,7 +3637,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -3647,7 +3647,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "on"
@@ -3657,7 +3657,7 @@
 			"name": "CB 1",
 			"frequency": "026.9650",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3667,7 +3667,7 @@
 			"name": "CB 2",
 			"frequency": "026.9750",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3677,7 +3677,7 @@
 			"name": "CB 3",
 			"frequency": "026.9850",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3687,7 +3687,7 @@
 			"name": "CB 4 OffRoad",
 			"frequency": "027.0050",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3697,7 +3697,7 @@
 			"name": "CB 5",
 			"frequency": "027.0150",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3707,7 +3707,7 @@
 			"name": "CB 6 Superbowl",
 			"frequency": "027.0250",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3717,7 +3717,7 @@
 			"name": "CB 7",
 			"frequency": "027.0350",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3727,7 +3727,7 @@
 			"name": "CB 8",
 			"frequency": "027.0550",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3737,7 +3737,7 @@
 			"name": "CB 9 Emergency",
 			"frequency": "027.0650",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3747,7 +3747,7 @@
 			"name": "CB 10 Regional",
 			"frequency": "027.0750",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3757,7 +3757,7 @@
 			"name": "CB 11",
 			"frequency": "027.0850",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3767,7 +3767,7 @@
 			"name": "CB 12",
 			"frequency": "027.1050",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3777,7 +3777,7 @@
 			"name": "CB 13 MarineRV",
 			"frequency": "027.1150",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3787,7 +3787,7 @@
 			"name": "CB 14 Portable",
 			"frequency": "027.1250",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3797,7 +3797,7 @@
 			"name": "CB 15",
 			"frequency": "027.1350",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3807,7 +3807,7 @@
 			"name": "CB 16",
 			"frequency": "027.1550",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3817,7 +3817,7 @@
 			"name": "CB 17 Road N/S",
 			"frequency": "027.1650",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3827,7 +3827,7 @@
 			"name": "CB 18",
 			"frequency": "027.1750",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3837,7 +3837,7 @@
 			"name": "CB 19 Road E/W",
 			"frequency": "027.1850",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3847,7 +3847,7 @@
 			"name": "CB 20",
 			"frequency": "027.2050",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3857,7 +3857,7 @@
 			"name": "CB 21 Regional",
 			"frequency": "027.2150",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3867,7 +3867,7 @@
 			"name": "CB 22",
 			"frequency": "027.2250",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3877,7 +3877,7 @@
 			"name": "CB 23",
 			"frequency": "027.2550",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3887,7 +3887,7 @@
 			"name": "CB 24",
 			"frequency": "027.2350",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3897,7 +3897,7 @@
 			"name": "CB 25",
 			"frequency": "027.2450",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3907,7 +3907,7 @@
 			"name": "CB 26",
 			"frequency": "027.2650",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3917,7 +3917,7 @@
 			"name": "CB 27",
 			"frequency": "027.2750",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3927,7 +3927,7 @@
 			"name": "CB 28",
 			"frequency": "027.2850",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3937,7 +3937,7 @@
 			"name": "CB 29",
 			"frequency": "027.2950",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3947,7 +3947,7 @@
 			"name": "CB 30",
 			"frequency": "027.3050",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3957,7 +3957,7 @@
 			"name": "CB 31",
 			"frequency": "027.3150",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3967,7 +3967,7 @@
 			"name": "CB 32",
 			"frequency": "027.3250",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3977,7 +3977,7 @@
 			"name": "CB 33",
 			"frequency": "027.3350",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3987,7 +3987,7 @@
 			"name": "CB 34",
 			"frequency": "027.3450",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -3997,7 +3997,7 @@
 			"name": "CB 35",
 			"frequency": "027.3550",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -4007,7 +4007,7 @@
 			"name": "CB 36",
 			"frequency": "027.3650",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -4017,7 +4017,7 @@
 			"name": "CB 37",
 			"frequency": "027.3750",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -4027,7 +4027,7 @@
 			"name": "CB 38",
 			"frequency": "027.3850",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -4037,7 +4037,7 @@
 			"name": "CB 39",
 			"frequency": "027.3950",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -4047,7 +4047,7 @@
 			"name": "CB 40",
 			"frequency": "027.4050",
 			"modulation": "am",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -4057,7 +4057,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4067,7 +4067,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4077,7 +4077,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4087,7 +4087,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4097,7 +4097,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4107,7 +4107,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4117,7 +4117,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4127,7 +4127,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4137,7 +4137,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4147,7 +4147,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "on"
@@ -4157,7 +4157,7 @@
 			"name": "ISS HAM Down",
 			"frequency": "145.8000",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -4167,7 +4167,7 @@
 			"name": "AO-91 Down",
 			"frequency": "145.9600",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -4177,7 +4177,7 @@
 			"name": "AO-92 Down",
 			"frequency": "145.8800",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -4187,7 +4187,7 @@
 			"name": "SO-50 Down",
 			"frequency": "436.7937",
 			"modulation": "fm",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "unlocked",
 			"priority": "off"
@@ -4197,7 +4197,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4207,7 +4207,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4217,7 +4217,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4227,7 +4227,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4237,7 +4237,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4247,7 +4247,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4257,7 +4257,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4267,7 +4267,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4277,7 +4277,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4287,7 +4287,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4297,7 +4297,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4307,7 +4307,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4317,7 +4317,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4327,7 +4327,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4337,7 +4337,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4347,7 +4347,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4357,7 +4357,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4367,7 +4367,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4377,7 +4377,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4387,7 +4387,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4397,7 +4397,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4407,7 +4407,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4417,7 +4417,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4427,7 +4427,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4437,7 +4437,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4447,7 +4447,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4457,7 +4457,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4467,7 +4467,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4477,7 +4477,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4487,7 +4487,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4497,7 +4497,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4507,7 +4507,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4517,7 +4517,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4527,7 +4527,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4537,7 +4537,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4547,7 +4547,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4557,7 +4557,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4567,7 +4567,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4577,7 +4577,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4587,7 +4587,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4597,7 +4597,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4607,7 +4607,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4617,7 +4617,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4627,7 +4627,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4637,7 +4637,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4647,7 +4647,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "on"
@@ -4657,7 +4657,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4667,7 +4667,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4677,7 +4677,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4687,7 +4687,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4697,7 +4697,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4707,7 +4707,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4717,7 +4717,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4727,7 +4727,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4737,7 +4737,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4747,7 +4747,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4757,7 +4757,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4767,7 +4767,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4777,7 +4777,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4787,7 +4787,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4797,7 +4797,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4807,7 +4807,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4817,7 +4817,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4827,7 +4827,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4837,7 +4837,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4847,7 +4847,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4857,7 +4857,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4867,7 +4867,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4877,7 +4877,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4887,7 +4887,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4897,7 +4897,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4907,7 +4907,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4917,7 +4917,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4927,7 +4927,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4937,7 +4937,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4947,7 +4947,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4957,7 +4957,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4967,7 +4967,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4977,7 +4977,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4987,7 +4987,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -4997,7 +4997,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -5007,7 +5007,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -5017,7 +5017,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -5027,7 +5027,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -5037,7 +5037,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -5047,7 +5047,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -5057,7 +5057,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -5067,7 +5067,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -5077,7 +5077,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -5087,7 +5087,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -5097,7 +5097,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -5107,7 +5107,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -5117,7 +5117,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -5127,7 +5127,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -5137,7 +5137,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "off"
@@ -5147,7 +5147,7 @@
 			"name": "",
 			"frequency": "000.0000",
 			"modulation": "auto",
-			"ctcss": 0,
+			"ctcss": "none",
 			"delay": 2,
 			"locked_out": "locked",
 			"priority": "on"

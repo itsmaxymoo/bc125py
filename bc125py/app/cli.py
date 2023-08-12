@@ -287,6 +287,8 @@ def import_read(out_file: str, csv: bool) -> int:
 		scanner.read_from(scanner_con)
 		if not stdout_mode:
 			print("done")
+		
+		log.debug(scanner)
 
 		# Open output file
 		log.debug("import: creating output file")
@@ -402,14 +404,12 @@ def export_write(in_file: str, csv: bool) -> int:
 			# Create scanner from file data
 			scanner: sdo.Scanner = sdo.Scanner()
 			log.debug("full export: parsing json")
-			scanner.from_dict(
-				json.loads(in_file_data)
-			)
 
-			# Validate scanner
 			try:
-				scanner.validate()
-			except ValueError as e:
+				scanner.from_dict(
+					json.loads(in_file_data)
+				)
+			except sdo.InputValidationError as e:
 				for line in str(e).splitlines():
 					log.error(line)
 				return 1
@@ -442,20 +442,20 @@ def export_write(in_file: str, csv: bool) -> int:
 					"name": row[1],
 					"frequency": row[2],
 					"modulation": row[3],
-					"ctcss": int(row[4]),
+					"ctcss": row[4],
 					"delay": int(row[5]),
 					"locked_out": row[6],
 					"priority": row[7]
 				}
+				log.debug("dict: " + str(c_dict))
 
 				# Create channel from dict
 				c: sdo.Channel = sdo.Channel()
-				c.from_dict(c_dict)
 
-				# Validate channel
 				try:
-					c.validate()
-				except ValueError as e:
+					c.from_dict(c_dict)
+					log.debug("cin: " + str(c))
+				except sdo.InputValidationError as e:
 					log.error(str(e))
 					return 1
 
