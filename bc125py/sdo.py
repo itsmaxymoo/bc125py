@@ -1,4 +1,5 @@
 from enum import Enum
+import warnings
 import bc125py
 from mappings import ctcss_dcs_to_internal, ctcss_dcs_to_human
 
@@ -85,11 +86,30 @@ def is_valid_freq_mhz(freq: str) -> bool:
 
 
 def is_valid_delay(delay: int) -> bool:
+	"""Determines if the given delay is valid on a BC125AT
+
+	Args:
+		delay (int): The delay, in seconds
+
+	Returns:
+		bool: True if the delay is a valid value
+	"""
 	return delay in [-10, -5, 0, 1, 2, 3, 4, 5]
 
 
-# TODO: Deprecate
 def is_valid_ctcss(tone: int) -> bool:
+	"""**DEPRECATED** - Determine if the CTCSS/DCS integer value corresponds to a valid setting
+	This function is deprecated. Use bc125py.mappings' ctcss_dcs_to_human(int) and ctcss_dcs_to_internal(str)
+
+	Args:
+		tone (int): The integer (scanner) representation of the value
+
+	Returns:
+		bool: True if the integer corresponds to a valid tone.
+	"""
+
+	warnings.warn("by125py.sdo.is_valid_ctcss(int) is deprecated as of version 0.9.11 and will be removed in the future.", DeprecationWarning, stacklevel=2)
+
 	if tone == 0:
 		return True
 	elif (tone >= 64 and tone <= 113):
@@ -688,11 +708,6 @@ class DeleteChannel(_ScannerDataObject):
 
 	def to_write_command(self) -> tuple:
 		return ("DCH", self.index)
-
-
-	def validate(self) -> None:
-		if not (self.index >= 1 and self.index <= 500):
-			raise ValueError("DCH: index must be in range [1-500], given " + str(self.index))
 
 
 # CIN Channel Info
@@ -1361,6 +1376,9 @@ class Squelch(_ScannerDataObject):
 #region Scanner
 
 class Scanner:
+	"""This class represents an entire BC125AT scanner.
+	While not technically an SDO, it follows the same structure for clarity.
+	"""
 
 	bc125py_version: str = bc125py.PACKAGE_VERSION
 
@@ -1549,68 +1567,51 @@ class Scanner:
 	def from_dict(self, data: dict) -> None:
 		self.bc125py_version = data.get("bc125py_version", "error")
 
-		self.model.from_dict(data["model"])
-		self.firmware.from_dict(data["firmware"])
-		self.backlight.from_dict(data["backlight"])
-		self.battery_charge_timer.from_dict(data["battery_charge_timer"])
-		self.keypad.from_dict(data["keypad"])
-		self.priority_mode.from_dict(data["priority_mode"])
-		self.enabled_channel_banks.from_dict(data["enabled_channel_banks"])
+		standard_sdos = [
+			(self.model,						"model"),
+			(self.firmware,						"firmware"),
+			(self.backlight,					"backlight"),
+			(self.battery_charge_timer,			"battery_charge_timer"),
+			(self.keypad,						"keypad"),
+			(self.priority_mode,				"priority_mode"),
+			(self.enabled_channel_banks,		"enabled_channel_banks"),
+			(self.cc_ctcss_delay,				"cc_ctcss_delay"),
+			(self.locked_frequencies,			"locked_frequencies"),
+			(self.cc_main_settings,				"cc_main_settings"),
+			(self.enabled_service_search_banks,	"enabled_service_search_banks"),
+			(self.enabled_custom_search_banks,	"enabled_custom_search_banks"),
+			(self.weather_alert_settings,		"weather_alert_settings"),
+			(self.display_contrast,				"display_contrast"),
+			(self.device_volume,				"device_volume"),
+			(self.squelch,						"squelch")
+		]
 
-		self.cc_ctcss_delay.from_dict(data["cc_ctcss_delay"])
-		self.locked_frequencies.from_dict(data["locked_frequencies"])
-		self.cc_main_settings.from_dict(data["cc_main_settings"])
-		self.enabled_service_search_banks.from_dict(data["enabled_service_search_banks"])
-		self.enabled_custom_search_banks.from_dict(data["enabled_custom_search_banks"])
-
-		self.weather_alert_settings.from_dict(data["weather_alert_settings"])
-		self.display_contrast.from_dict(data["display_contrast"])
-		self.device_volume.from_dict(data["device_volume"])
-		self.squelch.from_dict(data["squelch"])
+		input_errors = []
+		for sdo in standard_sdos:
+			try:
+				sdo[0].from_dict(data[sdo[1]])
+			except InputValidationError as e:
+				input_errors.append(str(e))
 
 		self.channels = []
 		for cd in data["channels"]:
 			c: Channel = Channel()
-			c.from_dict(cd)
-			self.channels.append(c)
+			try:
+				c.from_dict(cd)
+				self.channels.append(c)
+			except InputValidationError as e:
+				input_errors.append(str(e))
 
 		self.custom_search_banks = []
 		for csb in data["custom_search_banks"]:
 			c: CustomSearchBank = CustomSearchBank()
-			c.from_dict(csb)
-			self.custom_search_banks.append(c)
-
-
-	def validate(self) -> None:
-		# Create list of every SDO comprising this scanner
-		sdo_list: list = [
-			self.model,
-			self.firmware,
-			self.backlight,
-			self.battery_charge_timer,
-			self.keypad,
-			self.priority_mode,
-			self.enabled_channel_banks,
-			self.cc_ctcss_delay,
-			self.locked_frequencies,
-			self.cc_main_settings,
-			self.enabled_service_search_banks,
-			self.enabled_custom_search_banks,
-			self.weather_alert_settings,
-			self.display_contrast,
-			self.device_volume,
-			self.squelch,
-		]
-		sdo_list.extend(self.channels)
-		sdo_list.extend(self.custom_search_banks)
-
-		err_messages: list = []
-
-		for sdo in sdo_list:
 			try:
-				sdo.validate()
-			except ValueError as e:
-				err_messages.append(str(e))
+				c.from_dict(csb)
+				self.custom_search_banks.append(c)
+			except InputValidationError as e:
+				input_errors.append(str(e))
+		
+		# Additional input validation
 
 		# Make sure there aren't duplicate channels
 		# Loop through each channel
@@ -1627,10 +1628,10 @@ class Scanner:
 					cin_conflict: str = "duplicate channel index: " + str(self.channels[i].index)
 
 					# AND we haven't already logged this conflict
-					if cin_conflict not in err_messages:
+					if cin_conflict not in input_errors:
 
 						# Log conflict
-						err_messages.append(cin_conflict)
+						input_errors.append(cin_conflict)
 
 		# Make sure there aren't duplicate CSBs
 		# Loop through each CSB
@@ -1647,13 +1648,13 @@ class Scanner:
 					csb_conflict: str = "duplicate custom search bank index: " + str(self.custom_search_banks[i].index)
 
 					# AND we haven't already logged this conflict
-					if csb_conflict not in err_messages:
+					if csb_conflict not in input_errors:
 
 						# Log conflict
-						err_messages.append(csb_conflict)
-
-		if len(err_messages) > 0:
-			raise ValueError("\n".join(err_messages))
+						input_errors.append(csb_conflict)
+		
+		if len(input_errors) > 0:
+			raise InputValidationError("\n".join(input_errors))
 
 
 	def __str__(self) -> str:
