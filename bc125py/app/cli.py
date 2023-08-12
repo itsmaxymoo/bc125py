@@ -6,7 +6,7 @@ import datetime
 import readline
 import bc125py
 from bc125py.app import core, log
-from bc125py import sdo, con as _c
+from bc125py import sdo, mappings, con as _c
 
 
 # Manual port override to be used by cli commands
@@ -108,6 +108,12 @@ def main() -> int:
 		version=bc125py.PACKAGE_VERSION
 	)
 	main_parser.add_argument(
+		"--help-tones",
+		action=ListTonesAction,
+		help="List all valid CTCSS, DCS, and special tones.",
+		nargs=0
+	)
+	main_parser.add_argument(
 		"-p",
 		"--port",
 		help="force " + bc125py.PACKAGE_NAME + " to use the specified device port"
@@ -200,6 +206,39 @@ def main() -> int:
 	log.error("ERRoneous subc:", cli_args.command)
 
 	return 1
+
+
+# Help/List Tones custom action
+class ListTonesAction(argparse.Action):
+	def __call__(self, parser, args, values, option_string=None):
+		ctcss_keys = list(mappings.CTCSS.keys())
+		dcs_keys = list(mappings.DCS.keys())
+		special_keys = list(mappings.SPECIAL_CTCSS_DCS_VALUES.keys())
+		longest_index = max(len(ctcss_keys), len(dcs_keys), len(special_keys))
+
+		TABLE_HEADER_FORMAT = "| {:^12} | {:^16} | {:^12} |"
+		TABLE_BODY_FORMAT = "| {:12} | {:16} | {:12} |"
+		print(TABLE_HEADER_FORMAT.format("Special", "CTCSS", "DCS"))
+		print(TABLE_HEADER_FORMAT.format("-" * 12, "-" * 16, "-" * 12))
+
+		for i in range(0, longest_index):
+			row = []
+			if i < len(special_keys):
+				row.append(str(special_keys[i]) + ". " + mappings.SPECIAL_CTCSS_DCS_VALUES[special_keys[i]])
+			else:
+				row.append("")
+			if i < len(ctcss_keys):
+				row.append(str(ctcss_keys[i]) + ". " + mappings.CTCSS[ctcss_keys[i]])
+			else:
+				row.append("")
+			if i < len(dcs_keys):
+				row.append(str(dcs_keys[i]) + ". " + mappings.DCS[dcs_keys[i]])
+			else:
+				row.append("")
+			
+			print(TABLE_BODY_FORMAT.format(*row))
+
+		exit(0)
 
 
 # Test command
