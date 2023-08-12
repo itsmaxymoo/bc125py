@@ -73,8 +73,8 @@ def detect_tlp() -> bool:
 				log.warn("TLP is enabled. This may block scanner connection")
 
 				return True
-		except Exception:
-			log.debug("core: could not determine if TLP is active")
+		except Exception as e:
+			log.debug("core: could not determine if TLP is active: " + e)
 	
 	return False
 
