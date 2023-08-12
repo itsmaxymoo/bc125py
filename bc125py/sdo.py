@@ -108,7 +108,7 @@ def is_valid_ctcss(tone: int) -> bool:
 		bool: True if the integer corresponds to a valid tone.
 	"""
 
-	warnings.warn("by125py.sdo.is_valid_ctcss(int) is deprecated as of version 0.9.11 and will be removed in the future.", DeprecationWarning, stacklevel=2)
+	warnings.warn("by125py.sdo.is_valid_ctcss(int) is deprecated as of version 0.10.0 and will be removed in the future.", DeprecationWarning, stacklevel=2)
 
 	if tone == 0:
 		return True

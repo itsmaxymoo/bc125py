@@ -1,6 +1,6 @@
 # Release History
 
-## 0.9.11
+## 0.10.0
 
 * Deprecate `bc125py.sdo.is_valid_ctcss(int)`
 * Implement human readable CTCSS/DCS tones (thanks to [Bradley A. Thornton](https://github.com/cidrblock))
@@ -8,6 +8,7 @@
 * Added the `--help-tones` flag which lists all valid CTCSS/DCS/Special tones
 * Updated examples
 * Added the new `unlock` command to free scanner stuck in program mode after a connection error
+* Add "validate" command line option for save files
 
 ## 0.9.10
 

@@ -153,6 +153,16 @@ def main() -> int:
 		help="export and write channels CSV file"
 	)
 
+	# Subcommand export/write
+	export_parser = sub_parsers.add_parser("validate", help="validate a scanner save file")
+	export_parser.add_argument("file", help="input file")
+	export_parser.add_argument(
+		"-c",
+		"--csv",
+		action="store_true",
+		help="verify channels CSV file"
+	)
+
 	# Subcommand shell
 	shell_parser = sub_parsers.add_parser("shell", help="launch interactive scanner shell")
 	shell_parser.add_argument("file", help="commands file to execute", nargs="?", default=None)
@@ -202,6 +212,8 @@ def main() -> int:
 		return import_read(cli_args.file, cli_args.csv)
 	elif cmd == "export":
 		return export_write(cli_args.file, cli_args.csv)
+	elif cmd == "validate":
+		return export_write(cli_args.file, cli_args.csv, verify_only=True)
 	elif cmd == "shell":
 		return shell(cmd_file_path=cli_args.file, clear_history=cli_args.clear_history)
 	elif cmd == "wipe":
@@ -388,21 +400,18 @@ def import_read(out_file: str, csv: bool) -> int:
 
 
 # Export/Write command
-def export_write(in_file: str, csv: bool) -> int:
+def export_write(in_file: str, csv: bool, verify_only: bool = False) -> int:
 	log.debug(
-		"subc: export",
+		"subc: export" + (" with verify_only option" if verify_only else ""),
 		"file:",
 		in_file,
 		"csv:", csv,
 	)
 
-	enforce_root()
+	if not verify_only:
+		enforce_root()
 
 	try:
-
-		# Connect to scanner
-		scanner_con = get_scanner_connection(port=_port)
-
 		# Open input file
 		log.debug("Attempting full file read")
 		fin = None
@@ -416,10 +425,10 @@ def export_write(in_file: str, csv: bool) -> int:
 		else:
 			fin = open(in_file, "r")
 
-		print("Writing to scanner...")
+		if not verify_only:
+			print("Writing to scanner...")
 
 		if not csv:
-
 			# Normal (JSON) export
 			import json
 
@@ -438,13 +447,19 @@ def export_write(in_file: str, csv: bool) -> int:
 				for line in str(e).splitlines():
 					log.error(line)
 				return 1
+			
+			if verify_only:
+				print("file OK")
+				return 0
+			
+			# Connect to scanner
+			scanner_con = get_scanner_connection(port=_port)
 
 			# Write to scanner
 			log.debug("full export: writing to scanner")
 			scanner.write_to(scanner_con)
 
 		else:
-
 			# CSV (channel only) export
 			import csv
 
@@ -486,9 +501,16 @@ def export_write(in_file: str, csv: bool) -> int:
 
 				# Append channel, once validated
 				channels.append(c)
+			
+			if verify_only:
+				print("file OK")
+				return 0
 
 			# Write channels
 			log.debug("csv export: write channels")
+
+			# Connect to scanner
+			scanner_con = get_scanner_connection(port=_port)
 
 			# PRG
 			sdo.EnterProgramMode().write_to(scanner_con)

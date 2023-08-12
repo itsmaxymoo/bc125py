@@ -17,7 +17,7 @@ CLI is not hard to use at all! View the [changelog here](CHANGELOG.md).
 
 # Quick Start
 
-All commands **must be ran as root**.
+Most commands **must be ran as root**.
 
 Plug the BC125AT into your computer, and power the device on.
 
@@ -39,6 +39,10 @@ Then, edit the CSV file in a spreadsheet editor!
 **Note:** omitting the `--csv` flag will export all channels
 **and** settings, and use the **json** file format.
 
+### Validate your files before exporting (sudo-less)
+
+`bc125py validate scanner.json` or `bc125py validate --csv scanner.csv`
+
 ### Launch scanner shell
 
 `sudo bc125py shell`
@@ -57,6 +61,9 @@ subcommand with the `-c` or `--clear-history` flags.
 
 This will **erase all channels** and reset all settings.
 
+### Rescue the scanner from Program Mode
+
+`sudo bc125py unlock`
 
 # More Usage
 
@@ -82,6 +89,12 @@ The `shell` subcommand accepts an optional parameter for an input file,
 to be processed as a script. Run `help` once inside the shell to learn
 more. The recommended extension for these scripts is `.125at`; see
 the [docs directory](docs/) for examples.
+
+### Human-Friendly CTCSS/DCS Tones
+
+As of version 0.10.0, bc125py supports human-friendly CTCSS/DCS tones.
+Your old save files will still work. To view a list of possible tone values,
+run `bc125py --help-tones`
 
 ### TLP
 
