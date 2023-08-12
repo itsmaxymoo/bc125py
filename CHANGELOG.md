@@ -7,6 +7,7 @@
 	* Please note that the old index-based tones still work
 * Added the `--help-tones` flag which lists all valid CTCSS/DCS/Special tones
 * Updated examples
+* Added the new `unlock` command to free scanner stuck in program mode after a connection error
 
 ## 0.9.10
 

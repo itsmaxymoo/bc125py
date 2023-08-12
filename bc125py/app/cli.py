@@ -130,6 +130,9 @@ def main() -> int:
 	# Subcommand test
 	test_parser = sub_parsers.add_parser("test", help="test scanner connection")
 
+	# Subcommand unlock
+	test_parser = sub_parsers.add_parser("unlock", help="unlock the scanner from program mode")
+
 	# Subcommand import/read
 	import_parser = sub_parsers.add_parser("import", help="read data from scanner, output to file")
 	import_parser.add_argument("file", help="output file")
@@ -193,6 +196,8 @@ def main() -> int:
 	cmd = cli_args.command
 	if cmd == "test":
 		return test()
+	elif cmd == "unlock":
+		return unlock()
 	elif cmd == "import":
 		return import_read(cli_args.file, cli_args.csv)
 	elif cmd == "export":
@@ -251,6 +256,26 @@ def test() -> int:
 		# Connect, try to get device model
 		con = get_scanner_connection(_port)
 		print("Scanner model:", con.exec("MDL", return_tuple=False), "(success)")
+		con.close()
+
+		return 0
+
+	except (ConnectionError, _c.CommandError) as e:
+		log.error(str(e))
+		return 1
+
+
+# Unlock command
+def unlock() -> int:
+	log.debug("subc: unlock")
+
+	enforce_root()
+
+	try:
+		# Connect, try to get device model
+		con = get_scanner_connection(_port)
+		sdo.ExitProgramMode().write_to(con)
+		print("Device taken out of program mode")
 		con.close()
 
 		return 0
