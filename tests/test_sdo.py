@@ -75,7 +75,41 @@ del DELAY_VALIDITY
 
 # region Helper Classes
 
-# TODO: This
+
+# --- test BankListManager
+def test_BankListManager_constructor():
+	with pytest.raises(ValueError):
+		BankListManager(0)
+
+
+BANK_MANAGER_FROM_DICT = (
+	# (size, require_enabled, data, should_pass)
+	(3, True, [True, False, False], True),
+	(3, True, [False, False, False], False),
+	(4, True, [False, False, False], False),
+	(3, False, [False, False, False], True)
+)
+
+@pytest.mark.parametrize("bank_manager_data", BANK_MANAGER_FROM_DICT, ids=tuple)
+def test_BankListManager_from_dict(bank_manager_data: tuple):
+	should_pass: bool = bank_manager_data[3]
+	data = bank_manager_data[2]
+
+	bm: BankListManager = BankListManager(
+		bank_manager_data[0],
+		require_enabled=bank_manager_data[1]
+	)
+
+	if should_pass:
+		bm.from_dict(data)
+	else:
+		with pytest.raises(InputValidationError):
+			bm.from_dict(data)
+
+# TODO: Test to_write_command
+
+del BANK_MANAGER_FROM_DICT
+
 
 # endregion
 

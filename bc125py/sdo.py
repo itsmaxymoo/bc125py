@@ -219,6 +219,9 @@ class BankListManager:
 
 
 	def from_dict(self, banks: list) -> None:
+		if len(banks) != len(self.banks):
+			raise InputValidationError("Mismatch between bank size and supplied banks.")
+
 		self.banks = banks
 
 		if self.__require_enabled:
