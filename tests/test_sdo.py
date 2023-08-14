@@ -90,6 +90,12 @@ BANK_MANAGER_FROM_DICT = (
 	(3, False, [False, False, False], True)
 )
 
+BANK_MANAGER_TO_WRITE_COMMAND = (
+	# invert, data_in, write_command_out
+	(False, [True, True, True], "000"),
+	(True, [True, False, True], "101"),
+)
+
 @pytest.mark.parametrize("bank_manager_data", BANK_MANAGER_FROM_DICT, ids=tuple)
 def test_BankListManager_from_dict(bank_manager_data: tuple):
 	should_pass: bool = bank_manager_data[3]
@@ -106,9 +112,20 @@ def test_BankListManager_from_dict(bank_manager_data: tuple):
 		with pytest.raises(InputValidationError):
 			bm.from_dict(data)
 
-# TODO: Test to_write_command
+@pytest.mark.parametrize("bank_manager_data", BANK_MANAGER_TO_WRITE_COMMAND, ids=tuple)
+def test_BankListManager_to_write_command(bank_manager_data: tuple):
+	invert: bool = bank_manager_data[0]
+	data_in: list = bank_manager_data[1]
+	expected_command = bank_manager_data[2]
+
+	bm: BankListManager = BankListManager(size=len(data_in), invert=invert)
+	bm.from_dict(data_in)
+	
+	assert bm.to_write_command() == expected_command
+
 
 del BANK_MANAGER_FROM_DICT
+del BANK_MANAGER_TO_WRITE_COMMAND
 
 
 # endregion
