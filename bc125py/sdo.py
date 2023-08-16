@@ -1218,6 +1218,17 @@ class CustomSearchBank(_ScannerDataObject):
 			err_found = True
 			err_message += ", invalid upper_limit: " + self.upper_limit + " MHz"
 		
+		try:
+			lower = float(self.lower_limit)
+			upper = float(self.upper_limit)
+
+			if lower > upper:
+				err_found = True
+				err_message += ", lower_limit is > upper_limit"
+		except Exception:
+			err_found = True
+			err_message += ", invalid limit values"
+		
 		if err_found:
 			raise InputValidationError(err_message)
 

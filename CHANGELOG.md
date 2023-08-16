@@ -9,6 +9,8 @@
 * Updated examples
 * Added the new `unlock` command to free scanner stuck in program mode after a connection error
 * Add "validate" command line option for save files
+* Various small bugfixes
+* Add pytest support
 
 ## 0.9.10
 

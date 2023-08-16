@@ -164,7 +164,77 @@ def test_BatteryChargeTimer(battery_charge_validity_pair: tuple):
 del BATTERY_CHARGE_VALIDITY
 
 
-# TODO: SCG and onward
+# CIN Channel
+def _get_base_channel(data: dict = {}):
+	base = dict({
+			"index": 1,
+			"name": "",
+			"frequency": "000.0000",
+			"modulation": "auto",
+			"ctcss": "none",
+			"delay": 2,
+			"locked_out": "locked",
+			"priority": "off"
+		})
 
+	if len(data.keys()) > 0:
+		for key in list(data.keys()):
+			base[key] = data[key]
+
+	return base
+
+CHANNEL_VALIDITY = (
+	(_get_base_channel(), True),
+	(_get_base_channel({"index": 0}), False),
+	(_get_base_channel({"index": 501}), False),
+	(_get_base_channel({"name": "A" * 17}), False),
+	(_get_base_channel({"frequency": "999.0000"}), False),
+	(_get_base_channel({"delay": 6}), False),
+	(_get_base_channel({"ctcss": "nose"}), False),
+	(_get_base_channel({
+			"index": 2,
+			"name": "AAR EOTD",
+			"frequency": "457.9375",
+			"modulation": "nfm",
+			"ctcss": "none",
+			"delay": 2,
+			"locked_out": "unlocked",
+			"priority": "off"
+		}), True)
+)
+
+@pytest.mark.parametrize("cin_validity_pair", CHANNEL_VALIDITY, ids=tuple)
+def test_BatteryChargeTimer(cin_validity_pair: tuple):
+	d = cin_validity_pair[0]
+
+	if cin_validity_pair[1]:
+		Channel().from_dict(d)
+	else:
+		with pytest.raises(InputValidationError):
+			Channel().from_dict(d)
+
+del CHANNEL_VALIDITY
+del _get_base_channel
+
+
+# CSP Custom Search Bank
+CSP_VALIDITY = (
+	({"index": -1, "lower_limit": "99.0000", "upper_limit": "100.000"}, False),
+	({"index": 2, "lower_limit": "500.0000", "upper_limit": "510.000"}, True),
+	({"index": 2, "lower_limit": "500.0000", "upper_limit": "513.000"}, False),
+	({"index": 2, "lower_limit": "510.0000", "upper_limit": "500.000"}, False),
+)
+	
+@pytest.mark.parametrize("csp_validity_pair", CSP_VALIDITY, ids=tuple)
+def test_BatteryChargeTimer(csp_validity_pair: tuple):
+	d = dict(csp_validity_pair[0])
+
+	if csp_validity_pair[1]:
+		CustomSearchBank().from_dict(d)
+	else:
+		with pytest.raises(InputValidationError):
+			CustomSearchBank().from_dict(d)
+
+del CSP_VALIDITY
 
 # endregion
