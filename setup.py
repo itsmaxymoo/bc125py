@@ -25,7 +25,7 @@ setuptools.setup(
 		"Operating System :: POSIX :: Linux",
 	],
 	package_dir={PACKAGE_NAME: PACKAGE_NAME},
-	packages=[PACKAGE_NAME],
+	packages=setuptools.find_packages(exclude=["tests"]),
 	entry_points={
 		"console_scripts":[
 			PACKAGE_NAME + "=" + PACKAGE_NAME + ".__main__:main"
