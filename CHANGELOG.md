@@ -1,6 +1,6 @@
 # Release History
 
-## 0.10.0
+## 0.10.1
 
 * Deprecate `bc125py.sdo.is_valid_ctcss(int)`
 * Implement human readable CTCSS/DCS tones (thanks to [Bradley A. Thornton](https://github.com/cidrblock))
