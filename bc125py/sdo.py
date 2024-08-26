@@ -790,7 +790,12 @@ class Channel(_ScannerDataObject):
 		self.index = data["index"]
 		self.name = data["name"]
 		self.frequency = data["frequency"]
-		self.modulation = E_Modulation[data["modulation"]]
+
+		# Some input flexibility for modulation
+		raw_modulation = str(data["modulation"]).lower()
+		raw_modulation = "nfm" if raw_modulation == "fmn" else raw_modulation
+		self.modulation = E_Modulation[raw_modulation]
+
 		# We do ctcss later
 		self.delay = data["delay"]
 		self.locked_out = E_LockState[data["locked_out"]]

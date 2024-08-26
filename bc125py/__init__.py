@@ -1,6 +1,6 @@
 PACKAGE_NAME = "bc125py"
 PACKAGE_NAME_FULL = PACKAGE_NAME
-PACKAGE_VERSION = "0.10.1"
+PACKAGE_VERSION = "1.0.0"
 PACKAGE_AUTHOR = "Max Loiacono"
 PACKAGE_AUTHOR_EMAIL = "max.loiacono@protonmail.com"
 PACKAGE_DESCRIPTION = "A Python-based interface for the Uniden BC125AT"

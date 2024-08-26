@@ -1,5 +1,12 @@
 # Release History
 
+## 1.0.0
+
+Official complete release!
+
+* Allow flexibility for interpreting nfm <-> fmn when exporting
+* Version 1.0 to signal project maturity and stability
+
 ## 0.10.1
 
 * Deprecate `bc125py.sdo.is_valid_ctcss(int)`
