@@ -792,8 +792,8 @@ class Channel(_ScannerDataObject):
 		self.frequency = data["frequency"]
 
 		# Some input flexibility for modulation
-		raw_modulation = str(data["modulation"]).lower()
-		raw_modulation = "nfm" if raw_modulation == "fmn" else raw_modulation
+		raw_modulation = data["modulation"].lower()
+		raw_modulation = ("nfm" if raw_modulation == "fmn" else raw_modulation)
 		self.modulation = E_Modulation[raw_modulation]
 
 		# We do ctcss later
