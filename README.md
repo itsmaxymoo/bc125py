@@ -7,6 +7,8 @@ Uniden software for the BC125AT. Presently, BC125Py only has a
 command line interface, but couples well with Libreoffice Calc/MS Excel. Rest assured, the
 CLI is not hard to use at all! View the [changelog here](CHANGELOG.md).
 
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/maxloiacono)
+
 
 # Installation
 
